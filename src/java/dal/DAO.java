@@ -6,6 +6,7 @@ package dal;
 
 import entity.Account;
 import entity.Category;
+import entity.CategoryGenreInfo;
 import entity.bookGerne;
 import entity.bookImage;
 import entity.book_detail;
@@ -517,11 +518,60 @@ public int countPageByBookName(String searchName) {
 
     return countPage;
 }
+public List<book_show> getBooksByCategoryOrGenre(int categoryId, int genreId, int excludeBookId) {
+    List<book_show> bookList = new ArrayList<>();
+    String sql = "SELECT * FROM bookdetailed WHERE (categoryID = ? OR gerne_id = ?) AND book_id <> ?";
+
+    try (PreparedStatement statement = con.prepareStatement(sql)) {
+        statement.setInt(1, categoryId);
+        statement.setInt(2, genreId);
+        statement.setInt(3, excludeBookId);
+        try (ResultSet rs = statement.executeQuery()) {
+            while (rs.next()) {
+                // Create a book_show object from the result set
+                book_show book = new book_show();
+                book.setId(rs.getInt("book_id"));
+                book.setName(rs.getString("product_name"));
+                book.setPrice(rs.getString("price"));
+                book.setImage(rs.getString("image"));
+                // Add the book to the list
+                bookList.add(book);
+            }
+        }
+    } catch (SQLException e) {
+        e.printStackTrace();
+    }
+
+    return bookList;
+}
+
+
+public CategoryGenreInfo getCategoryGenreInfoByBookId(int bookId) {
+    CategoryGenreInfo info = null;
+    String query = "SELECT categoryID, gerne_id FROM bookdetailed WHERE book_id = ?";
+
+    try (PreparedStatement stmt = connection.prepareStatement(query)) {
+        stmt.setInt(1, bookId);
+        ResultSet rs = stmt.executeQuery();
+
+        if (rs.next()) {
+            info = new CategoryGenreInfo();
+            info.setCategoryId(rs.getInt("categoryID"));
+            info.setGenreId(rs.getInt("gerne_id"));
+        }
+    } catch (SQLException e) {
+        e.printStackTrace();
+    }
+
+    return info;
+}
+
+
    public static void main(String[] args) {
         DAO u = new DAO();
-        List<book_show> list = u.searchBookByName("t",1);
-         int count = u.countPageByBookName("t");
-         System.out.println(count);
+    
+        CategoryGenreInfo cgi = u.getCategoryGenreInfoByBookId(1);
+            List<book_show> list = u.getBooksByCategoryOrGenre(cgi.getCategoryId(),cgi.getGenreId(),1);
         System.out.println(list);
     }
 

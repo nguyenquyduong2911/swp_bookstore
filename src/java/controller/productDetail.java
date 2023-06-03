@@ -6,6 +6,7 @@
 package controller;
 
 import dal.DAO;
+import entity.CategoryGenreInfo;
 import entity.bookImage;
 import entity.book_detail;
 import entity.book_show;
@@ -75,7 +76,10 @@ public class productDetail extends HttpServlet {
          
          bookImage bm = u.getBookImageById(productid);
           request.setAttribute("bm", bm);
-           List<book_show> itemList = u.getBooks();
+          
+          CategoryGenreInfo cgi = u.getCategoryGenreInfoByBookId(productid);
+          
+           List<book_show> itemList = u.getBooksByCategoryOrGenre(cgi.getCategoryId(), cgi.getGenreId(),productid);
           request.setAttribute("itemList", itemList);
          request.getRequestDispatcher("product-detail.jsp").forward(request, response);
         
