@@ -266,7 +266,7 @@ out.println("<li><a href=\"login.jsp\"><i class=\"fa fa-lock\"></i> Login</a></l
                                                 <div class="overlay-content">
                                                     <h2>${item.price}$</h2>
                                                     <p class="item-name">${item.name}</p>
-                                                    <a href="productdetail?productid=${item.id}" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
+                                                    <a href="productdetail?productid=${item.id}" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>In Detail</a>
                                                 </div>
                                             </div>
                                         </div>

@@ -8,6 +8,7 @@ package controller;
 import dal.DAO;
 import entity.bookImage;
 import entity.book_detail;
+import entity.book_show;
 import java.io.IOException;
 import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
@@ -15,6 +16,7 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import java.util.List;
 
 /**
  *
@@ -73,6 +75,8 @@ public class productDetail extends HttpServlet {
          
          bookImage bm = u.getBookImageById(productid);
           request.setAttribute("bm", bm);
+           List<book_show> itemList = u.getBooks();
+          request.setAttribute("itemList", itemList);
          request.getRequestDispatcher("product-detail.jsp").forward(request, response);
         
     } 
