@@ -65,38 +65,27 @@
                             <div class="logo pull-left">
                                 <a href="home"><img src="images/home/logo.png" alt="" /></a>
                             </div>
-                            <div class="btn-group pull-right">
-                                <div class="btn-group">
-                                    <button type="button" class="btn btn-default dropdown-toggle usa" data-toggle="dropdown">
-                                        USA
-                                        <span class="caret"></span>
-                                    </button>
-                                    <ul class="dropdown-menu">
-                                        <li><a href="">Canada</a></li>
-                                        <li><a href="">UK</a></li>
-                                    </ul>
-                                </div>
-
-                                <div class="btn-group">
-                                    <button type="button" class="btn btn-default dropdown-toggle usa" data-toggle="dropdown">
-                                        DOLLAR
-                                        <span class="caret"></span>
-                                    </button>
-                                    <ul class="dropdown-menu">
-                                        <li><a href="">Canadian Dollar</a></li>
-                                        <li><a href="">Pound</a></li>
-                                    </ul>
-                                </div>
-                            </div>
                         </div>
                         <div class="col-sm-8">
                             <div class="shop-menu pull-right">
                                 <ul class="nav navbar-nav">
-                                    <li><a href=""><i class="fa fa-user"></i> Account</a></li>
-                                    <li><a href=""><i class="fa fa-star"></i> Wishlist</a></li>
+                                    <%       Account x = (Account) request.getSession().getAttribute("curr");
+                                          if (x != null) {
+                                          out.println("<li><a href=\"#\"><i class=\"fa fa-user\"></i> " + x.getName() + "</a></li>");
+                                          }
+
+                                    %>
                                     <li><a href="checkout.html"><i class="fa fa-crosshairs"></i> Checkout</a></li>
                                     <li><a href="cart.html"><i class="fa fa-shopping-cart"></i> Cart</a></li>
-                                    <li><a href="login.html"><i class="fa fa-lock"></i> Login</a></li>
+                                        <% 
+if (x != null) {
+out.println("<li><a href=\"logout\"><i class=\"fa fa-user\"></i> Sign out</a></li>");
+}
+
+if (x == null) {
+out.println("<li><a href=\"login.jsp\"><i class=\"fa fa-lock\"></i> Login</a></li>");
+}
+                                        %>
                                 </ul>
                             </div>
                         </div>
@@ -119,28 +108,15 @@
                             <div class="mainmenu pull-left">
                                 <ul class="nav navbar-nav collapse navbar-collapse">
                                     <li><a href="home">Home</a></li>
-                                    <li class="dropdown"><a href="#">Shop<i class="fa fa-angle-down"></i></a>
+                                    <li class="dropdown"><a href="product">Shop<i class="fa fa-angle-down"></i></a>
                                         <ul role="menu" class="sub-menu">
-                                            <li><a href="product">Products</a></li>                                  
+                                            <li><a href="product">Products</a></li>   
                                             <li><a href="checkout.html">Checkout</a></li> 
                                             <li><a href="cart.html">Cart</a></li> 
                                             <li><a href="login.html">Login</a></li> 
                                         </ul>
-                                    </li> 
-                                    <li class="dropdown"><a href="#">Blog<i class="fa fa-angle-down"></i></a>
-                                        <ul role="menu" class="sub-menu">
-                                            <li><a href="blog.html">Blog List</a></li>
-                                            <li><a href="blog-single.html">Blog Single</a></li>
-                                        </ul>
-                                    </li> 
-                                    <li><a href="404.html">404</a></li>
-                                    <li><a href="contact-us.html">Contact</a></li>
+                                    </li>  
                                 </ul>
-                            </div>
-                        </div>
-                        <div class="col-sm-3">
-                            <div class="search_box pull-right">
-                                <input type="text" placeholder="Search"/>
                             </div>
                         </div>
                     </div>
@@ -222,18 +198,18 @@
                             <div class="tab-content">
                                 <div class="tab-pane fade active in" id="detail" >
                                     <div class="col-sm-12">
-                                       <p><b>Nhà cung cấp: </b>${bd.supplier}</p>
-                                       <p><b>Tác giả: </b>${bd.author}</p>
-                                       <p><b>Nhà xuất bản: </b>${bd.publisher}</p>
-                                       <p><b>Năm xuất bản: </b>${bd.year_publish}</p>
-                                       <p><b>trọng lượng(gr): </b>${bd.weight}</p>
-                                       <p><b>Kích Thước Bao Bì: </b>${bd.package_size}cm</p>
-                                       <p><b>Số trang: </b>${bd.num_page}</p>
-                                       <p><b>Hình thức: </b>${bd.cover_form}</p>
-                                       
+                                        <p><b>Nhà cung cấp: </b>${bd.supplier}</p>
+                                        <p><b>Tác giả: </b>${bd.author}</p>
+                                        <p><b>Nhà xuất bản: </b>${bd.publisher}</p>
+                                        <p><b>Năm xuất bản: </b>${bd.year_publish}</p>
+                                        <p><b>trọng lượng(gr): </b>${bd.weight}</p>
+                                        <p><b>Kích Thước Bao Bì: </b>${bd.package_size}cm</p>
+                                        <p><b>Số trang: </b>${bd.num_page}</p>
+                                        <p><b>Hình thức: </b>${bd.cover_form}</p>
+
                                         <p><b>Description:</b></p>
                                         <p>${bd.description}</p>
-    
+
                                     </div>
                                 </div>
 
