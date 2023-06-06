@@ -94,7 +94,7 @@
                                     <li><a href="checkout.html"><i class="fa fa-crosshairs"></i> Checkout</a></li>
                                     <li><a href="cart.html" class="active"><i class="fa fa-shopping-cart"></i> Cart</a></li>
                                     <li><a href="login.html"><i class="fa fa-lock"></i> Login</a></li>
-                                </ul>
+                                </ul>      
                             </div>
                         </div>
                     </div>
