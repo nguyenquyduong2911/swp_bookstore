@@ -10,12 +10,8 @@ import java.io.*;
 import jakarta.servlet.*;
 import jakarta.servlet.http.*;
 
-
-
-
 import entity.*;
 import java.util.HashSet;
-
 
 /**
  *
@@ -30,46 +26,32 @@ public class LoginServlet extends HttpServlet {
         PrintWriter pr = response.getWriter();
         request.getRequestDispatcher("login.jsp").forward(request, response);
     }
-    
-    
+
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        PrintWriter pr = response.getWriter();
-        String email,pass;
-        String logResult;
-        email=request.getParameter("email");
-        pass=request.getParameter("pass");
-        CustomerDAO dao= new CustomerDAO();
+        String email, pass;
+        email = request.getParameter("email");
+        pass = request.getParameter("pass");
+        boolean rememberMe = request.getParameter("remember") != null;
+        CustomerDAO dao = new CustomerDAO();
         Account u = dao.getAccount(email, pass);
         request.getSession().setAttribute("curr", u);
-        if(u==null){
-            
-        }
-        else{
-            if(u.getRole().equals("admin")){
+        if (u == null) {
+
+        } else {
+            if (u.getRole().equals("admin")) {
                 response.sendRedirect("admin.jsp");
+            } else {
+                response.sendRedirect("home");
             }
-            else{
-                  response.sendRedirect("home");
+            if (rememberMe) {
+                // Set the "Keep me signed in" cookie
+                Cookie cookie = new Cookie("remember_token", "user_token_value");
+                cookie.setMaxAge(60 * 60 * 24 * 30); // 30 days
+                response.addCookie(cookie);
             }
-            
-           
- 
-       
-        
-      
-
-
-            
-            
-            
         }
-        
-        
-       
-        
-        
-        
-    }}
+    }
+}
