@@ -13,21 +13,24 @@ public class Account {
     private String password;
     private String name;
     private String email;
+    private String role;
 
     public Account() {
     }
 
-    public Account(Integer idAccount, String password, String name, String email) {
+    public Account(Integer idAccount, String password, String name, String email, String role) {
         this.idAccount = idAccount;
         this.password = password;
         this.name = name;
         this.email = email;
-    }
-      public Account(String password, String name, String email) {
+        this.role=role;
+   }
+      public Account(String password, String name, String email, String role) {
         this.idAccount = null;
         this.password = password;
         this.name = name;
         this.email = email;
+        this.role=role;
     }
 
     public Integer getIdAccount() {
@@ -60,6 +63,14 @@ public class Account {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
     }
       
     

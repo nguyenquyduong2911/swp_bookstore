@@ -27,8 +27,9 @@ CREATE TABLE `account` (
   `password` varchar(45) NOT NULL,
   `name` varchar(45) NOT NULL,
   `email` varchar(45) NOT NULL,
+  `role` varchar(45) NOT NULL,
   PRIMARY KEY (`idAccount`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -37,7 +38,7 @@ CREATE TABLE `account` (
 
 LOCK TABLES `account` WRITE;
 /*!40000 ALTER TABLE `account` DISABLE KEYS */;
-INSERT INTO `account` VALUES (1,'1234','duong','taotenduong12@gmail.com');
+INSERT INTO `account` VALUES (1,'1234','duong','taotenduong12@gmail.com','user'),(2,'123','Thong','thongndhe170758@fpt.edu.vn','admin'),(3,'123','thong1','starvsevil03@gmail.com','user');
 /*!40000 ALTER TABLE `account` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -255,4 +256,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-06-06 10:31:58
+-- Dump completed on 2023-06-06 15:55:16

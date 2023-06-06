@@ -22,7 +22,7 @@ public class CustomerDAO extends MyDAO{
             ps.setString(2, pass);
             rs = ps.executeQuery();
             if (rs.next()) {
-                x = new Account(pass, rs.getString("name"), email);
+                x = new Account(pass, rs.getString("name"), email,rs.getString("role"));
 
             }
             rs.close();
@@ -34,12 +34,13 @@ public class CustomerDAO extends MyDAO{
     }
 
     public boolean addAccount(Account x) {
-        String sql = "INSERT INTO account (password, name, email) VALUES (?, ?, ?)";
+        String sql = "INSERT INTO account (password, name, email, role) VALUES (?, ?, ?, ?)";
         try {
             ps = con.prepareStatement(sql);
             ps.setString(1, x.getPassword());
             ps.setString(2, x.getName());
             ps.setString(3, x.getEmail());
+            ps.setString(4, x.getRole());
             int rowsAffected = ps.executeUpdate();
             ps.close();
 

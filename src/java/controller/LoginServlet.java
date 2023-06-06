@@ -45,16 +45,21 @@ public class LoginServlet extends HttpServlet {
         Account u = dao.getAccount(email, pass);
         request.getSession().setAttribute("curr", u);
         if(u==null){
-            logResult="Login Failed";
+            
         }
         else{
-            logResult="Login succesful!";
+            if(u.getRole().equals("admin")){
+                response.sendRedirect("admin.jsp");
+            }
+            else{
+                  response.sendRedirect("home");
+            }
             
            
  
        
         
-        response.sendRedirect("home");
+      
 
 
             
