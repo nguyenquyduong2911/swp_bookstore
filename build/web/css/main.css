@@ -1674,6 +1674,11 @@ h2.title {
     color: #FE980F;
     font-size: 24px;
 }
+.product_image {
+  display: flex;
+  align-items: center;
+ 
+}
 
 .cart_product {
     display: block;

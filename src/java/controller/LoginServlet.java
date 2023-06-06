@@ -4,6 +4,7 @@
  */
 package controller;
 
+import dal.CustomerDAO;
 import dal.DAO;
 import java.io.*;
 import jakarta.servlet.*;
@@ -40,7 +41,7 @@ public class LoginServlet extends HttpServlet {
         String logResult;
         email=request.getParameter("email");
         pass=request.getParameter("pass");
-        DAO dao= new DAO();
+        CustomerDAO dao= new CustomerDAO();
         Account u = dao.getAccount(email, pass);
         request.getSession().setAttribute("curr", u);
         if(u==null){

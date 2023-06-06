@@ -38,7 +38,7 @@ public class RegisterServlet extends HttpServlet {
         email=request.getParameter("email");
         
         Account x = new Account(pass, name, email);
-        DAO dao = new DAO();
+        CustomerDAO dao = new CustomerDAO();
         boolean check=dao.addAccount(x);
         if(check){
             pr.print("Success");

@@ -87,6 +87,7 @@ public class book_detail {
     public String getPrice() {
         return price;
     }
+  
 
     public void setPrice(String price) {
         this.price = price;

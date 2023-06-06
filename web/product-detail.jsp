@@ -76,7 +76,7 @@
 
                                     %>
                                     <li><a href="checkout.html"><i class="fa fa-crosshairs"></i> Checkout</a></li>
-                                    <li><a href="cart.html"><i class="fa fa-shopping-cart"></i> Cart</a></li>
+                                    <li><a href="cart.jsp"><i class="fa fa-shopping-cart"></i> Cart(${sessionScope.size})</a></li>
                                         <% 
 if (x != null) {
 out.println("<li><a href=\"logout\"><i class=\"fa fa-user\"></i> Sign out</a></li>");
@@ -168,15 +168,19 @@ out.println("<li><a href=\"login.jsp\"><i class=\"fa fa-lock\"></i> Login</a></l
                                     <h2>${bd.name}</h2>
 
                                     <img src="images/product-details/rating.png" alt="" />
-                                    <span>
-                                        <span>${bd.price}$</span>
-                                        <label>Quantity:</label>
-                                        <input type="text" value="3" />
-                                        <button type="button" class="btn btn-fefault cart">
-                                            <i class="fa fa-shopping-cart"></i>
-                                            Add to cart
-                                        </button>
-                                    </span>
+                                    <form action="cart" method="post">
+                                        <span>
+                                            <span>${bd.price}$</span>
+                                            <label>Quantity:</label>
+                                            <input type="text" name="quantity" value="3" />
+                                            <input type="hidden" name="id" value="${bd.id}" />
+                                            <button type="submit" class="btn btn-default cart">
+                                                <i class="fa fa-shopping-cart"></i>
+                                                Add to cart
+                                            </button>
+                                        </span>
+                                    </form>
+
                                     <p><b>Nhà cung cấp:</b>${bd.supplier}</p>
                                     <p><b>Nhà xuất bản:</b>${bd.publisher}</p>
                                     <p><b>Tác giả:</b>${bd.author}</p>

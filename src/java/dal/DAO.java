@@ -5,6 +5,7 @@
 package dal;
 
 import entity.Account;
+import entity.Book_Cart;
 import entity.Category;
 import entity.CategoryGenreInfo;
 import entity.bookGerne;
@@ -224,45 +225,7 @@ public class DAO extends MyDAO {
         return countPage;
     }
 
-    public Account getAccount(String email, String pass) {
-        Account x = null;
-
-        xSql = "select * from account where email=? and password=?";
-        try {
-            ps = con.prepareStatement(xSql);
-            ps.setString(1, email);
-            ps.setString(2, pass);
-            rs = ps.executeQuery();
-            if (rs.next()) {
-                x = new Account(pass, rs.getString("name"), email);
-
-            }
-            rs.close();
-            ps.close();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return (x);
-    }
-
-    public boolean addAccount(Account x) {
-        String sql = "INSERT INTO account (password, name, email) VALUES (?, ?, ?)";
-        try {
-            ps = con.prepareStatement(sql);
-            ps.setString(1, x.getPassword());
-            ps.setString(2, x.getName());
-            ps.setString(3, x.getEmail());
-            int rowsAffected = ps.executeUpdate();
-            ps.close();
-
-            return rowsAffected > 0; // Account added successfully
-            // No rows were affected, account addition failed
-        } catch (SQLException e) {
-            e.printStackTrace();
-            // Exception occurred, account addition failed
-            return false;
-        }
-    }
+    
 
     public List<book_show> getBooksByMerchandiseId2(int merchandiseId, int i) {
         List<book_show> bookList = new ArrayList<>();
@@ -390,38 +353,14 @@ public class DAO extends MyDAO {
     }
 
  
-
-    public book_detail getBookById(int id) {
-        book_detail book = null;
-        String query = "SELECT * FROM bookdetailed WHERE book_id = ?";
-
-        try ( PreparedStatement stmt = connection.prepareStatement(query)) {
-            stmt.setInt(1, id);
-            ResultSet rs = stmt.executeQuery();
-
-            if (rs.next()) {
-                book = new book_detail();
-                book.setId(rs.getInt("book_id"));
-                book.setName(rs.getString("product_name"));
-                book.setSupplier(rs.getString("supplier"));
-                book.setPublisher(rs.getString("publisher"));
-                book.setCover_form(rs.getString("cover_form"));
-                book.setPrice(rs.getString("price"));
-                book.setAuthor(rs.getString("author"));
-                book.setYear_publish(rs.getString("year_publish"));
-                book.setLanguage(rs.getString("language"));
-                book.setWeight(rs.getString("weight"));
-                book.setPackage_size(rs.getString("packaging_size"));
-                book.setNum_page(rs.getString("num_pages"));
-                book.setDescription(rs.getString("description"));
-                book.setImage(rs.getString("image"));
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-
-        return book;
+ public static void main(String[] args) {
+        DAO u = new DAO();
+    
+      book_detail book  = u.getBookById(1);
+            
+        System.out.println(book);
     }
+   
 
     public bookImage getBookImageById(int id) {
         bookImage image = null;
@@ -565,14 +504,52 @@ public CategoryGenreInfo getCategoryGenreInfoByBookId(int bookId) {
 
     return info;
 }
-
-
-   public static void main(String[] args) {
-        DAO u = new DAO();
-    
-        CategoryGenreInfo cgi = u.getCategoryGenreInfoByBookId(1);
-            List<book_show> list = u.getBooksByCategoryOrGenre(cgi.getCategoryId(),cgi.getGenreId(),1);
-        System.out.println(list);
+public Book_Cart getProductbyID(int id){
+      String query = "SELECT * FROM bookdetailed WHERE book_id = ?";
+      try {
+          PreparedStatement st = connection.prepareStatement(query);
+          st.setInt(1, id);
+          ResultSet rs = st.executeQuery();
+          if(rs.next()){
+              return new Book_Cart(id,rs.getString("product_name"),rs.getString("image"),rs.getInt("quantity"),rs.getDouble("price"));
+          }
+    } catch (SQLException e) {
+          System.out.println(e);
     }
+      return null;
+    
+}
+ public book_detail getBookById(int id) {
+        book_detail book = null;
+        String query = "SELECT * FROM bookdetailed WHERE book_id = ?";
+
+        try ( PreparedStatement stmt = connection.prepareStatement(query)) {
+            stmt.setInt(1, id);
+            ResultSet rs = stmt.executeQuery();
+
+            if (rs.next()) {
+                book = new book_detail();
+                book.setId(rs.getInt("book_id"));
+                book.setName(rs.getString("product_name"));
+                book.setSupplier(rs.getString("supplier"));
+                book.setPublisher(rs.getString("publisher"));
+                book.setCover_form(rs.getString("cover_form"));
+                book.setPrice(rs.getString("price"));
+                book.setAuthor(rs.getString("author"));
+                book.setYear_publish(rs.getString("year_publish"));
+                book.setLanguage(rs.getString("language"));
+                book.setWeight(rs.getString("weight"));
+                book.setPackage_size(rs.getString("packaging_size"));
+                book.setNum_page(rs.getString("num_pages"));
+                book.setDescription(rs.getString("description"));
+                book.setImage(rs.getString("image"));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return book;
+    }
+  
 
 }

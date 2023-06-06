@@ -1,9 +1,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ page import="java.sql.*" %>
-<%@ page import="java.util.*" %>
-<%@ page import="dal.*" %>
-<%@ page import="entity.*" %>
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -11,7 +8,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="description" content="">
         <meta name="author" content="">
-        <title>Shop | E-Shopper</title>
+        <title>Cart | E-Shopper</title>
         <link href="css/bootstrap.min.css" rel="stylesheet">
         <link href="css/font-awesome.min.css" rel="stylesheet">
         <link href="css/prettyPhoto.css" rel="stylesheet">
@@ -35,7 +32,7 @@
             <div class="header_top"><!--header_top-->
                 <div class="container">
                     <div class="row">
-                        <div class="col-sm-6 ">
+                        <div class="col-sm-6">
                             <div class="contactinfo">
                                 <ul class="nav nav-pills">
                                     <li><a href=""><i class="fa fa-phone"></i> +2 95 01 88 821</a></li>
@@ -63,29 +60,40 @@
                     <div class="row">
                         <div class="col-sm-4">
                             <div class="logo pull-left">
-                                <a href="home"><img src="images/home/logo.png" alt="" /></a>
+                                <a href="index.html"><img src="images/home/logo.png" alt="" /></a>
+                            </div>
+                            <div class="btn-group pull-right">
+                                <div class="btn-group">
+                                    <button type="button" class="btn btn-default dropdown-toggle usa" data-toggle="dropdown">
+                                        USA
+                                        <span class="caret"></span>
+                                    </button>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="">Canada</a></li>
+                                        <li><a href="">UK</a></li>
+                                    </ul>
+                                </div>
+
+                                <div class="btn-group">
+                                    <button type="button" class="btn btn-default dropdown-toggle usa" data-toggle="dropdown">
+                                        DOLLAR
+                                        <span class="caret"></span>
+                                    </button>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="">Canadian Dollar</a></li>
+                                        <li><a href="">Pound</a></li>
+                                    </ul>
+                                </div>
                             </div>
                         </div>
                         <div class="col-sm-8">
                             <div class="shop-menu pull-right">
                                 <ul class="nav navbar-nav">
-                                    <%       Account x = (Account) request.getSession().getAttribute("curr");
-                                          if (x != null) {
-                                          out.println("<li><a href=\"#\"><i class=\"fa fa-user\"></i> " + x.getName() + "</a></li>");
-                                          }
-
-                                    %>
+                                    <li><a href=""><i class="fa fa-user"></i> Account</a></li>
+                                    <li><a href=""><i class="fa fa-star"></i> Wishlist</a></li>
                                     <li><a href="checkout.html"><i class="fa fa-crosshairs"></i> Checkout</a></li>
-                                    <li><a href="cart.jsp"><i class="fa fa-shopping-cart"></i> Cart(${sessionScope.size})</a></li>
-                                        <% 
-if (x != null) {
-out.println("<li><a href=\"logout\"><i class=\"fa fa-user\"></i> Sign out</a></li>");
-}
-
-if (x == null) {
-out.println("<li><a href=\"login.jsp\"><i class=\"fa fa-lock\"></i> Login</a></li>");
-}
-                                        %>
+                                    <li><a href="cart.html" class="active"><i class="fa fa-shopping-cart"></i> Cart</a></li>
+                                    <li><a href="login.html"><i class="fa fa-lock"></i> Login</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -107,167 +115,179 @@ out.println("<li><a href=\"login.jsp\"><i class=\"fa fa-lock\"></i> Login</a></l
                             </div>
                             <div class="mainmenu pull-left">
                                 <ul class="nav navbar-nav collapse navbar-collapse">
-                                    <li><a href="home">Home</a></li>
-                                    <li class="dropdown"><a href="product" class="active">Shop<i class="fa fa-angle-down"></i></a>
+                                    <li><a href="index.html">Home</a></li>
+                                    <li class="dropdown"><a href="#">Shop<i class="fa fa-angle-down"></i></a>
                                         <ul role="menu" class="sub-menu">
-                                            <li><a href="product" class="active">Products</a></li>
+                                            <li><a href="shop.html">Products</a></li>
+                                            <li><a href="product-details.html">Product Details</a></li> 
                                             <li><a href="checkout.html">Checkout</a></li> 
-                                            <li><a href="cart.html">Cart</a></li> 
+                                            <li><a href="cart.html" class="active">Cart</a></li> 
                                             <li><a href="login.html">Login</a></li> 
                                         </ul>
-                                    </li>                            
+                                    </li> 
+                                    <li class="dropdown"><a href="#">Blog<i class="fa fa-angle-down"></i></a>
+                                        <ul role="menu" class="sub-menu">
+                                            <li><a href="blog.html">Blog List</a></li>
+                                            <li><a href="blog-single.html">Blog Single</a></li>
+                                        </ul>
+                                    </li> 
+                                    <li><a href="404.html">404</a></li>
+                                    <li><a href="contact-us.html">Contact</a></li>
                                 </ul>
                             </div>
                         </div>
                         <div class="col-sm-3">
                             <div class="search_box pull-right">
-                                <form action="product" method="get" id="searchForm">
-                                    <input type="text" name="searchInput" placeholder="Search"/>
-                                    <button style="display: none;" type="submit">Search</button>
-                                </form>
+                                <input type="text" placeholder="Search"/>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </header>
+            </div><!--/header-bottom-->
+        </header><!--/header-->
 
-        <section id="advertisement">
+        <section id="cart_items">
             <div class="container">
-                <img src="images/shop/advertisement.jpg" alt="" />
-            </div>
-        </section>
+                <div class="breadcrumbs">
+                    <ol class="breadcrumb">
+                        <li><a href="#">Home</a></li>
+                        <li class="active">Shopping Cart</li>
+                    </ol>
+                </div>
+                <div class="table-responsive cart_info">
+                    <table class="table table-condensed">
+                        <thead>
+                            <tr class="cart_menu">
+                                <td class="image">Item</td>
+                                <td class="description"></td>
+                                <td class="price">Price</td>
+                                <td class="quantity">Quantity</td>
+                                <td class="total">Total</td>
+                                <td></td>
+                            </tr>
+                        </thead>
 
-        <section>
-            <div class="container">
-                <div class="row">
-                    <div class="col-sm-3">
-                        <div class="left-sidebar">
-                            <h2>Category</h2>
-                            <div class="panel-group category-products" id="accordian"><!--category-productsr-->
-                                <div class="panel panel-default">    
-                                    <div class="panel-heading">
-                                        <h4 class="panel-title">
-                                            <li><a href="product">ALL Category</a></li> 
-                                        </h4>
-                                    </div>
-                                </div>
-                                <c:forEach var="o" items="${requestScope.lst}" varStatus="loop">
-                                    <div class="panel panel-default">
-                                        <div class="panel-heading">
-                                            <h4 class="panel-title">
-                                                <a data-toggle="collapse" data-parent="#accordian" href="#collapse${loop.index}">
-                                                    <span class="badge pull-right"><i class="fa fa-plus"></i></span>
-                                                    <li><a href="product?merchid=${o.id_mer}">${o.name_mer}</a></li>
-                                                </a>
-                                            </h4>
+
+                        <tbody>
+                            <c:forEach items="${sessionScope.cart.item}" var="i">
+                                <tr>
+                                    <td  class="cart_product">
+                                        <div class="col-sm-12">
+                                              <div class="product_image">
+                                            <a href=""><img style="width: 110px; height: 110px;" src="${i.product.image}" alt=""></a>
                                         </div>
-                                        <div id="collapse${loop.index}" class="panel-collapse collapse">
-                                            <div class="panel-body">
-                                                <ul>
-                                                    <c:forEach var="item" items="${lst1}" >
-                                                        <c:if test="${item.idMerch eq (loop.index+1)}">
-                                                            <li><a href="product?cateID=${item.idCate}">${item.catName}</a></li>
-                                                            </c:if>
-                                                        </c:forEach>
-                                                </ul>
-                                            </div>
                                         </div>
-                                    </div>
-                                </c:forEach>
-                            </div>
-
-                            <div class="brands_products">
-                                <!--brands_products-->
-                                <h2>GENRES</h2>
-                                <div class="brands-name">
-                                    <ul class="nav nav-pills nav-stacked" id="genreList">
-                                        <c:forEach items="${genreList}" var="genre" varStatus="status">
-                                            <li class="genre-item ${status.index >= 7 ? 'hidden' : ''}">
-                                                <a href="product?gerneID=${genre.id}"><span class="pull-right"></span>${genre.name}</a>
-                                            </li>
-                                        </c:forEach>
-                                    </ul>
-                                    <div  class="show-button-container">
-                                        <button class="show-more-button" onclick="showMoreGenres()">Show More</button>
-                                        <button class="show-less-button hidden" onclick="showLessGenres()">Show Less</button>
-                                    </div>
-                                </div>
-                            </div>
-                            <!--/brands_products-->
-
-
-                            <div class="price-range"><!--price-range-->
-                                <h2>Price Range</h2>
-                                <div class="well">
-                                    <input type="text" class="span2" value="" data-slider-min="0" data-slider-max="600" data-slider-step="5" data-slider-value="[250,450]" id="sl2" ><br />
-                                    <b>$ 0</b> <b class="pull-right">$ 600</b>
-                                </div>
-                            </div><!--/price-range-->
-
-                            <div class="shipping text-center"><!--shipping-->
-                                <img src="images/home/shipping.jpg" alt="" />
-                            </div><!--/shipping-->
-
-                        </div>
-                    </div>
-
-                    <div class="col-sm-9 padding-right">
-                        <div class="features_items"><!--features_items-->
-                            <h2 class="title text-center">Features Items</h2>
-
-                            <c:forEach var="item" items="${itemList}">
-                                <div class="col-sm-4">
-                                    <div class="product-image-wrapper">
-                                        <div class="single-products">
-                                            <div class="productinfo text-center">
-                                                <img src="${item.image}" alt="" />
-                                                <h2>${item.price}$</h2>
-                                                <p class="item-name">${item.name}</p>
-
-                                            </div>
-                                            <div class="product-overlay">
-                                                <div class="overlay-content">
-                                                    <h2>${item.price}$</h2>
-                                                    <p class="item-name">${item.name}</p>
-                                                    <a href="productdetail?productid=${item.id}" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>In Detail</a>
-                                                </div>
-                                            </div>
+                                    </td>
+                                    <td class="cart_description">
+                                        <div class="col-sm-12">
+                                            <h4><a href="">${i.product.name}</a></h4>
                                         </div>
-                                    </div>
-                                </div>
+                                    </td>
+                                    <td class="cart_price">
+                                        <p>$${i.product.price}</p>
+                                    </td>
+                                    <td class="cart_quantity">
+                                        <div class="cart_quantity_button">
+                                            <a class="cart_quantity_up" href=""> + </a>
+                                            <input class="cart_quantity_input" type="text" name="quantity" value="${i.quantity}" autocomplete="off" size="2">
+                                            <a class="cart_quantity_down" href=""> - </a>
+                                        </div>
+                                    </td>
+                                    <td class="cart_total">
+                                        <p class="cart_total_price">$<fmt:formatNumber value="${i.product.price * i.quantity}" pattern="0.00" /></p>
+                                    </td>
+                                    <td class="cart_delete">
+                                        <a class="cart_quantity_delete" href=""><i class="fa fa-times"></i></a>
+                                    </td>
+                                </tr>
                             </c:forEach>
+                        </tbody>
 
-                            <div style="clear: both;"></div> <!-- Add a clearing div -->
-                            <div class="text-center"> <!-- Wrap the pagination in a div with 'text-center' class -->
-                                <ul class="pagination">
-                                    <c:forEach begin="1" end="${pageCount}" var="i">
-                                        <c:choose>
-                                            <c:when test="${merchID != null}">
-                                                <li class="${indexPage == i ? "active" : ""}"><a href="product?index=${i}&merchid=${merchID}">${i}</a></li>
-                                                </c:when>
-                                                <c:when test="${cateID != null}">
-                                                <li class="${indexPage == i ? "active" : ""}"><a href="product?index=${i}&cateID=${cateID}">${i}</a></li>
-                                                </c:when>
-                                                <c:when test="${gerneID != null}">
-                                                <li class="${indexPage == i ? "active" : ""}"><a href="product?index=${i}&gerneID=${gerneID}">${i}</a></li>
-                                                </c:when>
-                                                 <c:when test="${searchInput != null}">
-                                                <li class="${indexPage == i ? "active" : ""}"><a href="product?index=${i}&searchInput=${searchInput}">${i}</a></li>
-                                                </c:when>
-                                                <c:otherwise>
-                                                <li class="${indexPage == i ? "active" : ""}"><a href="product?index=${i}">${i}</a></li>
-                                                </c:otherwise>
-                                            </c:choose>
-                                        </c:forEach>
-                                </ul>
-                            </div>
-                        </div><!--features_items-->
- 
+
+
+
+
+                    </table>
+                </div>
+            </div>
+        </section> <!--/#cart_items-->
+
+        <section id="do_action">
+            <div class="container">
+                <div class="heading">
+                    <h3>What would you like to do next?</h3>
+                    <p>Choose if you have a discount code or reward points you want to use or would like to estimate your delivery cost.</p>
+                </div>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="chose_area">
+                            <ul class="user_option">
+                                <li>
+                                    <input type="checkbox">
+                                    <label>Use Coupon Code</label>
+                                </li>
+                                <li>
+                                    <input type="checkbox">
+                                    <label>Use Gift Voucher</label>
+                                </li>
+                                <li>
+                                    <input type="checkbox">
+                                    <label>Estimate Shipping & Taxes</label>
+                                </li>
+                            </ul>
+                            <ul class="user_info">
+                                <li class="single_field">
+                                    <label>Country:</label>
+                                    <select>
+                                        <option>United States</option>
+                                        <option>Bangladesh</option>
+                                        <option>UK</option>
+                                        <option>India</option>
+                                        <option>Pakistan</option>
+                                        <option>Ucrane</option>
+                                        <option>Canada</option>
+                                        <option>Dubai</option>
+                                    </select>
+
+                                </li>
+                                <li class="single_field">
+                                    <label>Region / State:</label>
+                                    <select>
+                                        <option>Select</option>
+                                        <option>Dhaka</option>
+                                        <option>London</option>
+                                        <option>Dillih</option>
+                                        <option>Lahore</option>
+                                        <option>Alaska</option>
+                                        <option>Canada</option>
+                                        <option>Dubai</option>
+                                    </select>
+
+                                </li>
+                                <li class="single_field zip-field">
+                                    <label>Zip Code:</label>
+                                    <input type="text">
+                                </li>
+                            </ul>
+                            <a class="btn btn-default update" href="">Get Quotes</a>
+                            <a class="btn btn-default check_out" href="">Continue</a>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="total_area">
+                            <ul>
+                                <li>Cart Sub Total <span>$59</span></li>
+                                <li>Eco Tax <span>$2</span></li>
+                                <li>Shipping Cost <span>Free</span></li>
+                                <li>Total <span>$61</span></li>
+                            </ul>
+                            <a class="btn btn-default update" href="">Update</a>
+                            <a class="btn btn-default check_out" href="">Check Out</a>
+                        </div>
                     </div>
                 </div>
             </div>
-        </section>
+        </section><!--/#do_action-->
 
         <footer id="footer"><!--Footer-->
             <div class="footer-top">
@@ -419,21 +439,20 @@ out.println("<li><a href=\"login.jsp\"><i class=\"fa fa-lock\"></i> Login</a></l
             <div class="footer-bottom">
                 <div class="container">
                     <div class="row">
-                        <p class="pull-left">Copyright Â© 2013 E-Shopper. All rights reserved.</p>
+                        <p class="pull-left">Copyright © 2013 E-SHOPPER Inc. All rights reserved.</p>
                         <p class="pull-right">Designed by <span><a target="_blank" href="http://www.themeum.com">Themeum</a></span></p>
                     </div>
                 </div>
             </div>
 
         </footer><!--/Footer-->
+
+
+
         <script src="js/jquery.js"></script>
-        <script src="js/price-range.js"></script>
-        <script src="js/jquery.scrollUp.min.js"></script>
         <script src="js/bootstrap.min.js"></script>
+        <script src="js/jquery.scrollUp.min.js"></script>
         <script src="js/jquery.prettyPhoto.js"></script>
         <script src="js/main.js"></script>
-        <script src="js/script.js"></script>
-
-
     </body>
 </html>
