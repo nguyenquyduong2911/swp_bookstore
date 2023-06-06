@@ -133,36 +133,29 @@ out.println("<li><a href=\"login.jsp\"><i class=\"fa fa-lock\"></i> Login</a></l
                             </div>
                             <div class="mainmenu pull-left">
                                 <ul class="nav navbar-nav collapse navbar-collapse">
-                                    <li><a href="index.html">Home</a></li>
-                                    <li class="dropdown"><a href="#">Shop<i class="fa fa-angle-down"></i></a>
+                                    <li><a href="home" class="active">Home</a></li>
+                                    <li class="dropdown"><a href="product">Shop<i class="fa fa-angle-down"></i></a>
                                         <ul role="menu" class="sub-menu">
-                                            <li><a href="shop.html">Products</a></li>
-                                            <li><a href="product-details.html">Product Details</a></li> 
+                                            <li><a href="product">Products</a></li>
                                             <li><a href="checkout.html">Checkout</a></li> 
-                                            <li><a href="cart.html" class="active">Cart</a></li> 
+                                            <li><a href="cart.html">Cart</a></li> 
                                             <li><a href="login.html">Login</a></li> 
                                         </ul>
                                     </li> 
-                                    <li class="dropdown"><a href="#">Blog<i class="fa fa-angle-down"></i></a>
-                                        <ul role="menu" class="sub-menu">
-                                            <li><a href="blog.html">Blog List</a></li>
-                                            <li><a href="blog-single.html">Blog Single</a></li>
-                                        </ul>
-                                    </li> 
-                                    <li><a href="404.html">404</a></li>
-                                    <li><a href="contact-us.html">Contact</a></li>
                                 </ul>
                             </div>
                         </div>
                         <div class="col-sm-3">
                             <div class="search_box pull-right">
-                                <input type="text" placeholder="Search"/>
+                                <form action="product" method="get" id="searchForm">
+                                    <input type="text" name="searchInput" placeholder="Search"/>
+                                    <button style="display: none;" type="submit">Search</button>
+                                </form>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div><!--/header-bottom-->
-        </header><!--/header-->
+            </div><!--/header-bottom-->        </header><!--/header-->
 
         <section id="cart_items">
             <div class="container">
