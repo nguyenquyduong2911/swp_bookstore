@@ -72,7 +72,19 @@ window.addEventListener('DOMContentLoaded', function() {
         return text;
     }
 });
+document.querySelector('form').addEventListener('submit', function(event) {
+  event.preventDefault(); // Prevent form submission
 
+  // Retrieve the quantity value
+  var quantity = document.getElementById('quantityInput').value;
+
+  // Do something with the quantity value
+  console.log('Quantity:', quantity);
+  // You can perform further processing or send the value to the server
+
+  // Submit the form programmatically if needed
+  // event.target.submit();
+});
 
 
 
