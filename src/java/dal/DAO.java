@@ -17,6 +17,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -353,13 +354,7 @@ public class DAO extends MyDAO {
     }
 
  
- public static void main(String[] args) {
-        DAO u = new DAO();
-    
-      book_detail book  = u.getBookById(1);
-            
-        System.out.println(book);
-    }
+
    
 
     public bookImage getBookImageById(int id) {

@@ -16,14 +16,22 @@ import java.time.LocalDate;
  *
  * @author taote
  */
+
+
 public class OrderDAO extends MyDAO{
+    public static void main(String[] args) {
+        LocalDate curDate = java.time.LocalDate.now();
+    String date = curDate.toString();
+        System.out.println(date);
+    }
+            
    public void addOrder(Account ac, Cart cart) throws SQLException {
     LocalDate curDate = java.time.LocalDate.now();
     String date = curDate.toString();
     
     try {
         // Add to the "order" table
-        String sql = "INSERT INTO `order` VALUES (?, ?, ?)";
+        String sql = "INSERT INTO `Order` (`date`, `cid`, `totalmoney`) VALUES (?, ?, ?)";
         PreparedStatement st = con.prepareStatement(sql);
         st.setString(1, date);
         st.setInt(2, ac.getIdAccount());
@@ -49,12 +57,20 @@ public class OrderDAO extends MyDAO{
                 st2.executeUpdate();
             }
         }
-        
+        //update quantity of book
+         String sql3 = "update  bookdetailed set quantity = quantity-? where book_id = ?";
+          PreparedStatement st3 = con.prepareStatement(sql3);
+          for (Item i : cart.getItem()) {
+            st3.setInt(1, i.getQuantity());
+            st3.setInt(2, i.getProduct().getId());
+             st3.executeUpdate();
+        }
         rs.close();
     } catch (SQLException e) {
         System.out.println(e);
     }
 }
+       
     
 
 }

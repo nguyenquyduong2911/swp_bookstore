@@ -174,13 +174,12 @@ out.println("<li><a href=\"login.jsp\"><i class=\"fa fa-lock\"></i> Login</a></l
                                             <label>Quantity:</label>
                                             <input type="text" name="quantity" id="quantityInput" value="1" />
                                             <input type="hidden" name="id" value="${bd.id}" />
-                                            <button type="submit" class="btn btn-default cart">
+                                            <a href="#" onclick="this.closest('form').submit();" class="btn btn-default cart">
                                                 <i class="fa fa-shopping-cart"></i>
                                                 Add to cart
-                                            </button>
+                                            </a>
                                         </span>
                                     </form>
-
                                     <p><b>Nhà cung cấp:</b>${bd.supplier}</p>
                                     <p><b>Nhà xuất bản:</b>${bd.publisher}</p>
                                     <p><b>Tác giả:</b>${bd.author}</p>
@@ -293,7 +292,7 @@ out.println("<li><a href=\"login.jsp\"><i class=\"fa fa-lock\"></i> Login</a></l
             </div>
         </section>
 
-        
+
 
 
 
