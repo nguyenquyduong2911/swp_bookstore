@@ -538,6 +538,7 @@ public Book_Cart getProductbyID(int id){
                 book.setNum_page(rs.getString("num_pages"));
                 book.setDescription(rs.getString("description"));
                 book.setImage(rs.getString("image"));
+                book.setQuantity(rs.getInt("quantity"));
             }
         } catch (SQLException e) {
             e.printStackTrace();

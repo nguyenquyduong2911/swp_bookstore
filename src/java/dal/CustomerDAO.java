@@ -12,7 +12,7 @@ import java.sql.SQLException;
  * @author taote
  */
 public class CustomerDAO extends MyDAO{
-    public Account getAccount(String email, String pass) {
+public Account getAccount(String email, String pass) {
         Account x = null;
 
         xSql = "select * from account where email=? and password=?";
@@ -22,7 +22,7 @@ public class CustomerDAO extends MyDAO{
             ps.setString(2, pass);
             rs = ps.executeQuery();
             if (rs.next()) {
-                x = new Account(pass, rs.getString("name"), email,rs.getString("role"));
+                x = new Account(rs.getInt("idAccount"), pass, rs.getString("name"), email,rs.getString("role"));
 
             }
             rs.close();

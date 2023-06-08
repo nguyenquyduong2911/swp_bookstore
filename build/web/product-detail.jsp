@@ -174,7 +174,7 @@ out.println("<li><a href=\"login.jsp\"><i class=\"fa fa-lock\"></i> Login</a></l
                                             <label>Quantity:</label>
                                             <input type="text" name="quantity" id="quantityInput" value="1" />
                                             <input type="hidden" name="id" value="${bd.id}" />
-                                            <a href="#" onclick="this.closest('form').submit();" class="btn btn-default cart">
+                                            <a id="quantityInput" href="#" onclick="this.closest('form').submit();" class="btn btn-default cart">
                                                 <i class="fa fa-shopping-cart"></i>
                                                 Add to cart
                                             </a>
@@ -188,7 +188,7 @@ out.println("<li><a href=\"login.jsp\"><i class=\"fa fa-lock\"></i> Login</a></l
                                 </div><!--/product-information-->
                             </div>
                         </div><!--/product-details-->
-
+                       
                         <div class="category-tab shop-details-tab"><!--category-tab-->
                             <div class="col-sm-12">
                                 <ul class="nav nav-tabs">

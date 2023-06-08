@@ -22,7 +22,9 @@ public class OrderDAO extends MyDAO{
     public static void main(String[] args) {
         LocalDate curDate = java.time.LocalDate.now();
     String date = curDate.toString();
-        System.out.println(date);
+    Account ac = new Account();
+       int i = ac.getIdAccount();
+        System.out.println(i);
     }
             
    public void addOrder(Account ac, Cart cart) throws SQLException {
@@ -39,7 +41,7 @@ public class OrderDAO extends MyDAO{
         st.executeUpdate();
         
         // Retrieve the ID of the last inserted order
-        String sql1 = "SELECT id FROM `order` ORDER BY idOrder DESC LIMIT 1";
+        String sql1 = "SELECT id FROM `order` ORDER BY id DESC LIMIT 1";
         PreparedStatement st1 = con.prepareStatement(sql1);
         ResultSet rs = st1.executeQuery();
         

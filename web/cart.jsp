@@ -66,30 +66,7 @@
                     <div class="row">
                         <div class="col-sm-4">
                             <div class="logo pull-left">
-                                <a href="index.html"><img src="images/home/logo.png" alt="" /></a>
-                            </div>
-                            <div class="btn-group pull-right">
-                                <div class="btn-group">
-                                    <button type="button" class="btn btn-default dropdown-toggle usa" data-toggle="dropdown">
-                                        USA
-                                        <span class="caret"></span>
-                                    </button>
-                                    <ul class="dropdown-menu">
-                                        <li><a href="">Canada</a></li>
-                                        <li><a href="">UK</a></li>
-                                    </ul>
-                                </div>
-
-                                <div class="btn-group">
-                                    <button type="button" class="btn btn-default dropdown-toggle usa" data-toggle="dropdown">
-                                        DOLLAR
-                                        <span class="caret"></span>
-                                    </button>
-                                    <ul class="dropdown-menu">
-                                        <li><a href="">Canadian Dollar</a></li>
-                                        <li><a href="">Pound</a></li>
-                                    </ul>
-                                </div>
+                                <a href="home"><img src="images/home/logo.png" alt="" /></a>
                             </div>
                         </div>
                         <div class="col-sm-8">
@@ -102,7 +79,7 @@
 
                                     %>
                                     <li><a href="checkout.html"><i class="fa fa-crosshairs"></i> Checkout</a></li>
-                                    <li><a href="cart.jsp"><i class="fa fa-shopping-cart"></i>Cart(${sessionScope.size})</a></li>
+                                   <li><a href="cart.jsp"><i class="fa fa-shopping-cart"></i>Cart(${sessionScope.size})</a></li>
                                         <% 
 if (x != null) {
 out.println("<li><a href=\"logout\"><i class=\"fa fa-user\"></i> Sign out</a></li>");
@@ -200,7 +177,7 @@ out.println("<li><a href=\"login.jsp\"><i class=\"fa fa-lock\"></i> Login</a></l
                                     <td class="cart_quantity">
                                         <div class="cart_quantity_button">
                                             <a class="cart_quantity_up" href="process?num=1&id=${i.product.id}"> + </a>
-                                            <input class="cart_quantity_input" type="text" name="quantity" value="${i.quantity}" autocomplete="off" size="2">
+                                            <input id="quantityInput" class="cart_quantity_input" type="text" name="quantity" value="${i.quantity}" autocomplete="off" size="2">
                                             <a class="cart_quantity_down" href="process?num=-1&id=${i.product.id}"> - </a>
                                         </div>
                                     </td>
@@ -223,7 +200,6 @@ out.println("<li><a href=\"login.jsp\"><i class=\"fa fa-lock\"></i> Login</a></l
 
 
 
-
                     </table>
                 </div>
             </div>
@@ -237,9 +213,9 @@ out.println("<li><a href=\"login.jsp\"><i class=\"fa fa-lock\"></i> Login</a></l
                             <div class="total_area">
                                 <ul>
                                     <li>Cart Sub Total <span>$<fmt:formatNumber value="${sessionScope.cart.getTotalMoney()}" pattern="0.00" /></span></li>
-                                    <li>Eco Tax <span>$2</span></li>
+                                    <li>Eco Tax <span>$0</span></li>
                                     <li>Shipping Cost <span>Free</span></li>
-                                    <li>Total <span>$<fmt:formatNumber value="${sessionScope.cart.getTotalMoney()-2}" pattern="0.00" /></span></li>
+                                    <li>Total <span>$<fmt:formatNumber value="${sessionScope.cart.getTotalMoney()}" pattern="0.00" /></span></li>
                                 </ul>
                             </div>
                         </div>

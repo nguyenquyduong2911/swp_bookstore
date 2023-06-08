@@ -74,7 +74,9 @@ public class CheckOut extends HttpServlet {
        processRequest(request, response);
          
     } 
-
+    public static void main(String[] args) {
+         
+    }
     /** 
      * Handles the HTTP <code>POST</code> method.
      * @param request servlet request
@@ -107,7 +109,22 @@ public class CheckOut extends HttpServlet {
                }
                session.removeAttribute("cart");
                session.setAttribute("size", 0);
-               response.sendRedirect("product.jsp");              
+               response.sendRedirect("product");    
+// try (PrintWriter out = response.getWriter()) {
+//            /* TODO output your page here. You may use following sample code. */
+//            out.println("<!DOCTYPE html>");
+//            out.println("<html>");
+//            out.println("<head>");
+//            out.println("<title>Servlet CheckOut</title>");  
+//            out.println("</head>");
+//            out.println("<body>");
+//            out.println("<h1>ID " + ac.getIdAccount() + "</h1>");
+//            out.println("<h1>ID " + ac.getName() + "</h1>");
+//            out.println("<h1>email " + ac.getEmail() + "</h1>");
+//            
+//            out.println("</body>");
+//            out.println("</html>");
+//        }
           }else{
               response.sendRedirect("login.jsp");
           }
