@@ -121,9 +121,12 @@ out.println("<li><a href=\"login.jsp\"><i class=\"fa fa-lock\"></i> Login</a></l
                         </div>
                         <div class="col-sm-3">
                             <div class="search_box pull-right">
-                                <form action="product" method="get" id="searchForm">
-                                    <input type="text" name="searchInput" placeholder="Search"/>
-                                    <button style="display: none;" type="submit">Search</button>
+                                <form action="product" method="get" id="searchForm" onsubmit="return false;">
+                                    <input type="text" name="searchInput" placeholder="Search" onkeydown="if (event.keyCode === 13) {
+                                                document.getElementById('searchForm').submit();
+                                                return false;
+                                            }">
+                                    <a href="#" onclick="document.getElementById('searchForm').submit();" style="display: none;">Search</a>
                                 </form>
                             </div>
                         </div>
@@ -252,7 +255,7 @@ out.println("<li><a href=\"login.jsp\"><i class=\"fa fa-lock\"></i> Login</a></l
                                                 <c:when test="${gerneID != null}">
                                                 <li class="${indexPage == i ? "active" : ""}"><a href="product?index=${i}&gerneID=${gerneID}">${i}</a></li>
                                                 </c:when>
-                                                 <c:when test="${searchInput != null}">
+                                                <c:when test="${searchInput != null}">
                                                 <li class="${indexPage == i ? "active" : ""}"><a href="product?index=${i}&searchInput=${searchInput}">${i}</a></li>
                                                 </c:when>
                                                 <c:otherwise>
@@ -263,13 +266,13 @@ out.println("<li><a href=\"login.jsp\"><i class=\"fa fa-lock\"></i> Login</a></l
                                 </ul>
                             </div>
                         </div><!--features_items-->
- 
+
                     </div>
                 </div>
             </div>
         </section>
 
-     
+
         <script src="js/jquery.js"></script>
         <script src="js/price-range.js"></script>
         <script src="js/jquery.scrollUp.min.js"></script>

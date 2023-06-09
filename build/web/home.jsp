@@ -121,12 +121,17 @@ out.println("<li><a href=\"login.jsp\"><i class=\"fa fa-lock\"></i> Login</a></l
                         </div>
                         <div class="col-sm-3">
                             <div class="search_box pull-right">
-                                <form action="product" method="get" id="searchForm">
-                                    <input type="text" name="searchInput" placeholder="Search"/>
-                                    <button style="display: none;" type="submit">Search</button>
+                                <form action="product" method="get" id="searchForm" onsubmit="return false;">
+                                    <input type="text" name="searchInput" placeholder="Search" onkeydown="if (event.keyCode === 13) {
+                  document.getElementById('searchForm').submit();
+                  return false;
+              }">
+                                    <a href="#" onclick="document.getElementById('searchForm').submit();" style="display: none;">Search</a>
                                 </form>
                             </div>
                         </div>
+
+
                     </div>
                 </div>
             </div><!--/header-bottom-->
