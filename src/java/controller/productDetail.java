@@ -77,6 +77,7 @@ public class productDetail extends HttpServlet {
          bookImage bm = u.getBookImageById(productid);
           request.setAttribute("bm", bm);
           
+          
           CategoryGenreInfo cgi = u.getCategoryGenreInfoByBookId(productid);
           
            List<book_show> itemList = u.getBooksByCategoryOrGenre(cgi.getCategoryId(), cgi.getGenreId(),productid);

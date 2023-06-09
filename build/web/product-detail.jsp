@@ -166,15 +166,14 @@ out.println("<li><a href=\"login.jsp\"><i class=\"fa fa-lock\"></i> Login</a></l
                                 <div class="product-information"><!--/product-information-->
                                     <img src="images/product-details/new.jpg" class="newarrival" alt="" />
                                     <h2>${bd.name}</h2>
-
                                     <img src="images/product-details/rating.png" alt="" />
-                                    <form action="cart" method="post">
+                                    <form action="cart" method="post" onsubmit="return validateQuantity(event)">
                                         <span>
                                             <span>${bd.price}$</span>
                                             <label>Quantity:</label>
                                             <input type="text" name="quantity" id="quantityInput" value="1" />
                                             <input type="hidden" name="id" value="${bd.id}" />
-                                            <a id="quantityInput" href="#" onclick="this.closest('form').submit();" class="btn btn-default cart">
+                                            <a href="#" onclick="validateQuantity(event)" class="btn btn-default cart">
                                                 <i class="fa fa-shopping-cart"></i>
                                                 Add to cart
                                             </a>
@@ -187,8 +186,33 @@ out.println("<li><a href=\"login.jsp\"><i class=\"fa fa-lock\"></i> Login</a></l
                                     <a href=""><img src="images/product-details/share.png" class="share img-responsive"  alt="" /></a>
                                 </div><!--/product-information-->
                             </div>
+
                         </div><!--/product-details-->
-                       
+                        <script>
+                            function validateQuantity(event) {
+                                event.preventDefault(); // Prevent the default form submission behavior
+
+                                var quantityInput = document.getElementById('quantityInput');
+                                var quantity = parseInt(quantityInput.value);
+                                var availableQuantity = ${bd.quantity};
+
+                                // Check if the quantity is a positive integer
+                                if (isNaN(quantity) || quantity <= 0 || !Number.isInteger(quantity)) {
+                                    alert('Please enter a valid quantity.');
+                                    return false; // Prevent form submission
+                                }
+
+                                // Check if the quantity exceeds the available quantity
+                                if (quantity > availableQuantity) {
+                                    alert('The quantity exceeds the available quantity.');
+                                    return false; // Prevent form submission
+                                }
+
+                                // If the quantity is valid, manually submit the form
+                                event.target.closest('form').submit();
+                            }
+
+                        </script>
                         <div class="category-tab shop-details-tab"><!--category-tab-->
                             <div class="col-sm-12">
                                 <ul class="nav nav-tabs">

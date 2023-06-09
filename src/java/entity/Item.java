@@ -4,6 +4,8 @@
  */
 package entity;
 
+import java.util.List;
+
 /**
  *
  * @author taote
@@ -33,7 +35,7 @@ public class Item {
     public int getQuantity() {
         return quantity;
     }
-
+    
     public void setQuantity(int quantity) {
         this.quantity = quantity;
     }
@@ -45,6 +47,14 @@ public class Item {
     public void setPrice(double price) {
         this.price = price;
     }
+    public int getQuantityById(int productId, List<Item> items) {
+    for (Item item : items) {
+        if (item.getProduct().getId() == productId) {
+            return item.getQuantity();
+        }
+    }
+    return 0; // Return 0 if no item with the specified product ID is found
+}
 
     @Override
     public String toString() {
