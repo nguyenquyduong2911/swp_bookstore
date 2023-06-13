@@ -11,6 +11,8 @@ import jakarta.servlet.*;
 import jakarta.servlet.http.*;
 
 import entity.*;
+import java.security.SecureRandom;
+import java.util.Base64;
 import java.util.HashSet;
 
 /**
@@ -39,19 +41,25 @@ public class LoginServlet extends HttpServlet {
         Account u = dao.getAccount(email, pass);
         request.getSession().setAttribute("curr", u);
         if (u == null) {
-
+            request.setAttribute("ls", false);
+            request.getRequestDispatcher("login.jsp").forward(request, response);
         } else {
             if (u.getRole().equals("admin")) {
                 response.sendRedirect("admin.jsp");
             } else {
                 response.sendRedirect("home");
             }
-            if (rememberMe) {
-                // Set the "Keep me signed in" cookie
-                Cookie cookie = new Cookie("remember_token", "user_token_value");
-                cookie.setMaxAge(60 * 60 * 24 * 30); // 30 days
-                response.addCookie(cookie);
-            }
+        }
+        if (rememberMe) {
+            // Set the "Keep me signed in" cookie
+            SecureRandom secureRandom = new SecureRandom();
+            byte[] tokenBytes = new byte[32];
+            secureRandom.nextBytes(tokenBytes);
+            String userToken = Base64.getUrlEncoder().withoutPadding().encodeToString(tokenBytes);
+
+            Cookie cookie = new Cookie("remember_token", userToken);
+            cookie.setMaxAge(60 * 60 * 24 * 30); // 30 days
+            response.addCookie(cookie);
         }
     }
 }

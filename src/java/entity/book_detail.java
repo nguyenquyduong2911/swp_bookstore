@@ -4,17 +4,20 @@
  */
 package entity;
 
+import java.math.BigDecimal;
+
 /**
  *
  * @author taote
  */
 public class book_detail {
-    private int id;
+    private Integer id;
     private String name;
     private String supplier;
     private String publisher;
     private String cover_form;
     private String price;
+     private int quantity;
     private String author;
     private String year_publish;
     private String language;
@@ -23,26 +26,20 @@ public class book_detail {
     private String num_page;
     private String description;
     private String image;
-    private int quantity;
+    private int categoryID;
+    private int gerne_id;
 
     public book_detail() {
     }
 
-    public int getQuantity() {
-        return quantity;
-    }
-
-    public void setQuantity(int quantity) {
-        this.quantity = quantity;
-    }
-
-    public book_detail(int id, String name, String supplier, String publisher, String cover_form, String price, String author, String year_publish, String language, String weight, String package_size, String num_page, String description, String image, int quantity) {
+    public book_detail(Integer id, String name, String supplier, String publisher, String cover_form, String price, int quantity, String author, String year_publish, String language, String weight, String package_size, String num_page, String description, String image, int categoryID, int gerne_id) {
         this.id = id;
         this.name = name;
         this.supplier = supplier;
         this.publisher = publisher;
         this.cover_form = cover_form;
         this.price = price;
+        this.quantity = quantity;
         this.author = author;
         this.year_publish = year_publish;
         this.language = language;
@@ -51,31 +48,15 @@ public class book_detail {
         this.num_page = num_page;
         this.description = description;
         this.image = image;
-        this.quantity = quantity;
+        this.categoryID = categoryID;
+        this.gerne_id = gerne_id;
     }
 
-//    public book_detail(int id, String name, String supplier, String publisher, String cover_form, String price, String author, String year_publish, String language, String weight, String package_size, String num_page, String description, String image) {
-//        this.id = id;
-//        this.name = name;
-//        this.supplier = supplier;
-//        this.publisher = publisher;
-//        this.cover_form = cover_form;
-//        this.price = price;
-//        this.author = author;
-//        this.year_publish = year_publish;
-//        this.language = language;
-//        this.weight = weight;
-//        this.package_size = package_size;
-//        this.num_page = num_page;
-//        this.description = description;
-//        this.image = image;
-//    }
-
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -114,10 +95,17 @@ public class book_detail {
     public String getPrice() {
         return price;
     }
-  
 
     public void setPrice(String price) {
         this.price = price;
+    }
+
+    public int getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
     }
 
     public String getAuthor() {
@@ -184,10 +172,31 @@ public class book_detail {
         this.image = image;
     }
 
-    @Override
-    public String toString() {
-        return "book_detail{" + "id=" + id + ", name=" + name + ", supplier=" + supplier + ", publisher=" + publisher + ", cover_form=" + cover_form + ", price=" + price + ", author=" + author + ", year_publish=" + year_publish + ", language=" + language + ", weight=" + weight + ", package_size=" + package_size + ", num_page=" + num_page + ", description=" + description + ", image=" + image + ", quantity=" + quantity + '}';
+    public int getCategoryID() {
+        return categoryID;
     }
+
+    public void setCategoryID(int categoryID) {
+        this.categoryID = categoryID;
+    }
+
+    public int getGerne_id() {
+        return gerne_id;
+    }
+
+    public void setGerne_id(int gerne_id) {
+        this.gerne_id = gerne_id;
+    }
+
+    
+    
+    
+    
+   
+
+    
+
+   
 
    
 }

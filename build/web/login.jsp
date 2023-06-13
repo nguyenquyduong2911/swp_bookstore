@@ -163,6 +163,17 @@
 								Keep me signed in
 							</span>
 							<button type="submit" class="btn btn-default">Login</button>
+                                                        <%
+                                                            if(request.getAttribute("ls")!=null){
+                                                               boolean a = (boolean) request.getAttribute("ls");
+                                                               if(!a){%>
+                                                               <p>Login Failed
+   <%                                                         }
+                                                            }
+ 
+
+
+                                                        %>
 						</form>
 					</div><!--/login form-->
 				</div>
