@@ -39,7 +39,9 @@ public class LoginServlet extends HttpServlet {
         Account u = dao.getAccount(email, pass);
         request.getSession().setAttribute("curr", u);
         if (u == null) {
-
+           boolean loginStatus=false;
+           request.setAttribute("ls", loginStatus);
+           request.getRequestDispatcher("login.jsp").forward(request, response);
         } else {
             if (u.getRole().equals("admin")) {
                 response.sendRedirect("admin.jsp");
