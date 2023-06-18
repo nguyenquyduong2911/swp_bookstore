@@ -109,7 +109,8 @@ public class AddToCart extends HttpServlet {
 //        int productid = Integer.parseInt(bookID);
          book_detail bd = d.getBookById(id);
          request.setAttribute("bd", bd);
-         
+         int quantity =bd.getQuantity()- cart.getQuantityById(id);
+                 request.setAttribute("qtt", quantity);
          bookImage bm = d.getBookImageById(id);
           request.setAttribute("bm", bm);
           

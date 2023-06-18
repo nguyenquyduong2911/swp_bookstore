@@ -79,7 +79,7 @@
 
                                     %>
                                     <li><a href="checkout.html"><i class="fa fa-crosshairs"></i> Checkout</a></li>
-                                   <li><a href="cart.jsp"><i class="fa fa-shopping-cart"></i>Cart(${sessionScope.size})</a></li>
+                                    <li><a href="cart.jsp"><i class="fa fa-shopping-cart"></i>Cart(${sessionScope.size})</a></li>
                                         <% 
 if (x != null) {
 out.println("<li><a href=\"logout\"><i class=\"fa fa-user\"></i> Sign out</a></li>");
@@ -155,11 +155,10 @@ out.println("<li><a href=\"login.jsp\"><i class=\"fa fa-lock\"></i> Login</a></l
                             </tr>
                         </thead>
 
-
                         <tbody>
                             <c:forEach items="${sessionScope.cart.item}" var="i">     
                                 <tr>                                    
-                                    <td  class="cart_product">
+                                    <td class="cart_product">
                                         <div class="col-sm-12">
                                             <div class="product_image">
                                                 <a href=""><img style="width: 110px; height: 110px;" src="${i.product.image}" alt=""></a>
@@ -176,12 +175,11 @@ out.println("<li><a href=\"login.jsp\"><i class=\"fa fa-lock\"></i> Login</a></l
                                     </td>
                                     <td class="cart_quantity">
                                         <div class="cart_quantity_button">
-                                            <a class="cart_quantity_up" href="process?num=1&id=${i.product.id}"> + </a>
-                                            <input id="quantityInput" class="cart_quantity_input" type="text" name="quantity" value="${i.quantity}" autocomplete="off" size="2">
+                                            <a class="cart_quantity_up" href="process?num=1&id=${i.product.id}" onclick="increaseQuantity(event, ${i.quantity}, ${i.product.quantity})"> + </a>
+                         <input id="quantityInput" class="cart_quantity_input" type="text" name="quantity" value="${i.quantity}" autocomplete="off" size="2" readonly>
                                             <a class="cart_quantity_down" href="process?num=-1&id=${i.product.id}"> - </a>
                                         </div>
                                     </td>
-
                                     <td class="cart_total">
                                         <p class="cart_total_price">$<fmt:formatNumber value="${i.product.price * i.quantity}" pattern="0.00" /></p>
                                     </td>
@@ -196,8 +194,22 @@ out.println("<li><a href=\"login.jsp\"><i class=\"fa fa-lock\"></i> Login</a></l
                                 </tr>
                             </c:forEach>
                         </tbody>
+                        <div class="warning-message" style="display: none;">The requested quantity exceeds the available quantity for this item.</div>
 
-
+                        <script>
+                            function increaseQuantity(event, currentQuantity, availableQuantity) {
+                                if (currentQuantity >= availableQuantity) {
+                                    event.preventDefault();
+                                    var warningMessage = document.querySelector('.warning-message');
+                                    warningMessage.style.display = 'block';
+                                    var tableElement = document.querySelector('table');
+                                    tableElement.parentNode.insertBefore(warningMessage, tableElement.nextSibling);
+                                } else {
+                                    var warningMessage = document.querySelector('.warning-message');
+                                    warningMessage.style.display = 'none';
+                                }
+                            }
+                        </script>
 
 
                     </table>

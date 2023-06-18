@@ -67,6 +67,12 @@ public class OrderDAO extends MyDAO{
             st3.setInt(2, i.getProduct().getId());
              st3.executeUpdate();
         }
+           String sql4 = "UPDATE bookdetailed SET product_status = 1 WHERE book_id = ? AND quantity <= 0";
+        PreparedStatement st4 = con.prepareStatement(sql4);
+        for (Item i : cart.getItem()) {
+            st4.setInt(1, i.getProduct().getId());
+            st4.executeUpdate();
+        }
         rs.close();
     } catch (SQLException e) {
         System.out.println(e);

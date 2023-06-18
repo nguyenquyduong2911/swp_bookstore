@@ -28,11 +28,12 @@ public class book_detail {
     private String image;
     private int categoryID;
     private int gerne_id;
+    private int status_product;
 
     public book_detail() {
     }
 
-    public book_detail(Integer id, String name, String supplier, String publisher, String cover_form, String price, int quantity, String author, String year_publish, String language, String weight, String package_size, String num_page, String description, String image, int categoryID, int gerne_id) {
+    public book_detail(Integer id, String name, String supplier, String publisher, String cover_form, String price, int quantity, String author, String year_publish, String language, String weight, String package_size, String num_page, String description, String image, int categoryID, int gerne_id, int status_product) {
         this.id = id;
         this.name = name;
         this.supplier = supplier;
@@ -50,6 +51,7 @@ public class book_detail {
         this.image = image;
         this.categoryID = categoryID;
         this.gerne_id = gerne_id;
+        this.status_product = status_product;
     }
 
     public Integer getId() {
@@ -188,15 +190,18 @@ public class book_detail {
         this.gerne_id = gerne_id;
     }
 
-    
-    
-    
-    
-   
+    public int getStatus_product() {
+        return status_product;
+    }
 
+    public void setStatus_product(int status_product) {
+        this.status_product = status_product;
+    }
+
+    @Override
+    public String toString() {
+        return "book_detail{" + "id=" + id + ", name=" + name + ", supplier=" + supplier + ", publisher=" + publisher + ", cover_form=" + cover_form + ", price=" + price + ", quantity=" + quantity + ", author=" + author + ", year_publish=" + year_publish + ", language=" + language + ", weight=" + weight + ", package_size=" + package_size + ", num_page=" + num_page + ", description=" + description + ", image=" + image + ", categoryID=" + categoryID + ", gerne_id=" + gerne_id + ", status_product=" + status_product + '}';
+    }
     
-
-   
-
-   
+    
 }

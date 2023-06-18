@@ -173,12 +173,14 @@ out.println("<li><a href=\"login.jsp\"><i class=\"fa fa-lock\"></i> Login</a></l
                                             <label>Quantity:</label>
                                             <input type="text" name="quantity" id="quantityInput" value="1" />
                                             <input type="hidden" name="id" value="${bd.id}" />
-                                            <a href="#" onclick="validateQuantity(event)" class="btn btn-default cart">
+                                            <a href="#" onclick="validateQuantity(event)" class="btn btn-default cart" ${bd.status_product == 1 ? 'disabled' : ''}>
                                                 <i class="fa fa-shopping-cart"></i>
                                                 Add to cart
                                             </a>
+                                            ${bd.status_product == 1 ? '<span class="out-of-stock">Product out of stock</span>' : ''}
                                         </span>
                                     </form>
+
                                     <p><b>Nhà cung cấp:</b>${bd.supplier}</p>
                                     <p><b>Nhà xuất bản:</b>${bd.publisher}</p>
                                     <p><b>Tác giả:</b>${bd.author}</p>
@@ -187,12 +189,14 @@ out.println("<li><a href=\"login.jsp\"><i class=\"fa fa-lock\"></i> Login</a></l
                                 </div><!--/product-information-->
                             </div>
                         </div><!--/product-details-->
-                        <script>function validateQuantity(event) {
+                        <script>
+                            
+    function validateQuantity(event) {
                                 event.preventDefault(); // Prevent the default form submission behavior
 
                                 var quantityInput = document.getElementById('quantityInput');
                                 var quantity = parseInt(quantityInput.value);
-                                var availableQuantity = ${bd.quantity};
+                                var availableQuantity = parseInt(${qtt});
                                 // Check if the quantity is a positive integer
                                 if (isNaN(quantity) || quantity <= 0 || !Number.isInteger(quantity)) {
                                     alert('Please enter a valid quantity.');
