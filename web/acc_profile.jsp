@@ -30,7 +30,7 @@
 <link href="css/responsive.css" rel="stylesheet">
 </head>
 <body>
-   <header id="header"><!--header-->
+  <header id="header"><!--header-->
             <div class="header_top"><!--header_top-->
                 <div class="container">
                     <div class="row">
@@ -74,7 +74,7 @@
                                           }
 
                                     %>
-                                    <li><a href="checkout.html"><i class="fa fa-crosshairs"></i> Checkout</a></li>
+                                    <li><a href="validate"><i class="fa fa-crosshairs"></i> Checkout</a></li>
                                     <li><a href="cart.jsp"><i class="fa fa-shopping-cart"></i>Cart(${sessionScope.size})</a></li>
                                         <% 
 if (x != null) {
@@ -110,7 +110,7 @@ out.println("<li><a href=\"login.jsp\"><i class=\"fa fa-lock\"></i> Login</a></l
                                     <li class="dropdown"><a href="product">Shop<i class="fa fa-angle-down"></i></a>
                                         <ul role="menu" class="sub-menu">
                                             <li><a href="product">Products</a></li>
-                                            <li><a href="checkout.html">Checkout</a></li> 
+                                            <li><a href="validate">Checkout</a></li> 
                                             <li><a href="cart.html">Cart</a></li> 
                                             <li><a href="login.html">Login</a></li> 
                                         </ul>
@@ -135,7 +135,6 @@ out.println("<li><a href=\"login.jsp\"><i class=\"fa fa-lock\"></i> Login</a></l
                 </div>
             </div><!--/header-bottom-->
         </header><!--/header-->
-<!--/header-->
 
 <div class="container bootdey">
     <div class="row">
