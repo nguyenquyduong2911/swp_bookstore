@@ -42,7 +42,7 @@ public class ListBookServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
     response.setContentType("text/html;charset=UTF-8");
     PrintWriter pr = response.getWriter();
-    DAO dao = new DAO();
+    AdminDAO dao = new AdminDAO();
     ArrayList<book_detail> b = dao.getBookDetails();
     request.setAttribute("bookdetail", b);
 
