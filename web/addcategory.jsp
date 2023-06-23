@@ -1,6 +1,6 @@
 <%-- 
-    Document   : addbook
-    Created on : Jun 12, 2023, 9:42:32 PM
+    Document   : addcategory
+    Created on : Jun 20, 2023, 5:08:29 PM
     Author     : Admin
 --%>
 
@@ -9,7 +9,9 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>Add category</title>
     </head>
-    
+    <body>
+        
+    </body>
 </html>
