@@ -11,6 +11,40 @@ The above copyright notice and this permission notice shall be included in all c
 
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 */
+
+    /* Apply styles to the unordered list */
+
+    /* Apply styles to the unordered list */
+    ul.sidebar {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        width: 200px; /* Adjust the width as needed */
+        background-color: #f1f1f1; /* Set the background color of the sidebar */
+    }
+
+    /* Apply styles to the list items */
+    ul.sidebar li {
+        text-align: left;
+        border-bottom: 1px solid #ddd; /* Add a horizontal line between list items */
+    }
+
+    /* Apply styles to the link elements within list items */
+    ul.sidebar li a {
+        display: block; /* Make the link fill the entire list item */
+        padding: 8px 16px;
+        color: #000;
+        text-decoration: none;
+    }
+
+    /* Apply styles to the link elements on hover */
+    ul.sidebar li a:hover {
+        background-color: #ddd; /* Change the background color on hover */
+    }
+
+
+
+
         td
 {
  max-width: 124px;

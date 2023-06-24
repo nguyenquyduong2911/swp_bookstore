@@ -1,6 +1,6 @@
 <%-- 
-    Document   : addbook
-    Created on : Jun 12, 2023, 9:42:32 PM
+    Document   : addcategory
+    Created on : Jun 20, 2023, 5:08:29 PM
     Author     : Admin
 --%>
 
@@ -9,7 +9,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Add book</title>
+        <title>Add category</title>
          <meta name="viewport" content="width=device-width, initial-scale=1">
         <link href="css/bootstrap.min.css" rel="stylesheet">
         <link href="css/font-awesome.min.css" rel="stylesheet">
@@ -19,14 +19,11 @@
         <link href="css/main.css" rel="stylesheet">
         <link href="css/responsive.css" rel="stylesheet">
     </head>
-<<<<<<< Updated upstream
-    <body>
-        HELLELE
-    </body>
-=======
-    <form>
-       <input type="text value= " 
+    <form action="addc1" method="Post">
+        Category id:<input type="text" name="catid">
+        Category name:<input type="text" name="catname">
+        Merchandise id:<input type="text" name="merid">
+        <input type="submit" value="Add category">
+        
     </form>
-    
->>>>>>> Stashed changes
 </html>

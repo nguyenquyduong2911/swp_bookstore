@@ -3,11 +3,39 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+<<<<<<< Updated upstream
+=======
+<<<<<<< Updated upstream
+            <file>file:/C:/Users/taote/OneDrive/Documents/NetBeansProjects/swp/swp/web/checkout.jsp</file>
+            <file>file:/C:/Users/taote/OneDrive/Documents/NetBeansProjects/swp/swp/src/java/controller/CheckOut.java</file>
+            <file>file:/C:/Users/taote/OneDrive/Documents/NetBeansProjects/swp/swp/src/java/dal/DBContext.java</file>
+            <file>file:/C:/Users/taote/OneDrive/Documents/NetBeansProjects/swp/swp/src/java/dal/OrderDAO.java</file>
+            <file>file:/C:/Users/taote/OneDrive/Documents/NetBeansProjects/swp/swp/web/login.jsp</file>
+            <file>file:/C:/Users/taote/OneDrive/Documents/NetBeansProjects/swp/swp/web/checkout.html</file>
+            <file>file:/C:/Users/taote/OneDrive/Documents/NetBeansProjects/swp/swp/src/java/entity/OrderCustomerInfo.java</file>
+            <file>file:/C:/Users/taote/OneDrive/Documents/NetBeansProjects/swp/swp/web/admin.jsp</file>
+            <file>file:/C:/Users/taote/OneDrive/Documents/NetBeansProjects/swp/swp/web/product-detail.jsp</file>
+            <file>file:/C:/Users/taote/OneDrive/Documents/NetBeansProjects/swp/swp/web/addbook.jsp</file>
+            <file>file:/C:/Users/taote/OneDrive/Documents/NetBeansProjects/swp/swp/web/product.jsp</file>
+            <file>file:/C:/Users/taote/OneDrive/Documents/NetBeansProjects/swp/swp/src/java/controller/Home.java</file>
+            <file>file:/C:/Users/taote/OneDrive/Documents/NetBeansProjects/swp/swp/web/acc_profile.jsp</file>
+            <file>file:/C:/Users/taote/OneDrive/Documents/NetBeansProjects/swp/swp/web/emailChk.jsp</file>
+            <file>file:/C:/Users/taote/OneDrive/Documents/NetBeansProjects/swp/swp/web/showbook.jsp</file>
+            <file>file:/C:/Users/taote/OneDrive/Documents/NetBeansProjects/swp/swp/web/cart.jsp</file>
+            <file>file:/C:/Users/taote/OneDrive/Documents/NetBeansProjects/swp/swp/web/home.jsp</file>
+            <file>file:/C:/Users/taote/OneDrive/Documents/NetBeansProjects/swp/swp/src/java/controller/validateCheckout.java</file>
+=======
+>>>>>>> Stashed changes
             <file>file:/D:/PRj/swp_bookstore/web/cart.jsp</file>
             <file>file:/D:/PRj/swp_bookstore/web/login.jsp</file>
             <file>file:/D:/PRj/swp_bookstore/web/admin.jsp</file>
             <file>file:/D:/PRj/swp_bookstore/src/java/entity/book_show.java</file>
             <file>file:/D:/PRj/swp_bookstore/src/java/dal/DAO.java</file>
+<<<<<<< Updated upstream
+=======
+            <file>file:/D:/PRj/swp_bookstore/web/addcategory.jsp</file>
+            <file>file:/D:/PRj/swp_bookstore/web/acc_profile.jsp</file>
+>>>>>>> Stashed changes
             <file>file:/D:/PRj/swp_bookstore/src/java/controller/Home.java</file>
             <file>file:/D:/PRj/swp_bookstore/web/product-detail.jsp</file>
             <file>file:/D:/PRj/swp_bookstore/web/css/bootstrap.min.css</file>
@@ -17,9 +45,17 @@
             <file>file:/D:/PRj/swp_bookstore/web/css/animate.css</file>
             <file>file:/D:/PRj/swp_bookstore/web/WEB-INF/web.xml</file>
             <file>file:/D:/PRj/swp_bookstore/src/java/entity/Book_Cart.java</file>
+<<<<<<< Updated upstream
             <file>file:/D:/PRj/swp_bookstore/src/java/controller/AddToCart.java</file>
             <file>file:/D:/PRj/swp_bookstore/src/java/controller/Product.java</file>
             <file>file:/D:/PRj/swp_bookstore/src/java/controller/RegisterServlet.java</file>
+=======
+            <file>file:/D:/PRj/swp_bookstore/src/java/controller/ListBookServlet.java</file>
+            <file>file:/D:/PRj/swp_bookstore/src/java/controller/AddToCart.java</file>
+            <file>file:/D:/PRj/swp_bookstore/src/java/controller/Product.java</file>
+            <file>file:/D:/PRj/swp_bookstore/src/java/controller/RegisterServlet.java</file>
+>>>>>>> Stashed changes
+>>>>>>> Stashed changes
         </group>
     </open-files>
 </project-private>
