@@ -121,9 +121,9 @@ public class DAO extends MyDAO {
             String image = rs.getString("image");
             int categoryID=rs.getInt("categoryID");
             int gerne_id=rs.getInt("gerne_id");
-           
+            int status_product = rs.getInt("product_status");
 
-            book_detail book = new book_detail(id, name, supplier, publisher, cover_form, price, quantity, author, year_publish, language, weight, package_size, num_page, description, image, categoryID, gerne_id);
+            book_detail book = new book_detail(id, name, supplier, publisher, cover_form, price, quantity, author, year_publish, language, weight, package_size, num_page, description, image, categoryID, gerne_id,status_product);
             bookList.add(book);
         }
         rs.close();
@@ -133,7 +133,9 @@ public class DAO extends MyDAO {
     }
     return bookList;
 }
-
+    public static void main(String[] args) {
+        
+    }
 
     public List<book_show> getBooks() {
         List<book_show> bookList = new ArrayList<>();
@@ -574,6 +576,7 @@ public Book_Cart getProductbyID(int id){
                 book.setDescription(rs.getString("description"));
                 book.setImage(rs.getString("image"));
                 book.setQuantity(rs.getInt("quantity"));
+                book.setStatus_product(rs.getInt("product_status"));
             }
         } catch (SQLException e) {
             e.printStackTrace();

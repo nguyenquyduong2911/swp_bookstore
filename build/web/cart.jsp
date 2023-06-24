@@ -34,26 +34,26 @@
     </head><!--/head-->
 
     <body>
-        <header id="header"><!--header-->
+       <header id="header"><!--header-->
             <div class="header_top"><!--header_top-->
                 <div class="container">
                     <div class="row">
                         <div class="col-sm-6">
                             <div class="contactinfo">
                                 <ul class="nav nav-pills">
-                                    <li><a href=""><i class="fa fa-phone"></i> +2 95 01 88 821</a></li>
-                                    <li><a href=""><i class="fa fa-envelope"></i> info@domain.com</a></li>
+                                    <li><a href="#"><i class="fa fa-phone"></i> +2 95 01 88 821</a></li>
+                                    <li><a href="#"><i class="fa fa-envelope"></i> info@domain.com</a></li>
                                 </ul>
                             </div>
                         </div>
                         <div class="col-sm-6">
                             <div class="social-icons pull-right">
                                 <ul class="nav navbar-nav">
-                                    <li><a href=""><i class="fa fa-facebook"></i></a></li>
-                                    <li><a href=""><i class="fa fa-twitter"></i></a></li>
-                                    <li><a href=""><i class="fa fa-linkedin"></i></a></li>
-                                    <li><a href=""><i class="fa fa-dribbble"></i></a></li>
-                                    <li><a href=""><i class="fa fa-google-plus"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
                                 </ul>
                             </div>
                         </div>
@@ -73,13 +73,13 @@
                             <div class="shop-menu pull-right">
                                 <ul class="nav navbar-nav">
                                     <%       Account x = (Account) request.getSession().getAttribute("curr");
-                                           if (x != null) {
-                                           out.println("<li><a href=\"#\"><i class=\"fa fa-user\"></i> " + x.getName() + "</a></li>");
-                                           }
+                                          if (x != null) {
+                                          out.println("<li><a href=\"#\"><i class=\"fa fa-user\"></i> " + x.getName() + "</a></li>");
+                                          }
 
                                     %>
-                                    <li><a href="checkout.html"><i class="fa fa-crosshairs"></i> Checkout</a></li>
-                                   <li><a href="cart.jsp"><i class="fa fa-shopping-cart"></i>Cart(${sessionScope.size})</a></li>
+                                    <li><a href="validate"><i class="fa fa-crosshairs"></i> Checkout</a></li>
+                                    <li><a href="cart.jsp"><i class="fa fa-shopping-cart"></i>Cart(${sessionScope.size})</a></li>
                                         <% 
 if (x != null) {
 out.println("<li><a href=\"logout\"><i class=\"fa fa-user\"></i> Sign out</a></li>");
@@ -114,7 +114,7 @@ out.println("<li><a href=\"login.jsp\"><i class=\"fa fa-lock\"></i> Login</a></l
                                     <li class="dropdown"><a href="product">Shop<i class="fa fa-angle-down"></i></a>
                                         <ul role="menu" class="sub-menu">
                                             <li><a href="product">Products</a></li>
-                                            <li><a href="checkout.html">Checkout</a></li> 
+                                            <li><a href="validate">Checkout</a></li> 
                                             <li><a href="cart.html">Cart</a></li> 
                                             <li><a href="login.html">Login</a></li> 
                                         </ul>
@@ -124,15 +124,21 @@ out.println("<li><a href=\"login.jsp\"><i class=\"fa fa-lock\"></i> Login</a></l
                         </div>
                         <div class="col-sm-3">
                             <div class="search_box pull-right">
-                                <form action="product" method="get" id="searchForm">
-                                    <input type="text" name="searchInput" placeholder="Search"/>
-                                    <button style="display: none;" type="submit">Search</button>
+                                <form action="product" method="get" id="searchForm" onsubmit="return false;">
+                                    <input type="text" name="searchInput" placeholder="Search" onkeydown="if (event.keyCode === 13) {
+                  document.getElementById('searchForm').submit();
+                  return false;
+              }">
+                                    <a href="#" onclick="document.getElementById('searchForm').submit();" style="display: none;">Search</a>
                                 </form>
                             </div>
                         </div>
+
+
                     </div>
                 </div>
-            </div><!--/header-bottom-->        </header><!--/header-->
+            </div><!--/header-bottom-->
+        </header><!--/header-->
 
         <section id="cart_items">
             <div class="container">
@@ -155,11 +161,10 @@ out.println("<li><a href=\"login.jsp\"><i class=\"fa fa-lock\"></i> Login</a></l
                             </tr>
                         </thead>
 
-
                         <tbody>
                             <c:forEach items="${sessionScope.cart.item}" var="i">     
                                 <tr>                                    
-                                    <td  class="cart_product">
+                                    <td class="cart_product">
                                         <div class="col-sm-12">
                                             <div class="product_image">
                                                 <a href=""><img style="width: 110px; height: 110px;" src="${i.product.image}" alt=""></a>
@@ -176,12 +181,11 @@ out.println("<li><a href=\"login.jsp\"><i class=\"fa fa-lock\"></i> Login</a></l
                                     </td>
                                     <td class="cart_quantity">
                                         <div class="cart_quantity_button">
-                                            <a class="cart_quantity_up" href="process?num=1&id=${i.product.id}"> + </a>
-                                            <input id="quantityInput" class="cart_quantity_input" type="text" name="quantity" value="${i.quantity}" autocomplete="off" size="2">
+                                            <a class="cart_quantity_up" href="process?num=1&id=${i.product.id}" onclick="increaseQuantity(event, ${i.quantity}, ${i.product.quantity})"> + </a>
+                         <input id="quantityInput" class="cart_quantity_input" type="text" name="quantity" value="${i.quantity}" autocomplete="off" size="2" readonly>
                                             <a class="cart_quantity_down" href="process?num=-1&id=${i.product.id}"> - </a>
                                         </div>
                                     </td>
-
                                     <td class="cart_total">
                                         <p class="cart_total_price">$<fmt:formatNumber value="${i.product.price * i.quantity}" pattern="0.00" /></p>
                                     </td>
@@ -196,8 +200,22 @@ out.println("<li><a href=\"login.jsp\"><i class=\"fa fa-lock\"></i> Login</a></l
                                 </tr>
                             </c:forEach>
                         </tbody>
+                        <div class="warning-message" style="display: none;">The requested quantity exceeds the available quantity for this item.</div>
 
-
+                        <script>
+                            function increaseQuantity(event, currentQuantity, availableQuantity) {
+                                if (currentQuantity >= availableQuantity) {
+                                    event.preventDefault();
+                                    var warningMessage = document.querySelector('.warning-message');
+                                    warningMessage.style.display = 'block';
+                                    var tableElement = document.querySelector('table');
+                                    tableElement.parentNode.insertBefore(warningMessage, tableElement.nextSibling);
+                                } else {
+                                    var warningMessage = document.querySelector('.warning-message');
+                                    warningMessage.style.display = 'none';
+                                }
+                            }
+                        </script>
 
 
                     </table>
@@ -220,7 +238,7 @@ out.println("<li><a href=\"login.jsp\"><i class=\"fa fa-lock\"></i> Login</a></l
                             </div>
                         </div>
                         <div class="col-sm-6">
-                            <form action="checkout" method="post">                             
+                            <form action="validate" method="post">                             
                                 <button type="submit" class="btn btn-default check_out">
                                     <i>CheckOut</i>
                                 </button>

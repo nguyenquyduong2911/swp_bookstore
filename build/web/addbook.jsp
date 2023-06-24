@@ -19,6 +19,7 @@
         <link href="css/main.css" rel="stylesheet">
         <link href="css/responsive.css" rel="stylesheet">
     </head>
+<<<<<<< HEAD
 <<<<<<< Updated upstream
     <body>
         HELLELE
@@ -29,4 +30,7 @@
     </form>
     
 >>>>>>> Stashed changes
+=======
+    
+>>>>>>> main
 </html>

@@ -3,9 +3,12 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+<<<<<<< HEAD
 <<<<<<< Updated upstream
 =======
 <<<<<<< Updated upstream
+=======
+>>>>>>> main
             <file>file:/C:/Users/taote/OneDrive/Documents/NetBeansProjects/swp/swp/web/checkout.jsp</file>
             <file>file:/C:/Users/taote/OneDrive/Documents/NetBeansProjects/swp/swp/src/java/controller/CheckOut.java</file>
             <file>file:/C:/Users/taote/OneDrive/Documents/NetBeansProjects/swp/swp/src/java/dal/DBContext.java</file>
@@ -24,6 +27,7 @@
             <file>file:/C:/Users/taote/OneDrive/Documents/NetBeansProjects/swp/swp/web/cart.jsp</file>
             <file>file:/C:/Users/taote/OneDrive/Documents/NetBeansProjects/swp/swp/web/home.jsp</file>
             <file>file:/C:/Users/taote/OneDrive/Documents/NetBeansProjects/swp/swp/src/java/controller/validateCheckout.java</file>
+<<<<<<< HEAD
 =======
 >>>>>>> Stashed changes
             <file>file:/D:/PRj/swp_bookstore/web/cart.jsp</file>
@@ -56,6 +60,8 @@
             <file>file:/D:/PRj/swp_bookstore/src/java/controller/RegisterServlet.java</file>
 >>>>>>> Stashed changes
 >>>>>>> Stashed changes
+=======
+>>>>>>> main
         </group>
     </open-files>
 </project-private>

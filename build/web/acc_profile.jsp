@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+=======
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+>>>>>>> main
 <%@ page import="java.sql.*" %>
 <%@ page import="java.util.*" %>
 <%@ page import="dal.*" %>

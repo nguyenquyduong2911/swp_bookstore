@@ -7,6 +7,7 @@ package dal;
 import entity.Account;
 import entity.Cart;
 import entity.Item;
+import entity.OrderCustomerInfo;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -16,63 +17,91 @@ import java.time.LocalDate;
  *
  * @author taote
  */
+public class OrderDAO extends MyDAO {
 
-
-public class OrderDAO extends MyDAO{
     public static void main(String[] args) {
         LocalDate curDate = java.time.LocalDate.now();
-    String date = curDate.toString();
-    Account ac = new Account();
-       int i = ac.getIdAccount();
+        String date = curDate.toString();
+        Account ac = new Account();
+        int i = ac.getIdAccount();
         System.out.println(i);
     }
-            
-   public void addOrder(Account ac, Cart cart) throws SQLException {
-    LocalDate curDate = java.time.LocalDate.now();
-    String date = curDate.toString();
-    
-    try {
-        // Add to the "order" table
-        String sql = "INSERT INTO `Order` (`date`, `cid`, `totalmoney`) VALUES (?, ?, ?)";
-        PreparedStatement st = con.prepareStatement(sql);
-        st.setString(1, date);
-        st.setInt(2, ac.getIdAccount());
-        st.setDouble(3, cart.getTotalMoney());
-        st.executeUpdate();
-        
-        // Retrieve the ID of the last inserted order
-        String sql1 = "SELECT id FROM `order` ORDER BY id DESC LIMIT 1";
-        PreparedStatement st1 = con.prepareStatement(sql1);
-        ResultSet rs = st1.executeQuery();
-        
-        if (rs.next()) {
-            int oid = rs.getInt(1);
-            
-            // Insert order line items
-            for (Item i : cart.getItem()) {
-                String sql2 = "INSERT INTO orderline VALUES (?, ?, ?, ?)";
-                PreparedStatement st2 = con.prepareStatement(sql2);
-                st2.setInt(1, oid);
-                st2.setInt(2, i.getProduct().getId());
-                st2.setInt(3, i.getQuantity());
-                st2.setDouble(4, i.getPrice());
-                st2.executeUpdate();
-            }
-        }
-        //update quantity of book
-         String sql3 = "update  bookdetailed set quantity = quantity-? where book_id = ?";
-          PreparedStatement st3 = con.prepareStatement(sql3);
-          for (Item i : cart.getItem()) {
-            st3.setInt(1, i.getQuantity());
-            st3.setInt(2, i.getProduct().getId());
-             st3.executeUpdate();
-        }
-        rs.close();
-    } catch (SQLException e) {
-        System.out.println(e);
-    }
-}
+
+    public void addOrder(Account ac, Cart cart, OrderCustomerInfo oci) throws SQLException {
+        LocalDate curDate = java.time.LocalDate.now();
+        String date = curDate.toString();
        
-    
+        try {
+            // Add to the "order" table
+            String sql = "INSERT INTO `Order` (`date`, `cid`, `totalmoney`) VALUES (?, ?, ?)";
+            try ( PreparedStatement st = con.prepareStatement(sql)) {
+                st.setString(1, date);
+                st.setInt(2, ac.getIdAccount());
+                st.setDouble(3, cart.getTotalMoney());
+                st.executeUpdate();
+            }
+
+            // Retrieve the ID of the last inserted order
+            String sql1 = "SELECT id FROM `order` ORDER BY id DESC LIMIT 1";
+            try ( PreparedStatement st1 = con.prepareStatement(sql1)) {
+                try ( ResultSet rs = st1.executeQuery()) {
+                    if (rs.next()) {
+                        int oid = rs.getInt(1);
+
+                        // Insert order line items
+                        String sql2 = "INSERT INTO orderline VALUES (?, ?, ?, ?)";
+                        try ( PreparedStatement st2 = con.prepareStatement(sql2)) {
+                            for (Item i : cart.getItem()) {
+                                st2.setInt(1, oid);
+                                st2.setInt(2, i.getProduct().getId());
+                                st2.setInt(3, i.getQuantity());
+                                st2.setDouble(4, i.getPrice());
+                                st2.executeUpdate();
+                            }
+                        }
+
+                        // Update quantity of books
+                        String sql3 = "UPDATE bookdetailed SET quantity = quantity - ? WHERE book_id = ?";
+                        try ( PreparedStatement st3 = con.prepareStatement(sql3)) {
+                            for (Item i : cart.getItem()) {
+                                st3.setInt(1, i.getQuantity());
+                                st3.setInt(2, i.getProduct().getId());
+                                st3.executeUpdate();
+                            }
+                        }
+
+                        // Update product status
+                        String sql4 = "UPDATE bookdetailed SET product_status = 1 WHERE book_id = ? AND quantity <= 0";
+                        try ( PreparedStatement st4 = con.prepareStatement(sql4)) {
+                            for (Item i : cart.getItem()) {
+                                st4.setInt(1, i.getProduct().getId());
+                                st4.executeUpdate();
+                            }
+                        }
+
+                        // Insert into order_customer_info table
+                        String sql5 = "INSERT INTO order_customer_info (oid, fullname, email, phonenumber, city, district, wards, deliver_address, note) "
+                                + "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
+
+                        try ( PreparedStatement st5 = connection.prepareStatement(sql5)) {
+                            st5.setInt(1, oid);
+                            st5.setString(2, oci.getFullname());
+                            st5.setString(3, oci.getEmail());
+                            st5.setString(4, oci.getPhonenumber());
+                            st5.setString(5, oci.getCity());
+                            st5.setString(6, oci.getDistrict());
+                            st5.setString(7, oci.getWard());
+                            st5.setString(8, oci.getDeliver_address());
+                            st5.setString(9, oci.getNote());
+
+                            st5.executeUpdate();
+                        }
+                    }
+                }
+            }
+        } catch (SQLException e) {
+            System.out.println(e);
+        }
+    }
 
 }

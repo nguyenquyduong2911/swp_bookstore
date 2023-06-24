@@ -31,26 +31,26 @@
     </head><!--/head-->
 
     <body>
-        <header id="header"><!--header-->
+       <header id="header"><!--header-->
             <div class="header_top"><!--header_top-->
                 <div class="container">
                     <div class="row">
-                        <div class="col-sm-6 ">
+                        <div class="col-sm-6">
                             <div class="contactinfo">
                                 <ul class="nav nav-pills">
-                                    <li><a href=""><i class="fa fa-phone"></i> +2 95 01 88 821</a></li>
-                                    <li><a href=""><i class="fa fa-envelope"></i> info@domain.com</a></li>
+                                    <li><a href="#"><i class="fa fa-phone"></i> +2 95 01 88 821</a></li>
+                                    <li><a href="#"><i class="fa fa-envelope"></i> info@domain.com</a></li>
                                 </ul>
                             </div>
                         </div>
                         <div class="col-sm-6">
                             <div class="social-icons pull-right">
                                 <ul class="nav navbar-nav">
-                                    <li><a href=""><i class="fa fa-facebook"></i></a></li>
-                                    <li><a href=""><i class="fa fa-twitter"></i></a></li>
-                                    <li><a href=""><i class="fa fa-linkedin"></i></a></li>
-                                    <li><a href=""><i class="fa fa-dribbble"></i></a></li>
-                                    <li><a href=""><i class="fa fa-google-plus"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
                                 </ul>
                             </div>
                         </div>
@@ -75,8 +75,8 @@
                                           }
 
                                     %>
-                                    <li><a href="checkout.html"><i class="fa fa-crosshairs"></i> Checkout</a></li>
-                                    <li><a href="cart.jsp"><i class="fa fa-shopping-cart"></i> Cart(${sessionScope.size})</a></li>
+                                    <li><a href="validate"><i class="fa fa-crosshairs"></i> Checkout</a></li>
+                                    <li><a href="cart.jsp"><i class="fa fa-shopping-cart"></i>Cart(${sessionScope.size})</a></li>
                                         <% 
 if (x != null) {
 out.println("<li><a href=\"logout\"><i class=\"fa fa-user\"></i> Sign out</a></li>");
@@ -107,15 +107,15 @@ out.println("<li><a href=\"login.jsp\"><i class=\"fa fa-lock\"></i> Login</a></l
                             </div>
                             <div class="mainmenu pull-left">
                                 <ul class="nav navbar-nav collapse navbar-collapse">
-                                    <li><a href="home">Home</a></li>
-                                    <li class="dropdown"><a href="product" class="active">Shop<i class="fa fa-angle-down"></i></a>
+                                    <li><a href="home" class="active">Home</a></li>
+                                    <li class="dropdown"><a href="product">Shop<i class="fa fa-angle-down"></i></a>
                                         <ul role="menu" class="sub-menu">
-                                            <li><a href="product" class="active">Products</a></li>
-                                            <li><a href="checkout.html">Checkout</a></li> 
+                                            <li><a href="product">Products</a></li>
+                                            <li><a href="validate">Checkout</a></li> 
                                             <li><a href="cart.html">Cart</a></li> 
                                             <li><a href="login.html">Login</a></li> 
                                         </ul>
-                                    </li>                            
+                                    </li> 
                                 </ul>
                             </div>
                         </div>
@@ -123,17 +123,19 @@ out.println("<li><a href=\"login.jsp\"><i class=\"fa fa-lock\"></i> Login</a></l
                             <div class="search_box pull-right">
                                 <form action="product" method="get" id="searchForm" onsubmit="return false;">
                                     <input type="text" name="searchInput" placeholder="Search" onkeydown="if (event.keyCode === 13) {
-                                                document.getElementById('searchForm').submit();
-                                                return false;
-                                            }">
+                  document.getElementById('searchForm').submit();
+                  return false;
+              }">
                                     <a href="#" onclick="document.getElementById('searchForm').submit();" style="display: none;">Search</a>
                                 </form>
                             </div>
                         </div>
+
+
                     </div>
                 </div>
-            </div>
-        </header>
+            </div><!--/header-bottom-->
+        </header><!--/header-->
 
         <section id="advertisement">
             <div class="container">
