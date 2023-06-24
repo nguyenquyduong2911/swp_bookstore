@@ -24,6 +24,14 @@
         <servlet-name>ListBookServlet</servlet-name>
         <servlet-class>controller.ListBookServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>AddCategory</servlet-name>
+        <servlet-class>controller.AddCategory</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AddCategory1Servlet</servlet-name>
+        <servlet-class>controller.AddCategory1Servlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>RegisterServlet</servlet-name>
         <url-pattern>/register</url-pattern>
@@ -47,6 +55,14 @@
     <servlet-mapping>
         <servlet-name>ListBookServlet</servlet-name>
         <url-pattern>/listbook</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AddCategory</servlet-name>
+        <url-pattern>/addcategory</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AddCategory1Servlet</servlet-name>
+        <url-pattern>/addc1</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
