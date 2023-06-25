@@ -210,6 +210,7 @@ out.println("<li><a href=\"login.jsp\"><i class=\"fa fa-lock\"></i> Login</a></l
                                 var quantityInput = document.getElementById('quantityInput');
                                 var quantity = parseInt(quantityInput.value);
                                 var availableQuantity = parseInt(${qtt});
+                                var quantityinDB = ${bd.quantity};
                                 // Check if the quantity is a positive integer
                                 if (isNaN(quantity) || quantity <= 0 || !Number.isInteger(quantity)) {
                                     alert('Please enter a valid quantity.');
@@ -218,6 +219,10 @@ out.println("<li><a href=\"login.jsp\"><i class=\"fa fa-lock\"></i> Login</a></l
 
                                 // Check if the quantity exceeds the available quantity
                                 if (quantity > availableQuantity) {
+                                    alert('The quantity exceeds the available quantity.');
+                                    return false; // Prevent form submission
+                                }
+                                if (quantity > quantityinDB) {
                                     alert('The quantity exceeds the available quantity.');
                                     return false; // Prevent form submission
                                 }
