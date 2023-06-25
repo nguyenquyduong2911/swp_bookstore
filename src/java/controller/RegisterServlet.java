@@ -37,7 +37,7 @@ public class RegisterServlet extends HttpServlet {
 
         if (pass.equals(repass)) {
             Account account = new Account(pass, name, email, "user");
-            request.getSession().setAttribute("curr", account);
+            request.getSession().setAttribute("regis", account);
             
               
 

@@ -28,7 +28,7 @@ protected void doPost(HttpServletRequest request, HttpServletResponse response)
     String verificationCode = (String) request.getSession().getAttribute("code");
     
     if (verificationCode != null && verificationCode.equals(userCode)) {
-        Account x = (Account) request.getSession().getAttribute("curr");
+        Account x = (Account) request.getSession().getAttribute("regis");
         CustomerDAO dao = new CustomerDAO();
         boolean check=dao.addAccount(x);
         if(check){
