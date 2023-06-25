@@ -64,5 +64,20 @@ public class AdminDAO extends MyDAO {
     }
     return false;
 }
+         public void update(String catname, Category x) {
+        xSql = "update category set catname=? where idCategory=?";
+        try {
+            ps = con.prepareStatement(xSql);
+            ps.setString(1, x.getCatName());
+            ps.setInt(2, x.getIdCate());
+            
+            
+            ps.executeUpdate();
+            ps.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
 
 }
