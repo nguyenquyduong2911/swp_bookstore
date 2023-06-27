@@ -34,8 +34,19 @@ public class RegisterServlet extends HttpServlet {
         repass = request.getParameter("repassword");
         name = request.getParameter("name");
         email = request.getParameter("email");
-
-        if (pass.equals(repass)) {
+        CustomerDAO dao = new CustomerDAO();
+        Account x = dao.getEmail(email);
+        if(x!=null)
+        {
+            pr.println("Email already existed!");
+            return;
+        }
+        if (!pass.equals(repass))
+        {
+            pr.println("Password not matched!");
+            return;
+        }
+        
             Account account = new Account(pass, name, email, "user");
             request.getSession().setAttribute("regis", account);
             
@@ -51,9 +62,9 @@ public class RegisterServlet extends HttpServlet {
                 // Redirect to index.html
                 response.sendRedirect("emailChk.jsp");
            
-            pr.print("Password not matched!");
+            
         
-    }}
+    }
 
     private String generateVerificationCode(int length) {
         String uppercase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";

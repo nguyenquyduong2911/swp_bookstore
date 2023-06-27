@@ -32,6 +32,25 @@ public Account getAccount(String email, String pass) {
         }
         return (x);
     }
+public Account getEmail(String email) {
+        Account x = null;
+
+        xSql = "select * from account where email=?";
+        try {
+            ps = con.prepareStatement(xSql);
+            ps.setString(1, email);
+            rs = ps.executeQuery();
+            if (rs.next()) {
+                x = new Account(rs.getInt("idAccount"), rs.getString("password"), rs.getString("name"), email,rs.getString("role"));
+
+            }
+            rs.close();
+            ps.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return (x);
+    }
 
     public boolean addAccount(Account x) {
         String sql = "INSERT INTO account (password, name, email, role) VALUES (?, ?, ?, ?)";

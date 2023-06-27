@@ -32,12 +32,12 @@ protected void doPost(HttpServletRequest request, HttpServletResponse response)
         CustomerDAO dao = new CustomerDAO();
         boolean check=dao.addAccount(x);
         if(check){
-             response.sendRedirect("Home");
+             response.sendRedirect("home");
         }
         
        
     } else {
-       pr.println("Verification code is incorrect");
+       pr.println("Verification code is incorrect!");
        
         
     }

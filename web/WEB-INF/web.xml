@@ -40,6 +40,10 @@
         <servlet-name>AdminServlet</servlet-name>
         <servlet-class>controller.AdminServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>UpdateBookServlet</servlet-name>
+        <servlet-class>controller.UpdateBookServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>RegisterServlet</servlet-name>
         <url-pattern>/register</url-pattern>
@@ -79,6 +83,10 @@
     <servlet-mapping>
         <servlet-name>AdminServlet</servlet-name>
         <url-pattern>/admin</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>UpdateBookServlet</servlet-name>
+        <url-pattern>/updatebook</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
