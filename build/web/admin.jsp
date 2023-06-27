@@ -7,6 +7,12 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
+    <% if(request.getSession().getAttribute("curr")==null)
+          out.println("<h1 style=\"color:red\">Access denied<h1>");
+          else{
+          %>
+         
+       
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Admin</title>
@@ -32,6 +38,6 @@
         <li><a href="url">Modify user role</a></li>
     </ul>
 </body>
-
+<% } %>
 
 </html>
