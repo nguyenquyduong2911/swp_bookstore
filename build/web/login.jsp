@@ -70,11 +70,11 @@
                         <div class="col-sm-8">
                             <div class="shop-menu pull-right">
                                 <ul class="nav navbar-nav">
-                                    <%       Account x = (Account) request.getSession().getAttribute("curr");
-                                          if (x != null) {
-                                          out.println("<li><a href=\"#\"><i class=\"fa fa-user\"></i> " + x.getName() + "</a></li>");
-                                          }
-
+                                   <%       
+Account x = (Account) request.getSession().getAttribute("curr");
+if (x != null) {
+    out.println("<li><a href=\"account_detail?id=" + x.getIdAccount() + "\"><i class=\"fa fa-user\"></i> " + x.getName() + "</a></li>");
+}
                                     %>
                                     <li><a href="validate"><i class="fa fa-crosshairs"></i> Checkout</a></li>
                                     <li><a href="cart.jsp"><i class="fa fa-shopping-cart"></i>Cart(${sessionScope.size})</a></li>

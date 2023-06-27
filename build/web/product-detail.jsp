@@ -69,11 +69,11 @@
                         <div class="col-sm-8">
                             <div class="shop-menu pull-right">
                                 <ul class="nav navbar-nav">
-                                    <%       Account x = (Account) request.getSession().getAttribute("curr");
-                                          if (x != null) {
-                                          out.println("<li><a href=\"#\"><i class=\"fa fa-user\"></i> " + x.getName() + "</a></li>");
-                                          }
-
+                                   <%       
+Account x = (Account) request.getSession().getAttribute("curr");
+if (x != null) {
+    out.println("<li><a href=\"account_detail?id=" + x.getIdAccount() + "\"><i class=\"fa fa-user\"></i> " + x.getName() + "</a></li>");
+}
                                     %>
                                     <li><a href="validate"><i class="fa fa-crosshairs"></i> Checkout</a></li>
                                     <li><a href="cart.jsp"><i class="fa fa-shopping-cart"></i>Cart(${sessionScope.size})</a></li>
@@ -123,9 +123,9 @@ out.println("<li><a href=\"login.jsp\"><i class=\"fa fa-lock\"></i> Login</a></l
                             <div class="search_box pull-right">
                                 <form action="product" method="get" id="searchForm" onsubmit="return false;">
                                     <input type="text" name="searchInput" placeholder="Search" onkeydown="if (event.keyCode === 13) {
-                  document.getElementById('searchForm').submit();
-                  return false;
-              }">
+                                                document.getElementById('searchForm').submit();
+                                                return false;
+                                            }">
                                     <a href="#" onclick="document.getElementById('searchForm').submit();" style="display: none;">Search</a>
                                 </form>
                             </div>
@@ -203,8 +203,8 @@ out.println("<li><a href=\"login.jsp\"><i class=\"fa fa-lock\"></i> Login</a></l
                             </div>
                         </div><!--/product-details-->
                         <script>
-                            
-    function validateQuantity(event) {
+
+                            function validateQuantity(event) {
                                 event.preventDefault(); // Prevent the default form submission behavior
 
                                 var quantityInput = document.getElementById('quantityInput');
@@ -261,29 +261,76 @@ out.println("<li><a href=\"login.jsp\"><i class=\"fa fa-lock\"></i> Login</a></l
                                     </div>
                                 </div>
 
-                                <div class="tab-pane fade " id="reviews" >
-                                    <div class="col-sm-12">
-                                        <ul>
-                                            <li><a href=""><i class="fa fa-user"></i>EUGEN</a></li>
-                                            <li><a href=""><i class="fa fa-clock-o"></i>12:41 PM</a></li>
-                                            <li><a href=""><i class="fa fa-calendar-o"></i>31 DEC 2014</a></li>
-                                        </ul>
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
-                                        <p><b>Write Your Review</b></p>
+                                <div class="tab-pane fade" id="reviews">
+                                    <div class="col-sm-12">                                   
+                                            <div class="container my-5 py-5 text-dark">
+                                                <div class="row">
+                                                    <div class="col-md-10 col-lg-8 col-xl-6 col-md-offset-1 col-lg-offset-2 col-xl-offset-3">
+                                                        <div class="panel panel-default">
+                                                            <div class="panel-body">
+                                                                <div class="row">
+                                                                    <div class="col-xs-2">
+                                                                        <img class="img-circle img-responsive"
+                                                                             src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(21).webp" alt="avatar" width="65"
+                                                                             height="65" />
+                                                                    </div>
+                                                                    <div class="col-xs-10">
+                                                                        <h5>Add a comment</h5>
+                                                                        <ul class="rating" id="star-rating">
+                                                                            <li>
+                                                                                <i class="fa fa-star-o" data-value="1"></i>
+                                                                            </li>
+                                                                            <li>
+                                                                                <i class="fa fa-star-o" data-value="2"></i>
+                                                                            </li>
+                                                                            <li>
+                                                                                <i class="fa fa-star-o" data-value="3"></i>
+                                                                            </li>
+                                                                            <li>
+                                                                                <i class="fa fa-star-o" data-value="4"></i>
+                                                                            </li>
+                                                                            <li>
+                                                                                <i class="fa fa-star-o" data-value="5"></i>
+                                                                            </li>
+                                                                        </ul>
+                                                                        <div class="form-group">
+                                                                            <label class="control-label" for="textAreaExample">What is your view?</label>
+                                                                            <textarea class="form-control" id="textAreaExample" rows="4"></textarea>
+                                                                        </div>
+                                                                        <div class="row">
+                                                                         
+                                                                            <div class="col-xs-12 text-right">
+                                                                                <button type="button" class="btn btn-danger">
+                                                                                    Send <i class="fa fa-long-arrow-right"></i>
+                                                                                </button>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
 
-                                        <form action="#">
-                                            <span>
-                                                <input type="text" placeholder="Your Name"/>
-                                                <input type="email" placeholder="Email Address"/>
-                                            </span>
-                                            <textarea></textarea>
-                                            <b>Rating: </b> <img src="images/product-details/rating.png" alt="" />
-                                            <button type="button" class="btn btn-default pull-right">
-                                                Submit
-                                            </button>
-                                        </form>
+
+                                            <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+                                            <script>
+                                                                        $(document).ready(function () {
+                                                                            $('#star-rating li').on('click', function () {
+                                                                                var value = parseInt($(this).find('i').data('value'));
+                                                                                $('#star-rating li i').removeClass('fa-star').addClass('fa-star-o');
+                                                                                $(this).prevAll().find('i').removeClass('fa-star-o').addClass('fa-star');
+                                                                                $(this).find('i').removeClass('fa-star-o').addClass('fa-star');
+                                                                            });
+                                                                        });
+                                            </script>
+
                                     </div>
                                 </div>
+
+
+
 
                             </div>
                         </div><!--/category-tab-->
