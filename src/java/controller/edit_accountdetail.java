@@ -15,6 +15,9 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -80,7 +83,7 @@ public class edit_accountdetail extends HttpServlet {
         throws ServletException, IOException {
        
     CustomerDAO dao = new CustomerDAO();
- Account x = (Account) request.getSession().getAttribute("curr");
+   Account x = (Account) request.getSession().getAttribute("curr");
     String rawid = request.getParameter("id");
     int id = 0; // Default value if parsing fails
     if (rawid != null && !rawid.isEmpty()) {
@@ -92,17 +95,26 @@ public class edit_accountdetail extends HttpServlet {
     String email = request.getParameter("email");
     String phone = request.getParameter("phone");
     String dob = request.getParameter("dob");
-
+    String username = request.getParameter("user_name");
     String rawgender = request.getParameter("gender");
     int gender = 0; // Default value if parsing fails
     if (rawgender != null && !rawgender.isEmpty()) {
         gender = Integer.parseInt(rawgender);
     }
-//    String displayname = request.getParameter("displayname");
-//    x.setName(displayname);
-//    String dpName = x.getName();
+    x.setName(username);
+
     acc_detail ac = new acc_detail(firstname, lastname, phone, email, gender, dob);
-    dao.editAccountById(id, ac);
+    dao.editAccountById(id, ac,x);
+    //change password
+    String newpw = request.getParameter("new_password");
+    if(newpw != ""){
+        try {
+            x.setPassword(newpw);
+            dao.updateAccountPassword(id, newpw);
+        } catch (SQLException ex) {
+            Logger.getLogger(edit_accountdetail.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
     ac = dao .getAccountById(id);
         request.setAttribute("a", ac);
         request.getRequestDispatcher("edit_accountdetail.jsp").forward(request, response);

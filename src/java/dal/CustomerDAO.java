@@ -120,11 +120,11 @@ public Account getEmail(String email) {
 
         return null; // Return null if no account was found
     }
-public void editAccountById(int idAccount, acc_detail updatedAccount) {
+public void editAccountById(int idAccount, acc_detail updatedAccount,Account a) {
     String query = "UPDATE swp_bookstore.accountdetail ad "
             + "JOIN swp_bookstore.account ac ON ad.cid = ac.idAccount "
             + "SET ad.firstname = ?, ad.lastname = ?, ad.phonenumber = ?, ac.email = ?, "
-            + "ad.gender = ?, ad.dob = ? "
+            + "ad.gender = ?, ad.dob = ?,ac.name = ?"
             + "WHERE ac.idAccount = ?";
 
     try (PreparedStatement ps = connection.prepareStatement(query)) {
@@ -134,14 +134,24 @@ public void editAccountById(int idAccount, acc_detail updatedAccount) {
         ps.setString(4, updatedAccount.getEmail());
         ps.setInt(5, updatedAccount.getGender());
         ps.setString(6, updatedAccount.getDob());
-        ps.setInt(7, idAccount);
+        ps.setString(7,a.getName());
+        ps.setInt(8, idAccount);
 
         ps.executeUpdate();
     } catch (SQLException e) {
         e.printStackTrace();
     }
 }
+public void updateAccountPassword(int accountId, String newPassword) throws SQLException {
+        String query = "UPDATE swp_bookstore.account SET password = ? WHERE idAccount = ?";
 
+        try (PreparedStatement statement = connection.prepareStatement(query)) {
+            statement.setString(1, newPassword);
+            statement.setInt(2, accountId);
+
+            statement.executeUpdate();
+        }
+    }
 
     public static void main(String[] args) {
         CustomerDAO dao = new CustomerDAO();
