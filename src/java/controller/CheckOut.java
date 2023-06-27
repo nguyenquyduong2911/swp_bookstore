@@ -36,9 +36,7 @@ import java.util.logging.Logger;
 public class CheckOut extends HttpServlet {
 
     
-    public static void main(String[] args) {
-        System.out.println("địt thàng cụ mày");
-    }
+  
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {

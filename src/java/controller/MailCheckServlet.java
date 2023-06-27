@@ -32,7 +32,10 @@ protected void doPost(HttpServletRequest request, HttpServletResponse response)
         CustomerDAO dao = new CustomerDAO();
         boolean check=dao.addAccount(x);
         if(check){
-             response.sendRedirect("home");
+
+             
+             response.sendRedirect("login.jsp");
+
         }
         
        
