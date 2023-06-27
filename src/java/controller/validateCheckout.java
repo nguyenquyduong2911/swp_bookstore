@@ -4,9 +4,11 @@
  */
 package controller;
 
+import dal.CustomerDAO;
 import dal.OrderDAO;
 import entity.Account;
 import entity.Cart;
+import entity.acc_detail;
 import java.io.IOException;
 import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
@@ -75,12 +77,19 @@ public class validateCheckout extends HttpServlet {
         }
         Account ac = null;
         Object a = session.getAttribute("curr");
-
+         ac = (Account) a;
         if (a != null) {
             if (cart.getItem().isEmpty()) {
                 response.sendRedirect("cart.jsp");
             } else {
-                response.sendRedirect("checkout.jsp");
+                 CustomerDAO dao = new CustomerDAO();
+        
+        
+        acc_detail ad = dao .getAccountById(ac.getIdAccount());
+        request.setAttribute("ad", ad);
+       
+               
+                request.getRequestDispatcher("checkout.jsp").forward(request, response);
             }
         } else {
             response.sendRedirect("login.jsp");

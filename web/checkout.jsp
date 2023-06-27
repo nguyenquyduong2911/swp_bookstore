@@ -186,9 +186,9 @@ out.println("<li><a href=\"login.jsp\"><i class=\"fa fa-lock\"></i> Login</a></l
                                     <p>Bill To</p>
                                     <div class="form-one">
                                    
-                                            <input type="text" name="name" placeholder="FullName">                                        
+                                        <input type="text" name="name" placeholder="FullName" value="${ad.first_name} ${ad.last_name}">                                        
                                             <input type="text" name="email" placeholder="Email*" value="${curr.email}">
-                                            <input type="text" name="phone"  placeholder="Mobile Phone">
+                                            <input type="text" name="phone"  placeholder="Mobile Phone" value="${ad.phone}">
                                             <select name="city"  id="city" >
                                                 <option value="city" selected>Chọn tỉnh thành</option>           
                                             </select>
