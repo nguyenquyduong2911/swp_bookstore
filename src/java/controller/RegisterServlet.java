@@ -38,11 +38,15 @@ public class RegisterServlet extends HttpServlet {
         Account x = dao.getEmail(email);
         if(x!=null)
         {
+            request.setAttribute("emailexisted", true);
             pr.println("Email already existed!");
+            request.getRequestDispatcher("login.jsp").forward(request, response);
             return;
         }
         if (!pass.equals(repass))
         {
+            request.setAttribute("notmatchedpassword", true);
+            request.getRequestDispatcher("login.jsp").forward(request, response);
             pr.println("Password not matched!");
             return;
         }

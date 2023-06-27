@@ -179,6 +179,25 @@ out.println("<li><a href=\"login.jsp\"><i class=\"fa fa-lock\"></i> Login</a></l
 							<input type="password" name="repassword" placeholder="Re-enter Password"/>
 							<button type="submit" class="btn btn-default">Sign up</button>
 						</form>
+                                                <%
+Boolean emailExisted = (Boolean) request.getAttribute("emailexisted");
+Boolean notmatchedpassword = (Boolean) request.getAttribute("notmatchedpassword");
+
+if (emailExisted != null && emailExisted) {
+%>
+    <p style="color: red;">Email already exists!</p>
+<%
+}
+
+if (notmatchedpassword != null && notmatchedpassword) {
+%>
+    <p style="color: red;">Password not matched</p>
+<%
+}
+%>
+
+
+
 					</div><!--/sign up form-->
 				</div>
 			</div>
