@@ -77,18 +77,16 @@ public class validateCheckout extends HttpServlet {
         }
         Account ac = null;
         Object a = session.getAttribute("curr");
-         ac = (Account) a;
+        ac = (Account) a;
         if (a != null) {
             if (cart.getItem().isEmpty()) {
                 response.sendRedirect("cart.jsp");
             } else {
-                 CustomerDAO dao = new CustomerDAO();
-        
-        
-        acc_detail ad = dao .getAccountById(ac.getIdAccount());
-        request.setAttribute("ad", ad);
-       
-               
+                CustomerDAO dao = new CustomerDAO();
+
+                acc_detail ad = dao.getAccountById(ac.getIdAccount());
+                request.setAttribute("ad", ad);
+
                 request.getRequestDispatcher("checkout.jsp").forward(request, response);
             }
         } else {
@@ -118,8 +116,18 @@ public class validateCheckout extends HttpServlet {
         }
         Account ac = null;
         Object a = session.getAttribute("curr");
+        ac = (Account) a;
         if (a != null) {
-            response.sendRedirect("checkout.jsp");
+            if (cart.getItem().isEmpty()) {
+                response.sendRedirect("cart.jsp");
+            } else {
+                CustomerDAO dao = new CustomerDAO();
+
+                acc_detail ad = dao.getAccountById(ac.getIdAccount());
+                request.setAttribute("ad", ad);
+
+                request.getRequestDispatcher("checkout.jsp").forward(request, response);
+            }
         } else {
             response.sendRedirect("login.jsp");
         }
