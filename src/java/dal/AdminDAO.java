@@ -33,14 +33,15 @@ public class AdminDAO extends MyDAO {
             String language = rs.getString("language");
             String weight = rs.getString("weight");
             String package_size = rs.getString("packaging_size");
-            String num_page = rs.getString("num_pages");
+            int num_page = rs.getInt("num_pages");
             String description = rs.getString("description");
             String image = rs.getString("image");
             int categoryID=rs.getInt("categoryID");
             int gerne_id=rs.getInt("gerne_id");
+            int bookimageID=rs.getInt("book_imageID");
             int status_product = rs.getInt("product_status");
 
-            book_detail book = new book_detail(id, name, supplier, publisher, cover_form, price, quantity, author, year_publish, language, weight, package_size, num_page, description, image, categoryID, gerne_id,status_product);
+            book_detail book = new book_detail(id, name,supplier, publisher, cover_form, price, quantity, author, year_publish, language, weight, package_size, num_page,description, image, categoryID, gerne_id, bookimageID, status_product);
             bookList.add(book);
         }
         rs.close();
@@ -80,4 +81,40 @@ public class AdminDAO extends MyDAO {
     }
 
 
+    public boolean addBookdetail(book_detail x) {
+        String sql = "INSERT INTO bookdetailed VALUES (?,?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        try {
+            ps = con.prepareStatement(sql);
+            ps.setInt(1, x.getId());
+            ps.setString(2, x.getName());
+            ps.setString(3, x.getSupplier());
+            ps.setString(4, x.getPublisher());
+            ps.setString(5, x.getCover_form());
+            ps.setString(6, x.getPrice());
+            ps.setInt(7, x.getQuantity());
+            ps.setString(8, x.getAuthor());
+            ps.setString(9, x.getYear_publish());
+            ps.setString(10, x.getLanguage());
+            ps.setString(11, x.getWeight());
+            ps.setString(12, x.getPackage_size());
+            ps.setInt(13, x.getNum_page());
+            ps.setString(14, x.getDescription());
+            ps.setString(15, x.getImage());
+            ps.setInt(16, x.getCategoryID());
+            ps.setInt(17, x.getGerne_id());
+            ps.setInt(18, x.getBook_imageID());
+            ps.setInt(19, x.getStatus_product());
+
+            int rowsAffected = ps.executeUpdate();
+            return rowsAffected > 0;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
 }
+
+      
+
+
+

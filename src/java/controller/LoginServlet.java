@@ -30,36 +30,41 @@ public class LoginServlet extends HttpServlet {
     }
 
     @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
-        String email, pass;
-        email = request.getParameter("email");
-        pass = request.getParameter("pass");
-        boolean rememberMe = request.getParameter("remember") != null;
-        CustomerDAO dao = new CustomerDAO();
-        Account u = dao.getAccount(email, pass);
-        request.getSession().setAttribute("curr", u);
-        if (u == null) {
-            request.setAttribute("ls", false);
-            request.getRequestDispatcher("login.jsp").forward(request, response);
-        } else {
-            if (u.getRole().equals("admin")) {
-                response.sendRedirect("admin.jsp");
-            } else {
-                response.sendRedirect("home");
-            }
-        }
-        if (rememberMe) {
-            // Set the "Keep me signed in" cookie
-            SecureRandom secureRandom = new SecureRandom();
-            byte[] tokenBytes = new byte[32];
-            secureRandom.nextBytes(tokenBytes);
-            String userToken = Base64.getUrlEncoder().withoutPadding().encodeToString(tokenBytes);
+protected void doPost(HttpServletRequest request, HttpServletResponse response)
+        throws ServletException, IOException {
+    response.setContentType("text/html;charset=UTF-8");
+    PrintWriter pr = response.getWriter();
+    String email, pass;
+    email = request.getParameter("email");
+    pass = request.getParameter("pass");
 
-            Cookie cookie = new Cookie("remember_token", userToken);
-            cookie.setMaxAge(60 * 60 * 24 * 30); // 30 days
-            response.addCookie(cookie);
+    CustomerDAO dao = new CustomerDAO();
+    Account u = dao.getAccount(email, pass);
+    request.getSession().setAttribute("curr", u);
+
+    if (u == null) {
+        request.setAttribute("ls", false);
+        request.getRequestDispatcher("login.jsp").forward(request, response);
+    } else {
+        if (u.getRole().equals("admin")) {
+            response.sendRedirect("admin.jsp");
+        } else {
+            boolean rememberMe = request.getParameter("remember") != null;
+            if (rememberMe) {
+                Cookie emailCookie = new Cookie("email", email);
+                Cookie passwordCookie = new Cookie("password", pass);
+                // Set the cookie expiration time (e.g., 30 days)
+                emailCookie.setMaxAge(30 * 24 * 60 * 60);
+                passwordCookie.setMaxAge(30 * 24 * 60 * 60);
+                // Add the cookies to the response
+                response.addCookie(emailCookie);
+                response.addCookie(passwordCookie);
+            }
+            response.sendRedirect("home");
         }
     }
 }
+
+
+    }
+

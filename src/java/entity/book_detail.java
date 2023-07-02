@@ -23,17 +23,18 @@ public class book_detail {
     private String language;
     private String weight;
     private String package_size;
-    private String num_page;
+    private int num_page;
     private String description;
     private String image;
     private int categoryID;
     private int gerne_id;
+    private int book_imageID;
     private int status_product;
 
     public book_detail() {
     }
 
-    public book_detail(Integer id, String name, String supplier, String publisher, String cover_form, String price, int quantity, String author, String year_publish, String language, String weight, String package_size, String num_page, String description, String image, int categoryID, int gerne_id, int status_product) {
+    public book_detail(Integer id, String name, String supplier, String publisher, String cover_form, String price, int quantity, String author, String year_publish, String language, String weight, String package_size, int num_page, String description, String image, int categoryID, int gerne_id, int book_imageID, int status_product) {
         this.id = id;
         this.name = name;
         this.supplier = supplier;
@@ -51,9 +52,20 @@ public class book_detail {
         this.image = image;
         this.categoryID = categoryID;
         this.gerne_id = gerne_id;
+        this.book_imageID = book_imageID;
         this.status_product = status_product;
     }
 
+    public int getBook_imageID() {
+        return book_imageID;
+    }
+
+    public void setBook_imageID(int book_imageID) {
+        this.book_imageID = book_imageID;
+    }
+
+   
+    
     public Integer getId() {
         return id;
     }
@@ -150,11 +162,11 @@ public class book_detail {
         this.package_size = package_size;
     }
 
-    public String getNum_page() {
+    public int getNum_page() {
         return num_page;
     }
 
-    public void setNum_page(String num_page) {
+    public void setNum_page(int num_page) {
         this.num_page = num_page;
     }
 

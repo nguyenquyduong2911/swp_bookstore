@@ -4,10 +4,9 @@
  */
 package controller;
 
-import dal.CustomerDAO;
-import entity.Account;
+import dal.*;
+import entity.*;
 import jakarta.servlet.ServletException;
-import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
@@ -29,32 +28,48 @@ public class AddBookServlet extends HttpServlet {
         request.getRequestDispatcher("addbook.jsp").forward(request, response);
     }
 
-    @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
-        String email, pass;
-        email = request.getParameter("email");
-        pass = request.getParameter("pass");
-        boolean rememberMe = request.getParameter("remember") != null;
-        CustomerDAO dao = new CustomerDAO();
-        Account u = dao.getAccount(email, pass);
-        request.getSession().setAttribute("curr", u);
-        if (u == null) {
+   @Override
+protected void doPost(HttpServletRequest request, HttpServletResponse response)
+        throws ServletException, IOException {
+    response.setContentType("text/html;charset=UTF-8");
+    PrintWriter pr = response.getWriter();
 
-        } else {
-            if (u.getRole().equals("admin")) {
-                response.sendRedirect("admin.jsp");
-            } else {
-                response.sendRedirect("home");
-            }
-            if (rememberMe) {
-                // Set the "Keep me signed in" cookie
-                Cookie cookie = new Cookie("remember_token", "user_token_value");
-                cookie.setMaxAge(60 * 60 * 24 * 30); // 30 days
-                response.addCookie(cookie);
-            }
-        }
+    // Retrieve the book details from the request parameters
+    int bookid = Integer.parseInt(request.getParameter("id"));
+    String name = request.getParameter("name");
+    String supplier = request.getParameter("supplier");
+    String publisher = request.getParameter("publisher");
+    String coverForm = request.getParameter("coverform");
+    String price = request.getParameter("price");
+    int quantity = Integer.parseInt(request.getParameter("quantity"));
+
+    String author = request.getParameter("author");
+    String yearPublish = request.getParameter("yearpublish");
+    String language = request.getParameter("language");
+    String weight = request.getParameter("weight");
+    String packageSize = request.getParameter("packagesize");
+    int numPage = Integer.parseInt(request.getParameter("numpage"));
+    String description = request.getParameter("description");
+    String image = request.getParameter("image");
+    int categoryId = Integer.parseInt(request.getParameter("categoryID"));
+    int genreId = Integer.parseInt(request.getParameter("genreID"));
+    int bookimgId = Integer.parseInt(request.getParameter("bookimgid"));
+    int statusProduct = Integer.parseInt(request.getParameter("statusproduct"));
+
+
+    book_detail newBook = new book_detail(bookid, name, supplier, publisher, coverForm, price, quantity,
+            author, yearPublish, language, weight, packageSize, numPage, description, image,
+            categoryId, genreId, bookimgId, statusProduct);
+    AdminDAO dao = new AdminDAO();  
+    boolean check=dao.addBookdetail(newBook);
+    if(check){
+        pr.println("true");
     }
+    else{
+        pr.print("false");
+    }
+
+}   
+
 
 }

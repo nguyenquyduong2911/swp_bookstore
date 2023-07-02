@@ -244,7 +244,7 @@ out.println("<li><a href=\"login.jsp\"><i class=\"fa fa-lock\"></i> Login</a></l
                             </div>
                             <div class="form-group">
                                 <label for="dob">Date of Birth:</label>
-                                <input type="date" class="form-control input-field" id="dob" name="dob">
+                                <input type="date" class="form-control input-field" id="dob" name="dob" value="${a.dob}">
                             </div>
                             <div class="form-group">
                                 <label for="gender">Gender:</label>

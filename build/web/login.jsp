@@ -148,7 +148,7 @@ out.println("<li><a href=\"login.jsp\"><i class=\"fa fa-lock\"></i> Login</a></l
 							<input type="email" name="email" placeholder="Email" />
 							<input type="password" name="pass" placeholder="Password" />
 							<span>
-								<input type="checkbox" class="checkbox"> 
+								<input type="checkbox" name="remember" class="checkbox"> 
 								Keep me signed in
 							</span>
 							<button type="submit" class="btn btn-default">Login</button>

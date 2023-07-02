@@ -116,14 +116,15 @@ public class DAO extends MyDAO {
             String language = rs.getString("language");
             String weight = rs.getString("weight");
             String package_size = rs.getString("packaging_size");
-            String num_page = rs.getString("num_pages");
+            int num_page = rs.getInt("num_pages");
             String description = rs.getString("description");
             String image = rs.getString("image");
             int categoryID=rs.getInt("categoryID");
             int gerne_id=rs.getInt("gerne_id");
+            int bookimageID=rs.getInt("book_imageID");
             int status_product = rs.getInt("product_status");
 
-            book_detail book = new book_detail(id, name, supplier, publisher, cover_form, price, quantity, author, year_publish, language, weight, package_size, num_page, description, image, categoryID, gerne_id,status_product);
+            book_detail book = new book_detail(id, name, supplier, publisher, cover_form, price, quantity, author, year_publish, language, weight, package_size, num_page, description, image, categoryID, gerne_id, bookimageID, status_product);
             bookList.add(book);
         }
         rs.close();
@@ -572,7 +573,7 @@ public Book_Cart getProductbyID(int id){
                 book.setLanguage(rs.getString("language"));
                 book.setWeight(rs.getString("weight"));
                 book.setPackage_size(rs.getString("packaging_size"));
-                book.setNum_page(rs.getString("num_pages"));
+                book.setNum_page(rs.getInt("num_pages"));
                 book.setDescription(rs.getString("description"));
                 book.setImage(rs.getString("image"));
                 book.setQuantity(rs.getInt("quantity"));
