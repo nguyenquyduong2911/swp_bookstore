@@ -28,6 +28,15 @@
         <link rel="apple-touch-icon-precomposed" sizes="114x114" href="images/ico/apple-touch-icon-114-precomposed.png">
         <link rel="apple-touch-icon-precomposed" sizes="72x72" href="images/ico/apple-touch-icon-72-precomposed.png">
         <link rel="apple-touch-icon-precomposed" href="images/ico/apple-touch-icon-57-precomposed.png">
+        <style>
+            .registration-message {
+                margin-top: 20px;
+                padding: 10px;
+                background-color: #f9f9f9;
+                border: 1px solid #ccc;
+            }
+
+        </style>
     </head><!--/head-->
 
     <body>
@@ -69,11 +78,11 @@
                         <div class="col-sm-8">
                             <div class="shop-menu pull-right">
                                 <ul class="nav navbar-nav">
-                                   <%       
-Account x = (Account) request.getSession().getAttribute("curr");
-if (x != null) {
-    out.println("<li><a href=\"account_detail?id=" + x.getIdAccount() + "\"><i class=\"fa fa-user\"></i> " + x.getName() + "</a></li>");
-}
+                                    <%       
+ Account x = (Account) request.getSession().getAttribute("curr");
+ if (x != null) {
+     out.println("<li><a href=\"account_detail?id=" + x.getIdAccount() + "\"><i class=\"fa fa-user\"></i> " + x.getName() + "</a></li>");
+ }
                                     %>
                                     <li><a href="validate"><i class="fa fa-crosshairs"></i> Checkout</a></li>
                                     <li><a href="cart.jsp"><i class="fa fa-shopping-cart"></i>Cart(${sessionScope.size})</a></li>
@@ -237,9 +246,7 @@ out.println("<li><a href=\"login.jsp\"><i class=\"fa fa-lock\"></i> Login</a></l
                         <div class="category-tab shop-details-tab"><!--category-tab-->
                             <div class="col-sm-12">
                                 <ul class="nav nav-tabs">
-                                    <li class="active"><a href="#detail" data-toggle="tab">Details</a></li>
-                                    <li><a href="#companyprofile" data-toggle="tab">Company Profile</a></li>
-                                    <li><a href="#tag" data-toggle="tab">Tag</a></li>
+                                    <li class="active"><a href="#detail" data-toggle="tab">Details</a></li>                          
                                     <li><a href="#reviews" data-toggle="tab">Reviews (5)</a></li>
                                 </ul>
                             </div>
@@ -260,140 +267,139 @@ out.println("<li><a href=\"login.jsp\"><i class=\"fa fa-lock\"></i> Login</a></l
 
                                     </div>
                                 </div>
-
                                 <div class="tab-pane fade" id="reviews">
-                                    <div class="col-sm-12">                                   
-                                            <div class="container my-5 py-5 text-dark">
-                                                <div class="row">
-                                                    <div class="col-md-10 col-lg-8 col-xl-6 col-md-offset-1 col-lg-offset-2 col-xl-offset-3">
-                                                        <div class="panel panel-default">
-                                                            <div class="panel-body">
-                                                                <div class="row">
-                                                                    <div class="col-xs-2">
-                                                                        <img class="img-circle img-responsive"
-                                                                             src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(21).webp" alt="avatar" width="65"
-                                                                             height="65" />
-                                                                    </div>
-                                                                    <div class="col-xs-10">
-                                                                        <h5>Add a comment</h5>
-                                                                        <ul class="rating" id="star-rating">
-                                                                            <li>
-                                                                                <i class="fa fa-star-o" data-value="1"></i>
-                                                                            </li>
-                                                                            <li>
-                                                                                <i class="fa fa-star-o" data-value="2"></i>
-                                                                            </li>
-                                                                            <li>
-                                                                                <i class="fa fa-star-o" data-value="3"></i>
-                                                                            </li>
-                                                                            <li>
-                                                                                <i class="fa fa-star-o" data-value="4"></i>
-                                                                            </li>
-                                                                            <li>
-                                                                                <i class="fa fa-star-o" data-value="5"></i>
-                                                                            </li>
-                                                                        </ul>
-                                                                        <div class="form-group">
-                                                                            <label class="control-label" for="textAreaExample">What is your view?</label>
-                                                                            <textarea class="form-control" id="textAreaExample" rows="4"></textarea>
-                                                                        </div>
-                                                                        <div class="row">
-                                                                         
-                                                                            <div class="col-xs-12 text-right">
-                                                                                <button type="button" class="btn btn-danger">
-                                                                                    Send <i class="fa fa-long-arrow-right"></i>
-                                                                                </button>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
+                                    <div class="col-sm-12">
+                                        <c:forEach var="o" items="${review}">
+                                            <div class="comment">
+                                                 
+                                                <ul class="comment-meta">
+                                                    <li><a href="#"><i class="fa fa-user"></i>${o.accountName}</a></li>
+                                                    <li><a href="#"><i class="fa fa-calendar-o"></i>${o.date}</a></li>
+                                                    <li><div class="vote-buttons">
+                                                    <c:if test="${o.opinion == 1}">
+                                                        <button class="upvote-btn"><i class="fa fa-thumbs-up"></i>Recommend</button>
+                                                    </c:if>
+                                                    <c:if test="${o.opinion != 1}">
+                                                        <button class="downvote-btn"><i class="fa fa-thumbs-down"></i>Not Recommend</button>
+                                                    </c:if>
+                                                </div></li>
+                                                </ul>
+                                                <p>${o.comment}</p>
+                                               
                                             </div>
+                                        </c:forEach>
+                                        <div style="clear: both;"></div> <!-- Add a clearing div -->
+                                        <div class="text-center">
+                                            <ul class="pagination">
+                                                <c:forEach begin="1" end="${pageCount}" var="i">
+                                                    <li class="${indexPage == i ? 'active' : ''}">
+                                                        <a href="productdetail?index=${i}&productid=${bd.id}"">${i}</a>
+                                                    </li>
+                                                </c:forEach>
+                                            </ul>
+                                        </div>
+
+                                        <%        
+        if (x != null) { %>
+                                        <p><b>Write Your Review</b></p>
+                                        <form action="review" method="post">
+                                            <input type="hidden" name="cid" value="${curr.idAccount}">
+                                            <input type="hidden" name="pid" value="${bd.id}">
+
+                                            <textarea name="review"></textarea>
+
+                                            <label>
+                                                <input type="radio" name="recommendation" value="1" />
+                                                Recommended
+                                            </label>
+
+                                            <label>
+                                                <input type="radio" name="recommendation" value="0" />
+                                                Not Recommended
+                                            </label>
+
+                                            <input type="submit" class="btn btn-default pull-right" value="Submit">
+                                        </form>
 
 
-                                            <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-                                            <script>
-                                                                        $(document).ready(function () {
-                                                                            $('#star-rating li').on('click', function () {
-                                                                                var value = parseInt($(this).find('i').data('value'));
-                                                                                $('#star-rating li i').removeClass('fa-star').addClass('fa-star-o');
-                                                                                $(this).prevAll().find('i').removeClass('fa-star-o').addClass('fa-star');
-                                                                                $(this).find('i').removeClass('fa-star-o').addClass('fa-star');
-                                                                            });
-                                                                        });
-                                            </script>
-
+                                        <% } else { %>
+                                        <div class="registration-message">
+                                            <p>Only registered members can write comments. Please <a href="login.jsp">login</a> or <a href="login.jsp">register.</a></p>
+                                        </div>
+                                        <% } %>
                                     </div>
                                 </div>
 
 
-
-
                             </div>
-                        </div><!--/category-tab-->
+                        </div>
 
-                        <div class="recommended_items"><!--recommended_items-->
-                            <h2 class="title text-center">recommended items</h2>
 
-                            <div id="recommended-item-carousel" class="carousel slide" data-ride="carousel">
-                                <div class="carousel-inner">
-
-                                    <c:forEach var="item" items="${itemList}" varStatus="status">
-                                        <c:if test="${status.index % 3 == 0}">
-                                            <div class="item ${status.index == 0 ? 'active' : ''}">
-                                                <div class="row">
-                                                    <c:forEach begin="${status.index}" end="${status.index + 2}" varStatus="innerStatus">
-                                                        <c:if test="${innerStatus.index < itemList.size()}">
-                                                            <div class="col-sm-4">
-                                                                <div class="product-image-wrapper">
-                                                                    <div class="single-products">
-                                                                        <div class="productinfo text-center">
-                                                                            <img src="${itemList[innerStatus.index].image}" alt="" />
-                                                                            <h2>${itemList[innerStatus.index].price}$</h2>
-                                                                            <p class="item-name" >${itemList[innerStatus.index].name}</p>
-                                                                            <a href="productdetail?productid=${itemList[innerStatus.index].id}" class="btn btn-default add-to-cart">
-                                                                                <i class="fa fa-shopping-cart"></i>In Detail
-                                                                            </a>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </c:if>
-                                                    </c:forEach>
-                                                </div>
-                                            </div>
-                                        </c:if>
-                                    </c:forEach>
-
-                                </div>
-                                <a class="left recommended-item-control" href="#recommended-item-carousel" data-slide="prev">
-                                    <i class="fa fa-angle-left"></i>
-                                </a>
-                                <a class="right recommended-item-control" href="#recommended-item-carousel" data-slide="next">
-                                    <i class="fa fa-angle-right"></i>
-                                </a>
-                            </div>
-                        </div><!--/recommended_items-->
 
 
                     </div>
-                </div>
+                </div><!--/category-tab-->
+
+
+                <div class="recommended_items"><!--recommended_items-->
+                    <h2 class="title text-center">recommended items</h2>
+
+                    <div id="recommended-item-carousel" class="carousel slide" data-ride="carousel">
+                        <div class="carousel-inner">
+
+                            <c:forEach var="item" items="${itemList}" varStatus="status">
+                                <c:if test="${status.index % 3 == 0}">
+                                    <div class="item ${status.index == 0 ? 'active' : ''}">
+                                        <div class="row">
+                                            <c:forEach begin="${status.index}" end="${status.index + 2}" varStatus="innerStatus">
+                                                <c:if test="${innerStatus.index < itemList.size()}">
+                                                    <div class="col-sm-4">
+                                                        <div class="product-image-wrapper">
+                                                            <div class="single-products">
+                                                                <div class="productinfo text-center">
+                                                                    <img src="${itemList[innerStatus.index].image}" alt="" />
+                                                                    <h2>${itemList[innerStatus.index].price}$</h2>
+                                                                    <p class="item-name" >${itemList[innerStatus.index].name}</p>
+                                                                    <a href="productdetail?productid=${itemList[innerStatus.index].id}" class="btn btn-default add-to-cart">
+                                                                        <i class="fa fa-shopping-cart"></i>In Detail
+                                                                    </a>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </c:if>
+                                            </c:forEach>
+                                        </div>
+                                    </div>
+                                </c:if>
+                            </c:forEach>
+
+                        </div>
+                        <a class="left recommended-item-control" href="#recommended-item-carousel" data-slide="prev">
+                            <i class="fa fa-angle-left"></i>
+                        </a>
+                        <a class="right recommended-item-control" href="#recommended-item-carousel" data-slide="next">
+                            <i class="fa fa-angle-right"></i>
+                        </a>
+                    </div>
+                </div><!--/recommended_items-->
+
+
             </div>
-        </section>
+        </div>
+    </div>
+</section>
 
 
 
 
 
-        <script src="js/jquery.js"></script>
-        <script src="js/price-range.js"></script>
-        <script src="js/jquery.scrollUp.min.js"></script>
-        <script src="js/bootstrap.min.js"></script>
-        <script src="js/jquery.prettyPhoto.js"></script>
-        <script src="js/main.js"></script>
-        <script src="js/script.js"></script>
-    </body>
+<script src="js/jquery.js"></script>
+<script src="js/price-range.js"></script>
+<script src="js/jquery.scrollUp.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/jquery.prettyPhoto.js"></script>
+<script src="js/main.js"></script>
+<script src="js/script.js"></script>
+</body>
 </html>

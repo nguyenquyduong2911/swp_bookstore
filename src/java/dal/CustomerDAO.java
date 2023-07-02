@@ -5,10 +5,16 @@
 package dal;
 
 import entity.Account;
+import entity.CustomerReview;
+import entity.ReviewList;
 import entity.acc_detail;
+import entity.book_show;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -153,10 +159,113 @@ public void updateAccountPassword(int accountId, String newPassword) throws SQLE
         }
     }
 
-    public static void main(String[] args) {
-        CustomerDAO dao = new CustomerDAO();
-
-        acc_detail ac = dao.getAccountById(1);
-        System.out.println(ac);
+   
+    
+   public void insertReview(CustomerReview review) throws SQLException {
+        String query = "INSERT INTO `review` (`ic`, `comment`, `date`, `opinion`, `pid`) VALUES (?, ?, ?, ?, ?)";
+        
+        try (PreparedStatement statement = connection.prepareStatement(query)) {
+            statement.setInt(1, review.getCid());
+            statement.setString(2, review.getComment());
+            statement.setString(3, review.getDate());
+            statement.setInt(4, review.getOpinion());
+            statement.setInt(5, review.getPid());
+            
+            statement.executeUpdate();
+        }
     }
+//    public List<ReviewList> getReviewsForProduct(int productId) {
+//    List<ReviewList> reviews = new ArrayList<>();
+//    String query = "SELECT r.idreview, r.ic, a.name, r.comment, r.date, r.opinion " +
+//            "FROM swp_bookstore.review r JOIN swp_bookstore.account a ON r.ic = a.idAccount " +
+//            "WHERE r.pid = ?";
+//    
+//    try {
+//        PreparedStatement statement = connection.prepareStatement(query);
+//        statement.setInt(1, productId);
+//        ResultSet resultSet = statement.executeQuery();
+//
+//        while (resultSet.next()) {
+//            int reviewId = resultSet.getInt("idreview");
+//            int accountId = resultSet.getInt("ic");
+//            String accountName = resultSet.getString("name");
+//            String comment = resultSet.getString("comment");
+//            String date = resultSet.getString("date");
+//            String opinion = resultSet.getString("opinion");
+//
+//            ReviewList review = new ReviewList(reviewId, accountId, accountName, comment, date, opinion);
+//            reviews.add(review);
+//        }
+//    } catch (SQLException e) {
+//        e.printStackTrace();
+//    }
+//    
+//    return reviews;
+//}
+    
+       public int GetNumberPageReview(int productid) {
+        String sql = "SELECT count(*) FROM swp_bookstore.review r where r.pid =?";
+        int countPage = 0;
+
+        try ( PreparedStatement statement = con.prepareStatement(sql)) {
+            statement.setInt(1, productid);
+            try ( ResultSet rs = statement.executeQuery()) {
+                if (rs.next()) {
+                    int total = rs.getInt(1);
+                    countPage = total / 5;
+                    if (total % 5 != 0) {
+                        countPage++;
+                    }
+                }
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return countPage;
+    }
+
+   public List<ReviewList> getReviewByProductId(int productId, int page) {
+    List<ReviewList> reviews = new ArrayList<>();
+    String sql = "SELECT r.idreview, r.ic, a.name, r.comment, r.date, r.opinion " +
+            "FROM swp_bookstore.review r JOIN swp_bookstore.account a ON r.ic = a.idAccount " +
+            "WHERE r.pid = ? ORDER BY r.idreview LIMIT 5 OFFSET ?";
+
+    try (PreparedStatement statement = con.prepareStatement(sql)) {
+        statement.setInt(1, productId);
+        statement.setInt(2, (page - 1) * 5);
+        ResultSet rs = statement.executeQuery();
+
+        while (rs.next()) {
+            int reviewId = rs.getInt("idreview");
+            int accountId = rs.getInt("ic");
+            String accountName = rs.getString("name");
+            String comment = rs.getString("comment");
+            String date = rs.getString("date");
+            String opinion = rs.getString("opinion");
+
+            ReviewList review = new ReviewList(reviewId, accountId, accountName, comment, date, opinion);
+            reviews.add(review);
+        }
+    } catch (SQLException e) {
+        e.printStackTrace();
+    }
+
+    return reviews;
+}
+
+
+    public static void main(String[] args) {
+        List<ReviewList> reviews  = new ArrayList<>();
+        
+      CustomerDAO o = new CustomerDAO();
+//      reviews = o.getReviewsForProduct(1);
+      int count = o.GetNumberPageReview(1);
+      reviews = o.getReviewByProductId(1, 2);
+        System.out.println(reviews);
+        System.out.println(reviews.size());
+        
+    }
+
+    
 }
