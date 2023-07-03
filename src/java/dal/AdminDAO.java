@@ -51,6 +51,58 @@ public class AdminDAO extends MyDAO {
     }
     return bookList;
 }
+      public ArrayList<Category> getCategory() {
+    ArrayList<Category> CategoryList = new ArrayList<>();
+    String sql = "SELECT * FROM category";
+    try {
+        ps = con.prepareStatement(sql);
+        rs = ps.executeQuery();
+        while (rs.next()) {
+            int id = rs.getInt("");
+           
+        }
+        rs.close();
+        ps.close();
+    } catch (Exception e) {
+        e.printStackTrace();
+    }
+    return CategoryList;
+}
+       public ArrayList<String> getCatName() {
+    ArrayList<String> catList = new ArrayList<>();
+    String sql = "select catname from category ";
+    try {
+        ps = con.prepareStatement(sql);
+        rs = ps.executeQuery();
+        while (rs.next()) {
+            String cat=rs.getString("catname");
+            catList.add(cat);
+        }
+        rs.close();
+        ps.close();
+    } catch (Exception e) {
+        e.printStackTrace();
+    }
+    return catList;
+}
+       public int getcatId(String catname) {
+            int catId = -1;
+    String sql = "select idcategory from category where catname=? ";
+    try {
+        ps = con.prepareStatement(sql);
+        ps.setString(1, catname); // Set the catname parameter
+        rs = ps.executeQuery();
+        if (rs.next()) {
+            catId = rs.getInt("idCategory");
+        }
+        rs.close();
+        ps.close();
+    } catch (Exception e) {
+        e.printStackTrace();
+    }
+    return catId;
+}
+       
        public boolean addCategory(Category category) {
     String sql = "INSERT INTO category VALUES (?, ?, ?)";
     try {

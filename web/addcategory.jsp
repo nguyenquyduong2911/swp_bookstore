@@ -18,12 +18,28 @@
         <link href="css/animate.css" rel="stylesheet">
         <link href="css/main.css" rel="stylesheet">
         <link href="css/responsive.css" rel="stylesheet">
+        <link href="css/addcss.css" rel="stylesheet">
     </head>
-    <form action="addc1" method="Post">
-        Category id:<input type="text" name="catid">
-        Category name:<input type="text" name="catname">
-        Merchandise id:<input type="text" name="merid">
+    <body>
+        <div class="container">
+            <h1>Add category</h1>
+        <form action="addc1" method="Post">
+        <div class="form-group">
+                <label for="catid">Category Id:</label>
+                <input type="text" class="form-control" id="catid" name="catid" required>
+            </div>
+             <div class="form-group">
+                <label for="catname">Category name:</label>
+                <input type="text" class="form-control" id="catname" name="catname" required>
+            </div>
+             <div class="form-group">
+                <label for="merid">Merchandise Id:</label>
+                <input type="text" class="form-control" id="merid" name="merid" required>
+            </div>
         <input type="submit" value="Add category">
+        </div>
+    </form> 
         
-    </form>
+    </body>
+   
 </html>

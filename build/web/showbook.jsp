@@ -17,32 +17,55 @@
         <link href="css/animate.css" rel="stylesheet">
         <link href="css/main.css" rel="stylesheet">
         <link href="css/responsive.css" rel="stylesheet">
+         <link href="css/addcss.css" rel="stylesheet">
+<style>
+    table {
+        width: 100%;
+        max-width: 100vw;
+        border-collapse: collapse;
+        margin-bottom: 20px;
+    }
+
+    th, td {
+        padding: 8px;
+        text-align: left;
+        vertical-align: top;
+        border: 1px solid #ddd;
+    }
+
+    th {
+        background-color: #f1f1f1;
+        font-weight: bold;
+    }
+
+    tr:nth-child(even) {
+        background-color: #f9f9f9;
+    }
+
+    tr:hover {
+        background-color: #f5f5f5;
+    }
+</style>
 
    
 </head>
 <body>
-   
+    <div>
     <h1>Book Details</h1>
-    
+    <div class="table-responsive">
     <table class="table-bordered">
         <tr>
-            <th>ID</th>
-            <th>Name</th>
-            <th>Supplier</th>
-            <th>Publisher</th>
-            <th>Cover Form</th>
-            <th>Price</th>
-            <th>Quantity</th>
-            <th>Author</th>
-            <th>Year Publish</th>
-            <th>Language</th>
-            <th>Weight</th>
-            <th>Packaging Size</th>
-            <th>Number of Pages</th>
-            <th>Description</th>
-            <th>Image</th>
-            <th>Category ID</th>
-            <th>Genre</th>
+            <th>Id</th>
+            <th>Tên</th>
+            <th>Nhà cung cấp</th>
+            <th>Nhà xuất bản</th>           
+            <th>Giá</th>
+            <th>Số lượng</th>
+            <th>Tác giả</th>
+            <th>Năm xuất bản</th>       
+            <th>Mô tả</th>
+            <th>Trạng thái</th>
+            <th style="color:red;">Chỉnh sửa</th>
            
         </tr>
         <% 
@@ -54,26 +77,21 @@
                 <td><%= book.getName() %></td>
                 <td><%= book.getSupplier() %></td>
                 <td><%= book.getPublisher() %></td>
-                <td><%= book.getCover_form() %></td>
                 <td><%= book.getPrice() %></td>
                 <td><%= book.getQuantity() %></td>
                 <td><%= book.getAuthor() %></td>
                 <td><%= book.getYear_publish() %></td>
-                <td><%= book.getLanguage() %></td>
-                <td><%= book.getWeight() %></td>
-                <td><%= book.getPackage_size() %></td>
-                <td><%= book.getNum_page() %></td>
                 <td><%= book.getDescription()%></td>
-                <td><%= book.getImage() %></td>
-                <td><%= book.getCategoryID() %></td>
-                <td><%= book.getGerne_id() %></td>
+                <td><%= book.getStatus_product() == 1 ? "Hết hàng" : "Còn hàng" %></td>
+                
                 
             </tr>
         <% 
             }
         %>
     </table>
-   
+   </div>
+    </div>
     <script src="js/jquery.js"></script>
 <script src="js/bootstrap.min.js"></script>
 </body>

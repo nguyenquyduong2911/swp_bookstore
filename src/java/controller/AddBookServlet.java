@@ -33,7 +33,7 @@ protected void doPost(HttpServletRequest request, HttpServletResponse response)
         throws ServletException, IOException {
     response.setContentType("text/html;charset=UTF-8");
     PrintWriter pr = response.getWriter();
-
+ AdminDAO dao = new AdminDAO();  
     // Retrieve the book details from the request parameters
     int bookid = Integer.parseInt(request.getParameter("id"));
     String name = request.getParameter("name");
@@ -51,7 +51,8 @@ protected void doPost(HttpServletRequest request, HttpServletResponse response)
     int numPage = Integer.parseInt(request.getParameter("numpage"));
     String description = request.getParameter("description");
     String image = request.getParameter("image");
-    int categoryId = Integer.parseInt(request.getParameter("categoryID"));
+    String category=request.getParameter("categoryID");
+    int categoryId = dao.getcatId(category);
     int genreId = Integer.parseInt(request.getParameter("genreID"));
     int bookimgId = Integer.parseInt(request.getParameter("bookimgid"));
     int statusProduct = Integer.parseInt(request.getParameter("statusproduct"));
@@ -60,14 +61,15 @@ protected void doPost(HttpServletRequest request, HttpServletResponse response)
     book_detail newBook = new book_detail(bookid, name, supplier, publisher, coverForm, price, quantity,
             author, yearPublish, language, weight, packageSize, numPage, description, image,
             categoryId, genreId, bookimgId, statusProduct);
-    AdminDAO dao = new AdminDAO();  
+   
     boolean check=dao.addBookdetail(newBook);
-    if(check){
-        pr.println("true");
-    }
-    else{
-        pr.print("false");
-    }
+    if (check) {
+    pr.println("<script>alert('Book added successfully!');"
+            + "window.location.href='addbook.jsp';</script>");
+} else {
+    pr.println("<script>alert('Failed to add book!');</script>");
+}
+
 
 }   
 

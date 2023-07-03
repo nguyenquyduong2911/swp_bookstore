@@ -1,4 +1,8 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ page import="java.sql.*" %>
+<%@ page import="java.util.*" %>
+<%@ page import="dal.*" %>
+<%@ page import="entity.*" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,6 +16,7 @@
     <link href="css/animate.css" rel="stylesheet">
     <link href="css/main.css" rel="stylesheet">
     <link href="css/responsive.css" rel="stylesheet">
+    <link href="css/addcss.css" rel="stylesheet">
 </head>
 <body>
     <div class="container">
@@ -78,10 +83,20 @@
                 <label for="image">Image:</label>
                 <input type="text " class="form-control" id="image" name="image" required>
             </div>
-            <div class="form-group">
-                <label for="categoryID">Category ID:</label>
-                <input type="number" class="form-control" id="categoryID" name="categoryID" required>
-            </div>
+        <div class="form-group">
+    <label for="categoryID">Category:</label>
+    <select class="form-control" id="categoryID" name="categoryID" required>
+        <option value="">Select a category</option>
+        <% 
+            AdminDAO dao = new AdminDAO();
+            ArrayList<String> catList = dao.getCatName(); // Call the method to retrieve the category names
+            for (String category : catList) {
+        %>
+        <option value="<%= category %>"><%= category %></option>
+        <% } %>
+    </select>
+</div>
+
             <div class="form-group">
                 <label for="genreID">Genre ID:</label>
                 <input type="number" class="form-control" id="genreID" name="genreID" required>
@@ -95,8 +110,9 @@
                 <input type="number" class="form-control" id="statusProduct" name="statusproduct" required>
             </div>
 
-            <input type="submit" value="Add book">
+            <input type="submit" value="Add book">  <button><a href="admin.jsp">Go back to admin page</a></button>
         </form>
+        
     </div>
 
     <script src="js/jquery.js"></script>
