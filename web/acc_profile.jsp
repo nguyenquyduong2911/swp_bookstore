@@ -151,6 +151,7 @@ out.println("<li><a href=\"login.jsp\"><i class=\"fa fa-lock\"></i> Login</a></l
                         <ul class="nav nav-pills nav-stacked">
                             <li class="active"><a href="account_detail?id=${curr.idAccount}"> <i class="fa fa-user"></i> Profile</a></li>
                             <li><a href="edit_accountdetail?id=${curr.idAccount}"> <i class="fa fa-edit"></i> Edit profile</a></li>
+                            <li><a href="orderhistory?id=${curr.idAccount}"> <i class="fa fa-edit"></i> Order History</a></li>
                         </ul>
                     </div>
                 </div>

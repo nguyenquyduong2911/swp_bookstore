@@ -4,11 +4,7 @@
  */
 package dal;
 
-import entity.Account;
-import entity.CustomerReview;
-import entity.ReviewList;
-import entity.acc_detail;
-import entity.book_show;
+import entity.*;
 import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -21,7 +17,28 @@ import java.util.List;
  * @author taote
  */
 public class CustomerDAO extends MyDAO {
-
+    
+    public ArrayList<OrderHistory> getOrderHistory(int id){
+        ArrayList<OrderHistory> o = new ArrayList<>();
+        xSql = "select o.cid, d.image, d.product_name, c.price, c.quantity, o.totalmoney, o.status  from swp_bookstore.order"
+                + " o join swp_bookstore.orderline c join swp_bookstore.bookdetailed d where"
+                + " c.oid=o.id and d.book_id=c.pid and o.cid=?";
+        try {
+            ps = con.prepareStatement(xSql);
+            ps.setInt(1, id);
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                OrderHistory c = new OrderHistory(rs.getInt("cid"),rs.getString("image"),
+                        rs.getString("product_name"),rs.getFloat("price"),rs.getInt("quantity"),rs.getDouble("totalmoney"), rs.getInt("status"));
+                o.add(c);
+            }
+            rs.close();
+            ps.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return (o);
+    }
     public Account getAccount(String email, String pass) {
         Account x = null;
 

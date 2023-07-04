@@ -5,8 +5,10 @@
         <group>
             <file>file:/D:/PRj/swp_bookstore/web/addbook.jsp</file>
             <file>file:/D:/PRj/swp_bookstore/web/css/addcss.css</file>
+            <file>file:/D:/PRj/swp_bookstore/web/home.jsp</file>
             <file>file:/D:/PRj/swp_bookstore/web/showbook.jsp</file>
             <file>file:/D:/PRj/swp_bookstore/src/java/dal/DAO.java</file>
+            <file>file:/D:/PRj/swp_bookstore/web/META-INF/context.xml</file>
             <file>file:/D:/PRj/swp_bookstore/web/addcategory.jsp</file>
             <file>file:/D:/PRj/swp_bookstore/src/java/controller/AddBookServlet.java</file>
             <file>file:/D:/PRj/swp_bookstore/src/java/dal/AdminDAO.java</file>
@@ -14,8 +16,10 @@
             <file>file:/D:/PRj/swp_bookstore/web/acc_profile.jsp</file>
             <file>file:/D:/PRj/swp_bookstore/src/java/controller/AddCategory1Servlet.java</file>
             <file>file:/D:/PRj/swp_bookstore/web/edit_accountdetail.jsp</file>
+            <file>file:/D:/PRj/swp_bookstore/src/java/controller/LoginServlet.java</file>
             <file>file:/D:/PRj/swp_bookstore/src/java/entity/book_detail.java</file>
             <file>file:/D:/PRj/swp_bookstore/web/css/animate.css</file>
+            <file>file:/D:/PRj/swp_bookstore/web/WEB-INF/web.xml</file>
             <file>file:/D:/PRj/swp_bookstore/src/java/entity/acc_detail.java</file>
             <file>file:/D:/PRj/swp_bookstore/src/java/controller/RegisterServlet.java</file>
         </group>

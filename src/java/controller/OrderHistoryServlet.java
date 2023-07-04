@@ -4,12 +4,9 @@
  */
 package controller;
 
-
 import dal.*;
 import entity.*;
-
 import jakarta.servlet.ServletException;
-
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
@@ -18,26 +15,30 @@ import java.io.PrintWriter;
 import java.util.ArrayList;
 
 
-
 /**
  *
  * @author Admin
  */
-public class ListBookServlet extends HttpServlet {
+public class OrderHistoryServlet extends HttpServlet {
+
     @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-    response.setContentType("text/html;charset=UTF-8");
-    PrintWriter pr = response.getWriter();
-    AdminDAO dao = new AdminDAO();
-    ArrayList<book_detail> b = dao.getBookDetails();
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        response.setContentType("text/html;charset=UTF-8");
+        PrintWriter pr = response.getWriter();
+    int id = Integer.parseInt(request.getParameter("id"));
+    CustomerDAO dao = new CustomerDAO();
+     ArrayList<OrderHistory> b = dao.getOrderHistory(id);
+   
+
     if (b == null) {
         pr.print("null");
     } else {
-       request.setAttribute("bookdetail", b);
-       request.getRequestDispatcher("showbook.jsp").forward(request, response);
+        request.setAttribute("orderlist", b);
+       request.getRequestDispatcher("orderhistory.jsp").forward(request, response);
 }
+    }
+  
 
 
-    
-
-}}
+}

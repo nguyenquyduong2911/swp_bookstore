@@ -59,6 +59,7 @@ protected void doPost(HttpServletRequest request, HttpServletResponse response)
                 // Add the cookies to the response
                 response.addCookie(emailCookie);
                 response.addCookie(passwordCookie);
+                
             }
             response.sendRedirect("home");
         }

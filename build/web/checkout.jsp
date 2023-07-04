@@ -327,7 +327,7 @@ out.println("<li><a href=\"login.jsp\"><i class=\"fa fa-lock\"></i> Login</a></l
                                                     <div class="col-sm-6">
 
                                                         <button type="submit" class="btn btn-default check_out">
-                                                            <i>Payment Confirmation</i>
+                                                            Payment Confirmation
                                                         </button>
 
                                                     </div>

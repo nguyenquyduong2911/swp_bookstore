@@ -33,11 +33,12 @@ public class OrderDAO extends MyDAO {
        
         try {
             // Add to the "order" table
-            String sql = "INSERT INTO `Order` (`date`, `cid`, `totalmoney`) VALUES (?, ?, ?)";
+            String sql = "INSERT INTO `Order` (`date`, `cid`, `totalmoney`, `status`) VALUES (?, ?, ?, ?)";
             try ( PreparedStatement st = con.prepareStatement(sql)) {
                 st.setString(1, date);
                 st.setInt(2, ac.getIdAccount());
                 st.setDouble(3, cart.getTotalMoney());
+                st.setInt(4, 0);
                 st.executeUpdate();
             }
 
