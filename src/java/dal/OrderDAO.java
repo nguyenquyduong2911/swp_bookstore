@@ -12,6 +12,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.time.LocalDate;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -20,17 +22,54 @@ import java.time.LocalDate;
 public class OrderDAO extends MyDAO {
 
     public static void main(String[] args) {
-        LocalDate curDate = java.time.LocalDate.now();
-        String date = curDate.toString();
-        Account ac = new Account();
-        int i = ac.getIdAccount();
-        System.out.println(i);
+        int idP =1 ;
+        int idA = 1;
+        int quantity = 10;
+        int price = 30;
+        OrderDAO o = new OrderDAO();
+        try {
+            o.insertCart(idP, idA, quantity, price);
+        } catch (SQLException ex) {
+            Logger.getLogger(OrderDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
+
+    public void insertCart(int idProduct, int idAccount, int quantity, double price) throws SQLException {
+    String sql1 = "INSERT INTO swp_bookstore.item (idProduct, quantity, price) VALUES (?, ?, ?)";
+
+    try (PreparedStatement st1 = connection.prepareStatement(sql1)) {
+        st1.setInt(1, idProduct);
+        st1.setInt(2, quantity);
+        st1.setDouble(3, price);
+
+        st1.executeUpdate();
+
+        String sql2 = "SELECT idItem FROM item ORDER BY idItem DESC LIMIT 1";
+        try (PreparedStatement st2 = connection.prepareStatement(sql2)) {
+            try (ResultSet rs = st2.executeQuery()) {
+                if (rs.next()) {
+                    int idItem = rs.getInt("idItem");
+
+                    String sql3 = "INSERT INTO cart (idItem, idAccount) VALUES (?, ?)";
+                    try (PreparedStatement st3 = connection.prepareStatement(sql3)) {
+                        st3.setInt(1, idItem);
+                        st3.setInt(2, idAccount);
+
+                        st3.executeUpdate();
+                    }
+                }
+            }
+        }
+    } catch (SQLException e) {
+        e.printStackTrace();
+    }
+}
+
 
     public void addOrder(Account ac, Cart cart, OrderCustomerInfo oci) throws SQLException {
         LocalDate curDate = java.time.LocalDate.now();
         String date = curDate.toString();
-       
+
         try {
             // Add to the "order" table
             String sql = "INSERT INTO `Order` (`date`, `cid`, `totalmoney`) VALUES (?, ?, ?)";
