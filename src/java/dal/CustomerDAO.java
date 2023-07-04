@@ -219,6 +219,25 @@ public void updateAccountPassword(int accountId, String newPassword) throws SQLE
 //    
 //    return reviews;
 //}
+    public int getProductReviewCount(int productId) {
+        int reviewCount = 0;
+        String sql = "SELECT count(*) FROM swp_bookstore.review r WHERE r.pid = ?";
+
+        try (PreparedStatement statement = connection.prepareStatement(sql)) {
+            statement.setInt(1, productId);
+
+            try (ResultSet resultSet = statement.executeQuery()) {
+                if (resultSet.next()) {
+                    reviewCount = resultSet.getInt(1);
+                }
+            }
+        } catch (SQLException e) {
+            // Handle any potential exceptions
+            e.printStackTrace();
+        }
+
+        return reviewCount;
+    }
     
        public int GetNumberPageReview(int productid) {
         String sql = "SELECT count(*) FROM swp_bookstore.review r where r.pid =?";
@@ -277,10 +296,9 @@ public void updateAccountPassword(int accountId, String newPassword) throws SQLE
         
       CustomerDAO o = new CustomerDAO();
 //      reviews = o.getReviewsForProduct(1);
-      int count = o.GetNumberPageReview(1);
-      reviews = o.getReviewByProductId(1, 2);
-        System.out.println(reviews);
-        System.out.println(reviews.size());
+      int count = o.getProductReviewCount(1);
+     
+        System.out.println(count);
         
     }
 

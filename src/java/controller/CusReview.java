@@ -93,7 +93,7 @@ public class CusReview extends HttpServlet {
         String rawopinion = request.getParameter("recommendation");
         int opinion = Integer.parseInt(rawopinion);
         String rawpid = request.getParameter("pid");
-        int pid = Integer.parseInt(rawcid);
+        int pid = Integer.parseInt(rawpid);
         
         CustomerReview cr = new CustomerReview(cid, review, date, opinion,pid);
         CustomerDAO  dao = new CustomerDAO();

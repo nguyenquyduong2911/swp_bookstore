@@ -28,6 +28,12 @@
         <link rel="apple-touch-icon-precomposed" sizes="114x114" href="images/ico/apple-touch-icon-114-precomposed.png">
         <link rel="apple-touch-icon-precomposed" sizes="72x72" href="images/ico/apple-touch-icon-72-precomposed.png">
         <link rel="apple-touch-icon-precomposed" href="images/ico/apple-touch-icon-57-precomposed.png">
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <style>
+            .nav.nav-tabs > li.active > a {
+                background-color: orange;
+            }
+        </style>
     </head><!--/head-->
 
     <body>
@@ -297,7 +303,7 @@ out.println("<li><a href=\"login.jsp\"><i class=\"fa fa-lock\"></i> Login</a></l
                         <div class="category-tab"><!--category-tab-->
                             <div class="col-sm-12">
                                 <ul class="nav nav-tabs">
-                                    <li><a href="#" data-category-id="1">Tiểu Thuyết Mới</a></li>
+                                    <li class="active"><a href="#" data-category-id="1">Tiểu Thuyết Mới</a></li>
                                     <li><a href="#" data-category-id="3">Truyện tranh nhật bản</a></li>
                                     <li><a href="#" data-category-id="4">Sách đề tài trinh thám</a></li>
                                     <li><a href="#" data-category-id="5">Sách kinh doanh</a></li>
@@ -307,7 +313,14 @@ out.println("<li><a href=\"login.jsp\"><i class=\"fa fa-lock\"></i> Login</a></l
                                 <!-- Content will be dynamically loaded here -->
                             </div>
                         </div><!--/category-tab-->
-
+                        <script>
+                            $(document).ready(function () {
+                                $(".nav.nav-tabs > li").click(function () {
+                                    $(".nav.nav-tabs > li").removeClass("active");
+                                    $(this).addClass("active");
+                                });
+                            });
+                        </script>
 
                         <div class="recommended_items"><!--recommended_items-->
                             <h2 class="title text-center">recommended items</h2>
