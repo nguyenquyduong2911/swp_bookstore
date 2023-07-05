@@ -7,6 +7,7 @@ package controller;
 import dal.*;
 import entity.*;
 import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
@@ -19,6 +20,7 @@ import java.util.ArrayList;
  *
  * @author Admin
  */
+@WebServlet(name="OrderDetailServlet", urlPatterns={"/orderdetail"})
 public class OrderDetailServlet extends HttpServlet {
 
     @Override
