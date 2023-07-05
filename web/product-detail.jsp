@@ -303,8 +303,8 @@ out.println("<li><a href=\"login.jsp\"><i class=\"fa fa-lock\"></i> Login</a></l
         if (x != null) { %>
                                         <p><b>Write Your Review</b></p>
                                         <form action="review" method="post">
-                                            <input  name="cid" value="${curr.idAccount}">
-                                            <input  name="pid" value="${bd.id}">
+                                            <input class="hidden"  name="cid" value="${curr.idAccount}">
+                                            <input class="hidden"  name="pid" value="${bd.id}">
 
                                             <textarea name="review"></textarea>
 
