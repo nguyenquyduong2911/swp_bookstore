@@ -140,6 +140,7 @@ out.println("<li><a href=\"login.jsp\"><i class=\"fa fa-lock\"></i> Login</a></l
             </div><!--/header-bottom-->
         </header><!--/header-->
 
+<<<<<<< Updated upstream
 <div class="container bootdey">
     <div class="row">
         <div class="profile-nav col-md-3">
@@ -150,6 +151,27 @@ out.println("<li><a href=\"login.jsp\"><i class=\"fa fa-lock\"></i> Login</a></l
                     </a>
                     <h1>Camila Smith</h1>
                     <p>deydey@theEmail.com</p>
+=======
+        <div class="container bootdey">
+            <div class="row">
+                <div class="profile-nav col-md-3">
+                    <div class="panel">
+                        <div class="user-heading round">
+                            <a href="#">
+                                <img src="https://t4.ftcdn.net/jpg/00/64/67/63/360_F_64676383_LdbmhiNM6Ypzb3FM4PPuFP9rHe7ri8Ju.jpg" alt="">
+                            </a>
+                            <h1>${a.first_name} ${a.last_name}</h1>
+                            <p>${a.email}</p>
+                        </div>
+
+                        <ul class="nav nav-pills nav-stacked">
+                            <li class="active"><a href="account_detail?id=${curr.idAccount}"> <i class="fa fa-user"></i> Profile</a></li>
+                            <li><a href="edit_accountdetail?id=${curr.idAccount}"> <i class="fa fa-edit"></i> Edit profile</a></li>
+                            <li><a href="orderhistory?id=${curr.idAccount}"> <i class="fa fa-edit"></i> Order History</a></li>
+                            <li><a href="ordersum?id=${curr.idAccount}"> <i class="fa fa-edit"></i> Order Summary</a></li>
+                        </ul>
+                    </div>
+>>>>>>> Stashed changes
                 </div>
 
                 <ul class="nav nav-pills nav-stacked">
