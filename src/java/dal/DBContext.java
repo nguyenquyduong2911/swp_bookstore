@@ -45,3 +45,30 @@ public class DBContext {
         }
     }
 }
+
+//package dal;
+//
+//import java.sql.Connection;
+//import java.sql.DriverManager;
+//import java.sql.SQLException;
+//import java.util.logging.Level;
+//import java.util.logging.Logger;
+//
+//public class DBContext {
+//    public Connection connection;
+//
+//    public DBContext() {
+//        try {
+//            // Change the username, password, and database name to connect to your own database
+//            
+//            String url="jdbc:mysql://swpbookstore1.mysql.database.azure.com:3306/swp_bookstore?useSSL=true";
+//
+//            Class.forName("com.mysql.cj.jdbc.Driver");
+//            
+//            connection = DriverManager.getConnection(url, "azurehecate", "Supernova12345");
+//
+//        } catch (ClassNotFoundException | SQLException ex) {
+//            Logger.getLogger(DBContext.class.getName()).log(Level.SEVERE, null, ex);
+//        }
+//    }
+//}
