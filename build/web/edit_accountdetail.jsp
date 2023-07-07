@@ -213,6 +213,7 @@ out.println("<li><a href=\"login.jsp\"><i class=\"fa fa-lock\"></i> Login</a></l
                         <ul class="nav nav-pills nav-stacked">
                             <li><a href="account_detail?id=${curr.idAccount}"> <i class="fa fa-user"></i> Profile</a></li>
                             <li class="active"><a href="edit_accountdetail?id=${curr.idAccount}"> <i class="fa fa-edit"></i> Edit profile</a></li>
+                            <li><a href="ordersum?id=${curr.idAccount}"> <i class="fa fa-edit"></i> Order Summary</a></li>
                         </ul>
                     </div>
                 </div>
@@ -289,35 +290,35 @@ out.println("<li><a href=\"login.jsp\"><i class=\"fa fa-lock\"></i> Login</a></l
                     passwordFields.style.display = 'none';
                 }
             });
-    
-  function validatePassword() {
-    const changePasswordCheckbox = document.getElementById("change_password");
-    const currentPassword = document.getElementById("current_password").value;
-    const newPassword = document.getElementById("new_password").value;
-    const reenterPassword = document.getElementById("reenter_password").value;
-    const passwordWarning = document.getElementById("password_warning");
 
-    if (changePasswordCheckbox.checked) {
-      if (currentPassword !== "${curr.password}") {
-        passwordWarning.textContent = "Invalid password.";
-        passwordWarning.style.display = "block";
-        event.preventDefault(); // Prevents form submission if passwords don't match
-      } else if (newPassword === currentPassword) {
-        passwordWarning.textContent = "New password should be different from the current password.";
-        passwordWarning.style.display = "block";
-        event.preventDefault(); // Prevents form submission if passwords don't match
-      } else if (newPassword !== reenterPassword) {
-        passwordWarning.textContent = "Passwords do not match.";
-        passwordWarning.style.display = "block";
-        event.preventDefault(); // Prevents form submission if passwords don't match
-      } else {
-        passwordWarning.style.display = "none";
-      }
-    } else {
-      passwordWarning.style.display = "none";
-    }
-  }
-</script>
+            function validatePassword() {
+                const changePasswordCheckbox = document.getElementById("change_password");
+                const currentPassword = document.getElementById("current_password").value;
+                const newPassword = document.getElementById("new_password").value;
+                const reenterPassword = document.getElementById("reenter_password").value;
+                const passwordWarning = document.getElementById("password_warning");
+
+                if (changePasswordCheckbox.checked) {
+                    if (currentPassword !== "${curr.password}") {
+                        passwordWarning.textContent = "Invalid password.";
+                        passwordWarning.style.display = "block";
+                        event.preventDefault(); // Prevents form submission if passwords don't match
+                    } else if (newPassword === currentPassword) {
+                        passwordWarning.textContent = "New password should be different from the current password.";
+                        passwordWarning.style.display = "block";
+                        event.preventDefault(); // Prevents form submission if passwords don't match
+                    } else if (newPassword !== reenterPassword) {
+                        passwordWarning.textContent = "Passwords do not match.";
+                        passwordWarning.style.display = "block";
+                        event.preventDefault(); // Prevents form submission if passwords don't match
+                    } else {
+                        passwordWarning.style.display = "none";
+                    }
+                } else {
+                    passwordWarning.style.display = "none";
+                }
+            }
+        </script>
 
 
         <!-- Footer code goes here -->
