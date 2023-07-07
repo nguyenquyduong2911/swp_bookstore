@@ -38,7 +38,7 @@ public class OrderDetailServlet extends HttpServlet {
         pr.print("null");
     } else {
         request.setAttribute("orderdetail", b);
-       request.getRequestDispatcher("orderdetail.jsp").forward(request, response);
+       request.getRequestDispatcher("accountorderdetail.jsp").forward(request, response);
 }
     }
   

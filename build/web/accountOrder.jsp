@@ -136,55 +136,71 @@ out.println("<li><a href=\"login.jsp\"><i class=\"fa fa-lock\"></i> Login</a></l
             </div><!--/header-bottom-->
         </header><!--/header-->
 
-        <div class="container bootdey">
-            <div class="row">
-                <div class="profile-nav col-md-3">
-                    <div class="panel">
-                        <div class="user-heading round">
-                            <a href="#">
-                                <img src="https://t4.ftcdn.net/jpg/00/64/67/63/360_F_64676383_LdbmhiNM6Ypzb3FM4PPuFP9rHe7ri8Ju.jpg" alt="">
-                            </a>
-                            <h1>${a.first_name} ${a.last_name}</h1>
-                            <p>${a.email}</p>
-                        </div>
-
-                        <ul class="nav nav-pills nav-stacked">
-                            <li class="active"><a href="account_detail?id=${curr.idAccount}"> <i class="fa fa-user"></i> Profile</a></li>
-                            <li><a href="edit_accountdetail?id=${curr.idAccount}"> <i class="fa fa-edit"></i> Edit profile</a></li>
-                            <li><a href="ordersum?id=${curr.idAccount}"> <i class="fa fa-edit"></i> Order Summary</a></li>
-                        </ul>
-                    </div>
+       
+                        <section id="cart_items">
+            <div class="container">   
+                 <div class="breadcrumbs">
+                    <ol class="breadcrumb">
+                        <li><a href="javascript:history.back()">Back</a></li>
+                        <li class="active">Order Summary</li>
+                    </ol>
                 </div>
-                <div class="profile-info col-md-9">
+                <div class="table-responsive cart_info">
+                    <table class="table table-condensed">
+                        <thead>
+                            <tr class="cart_menu">
+                                <td class="image">Order ID</td>
+                                <td class="description">Item</td>
+                                <td class="price">Order Placed</td>
+                                <td class="quantity">Status</td>
+                                <td class="price">Total Price</td>
+                                <td class="total"></td>
+                                <td></td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <c:forEach items="${ordersum}" var="i">     
+                                <tr>                                                                        
+                                    <td class="cart_description">
+                                        <div class="col-sm-12">
+                                            <h4><a>${i.id}</a></h4>
+                                        </div>
+                                    </td>
+                                    <td class="cart_description">
+                                       
+                                            <h4><a>${i.book_count}</a></h4>
+                                        
+                                    </td>
+                                    <td class="cart_description">
+                                       
+                                            <h4><a>${i.date}</a></h4>
+                                        
+                                    </td>
+                                    <td class="cart_description">
+                                       
+                                            <h4><a> ${i.status == 0 ? 'Chờ xử lí' : i.status == 1 ? 'Đã chấp nhận' : ''}</a></h4>
+                                        
+                                    </td>
+                                    <td class="cart_description">
+                                        
+                                            <h4><a>${i.total_price}</a></h4>
+                                       
+                                    </td>
+                                    <td class="cart_description">
+                                      
+                                            <h4><a href="orderdetail?oid=${i.id}&id=${curr.idAccount}">ViewDetail</a></h4>
+                                     
+                                    </td>
+                                                                 
+                                </tr>
+                            </c:forEach>
+                        </tbody>
 
-                    <div class="panel">
-                        <div class="panel-body bio-graph-info">
-                            <h1>Bio Graph</h1>
-
-                            <div class="row">
-                                <div class="bio-row">
-                                    <p><span>First Name</span>: ${a.first_name}</p>
-                                </div>
-                                <div class="bio-row">
-                                    <p><span>Last Name</span>: ${a.last_name}</p>
-                                </div>
-                                <div class="bio-row">
-                                    <p><span>Phone number</span>: ${a.phone}</p>
-                                </div>
-                                <div class="bio-row">
-                                    <p><span>Gender</span>: ${a.gender == 1 ? 'Male' : a.gender == 0 ? 'Female' : ''}</p>
-                                </div>
-                                <div class="bio-row">
-                                    <p><span>Birthday</span>: ${a.dob}</p>
-                                </div>
-                                <div class="bio-row">
-                                    <p><span>Email</span>: ${a.email}</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    </table>
                 </div>
             </div>
-        </div>
+        </section> <!--/#cart_items-->
 
 </html>
+
+   

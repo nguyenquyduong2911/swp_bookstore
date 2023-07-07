@@ -37,7 +37,7 @@ public class OrderSummaryServlet extends HttpServlet {
         pr.print("null");
     } else {
         request.setAttribute("ordersum", b);
-       request.getRequestDispatcher("ordersummary.jsp").forward(request, response);
+       request.getRequestDispatcher("accountOrder.jsp").forward(request, response);
 }
     }
   

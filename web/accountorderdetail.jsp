@@ -1,5 +1,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ page import="java.sql.*" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page import="java.sql.*" %>      
 <%@ page import="java.util.*" %>
 <%@ page import="dal.*" %>
 <%@ page import="entity.*" %>
@@ -136,55 +138,64 @@ out.println("<li><a href=\"login.jsp\"><i class=\"fa fa-lock\"></i> Login</a></l
             </div><!--/header-bottom-->
         </header><!--/header-->
 
-        <div class="container bootdey">
-            <div class="row">
-                <div class="profile-nav col-md-3">
-                    <div class="panel">
-                        <div class="user-heading round">
-                            <a href="#">
-                                <img src="https://t4.ftcdn.net/jpg/00/64/67/63/360_F_64676383_LdbmhiNM6Ypzb3FM4PPuFP9rHe7ri8Ju.jpg" alt="">
-                            </a>
-                            <h1>${a.first_name} ${a.last_name}</h1>
-                            <p>${a.email}</p>
-                        </div>
 
-                        <ul class="nav nav-pills nav-stacked">
-                            <li class="active"><a href="account_detail?id=${curr.idAccount}"> <i class="fa fa-user"></i> Profile</a></li>
-                            <li><a href="edit_accountdetail?id=${curr.idAccount}"> <i class="fa fa-edit"></i> Edit profile</a></li>
-                            <li><a href="ordersum?id=${curr.idAccount}"> <i class="fa fa-edit"></i> Order Summary</a></li>
-                        </ul>
-                    </div>
+        <section id="cart_items">
+            <div class="container"> 
+                <div class="breadcrumbs">
+                    <ol class="breadcrumb">
+                        <li><a href="javascript:history.back()">Back</a></li>
+                        <li class="active">Order Detail</li>
+                    </ol>
                 </div>
-                <div class="profile-info col-md-9">
+                <div class="table-responsive cart_info">
+                    <table class="table table-condensed">
+                        <thead>
+                            <tr class="cart_menu">
+                                <td class="image">Image</td>
+                                <td class="description">Item</td>                              
+                                <td class="price"> Price</td>
+                                  <td class="quantity">Quantity</td>
+                                <td class="total">Total</td>
+                                <td></td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <c:forEach items="${orderdetail}" var="i">     
+                                <tr> 
+                                    <td class="cart_product">
+                                        <div class="col-sm-12">
+                                            <div class="product_image">
+                                                <a href=""><img style="width: 110px; height: 110px;" src="${i.image}" alt=""></a>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="cart_description">
+                                        <div class="col-sm-12">
+                                            <h4><a>${i.product_name}</a></h4>
+                                        </div>
+                                    </td>
+                                    <td class="cart_price">
+                                        <p>$${i.price}</p>
+                                    </td>
+                                  <td class="cart_quantity">
+                                            <div class="cart_quantity_button">
+                                                <input id="quantityInput" class="cart_quantity_input" type="text" name="quantity" value="${i.quantity}" autocomplete="off" size="2" readonly>
+                                            </div>
+                                        </td> 
+                                   
+                                    <td class="cart_total">
+                                        <p class="cart_total_price">$<fmt:formatNumber value="${i.price * i.quantity}" pattern="0.00" /></p>
+                                    </td>
+                                    
 
-                    <div class="panel">
-                        <div class="panel-body bio-graph-info">
-                            <h1>Bio Graph</h1>
+                                </tr>
+                            </c:forEach>
+                        </tbody>
 
-                            <div class="row">
-                                <div class="bio-row">
-                                    <p><span>First Name</span>: ${a.first_name}</p>
-                                </div>
-                                <div class="bio-row">
-                                    <p><span>Last Name</span>: ${a.last_name}</p>
-                                </div>
-                                <div class="bio-row">
-                                    <p><span>Phone number</span>: ${a.phone}</p>
-                                </div>
-                                <div class="bio-row">
-                                    <p><span>Gender</span>: ${a.gender == 1 ? 'Male' : a.gender == 0 ? 'Female' : ''}</p>
-                                </div>
-                                <div class="bio-row">
-                                    <p><span>Birthday</span>: ${a.dob}</p>
-                                </div>
-                                <div class="bio-row">
-                                    <p><span>Email</span>: ${a.email}</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    </table>
                 </div>
             </div>
-        </div>
+        </section> <!--/#cart_items-->
 
 </html>
+
