@@ -62,25 +62,25 @@ crossorigin="anonymous"></script>
     <hr>
     <ul class="nav nav-pills flex-column mb-auto">
         <li class="nav-item">
-            <a href="addbook" class=" nav-link  text-white <%=request.getServletPath().equals("addbook.jsp")?"active":""%>" aria-current="page">
+            <a href="addbook" class=" nav-link  text-white"%>
                 <svg class="bi pe-none me-2" width="16" height="16"></svg>
                 Add book
             </a>
         </li>
         <li>
-            <a href="listbook" class="nav-link  text-white <%=request.getServletPath().equals("listbook.jsp")?"active":""%>">
+            <a href="listbook" class="nav-link  text-white"%>
                 <svg class="bi pe-none me-2" width="16" height="16"></svg>
                 Show book
             </a>
         </li>
         <li>
-            <a href="addc1" class="nav-link text-white <%=request.getServletPath().startsWith("addc1.jsp")?"active":""%>">
+            <a href="addc1" class="nav-link text-white"%>
                 <svg class="bi pe-none me-2" width="16" height="16"></svg>
                 Add Category
             </a>
         </li>
         <li>
-            <a href="userlist" class="nav-link text-white <%=request.getServletPath().equals("userlist.jsp")?"active":""%>">
+            <a href="userlist" class="nav-link text-white"%>
                 <svg class="bi pe-none me-2" width="16" height="16"></svg>
                 Show user
             </a>
