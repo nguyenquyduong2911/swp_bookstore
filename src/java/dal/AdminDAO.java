@@ -51,6 +51,29 @@ public class AdminDAO extends MyDAO {
     }
     return bookList;
 }
+      public ArrayList<Account> getAccount() {
+    ArrayList<Account> x = new ArrayList<>();
+
+    xSql = "SELECT * FROM account WHERE role=?";
+    try {
+        ps = con.prepareStatement(xSql);
+        ps.setString(1, "user");
+        rs = ps.executeQuery();
+
+        while (rs.next()) {
+            Account b = new Account(rs.getInt("idAccount"), rs.getString("password"), rs.getString("name"), rs.getString("email"), rs.getString("role"));
+            x.add(b);
+        }
+        
+        rs.close();
+        ps.close();
+    } catch (Exception e) {
+        e.printStackTrace();
+    }
+    
+    return x;
+}
+
       public ArrayList<Category> getCategory() {
     ArrayList<Category> CategoryList = new ArrayList<>();
     String sql = "SELECT * FROM category";

@@ -31,11 +31,7 @@
         <li><a href="addbook">Add book</a></li>
         <li><a href="listbook">Show book</a></li>
         <li><a href="addc1">Add category</a></li>
-        <li><a href="url">Modify book</a></li>
-        <li><a href="url">Modify category</a></li>
-        <li><a href="url">Show user</a></li>
-        <li><a href="url">Delete user</a></li>
-        <li><a href="url">Modify user role</a></li>
+        <li><a href="userlist">Show user</a></li>
     </ul>
 </body>
 <% } %>
