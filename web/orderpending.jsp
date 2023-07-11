@@ -8,7 +8,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Show Order History</title>
+        <title>Show Order Pending</title>
         <style>
     table {
         width: 100%;
@@ -50,31 +50,31 @@
 </style>
     </head>
     <body>
-        <h1>Order History</h1>
+        <h1>Order Pending</h1>
         
         <table>
             <tr>
                 <th>Id</th>
+                <th>Customer ID</th>
                 <th>Số lượng sản phẩm</th>
                 <th>Ngày tạo</th>
                 <th>Thành tiền</th>
-                <th>Trạng thái</th>
-                <th></th>
+                <th>Thao tác</th>
             </tr>
             
             
             <% 
-            ArrayList<OrderSummary> o = (ArrayList<OrderSummary>) request.getAttribute("ordersum");
-            Account x = (Account) request.getSession().getAttribute("curr");
-            for (OrderSummary order : o) {
+            ArrayList<OrderPending> o = (ArrayList<OrderPending>) request.getAttribute("orderpending");
+            for (OrderPending order : o) {
         %>
             <tr>
                 <td><%= order.getId() %></td>
+                <td><%= order.getCid() %></td>
                 <td><%= order.getBook_count() %></td>
                 <td><%= order.getDate() %></td>
                 <td><%= order.getTotal_price() %></td>
-                <td><%= order.getStatus()==0?"Chờ xử lý":"Đã chấp nhận" %></td>
-                <td><a href="orderdetail?oid=<%= order.getId() %>&id=<%= x.getIdAccount() %>">Chi tiết đơn hàng</a></td>
+                <td><a href="approve?id=<%= order.getId() %>">Approve</a> ||
+                <a href="decline?id=<%= order.getId() %>">Decline</a></td>
 
             </tr>
              <% 

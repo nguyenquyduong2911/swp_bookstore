@@ -52,6 +52,18 @@
         <servlet-name>UserListServlet</servlet-name>
         <servlet-class>controller.UserListServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>PendingOrderServlet</servlet-name>
+        <servlet-class>controller.PendingOrderServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ApproveServlet</servlet-name>
+        <servlet-class>controller.ApproveServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>DeclineServlet</servlet-name>
+        <servlet-class>controller.DeclineServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>RegisterServlet</servlet-name>
         <url-pattern>/register</url-pattern>
@@ -103,6 +115,18 @@
     <servlet-mapping>
         <servlet-name>UserListServlet</servlet-name>
         <url-pattern>/userlist</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>PendingOrderServlet</servlet-name>
+        <url-pattern>/pendingorder</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ApproveServlet</servlet-name>
+        <url-pattern>/approve</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DeclineServlet</servlet-name>
+        <url-pattern>/decline</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

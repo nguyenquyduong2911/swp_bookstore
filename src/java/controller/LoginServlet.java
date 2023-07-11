@@ -46,22 +46,27 @@ protected void doPost(HttpServletRequest request, HttpServletResponse response)
         request.setAttribute("ls", false);
         request.getRequestDispatcher("login.jsp").forward(request, response);
     } else {
-        if (u.getRole().equals("admin")) {
-            response.sendRedirect("admin.jsp");
-        } else {
-            boolean rememberMe = request.getParameter("remember") != null;
-            if (rememberMe) {
-                Cookie emailCookie = new Cookie("email", email);
-                Cookie passwordCookie = new Cookie("password", pass);
-                // Set the cookie expiration time (e.g., 30 days)
-                emailCookie.setMaxAge(30 * 24 * 60 * 60);
-                passwordCookie.setMaxAge(30 * 24 * 60 * 60);
-                // Add the cookies to the response
-                response.addCookie(emailCookie);
-                response.addCookie(passwordCookie);
-                
-            }
-            response.sendRedirect("home");
+        switch (u.getRole()) {
+            case "admin":
+                response.sendRedirect("admin.jsp");
+                break;
+            case "seller":
+                response.sendRedirect("seller.jsp");
+                break;
+            default:
+                boolean rememberMe = request.getParameter("remember") != null;
+                if (rememberMe) {
+                        Cookie emailCookie = new Cookie("email", email);
+                        Cookie passwordCookie = new Cookie("password", pass);
+                        // Set the cookie expiration time (e.g., 30 days)
+                        emailCookie.setMaxAge(30 * 24 * 60 * 60);
+                        passwordCookie.setMaxAge(30 * 24 * 60 * 60);
+                        // Add the cookies to the response
+                        response.addCookie(emailCookie);
+                        response.addCookie(passwordCookie);
+                        
+                        }   response.sendRedirect("home");
+                break;
         }
     }
 }

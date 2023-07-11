@@ -178,7 +178,7 @@ out.println("<li><a href=\"login.jsp\"><i class=\"fa fa-lock\"></i> Login</a></l
                                     </td>
                                     <td class="cart_description">
                                        
-                                            <h4><a> ${i.status == 0 ? 'Chờ xử lí' : i.status == 1 ? 'Đã chấp nhận' : ''}</a></h4>
+                                            <h4><a> ${i.status == 0 ? 'Pending' : i.status == 1 ? 'Approved' : 'Cancelled'}</a></h4>
                                         
                                     </td>
                                     <td class="cart_description">
