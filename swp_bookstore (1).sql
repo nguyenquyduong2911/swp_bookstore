@@ -38,7 +38,7 @@ CREATE TABLE `account` (
 
 LOCK TABLES `account` WRITE;
 /*!40000 ALTER TABLE `account` DISABLE KEYS */;
-INSERT INTO `account` VALUES (1,'12345','Tuan','taotenduong12@gmail.com','user'),(2,'123','Thong','thongndhe170758@fpt.edu.vn','admin'),(3,'123','thong1','starvsevil03@gmail.com','user'),(4,'lamvoanhnhe123','duong','duongnqhe170786@fpt.edu.vn','user'),(11,'1234','duong29','nguyenquyduong291103@gmail.com','user');
+INSERT INTO `account` VALUES (1,'12345','Tuan','taotenduong12@gmail.com','user'),(2,'123','Thong','thongndhe170758@fpt.edu.vn','admin'),(3,'123','thong1','starvsevil03@gmail.com','seller'),(4,'lamvoanhnhe123','duong','duongnqhe170786@fpt.edu.vn','user'),(11,'1234','duong29','nguyenquyduong291103@gmail.com','user');
 /*!40000 ALTER TABLE `account` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -353,4 +353,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-07-05 10:53:46
+-- Dump completed on 2023-07-11 16:39:35
