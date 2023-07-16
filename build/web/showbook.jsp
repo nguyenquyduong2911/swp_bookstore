@@ -46,6 +46,15 @@
         background-color: #f5f5f5;
     }
 </style>
+ <script>
+    function confirmDelete(bookId) {
+        if (confirm("Are you sure you want to delete this book?")) {
+            // If the user confirms, redirect to the deletebook servlet passing the bookId
+            var encodedBookId = encodeURIComponent(bookId);
+            window.location.href = "deletebook?id=" + encodedBookId;
+        }
+    }
+    </script>
 
    
 </head>
@@ -83,7 +92,7 @@
                 <td><%= book.getYear_publish() %></td>
                 <td><%= book.getDescription()%></td>
                 <td><%= book.getStatus_product() == 1 ? "Hết hàng" : "Còn hàng" %></td>
-                <td><a href="editbook?id=<%= book.getId() %>">Sửa</a> || <a href="deletebook?id=<%=book.getId()%>">Xóa</a></td>
+                <td><a href="editbook?id=<%= book.getId() %>">Sửa</a> || <a href="javascript:void(0);" onclick="confirmDelete('<%= book.getId() %>')">Xóa</a></td>
                 
                 
             </tr>

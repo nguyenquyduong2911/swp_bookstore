@@ -39,7 +39,6 @@ public class UpdateBookServlet extends HttpServlet {
     AdminDAO dao = new AdminDAO();
     boolean isUpdated = dao.updateBookDetail(book);
     if(isUpdated){
-        pr.println("Succeeded to add book");
         response.sendRedirect("listbook");
     }
     else{

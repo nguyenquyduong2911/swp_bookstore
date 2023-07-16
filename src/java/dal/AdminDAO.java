@@ -85,6 +85,21 @@ public class AdminDAO extends MyDAO {
     }
         return null;
     }
+    public boolean deleteBookDetail(int bookId) {
+    xSql = "DELETE FROM bookdetailed WHERE book_id = ?";
+
+    try {
+        ps = con.prepareStatement(xSql);
+        ps.setInt(1, bookId);
+        int rowsDeleted = ps.executeUpdate();
+        ps.close();
+        return rowsDeleted > 0;
+    } catch (SQLException e) {
+        e.printStackTrace();
+    }
+    return false;
+}
+
     
       public ArrayList<book_detail> getBookDetails() {
     ArrayList<book_detail> bookList = new ArrayList<>();
