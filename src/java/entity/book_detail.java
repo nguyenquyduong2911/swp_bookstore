@@ -55,6 +55,23 @@ public class book_detail {
         this.book_imageID = book_imageID;
         this.status_product = status_product;
     }
+     public book_detail(Integer id, String name, String supplier, String publisher, String cover_form, String price, int quantity, String author, String year_publish, String language, String weight, String package_size, int num_page, String description, String image) {
+        this.id = id;
+        this.name = name;
+        this.supplier = supplier;
+        this.publisher = publisher;
+        this.cover_form = cover_form;
+        this.price = price;
+        this.quantity = quantity;
+        this.author = author;
+        this.year_publish = year_publish;
+        this.language = language;
+        this.weight = weight;
+        this.package_size = package_size;
+        this.num_page = num_page;
+        this.description = description;
+        this.image = image;
+    }
 
     public int getBook_imageID() {
         return book_imageID;
@@ -211,9 +228,26 @@ public class book_detail {
     }
 
     @Override
-    public String toString() {
-        return "book_detail{" + "id=" + id + ", name=" + name + ", supplier=" + supplier + ", publisher=" + publisher + ", cover_form=" + cover_form + ", price=" + price + ", quantity=" + quantity + ", author=" + author + ", year_publish=" + year_publish + ", language=" + language + ", weight=" + weight + ", package_size=" + package_size + ", num_page=" + num_page + ", description=" + description + ", image=" + image + ", categoryID=" + categoryID + ", gerne_id=" + gerne_id + ", status_product=" + status_product + '}';
-    }
+public String toString() {
+    return "book_detail{" +
+            "id=" + id +
+            ", name='" + name + '\'' +
+            ", supplier='" + supplier + '\'' +
+            ", publisher='" + publisher + '\'' +
+            ", cover_form='" + cover_form + '\'' +
+            ", price='" + price + '\'' +
+            ", quantity=" + quantity +
+            ", author='" + author + '\'' +
+            ", year_publish='" + year_publish + '\'' +
+            ", language='" + language + '\'' +
+            ", weight='" + weight + '\'' +
+            ", package_size='" + package_size + '\'' +
+            ", num_page=" + num_page +
+            ", description='" + description + '\'' +
+            ", image='" + image + '\'' +
+            '}';
+}
+
     
     
 }

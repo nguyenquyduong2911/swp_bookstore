@@ -64,6 +64,26 @@
         <servlet-name>DeclineServlet</servlet-name>
         <servlet-class>controller.DeclineServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>EditBookServlet</servlet-name>
+        <servlet-class>controller.EditBookServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ForgotPassServlet</servlet-name>
+        <servlet-class>controller.ForgotPassServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ForgotMailServlet</servlet-name>
+        <servlet-class>controller.ForgotMailServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>CheckRePassServlet</servlet-name>
+        <servlet-class>controller.CheckRePassServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>NewPassServlet</servlet-name>
+        <servlet-class>controller.NewPassServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>RegisterServlet</servlet-name>
         <url-pattern>/register</url-pattern>
@@ -127,6 +147,26 @@
     <servlet-mapping>
         <servlet-name>DeclineServlet</servlet-name>
         <url-pattern>/decline</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>EditBookServlet</servlet-name>
+        <url-pattern>/editbook</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ForgotPassServlet</servlet-name>
+        <url-pattern>/forgot</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ForgotMailServlet</servlet-name>
+        <url-pattern>/fmail</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CheckRePassServlet</servlet-name>
+        <url-pattern>/repasscheck</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>NewPassServlet</servlet-name>
+        <url-pattern>/newpass</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

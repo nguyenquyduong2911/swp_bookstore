@@ -5,34 +5,72 @@
 <%@ page import="entity.*" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
-<!DOCTYPE html>
 
+<!DOCTYPE html>
+<html lang="en">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="">
-    <meta name="author" content="">
     <title>Login | E-Shopper</title>
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/font-awesome.min.css" rel="stylesheet">
     <link href="css/prettyPhoto.css" rel="stylesheet">
     <link href="css/price-range.css" rel="stylesheet">
-    <link href="css/animate.css" rel="stylesheet">
-	<link href="css/main.css" rel="stylesheet">
-	<link href="css/responsive.css" rel="stylesheet">
-    <!--[if lt IE 9]>
-    <script src="js/html5shiv.js"></script>
-    <script src="js/respond.min.js"></script>
-    <![endif]-->       
+    <link href="css/main.css" rel="stylesheet">
+    <link href="css/responsive.css" rel="stylesheet">
     <link rel="shortcut icon" href="images/ico/favicon.ico">
     <link rel="apple-touch-icon-precomposed" sizes="144x144" href="images/ico/apple-touch-icon-144-precomposed.png">
     <link rel="apple-touch-icon-precomposed" sizes="114x114" href="images/ico/apple-touch-icon-114-precomposed.png">
     <link rel="apple-touch-icon-precomposed" sizes="72x72" href="images/ico/apple-touch-icon-72-precomposed.png">
     <link rel="apple-touch-icon-precomposed" href="images/ico/apple-touch-icon-57-precomposed.png">
-</head><!--/head-->
+    <style>         
+        #header {
+            flex: 0;
+        }
 
+        #content {
+            flex: 1;
+            overflow-y: auto;
+            padding: 20px;
+        }
+
+        #form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100%;
+            box-sizing: border-box;
+        }
+
+        #form input[type="text"] {
+            width: 300px; /* Adjust the width as needed */
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+
+        #form input[type="submit"] {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 10px 20px;
+            background-color: #0099ff;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        #form input[type="submit"]:hover {
+            background-color: #0088cc; /* Change the background color on hover */
+        }
+    </style>
+</head>
 <body>
-	<header id="header"><!--header-->
+   <header id="header"><!--header-->
             <div class="header_top"><!--header_top-->
                 <div class="container">
                     <div class="row">
@@ -70,7 +108,7 @@
                         <div class="col-sm-8">
                             <div class="shop-menu pull-right">
                                 <ul class="nav navbar-nav">
-                                   <%       
+                                    <%       
 Account x = (Account) request.getSession().getAttribute("curr");
 if (x != null) {
     out.println("<li><a href=\"account_detail?id=" + x.getIdAccount() + "\"><i class=\"fa fa-user\"></i> " + x.getName() + "</a></li>");
@@ -137,81 +175,31 @@ out.println("<li><a href=\"login.jsp\"><i class=\"fa fa-lock\"></i> Login</a></l
                 </div>
             </div><!--/header-bottom-->
         </header><!--/header-->
-	
-	<section id="form"><!--form-->
-		<div class="container">
-			<div class="row">
-				<div class="col-sm-4 col-sm-offset-1">
-					<div class="login-form"><!--login form-->
-						<h2>Login to your account</h2>
-						<form action="login" method="POST">
-							<input type="email" name="email" placeholder="Email" />
-							<input type="password" name="pass" placeholder="Password" />
-							<span>
-                                                            <a href="forgot">Forgot password?</a>
-							</span>
-							<button type="submit" class="btn btn-default">Login</button>
-                                                        <%
-                                                            if(request.getAttribute("ls")!=null){
-                                                               boolean a = (boolean) request.getAttribute("ls");
-                                                               if(!a){%>
-                                                               <p style="color: red">Login Failed
-   <%                                                         }
-                                                            }
- 
 
+    <div id="content">
+        <section id="form">
+           <form action="fmail" method="POST">
+            <label for="email">Email:</label>
+            <input type="text" name="email" id="email">
+            <input type="submit" value="Reset Password">
+        </form>
+            <%if(request.getAttribute("emailNotExist")!=null){
+            boolean abc = (boolean)request.getAttribute("emailNotExist");
+             if(abc){%>
+            <p style="color: red">Email not existed
+                <%}
+                }
+            
+           
+            
+            %>
+        </section>
+    </div>
 
-                                                        %>
-						</form>
-					</div><!--/login form-->
-				</div>
-				<div class="col-sm-1">
-					<h2 class="or">OR</h2>
-				</div>
-				<div class="col-sm-4">
-					<div class="signup-form"><!--sign up form-->
-						<h2>Sign up</h2>
-						<form action="register" method="POST">
-							<input type="text" name="name" placeholder="Name"/>
-							<input type="email" name="email" placeholder="Email Address"/>
-							<input type="password" name="password" placeholder="Password"/>
-							<input type="password" name="repassword" placeholder="Re-enter Password"/>
-							<button type="submit" class="btn btn-default">Sign up</button>
-						</form>
-                                                <%
-Boolean emailExisted = (Boolean) request.getAttribute("emailexisted");
-Boolean notmatchedpassword = (Boolean) request.getAttribute("notmatchedpassword");
-
-if (emailExisted != null && emailExisted) {
-%>
-    <p style="color: red;">Email already exists!</p>
-<%
-}
-
-if (notmatchedpassword != null && notmatchedpassword) {
-%>
-    <p style="color: red;">Password not matched</p>
-<%
-}
-%>
-
-
-
-					</div><!--/sign up form-->
-				</div>
-			</div>
-		</div>
-	</section><!--/form-->
-	
-	
-	
-	
-
-  
     <script src="js/jquery.js"></script>
-	<script src="js/price-range.js"></script>
+    <script src="js/price-range.js"></script>
     <script src="js/jquery.scrollUp.min.js"></script>
-	<script src="js/bootstrap.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
     <script src="js/jquery.prettyPhoto.js"></script>
     <script src="js/main.js"></script>
 </body>

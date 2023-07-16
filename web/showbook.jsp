@@ -83,6 +83,7 @@
                 <td><%= book.getYear_publish() %></td>
                 <td><%= book.getDescription()%></td>
                 <td><%= book.getStatus_product() == 1 ? "Hết hàng" : "Còn hàng" %></td>
+                <td><a href="editbook?id=<%= book.getId() %>">Sửa</a> || <a href="deletebook?id=<%=book.getId()%>">Xóa</a></td>
                 
                 
             </tr>

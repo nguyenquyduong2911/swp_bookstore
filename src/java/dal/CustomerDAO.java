@@ -210,16 +210,54 @@ public void editAccountById(int idAccount, acc_detail updatedAccount,Account a) 
         e.printStackTrace();
     }
 }
-public void updateAccountPassword(int accountId, String newPassword) throws SQLException {
-        String query = "UPDATE swp_bookstore.account SET password = ? WHERE idAccount = ?";
-
-        try (PreparedStatement statement = connection.prepareStatement(query)) {
-            statement.setString(1, newPassword);
-            statement.setInt(2, accountId);
-
-            statement.executeUpdate();
-        }
+public boolean updateAccountPassword(int accountId, String newPassword) throws SQLException {
+    xSql = "UPDATE swp_bookstore.account SET password = ? WHERE idAccount = ?";
+    
+    try {
+        ps = con.prepareStatement(xSql);
+        ps.setString(1, newPassword);
+        ps.setInt(2, accountId);
+        
+        int rowsUpdated = ps.executeUpdate();
+        return rowsUpdated > 0;
+    } catch (SQLException e) {
+        e.printStackTrace();
     }
+    
+    return false;
+}
+
+
+
+public Account getAccByEmail(String email) {
+    Account account = null;
+    xSql = "SELECT * FROM account WHERE email = ?";
+    
+    try {
+        ps = con.prepareStatement(xSql);
+        ps.setString(1, email);
+        
+        rs = ps.executeQuery();
+        
+        if (rs.next()) {
+            int idAccount = rs.getInt("idAccount");
+            String password = rs.getString("password");
+            String name = rs.getString("name");
+            String role = rs.getString("role");
+            
+            account = new Account(idAccount, password, name, email, role);
+        }
+        
+        rs.close();
+        ps.close();
+    } catch (SQLException e) {
+        e.printStackTrace();
+    }
+    
+    return account;
+}
+
+
 
    
     

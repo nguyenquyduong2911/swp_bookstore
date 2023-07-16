@@ -14,6 +14,75 @@ import java.util.List;
  * @author Admin
  */
 public class AdminDAO extends MyDAO {
+    public boolean updateBookDetail(book_detail book) {
+        xSql = "UPDATE bookdetailed SET product_name = ?,"
+            + " supplier = ?, publisher = ?, cover_form = ?, price = ?, quantity = ?,"
+            + " author = ?, year_publish = ?, language = ?, weight = ?, packaging_size = ?,"
+            + " num_pages = ?, description = ?, image = ? WHERE book_id = ?";
+
+    try {
+        ps = con.prepareStatement(xSql);
+        ps.setString(1, book.getName());
+        ps.setString(2, book.getSupplier());
+        ps.setString(3, book.getPublisher());
+        ps.setString(4, book.getCover_form());
+        ps.setString(5, book.getPrice());
+        ps.setInt(6, book.getQuantity());
+        ps.setString(7, book.getAuthor());
+        ps.setString(8, book.getYear_publish());
+        ps.setString(9, book.getLanguage());
+        ps.setString(10, book.getWeight());
+        ps.setString(11, book.getPackage_size());
+        ps.setInt(12, book.getNum_page());
+        ps.setString(13, book.getDescription());
+        ps.setString(14, book.getImage());
+
+        int rowsUpdated = ps.executeUpdate();
+        ps.close();
+        return rowsUpdated > 0;
+    } catch (SQLException e) {
+        e.printStackTrace();
+    }
+    return false;
+    }
+
+    public book_detail getBookDetailById(int bookId) {
+        String sql = "SELECT * FROM bookdetailed WHERE book_id = ?";
+        try {
+            ps = con.prepareStatement(sql);
+            ps.setInt(1, bookId);
+            rs = ps.executeQuery();
+            if (rs.next()) {
+                int id = rs.getInt("book_id");
+                String name = rs.getString("product_name");
+                String supplier = rs.getString("supplier");
+                String publisher = rs.getString("publisher");
+                String cover_form = rs.getString("cover_form");
+                String price = rs.getString("price");
+                int quantity = rs.getInt("quantity");
+                String author = rs.getString("author");
+                String year_publish = rs.getString("year_publish");
+                String language = rs.getString("language");
+                String weight = rs.getString("weight");
+                String package_size = rs.getString("packaging_size");
+                int num_page = rs.getInt("num_pages");
+                String description = rs.getString("description");
+                String image = rs.getString("image");
+                int categoryID = rs.getInt("categoryID");
+                int gerne_id = rs.getInt("gerne_id");
+                int bookimageID = rs.getInt("book_imageID");
+                int status_product = rs.getInt("product_status");
+
+                return new book_detail(id, name, supplier, publisher, cover_form, price, quantity, author, year_publish, language, weight, package_size, num_page, description, image, categoryID, gerne_id, bookimageID, status_product);
+            }
+             rs.close();
+        ps.close();
+        } catch (Exception e) {
+        e.printStackTrace();
+    }
+        return null;
+    }
+    
       public ArrayList<book_detail> getBookDetails() {
     ArrayList<book_detail> bookList = new ArrayList<>();
     String sql = "SELECT * FROM bookdetailed";
