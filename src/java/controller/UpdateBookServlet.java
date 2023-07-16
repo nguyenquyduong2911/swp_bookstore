@@ -35,31 +35,19 @@ public class UpdateBookServlet extends HttpServlet {
         
 
         book_detail book = new book_detail(bookId,name, supplier, publisher, coverForm, price, quantity, author, yearPublish, language, weight, packageSize, numPages, description, image);
-        pr.println("bookId: " + bookId);
-pr.println("name: " + name);
-pr.println("supplier: " + supplier);
-pr.println("publisher: " + publisher);
-pr.println("coverForm: " + coverForm);
-pr.println("price: " + price);
-pr.println("quantity: " + quantity);
-pr.println("author: " + author);
-pr.println("yearPublish: " + yearPublish);
-pr.println("language: " + language);
-pr.println("weight: " + weight);
-pr.println("packageSize: " + packageSize);
-pr.println("numPages: " + numPages);
-pr.println("description: " + description);
-pr.println("image: " + image);
-
-        AdminDAO dao = new AdminDAO();
-        boolean isUpdated = dao.updateBookDetail(book);
-
-        if (isUpdated) {
-
-            response.sendRedirect("bookdetails?id=" + bookId);
-        } else {
-
-            response.getWriter().println("Failed to update book details.");
-        }
+        try {
+    AdminDAO dao = new AdminDAO();
+    boolean isUpdated = dao.updateBookDetail(book);
+    if(isUpdated){
+        pr.println("Succeeded to add book");
+        response.sendRedirect("listbook");
+    }
+    else{
+        pr.println("Failed");
+    }
+} catch (Exception e) {
+    e.printStackTrace();
+    response.getWriter().println("Error occurred during book update: " + e.getMessage());
+}
     }
 }

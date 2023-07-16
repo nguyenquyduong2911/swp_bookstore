@@ -14,12 +14,9 @@ import java.util.List;
  * @author Admin
  */
 public class AdminDAO extends MyDAO {
-    public boolean updateBookDetail(book_detail book) {
-        xSql = "UPDATE bookdetailed SET product_name = ?,"
-            + " supplier = ?, publisher = ?, cover_form = ?, price = ?, quantity = ?,"
-            + " author = ?, year_publish = ?, language = ?, weight = ?, packaging_size = ?,"
-            + " num_pages = ?, description = ?, image = ? WHERE book_id = ?";
-
+   public boolean updateBookDetail(book_detail book) {
+    xSql = "UPDATE bookdetailed SET product_name=?, supplier=?, publisher=?, cover_form=?, price=?, quantity=?, author=?, year_publish=?, language=?, weight=?, packaging_size=?, num_pages=?, description=?, image=? WHERE book_id=?";
+    
     try {
         ps = con.prepareStatement(xSql);
         ps.setString(1, book.getName());
@@ -36,15 +33,21 @@ public class AdminDAO extends MyDAO {
         ps.setInt(12, book.getNum_page());
         ps.setString(13, book.getDescription());
         ps.setString(14, book.getImage());
-
+        ps.setInt(15, book.getId());
+        
         int rowsUpdated = ps.executeUpdate();
         ps.close();
-        return rowsUpdated > 0;
+        
+        if (rowsUpdated > 0) {
+            return true;
+        }
     } catch (SQLException e) {
         e.printStackTrace();
     }
+    
     return false;
-    }
+}
+
 
     public book_detail getBookDetailById(int bookId) {
         String sql = "SELECT * FROM bookdetailed WHERE book_id = ?";
