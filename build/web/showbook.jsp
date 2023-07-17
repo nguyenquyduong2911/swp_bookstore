@@ -49,7 +49,6 @@
  <script>
     function confirmDelete(bookId) {
         if (confirm("Are you sure you want to delete this book?")) {
-            // If the user confirms, redirect to the deletebook servlet passing the bookId
             var encodedBookId = encodeURIComponent(bookId);
             window.location.href = "deletebook?id=" + encodedBookId;
         }
