@@ -87,8 +87,16 @@ out.println("<li><a href=\"login.jsp\"><i class=\"fa fa-lock\"></i> Login</a></l
                                         <ul role="menu" class="sub-menu">
                                             <li><a href="product">Products</a></li>
                                             <li><a href="validate">Checkout</a></li> 
-                                            <li><a href="cart.html">Cart</a></li> 
-                                            <li><a href="login.html">Login</a></li> 
+                                            <li><a href="cart.jsp">Cart</a></li> 
+                                                                                                                        <% 
+if (x != null) {
+out.println("<li><a href=\"logout\"> Sign out</a></li>");
+}
+
+if (x == null) {
+out.println("<li><a href=\"login.jsp\"> Login</a></li>");
+}
+                                        %>
                                         </ul>
                                     </li> 
                                 </ul>
