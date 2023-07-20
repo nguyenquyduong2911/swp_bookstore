@@ -55,7 +55,7 @@
         <table>
             <tr>
                 <th>Id</th>
-                <th>Customer ID</th>
+                <th>Tên khách hàng</th>
                 <th>Số lượng sản phẩm</th>
                 <th>Ngày tạo</th>
                 <th>Thành tiền</th>
@@ -65,16 +65,21 @@
             
             <% 
             ArrayList<OrderPending> o = (ArrayList<OrderPending>) request.getAttribute("orderpending");
+            SellerDAO dao = new SellerDAO();
             for (OrderPending order : o) {
+            Account x = dao.getAccount(order.getCid());
         %>
             <tr>
                 <td><%= order.getId() %></td>
-                <td><%= order.getCid() %></td>
+                <td><%= x.getName() %></td>
                 <td><%= order.getBook_count() %></td>
                 <td><%= order.getDate() %></td>
                 <td><%= order.getTotal_price() %></td>
-                <td><a href="approve?id=<%= order.getId() %>">Approve</a> ||
-                <a href="decline?id=<%= order.getId() %>">Decline</a></td>
+                <td>
+    <a href="approve?id=<%= order.getId() %>">Approve</a> ||
+    <a href="decline?id=<%= order.getId() %>">Decline</a>
+</td>
+
 
             </tr>
              <% 

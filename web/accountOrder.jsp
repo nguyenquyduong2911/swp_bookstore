@@ -162,7 +162,7 @@ out.println("<li><a href=\"login.jsp\"> Login</a></li>");
                                     </td>
                                     <td class="cart_description">
                                        
-                                            <h4><a> ${i.status == 0 ? 'Pending' : i.status == 1 ? 'Approved' : 'Cancelled'}</a></h4>
+                                            <h4><a> ${i.status == 0 ? 'Chờ xử lý' : i.status == 1 ? 'Nhận hàng thành công' : 'Đang giao hàng'}</a></h4>
                                         
                                     </td>
                                     <td class="cart_description">

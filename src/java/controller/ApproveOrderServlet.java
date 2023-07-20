@@ -20,7 +20,7 @@ import java.util.ArrayList;
  *
  * @author Admin
  */
-public class PendingOrderServlet extends HttpServlet {
+public class ApproveOrderServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -29,13 +29,14 @@ public class PendingOrderServlet extends HttpServlet {
         PrintWriter pr = response.getWriter();
 //    int id = Integer.parseInt(request.getParameter("id"));
     SellerDAO dao = new SellerDAO();
-     ArrayList<OrderPending> b = dao.getPendingOrder();
+     ArrayList<OrderPending> b = dao.getApproveOrder();
+   
 
     if (b == null) {
         pr.print("null");
     } else {
-        request.setAttribute("orderpending", b);
-       request.getRequestDispatcher("orderpending.jsp").forward(request, response);
+        request.setAttribute("orderapprove", b);
+       request.getRequestDispatcher("approveorder.jsp").forward(request, response);
 }
     }
   

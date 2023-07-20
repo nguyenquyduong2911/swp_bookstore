@@ -96,6 +96,10 @@
         <servlet-name>ChangeRoleServlet</servlet-name>
         <servlet-class>controller.ChangeRoleServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ApproveOrderServlet</servlet-name>
+        <servlet-class>controller.ApproveOrderServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>RegisterServlet</servlet-name>
         <url-pattern>/register</url-pattern>
@@ -191,6 +195,10 @@
     <servlet-mapping>
         <servlet-name>ChangeRoleServlet</servlet-name>
         <url-pattern>/changerole</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ApproveOrderServlet</servlet-name>
+        <url-pattern>/approveorder</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

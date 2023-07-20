@@ -23,7 +23,7 @@ public class ApproveServlet extends HttpServlet {
         PrintWriter pr = response.getWriter();
         int orderId = Integer.parseInt(request.getParameter("id"));
         SellerDAO dao = new SellerDAO();
-        dao.updateOrderStatus(orderId, 1);
+        dao.updateOrderStatus(orderId, 2);
         response.sendRedirect("pendingorder");
     }}
 
