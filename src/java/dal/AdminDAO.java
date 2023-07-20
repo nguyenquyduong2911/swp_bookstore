@@ -47,6 +47,25 @@ public class AdminDAO extends MyDAO {
     
     return false;
 }
+   public boolean updateAccountRole(String role,int idAccount){
+       xSql="update account set role=? where idAccount=?";
+       try {
+            ps = con.prepareStatement(xSql);
+            ps.setString(1, role);
+            ps.setInt(2, idAccount);
+            
+            
+            int rowsUpdated = ps.executeUpdate();
+        ps.close();
+        
+        if (rowsUpdated > 0) {
+            return true;
+        }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+       return false; 
+   }
 
 
     public book_detail getBookDetailById(int bookId) {
@@ -141,10 +160,9 @@ public class AdminDAO extends MyDAO {
       public ArrayList<Account> getAccount() {
     ArrayList<Account> x = new ArrayList<>();
 
-    xSql = "SELECT * FROM account WHERE role=?";
+    xSql = "SELECT * FROM account WHERE role='user' or role='seller'";
     try {
         ps = con.prepareStatement(xSql);
-        ps.setString(1, "user");
         rs = ps.executeQuery();
 
         while (rs.next()) {

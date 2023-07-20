@@ -57,7 +57,8 @@
         <tr>
             <th>ID</th>
             <th>Email</th>
-            <th>Tên người dùng</th>           
+            <th>Tên người dùng</th>  
+            <th>Quyền</th>
             <th style="color:red;">Chỉnh sửa</th>
            
         </tr>
@@ -69,6 +70,9 @@
                 <td><%= acc.getIdAccount() %></td>
                 <td><%= acc.getEmail() %></td>
                 <td><%= acc.getName() %></td>
+                <td><%=acc.getRole()%></td>
+                <td><a href="updaterole?id=<%=acc.getIdAccount()%>">Sửa quyền</a></td>
+                
                 
                 
             </tr>

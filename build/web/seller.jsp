@@ -30,7 +30,8 @@
     <ul class="sidebar">
         <li><a href="addbook">Add book</a></li>
         <li><a href="addc1">Add category</a></li>
-        <li><a href="listorder.jsp">Manage order</a></li>
+        <a href="pendingorder">Pending order</a>    
+        <a href="approvedorder">Approved order</a>
     </ul>
 </body>
 <% } %>

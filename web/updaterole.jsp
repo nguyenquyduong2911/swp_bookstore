@@ -50,37 +50,17 @@
    
 </head>
 <body>
+    <%int id = (int)request.getAttribute("idacc");%>
     <div>
-    <h1>User List</h1>
-    <div class="table-responsive">
-    <table class="table-bordered">
-        <tr>
-            <th>ID</th>
-            <th>Email</th>
-            <th>Tên người dùng</th>  
-            <th>Quyền</th>
-            <th style="color:red;">Chỉnh sửa</th>
-           
-        </tr>
-        <% 
-            List<Account> accList = (List<Account>) request.getAttribute("userlist");
-            for (Account acc : accList) {
-        %>
-            <tr>
-                <td><%= acc.getIdAccount() %></td>
-                <td><%= acc.getEmail() %></td>
-                <td><%= acc.getName() %></td>
-                <td><%=acc.getRole()%></td>
-                <td><a href="updaterole?id=<%=acc.getIdAccount()%>">Sửa quyền</a></td>
-                
-                
-                
-            </tr>
-        <% 
-            }
-        %>
-    </table>
-   </div>
+    <h1>Edit Role</h1>
+    <form action="changerole">
+        Id:<input type="text" name="id" value="<%=id%>">
+        Role:<input type="text" name="role">
+        <input type="submit" value="Change role">
+        
+        
+    </form>
+   
     </div>
     <script src="js/jquery.js"></script>
 <script src="js/bootstrap.min.js"></script>
