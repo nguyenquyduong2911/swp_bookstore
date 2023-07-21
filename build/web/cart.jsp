@@ -136,11 +136,11 @@ out.println("<li><a href=\"login.jsp\"> Login</a></li>");
                     <table class="table table-condensed">
                         <thead>
                             <tr class="cart_menu">
-                                <td class="image">Item</td>
+                                <td class="image">Sản phẩm</td>
                                 <td class="description"></td>
-                                <td class="price">Price</td>
-                                <td class="quantity">Quantity</td>
-                                <td class="total">Total</td>
+                                <td class="price">Giá</td>
+                                <td class="quantity">Số Lượng</td>
+                                <td class="total">Tổng Tiền</td>
                                 <td></td>
                             </tr>
                         </thead>
@@ -184,7 +184,7 @@ out.println("<li><a href=\"login.jsp\"> Login</a></li>");
                                 </tr>
                             </c:forEach>
                         </tbody>
-                        <div class="warning-message" style="display: none;">The requested quantity exceeds the available quantity for this item.</div>
+                        <div class="warning-message" style="display: none;color: red">Sản phẩm yêu cầu vướt quá sản phẩm hiện có.</div>
 
                         <script>
                             function increaseQuantity(event, currentQuantity, availableQuantity) {
@@ -214,24 +214,24 @@ out.println("<li><a href=\"login.jsp\"> Login</a></li>");
                         <div class="col-sm-6">
                             <div class="total_area">
                                 <ul>
-                                    <li>Cart Sub Total <span><fmt:formatNumber value="${sessionScope.cart.getTotalMoney()}" pattern="0.000" />đ</span></li>
+                                    <li>Tổng số tiền<span><fmt:formatNumber value="${sessionScope.cart.getTotalMoney()}" pattern="0.000" />đ</span></li>
                                     <li>VAT <span>0đ</span></li>
-                                    <li>Shipping Cost <span>Free</span></li>
-                                    <li>Total <span><fmt:formatNumber value="${sessionScope.cart.getTotalMoney()}" pattern="0.000" />đ</span></li>
+                                    <li>Phí Vận Chuyển<span>Free</span></li>
+                                    <li>Tổng thanh toán <span><fmt:formatNumber value="${sessionScope.cart.getTotalMoney()}" pattern="0.000" />đ</span></li>
                                 </ul>
                             </div>
                         </div>
                         <div class="col-sm-6">
                             <form action="validate" method="post">                             
                                 <button type="submit" class="btn btn-default check_out">
-                                    <i>CheckOut</i>
+                                    <i>Đến Thanh Toán</i>
                                 </button>
                             </form>
                         </div>
                     </c:when>
                     <c:otherwise>
                         <div class="col-sm-12">
-                            <p>Your cart is empty. Please <a href="product">continue shopping</a>.</p>
+                            <p>Chưa có sản phẩm trong giỏ hàng của bạn. <a href="product">Mua sắm ngay</a>.</p>
                         </div>
                     </c:otherwise>
                 </c:choose>   

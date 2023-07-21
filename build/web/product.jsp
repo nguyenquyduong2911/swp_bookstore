@@ -132,12 +132,12 @@ out.println("<li><a href=\"login.jsp\"> Login</a></li>");
                 <div class="row">
                     <div class="col-sm-3">
                         <div class="left-sidebar">
-                            <h2>Category</h2>
+                            <h2>Nhóm Sản Phẩm</h2>
                             <div class="panel-group category-products" id="accordian"><!--category-productsr-->
                                 <div class="panel panel-default">    
                                     <div class="panel-heading">
                                         <h4 class="panel-title">
-                                            <li><a href="product">ALL Category</a></li> 
+                                            <li><a href="product">Tất cả nhóm sản phẩm</a></li> 
                                         </h4>
                                     </div>
                                 </div>
@@ -168,7 +168,7 @@ out.println("<li><a href=\"login.jsp\"> Login</a></li>");
 
                             <div class="brands_products">
                                 <!--brands_products-->
-                                <h2>GENRES</h2>
+                                <h2>Thể loại</h2>
                                 <div class="brands-name">
                                     <ul class="nav nav-pills nav-stacked" id="genreList">
                                         <c:forEach items="${genreList}" var="genre" varStatus="status">
@@ -178,8 +178,8 @@ out.println("<li><a href=\"login.jsp\"> Login</a></li>");
                                         </c:forEach>
                                     </ul>
                                     <div  class="show-button-container">
-                                        <button class="show-more-button" onclick="showMoreGenres()">Show More</button>
-                                        <button class="show-less-button hidden" onclick="showLessGenres()">Show Less</button>
+                                        <button class="show-more-button" onclick="showMoreGenres()">Xem thêm</button>
+                                        <button class="show-less-button hidden" onclick="showLessGenres()">Ẩn bớt</button>
                                     </div>
                                 </div>
                             </div>
@@ -196,7 +196,7 @@ out.println("<li><a href=\"login.jsp\"> Login</a></li>");
 
                     <div class="col-sm-9 padding-right">
                         <div class="features_items"><!--features_items-->
-                            <h2 class="title text-center">Features Items</h2>
+                            <h2 class="title text-center">Các sản phẩm</h2>
 
                             <c:forEach var="item" items="${itemList}">
                                 <div class="col-sm-4">
@@ -212,7 +212,7 @@ out.println("<li><a href=\"login.jsp\"> Login</a></li>");
                                                 <div class="overlay-content">
                                                     <h2>${item.price}đ</h2>
                                                     <p class="item-name">${item.name}</p>
-                                                    <a href="productdetail?productid=${item.id}" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>In Detail</a>
+                                                    <a href="productdetail?productid=${item.id}" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Xem Chi Tiết</a>
                                                 </div>
                                             </div>
                                         </div>

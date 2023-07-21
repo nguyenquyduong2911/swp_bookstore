@@ -181,9 +181,9 @@ out.println("<li><a href=\"login.jsp\"> Login</a></li>");
                                             <input type="hidden" name="id" value="${bd.id}" />
                                             <a href="#" onclick="validateQuantity(event)" class="btn btn-default cart" ${bd.status_product == 1 ? 'disabled' : ''}>
                                                 <i class="fa fa-shopping-cart"></i>
-                                                Add to cart
+                                                Thêm vào giỏ hàng
                                             </a>
-                                            ${bd.status_product == 1 ? '<span class="out-of-stock">Product out of stock</span>' : ''}
+                                            ${bd.status_product == 1 ? '<span class="out-of-stock">Sản phẩm đã hết</span>' : ''}
                                         </span>
                                     </form>
 
@@ -191,7 +191,6 @@ out.println("<li><a href=\"login.jsp\"> Login</a></li>");
                                     <p><b>Nhà xuất bản:</b>${bd.publisher}</p>
                                     <p><b>Tác giả:</b>${bd.author}</p>
                                     <p><b>Hình thức bìa:</b>${bd.cover_form}</p>
-                                    <a href=""><img src="images/product-details/share.png" class="share img-responsive"  alt="" /></a>
                                 </div><!--/product-information-->
                             </div>
                         </div><!--/product-details-->
@@ -206,17 +205,17 @@ out.println("<li><a href=\"login.jsp\"> Login</a></li>");
                                 var quantityinDB = ${bd.quantity};
                                 // Check if the quantity is a positive integer
                                 if (isNaN(quantity) || quantity <= 0 || !Number.isInteger(quantity)) {
-                                    alert('Please enter a valid quantity.');
+                                    alert('Vui lòng điền số lượng.');
                                     return false; // Prevent form submission
                                 }
 
                                 // Check if the quantity exceeds the available quantity
                                 if (quantity > availableQuantity) {
-                                    alert('The quantity exceeds the available quantity.');
+                                    alert('Sản phâm yêu cầu vướt quá sản phẩm hiện có.');
                                     return false; // Prevent form submission
                                 }
                                 if (quantity > quantityinDB) {
-                                    alert('The quantity exceeds the available quantity.');
+                                    alert('Sản phâm yêu cầu vướt quá sản phẩm hiện có.');
                                     return false; // Prevent form submission
                                 }
 
@@ -230,8 +229,8 @@ out.println("<li><a href=\"login.jsp\"> Login</a></li>");
                         <div class="category-tab shop-details-tab"><!--category-tab-->
                             <div class="col-sm-12">
                                 <ul class="nav nav-tabs">
-                                    <li class="active"><a href="#detail" data-toggle="tab">Details</a></li>                          
-                                    <li><a href="#reviews" data-toggle="tab">Reviews (5)</a></li>
+                                    <li class="active"><a href="#detail" data-toggle="tab">Thông tin sản phẩm</a></li>                          
+                                    <li><a href="#reviews" data-toggle="tab">Đánh giá sản phẩm</a></li>
                                 </ul>
                             </div>
                             <div class="tab-content">
@@ -308,7 +307,7 @@ out.println("<li><a href=\"login.jsp\"> Login</a></li>");
 
                                         <% } else { %>
                                         <div class="registration-message">
-                                            <p>Only registered members can write comments. Please <a href="login.jsp">login</a> or <a href="login.jsp">register.</a></p>
+                                            <p>Chỉ có thành viên mới có thể viết nhận xét.Vui lòng <a href="login.jsp">đăng nhập</a> hoặc <a href="login.jsp">đăng ký.</a></p>
                                         </div>
                                         <% } %>
                                     </div>
@@ -326,7 +325,7 @@ out.println("<li><a href=\"login.jsp\"> Login</a></li>");
 
 
                 <div class="recommended_items"><!--recommended_items-->
-                    <h2 class="title text-center">recommended items</h2>
+                    <h2 class="title text-center">Sản phẩm tương tự</h2>
 
                     <div id="recommended-item-carousel" class="carousel slide" data-ride="carousel">
                         <div class="carousel-inner">
@@ -345,7 +344,7 @@ out.println("<li><a href=\"login.jsp\"> Login</a></li>");
                                                                     <h2>${itemList[innerStatus.index].price}đ</h2>
                                                                     <p class="item-name" >${itemList[innerStatus.index].name}</p>
                                                                     <a href="productdetail?productid=${itemList[innerStatus.index].id}" class="btn btn-default add-to-cart">
-                                                                        <i class="fa fa-shopping-cart"></i>In Detail
+                                                                        <i class="fa fa-shopping-cart"></i>Xem Chi Tiết
                                                                     </a>
                                                                 </div>
                                                             </div>
