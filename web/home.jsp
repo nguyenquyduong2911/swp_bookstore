@@ -142,8 +142,8 @@ out.println("<li><a href=\"login.jsp\"> Login</a></li>");
                                 <div class="item active">
                                     <div class="col-sm-6">
                                         <h1><span>E</span>-Booker</h1>
-                                        <h2>Sách hay trong tháng</h2>
-                                        <button type="button" class="btn btn-default get">Xem Ngay</button>
+                                        <h2>Best book of MAY</h2>
+                                        <button type="button" class="btn btn-default get">Get it now</button>
                                     </div>
                                     <div class="col-sm-6">
                                         <img src="https://pressgazette.co.uk/wp-content/uploads/sites/7/2022/04/lrb-scaled.jpg" class="girl img-responsive" alt="" />
@@ -153,8 +153,8 @@ out.println("<li><a href=\"login.jsp\"> Login</a></li>");
                                 <div class="item">
                                     <div class="col-sm-6">
                                         <h1><span>E</span>-Booker</h1>
-                                        <h2>Sách hay năm 2023</h2>
-                                        <button type="button" class="btn btn-default get">Xem Ngay</button>
+                                        <h2>Best book of 2023</h2>
+                                        <button type="button" class="btn btn-default get">Get it now</button>
                                     </div>
                                     <div class="col-sm-6">
                                         <img src="https://assets.vogue.com/photos/63239a0292d08ee271ef754c/master/w_2560%2Cc_limit/_new_BOOK_COLLAGE_PROMO.jpg" class="girl img-responsive" alt="" />
@@ -165,8 +165,8 @@ out.println("<li><a href=\"login.jsp\"> Login</a></li>");
                                 <div class="item">
                                     <div class="col-sm-6">
                                         <h1><span>E</span>-Booker</h1>
-                                        <h2>Sách đứng TOP mọi thể loại</h2>
-                                        <button type="button" class="btn btn-default get">Xem Ngay</button>
+                                        <h2>Best book in top Category</h2>
+                                        <button type="button" class="btn btn-default get">Get it now</button>
                                     </div>
                                     <div class="col-sm-6">
                                         <img src="https://mgross.com/wp-content/uploads/2021/02/E2215509-180F-4226-BD76-A8AD4E6B0728-scaled-1.jpg" class="girl img-responsive" alt="" />
@@ -194,12 +194,12 @@ out.println("<li><a href=\"login.jsp\"> Login</a></li>");
                 <div class="row">
                     <div class="col-sm-3">
                         <div class="left-sidebar">
-                            <h2>Nhóm Sản Phẩm</h2>
+                            <h2>Category</h2>
                             <div class="panel-group category-products" id="accordian"><!--category-productsr-->
                                 <div class="panel panel-default">    
                                     <div class="panel-heading">
                                         <h4 class="panel-title">
-                                            <li><a href="product">Tất cả nhóm sản phẩm</a></li> 
+                                            <li><a href="product">ALL Category</a></li> 
                                         </h4>
                                     </div>
                                 </div>
@@ -230,7 +230,7 @@ out.println("<li><a href=\"login.jsp\"> Login</a></li>");
 
                             <div class="brands_products">
                                 <!--brands_products-->
-                                <h2>Thể loại</h2>
+                                <h2>GENRES</h2>
                                 <div class="brands-name">
                                     <ul class="nav nav-pills nav-stacked" id="genreList">
                                         <c:forEach items="${genreList}" var="genre" varStatus="status">
@@ -240,8 +240,8 @@ out.println("<li><a href=\"login.jsp\"> Login</a></li>");
                                         </c:forEach>
                                     </ul>
                                     <div  class="show-button-container">
-                                        <button class="show-more-button" onclick="showMoreGenres()">Xem Thêm</button>
-                                        <button class="show-less-button hidden" onclick="showLessGenres()">Ẩn bớt</button>
+                                        <button class="show-more-button" onclick="showMoreGenres()">Show More</button>
+                                        <button class="show-less-button hidden" onclick="showLessGenres()">Show Less</button>
                                     </div>
                                 </div>
                             </div>
@@ -255,7 +255,7 @@ out.println("<li><a href=\"login.jsp\"> Login</a></li>");
 
                     <div class="col-sm-9 padding-right">
                         <div class="features_items"><!--features_items-->
-                            <h2 class="title text-center">Các Sản Phẩm</h2>
+                            <h2 class="title text-center">Features Items</h2>
                             <c:forEach var="item" items="${itemList}" varStatus="status">
                                 <c:if test="${status.index < 6}">
                                     <div class="col-sm-4">
@@ -271,7 +271,7 @@ out.println("<li><a href=\"login.jsp\"> Login</a></li>");
                                                     <div class="overlay-content">
                                                         <h2>${item.price}đ</h2>
                                                         <p class="item-name">${item.name}</p>
-                                                        <a href="productdetail?productid=${item.id}" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Xem Chi Tiết</a>
+                                                        <a href="productdetail?productid=${item.id}" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>In Detail</a>
                                                     </div>
                                                 </div>
                                             </div>
@@ -280,7 +280,7 @@ out.println("<li><a href=\"login.jsp\"> Login</a></li>");
                                     </div>
                                 </c:if>
                             </c:forEach>
-                            <a href="product" class="btn btn-go-to-product">Xem Thêm</a>
+                            <a href="product" class="btn btn-go-to-product">See more</a>
                         </div><!--features_items-->
 
                         <div class="category-tab"><!--category-tab-->
@@ -306,7 +306,7 @@ out.println("<li><a href=\"login.jsp\"> Login</a></li>");
                         </script>
 
                         <div class="recommended_items"><!--recommended_items-->
-                            <h2 class="title text-center">Sản phẩm Tương Tự</h2>
+                            <h2 class="title text-center">recommended items</h2>
 
                             <div id="recommended-item-carousel" class="carousel slide" data-ride="carousel">
                                 <div class="carousel-inner">
@@ -325,7 +325,7 @@ out.println("<li><a href=\"login.jsp\"> Login</a></li>");
                                                                             <h2>${itemList[innerStatus.index].price}đ</h2>
                                                                             <p class="item-name" >${itemList[innerStatus.index].name}</p>
                                                                             <a href="productdetail?productid=${itemList[innerStatus.index].id}" class="btn btn-default add-to-cart">
-                                                                                <i class="fa fa-shopping-cart"></i>Xem Chi Tiết
+                                                                                <i class="fa fa-shopping-cart"></i>In Detail
                                                                             </a>
                                                                         </div>
                                                                     </div>

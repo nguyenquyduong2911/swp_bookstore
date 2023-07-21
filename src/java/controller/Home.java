@@ -121,7 +121,7 @@ private String generateCategoryItemsHtml(List<book_show> bookList) {
         htmlBuilder.append("<img src=\"").append(book.getImage()).append("\" alt=\"\" />");
         htmlBuilder.append("<h2>").append(book.getPrice()).append("đ</h2>");
         htmlBuilder.append("<p class=\"item-name\">").append(book.getName()).append("</p>");
-        htmlBuilder.append("<a href=\"productdetail?productid=").append(book.getId()).append("\" class=\"btn btn-default add-to-cart\"><i class=\"fa fa-shopping-cart\"></i>Xem Chi Tiết</a>");
+        htmlBuilder.append("<a href=\"productdetail?productid=").append(book.getId()).append("\" class=\"btn btn-default add-to-cart\"><i class=\"fa fa-shopping-cart\"></i>In Detail</a>");
         htmlBuilder.append("</div>");
         htmlBuilder.append("</div>");
         htmlBuilder.append("</div>");
