@@ -168,7 +168,7 @@ out.println("<li><a href=\"login.jsp\">Đăng Nhập</a></li>");
 
                             <div class="brands_products">
                                 <!--brands_products-->
-                                <h2>GENRES</h2>
+                                <h2>Thể Loại</h2>
                                 <div class="brands-name">
                                     <ul class="nav nav-pills nav-stacked" id="genreList">
                                         <c:forEach items="${genreList}" var="genre" varStatus="status">
@@ -178,8 +178,8 @@ out.println("<li><a href=\"login.jsp\">Đăng Nhập</a></li>");
                                         </c:forEach>
                                     </ul>
                                     <div  class="show-button-container">
-                                        <button class="show-more-button" onclick="showMoreGenres()">Show More</button>
-                                        <button class="show-less-button hidden" onclick="showLessGenres()">Show Less</button>
+                                        <button class="show-more-button" onclick="showMoreGenres()">Xem Thêm</button>
+                                        <button class="show-less-button hidden" onclick="showLessGenres()">Ẩn Bớt</button>
                                     </div>
                                 </div>
                             </div>
@@ -212,7 +212,7 @@ out.println("<li><a href=\"login.jsp\">Đăng Nhập</a></li>");
                                                 <div class="overlay-content">
                                                     <h2>${item.price}đ</h2>
                                                     <p class="item-name">${item.name}</p>
-                                                    <a href="productdetail?productid=${item.id}" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>In Detail</a>
+                                                    <a href="productdetail?productid=${item.id}" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Xem chi tiết</a>
                                                 </div>
                                             </div>
                                         </div>

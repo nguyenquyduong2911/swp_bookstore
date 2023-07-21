@@ -52,15 +52,15 @@ if (x != null) {
     out.println("<li><a href=\"account_detail?id=" + x.getIdAccount() + "\"><i class=\"fa fa-user\"></i> " + x.getName() + "</a></li>");
 }
                                     %>
-                                    <li><a href="validate"><i class="fa fa-crosshairs"></i> Checkout</a></li>
-                                    <li><a href="cart.jsp"><i class="fa fa-shopping-cart"></i>Cart(${sessionScope.size})</a></li>
+                                    <li><a href="validate"><i class="fa fa-crosshairs"></i>Thanh Toán</a></li>
+                                    <li><a href="cart.jsp"><i class="fa fa-shopping-cart"></i>Giỏ Hàng(${sessionScope.size})</a></li>
                                         <% 
 if (x != null) {
-out.println("<li><a href=\"logout\"><i class=\"fa fa-user\"></i> Sign out</a></li>");
+out.println("<li><a href=\"logout\"><i class=\"fa fa-user\"></i>Đăng Xuất</a></li>");
 }
 
 if (x == null) {
-out.println("<li><a href=\"login.jsp\"><i class=\"fa fa-lock\"></i> Login</a></li>");
+out.println("<li><a href=\"login.jsp\"><i class=\"fa fa-lock\"></i>Đăng Nhập</a></li>");
 }
                                         %>
                                 </ul>
@@ -84,19 +84,19 @@ out.println("<li><a href=\"login.jsp\"><i class=\"fa fa-lock\"></i> Login</a></l
                             </div>
                             <div class="mainmenu pull-left">
                                 <ul class="nav navbar-nav collapse navbar-collapse">
-                                    <li><a href="home" class="active">Home</a></li>
+                                    <li><a href="home" class="active">Trang Chủ</a></li>
                                     <li class="dropdown"><a href="product">Shop<i class="fa fa-angle-down"></i></a>
                                         <ul role="menu" class="sub-menu">
-                                            <li><a href="product">Products</a></li>
-                                            <li><a href="validate">Checkout</a></li> 
-                                            <li><a href="cart.jsp">Cart</a></li> 
+                                            <li><a href="product">Sản Phẩm</a></li>
+                                            <li><a href="validate">Thanh Toán</a></li> 
+                                            <li><a href="cart.jsp">Giỏ Hàng</a></li> 
                                                                                                                                 <% 
 if (x != null) {
-out.println("<li><a href=\"logout\"> Sign out</a></li>");
+out.println("<li><a href=\"logout\">Đăng Xuất</a></li>");
 }
 
 if (x == null) {
-out.println("<li><a href=\"login.jsp\"> Login</a></li>");
+out.println("<li><a href=\"login.jsp\">Đăng Nhập</a></li>");
 }
                                         %>
                                         </ul>
@@ -116,14 +116,14 @@ out.println("<li><a href=\"login.jsp\"> Login</a></li>");
 			<div class="row">
 				<div class="col-sm-4 col-sm-offset-1">
 					<div class="login-form"><!--login form-->
-						<h2>Login to your account</h2>
+						<h2>Đăng nhập tài khoản của bạn</h2>
 						<form action="login" method="POST">
-							<input type="email" name="email" placeholder="Email" />
-							<input type="password" name="pass" placeholder="Password" />
+							<input type="email" name="email" placeholder="Nhập Email" />
+							<input type="password" name="pass" placeholder="Nhập mật khẩu" />
 							<span>
-                                                            <a href="forgot">Forgot password?</a>
+                                                            <a href="forgot">Quên mật khẩu?</a>
 							</span>
-							<button type="submit" class="btn btn-default">Login</button>
+							<button type="submit" class="btn btn-default">Đăng Nhập</button>
                                                         <%
                                                             if(request.getAttribute("ls")!=null){
                                                                boolean a = (boolean) request.getAttribute("ls");
@@ -143,13 +143,13 @@ out.println("<li><a href=\"login.jsp\"> Login</a></li>");
 				</div>
 				<div class="col-sm-4">
 					<div class="signup-form"><!--sign up form-->
-						<h2>Sign up</h2>
+						<h2>Đăng ký</h2>
 						<form action="register" method="POST">
-							<input type="text" name="name" placeholder="Name"/>
-							<input type="email" name="email" placeholder="Email Address"/>
-							<input type="password" name="password" placeholder="Password"/>
-							<input type="password" name="repassword" placeholder="Re-enter Password"/>
-							<button type="submit" class="btn btn-default">Sign up</button>
+							<input type="text" name="name" placeholder="Nhập tên của bạn"/>
+							<input type="email" name="email" placeholder="Nhập Email"/>
+							<input type="password" name="password" placeholder="Nhập mật khẩu"/>
+							<input type="password" name="repassword" placeholder="Nhập lại mật khẩu"/>
+							<button type="submit" class="btn btn-default">Đăng Ký</button>
 						</form>
                                                 <%
 Boolean emailExisted = (Boolean) request.getAttribute("emailexisted");
