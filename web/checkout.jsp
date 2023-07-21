@@ -233,8 +233,8 @@ out.println("<li><a href=\"login.jsp\"> Login</a></li>");
                             </script>
                             <div class="col-sm-4">
                                 <div class="order-message">
-                                    <div class="bill-to"><p>Thiệp yêu thương </p></div> 
-                                    <textarea name="message"  placeholder="Hãy gửi cho người nhận sách những lời yêu thương trong chiếc thiệp này nhé!" rows="16"></textarea>
+                                    <div class="bill-to"><p>Shipping Order</p></div> 
+                                    <textarea name="message"  placeholder="Notes about your order, Special Notes for Delivery" rows="16"></textarea>
                                 </div>	
                             </div>	
 
