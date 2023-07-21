@@ -263,13 +263,13 @@ out.println("<li><a href=\"login.jsp\"> Login</a></li>");
                                             <div class="single-products">
                                                 <div class="productinfo text-center">
                                                     <img src="${item.image}" alt="" />
-                                                    <h2>${item.price}$</h2>
+                                                    <h2>${item.price}đ</h2>
                                                     <p class="item-name">${item.name}</p>
 
                                                 </div>
                                                 <div class="product-overlay">
                                                     <div class="overlay-content">
-                                                        <h2>${item.price}$</h2>
+                                                        <h2>${item.price}đ</h2>
                                                         <p class="item-name">${item.name}</p>
                                                         <a href="productdetail?productid=${item.id}" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>In Detail</a>
                                                     </div>
@@ -322,7 +322,7 @@ out.println("<li><a href=\"login.jsp\"> Login</a></li>");
                                                                     <div class="single-products">
                                                                         <div class="productinfo text-center">
                                                                             <img src="${itemList[innerStatus.index].image}" alt="" />
-                                                                            <h2>${itemList[innerStatus.index].price}$</h2>
+                                                                            <h2>${itemList[innerStatus.index].price}đ</h2>
                                                                             <p class="item-name" >${itemList[innerStatus.index].name}</p>
                                                                             <a href="productdetail?productid=${itemList[innerStatus.index].id}" class="btn btn-default add-to-cart">
                                                                                 <i class="fa fa-shopping-cart"></i>In Detail
