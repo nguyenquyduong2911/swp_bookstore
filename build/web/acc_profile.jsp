@@ -123,9 +123,9 @@ out.println("<li><a href=\"login.jsp\"> Login</a></li>");
                         </div>
 
                         <ul class="nav nav-pills nav-stacked">
-                            <li class="active"><a href="account_detail?id=${curr.idAccount}"> <i class="fa fa-user"></i> Profile</a></li>
-                            <li><a href="edit_accountdetail?id=${curr.idAccount}"> <i class="fa fa-edit"></i> Edit profile</a></li>
-                            <li><a href="ordersum?id=${curr.idAccount}"> <i class="fa fa-history"></i> Order History</a></li>
+                            <li class="active"><a href="account_detail?id=${curr.idAccount}"> <i class="fa fa-user"></i> Thông tin</a></li>
+                            <li><a href="edit_accountdetail?id=${curr.idAccount}"> <i class="fa fa-edit"></i> Chỉnh sửa thông tin</a></li>
+                            <li><a href="ordersum?id=${curr.idAccount}"> <i class="fa fa-history"></i> Lịch sử đơn hàng</a></li>
                         </ul>
                     </div>
                 </div>
@@ -137,19 +137,19 @@ out.println("<li><a href=\"login.jsp\"> Login</a></li>");
 
                             <div class="row">
                                 <div class="bio-row">
-                                    <p><span>First Name</span>: ${a.first_name}</p>
+                                    <p><span>Tên</span>: ${a.first_name}</p>
                                 </div>
                                 <div class="bio-row">
-                                    <p><span>Last Name</span>: ${a.last_name}</p>
+                                    <p><span>Họ và tên đệm</span>: ${a.last_name}</p>
                                 </div>
                                 <div class="bio-row">
-                                    <p><span>Phone number</span>: ${a.phone}</p>
+                                    <p><span>Số điện thoại</span>: ${a.phone}</p>
                                 </div>
                                 <div class="bio-row">
-                                    <p><span>Gender</span>: ${a.gender == 1 ? 'Male' : a.gender == 0 ? 'Female' : ''}</p>
+                                    <p><span>Giới tính</span>: ${a.gender == 1 ? 'Nam' : a.gender == 0 ? 'Nữ' : ''}</p>
                                 </div>
                                 <div class="bio-row">
-                                    <p><span>Birthday</span>: ${a.dob}</p>
+                                    <p><span>Ngày sinh</span>: ${a.dob}</p>
                                 </div>
                                 <div class="bio-row">
                                     <p><span>Email</span>: ${a.email}</p>

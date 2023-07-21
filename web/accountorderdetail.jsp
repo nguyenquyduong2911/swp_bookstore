@@ -135,11 +135,11 @@ out.println("<li><a href=\"login.jsp\"> Login</a></li>");
                     <table class="table table-condensed">
                         <thead>
                             <tr class="cart_menu">
-                                <td class="image">Image</td>
-                                <td class="description">Item</td>                              
-                                <td class="price"> Price</td>
-                                  <td class="quantity">Quantity</td>
-                                <td class="total">Total</td>
+                                <td class="image">Hình ảnh</td>
+                                <td class="description">Sản Phẩm</td>                              
+                                <td class="price"> Giá</td>
+                                  <td class="quantity">Số Lượng</td>
+                                <td class="total">Tổng tiền</td>
                                 <td></td>
                             </tr>
                         </thead>
@@ -159,7 +159,7 @@ out.println("<li><a href=\"login.jsp\"> Login</a></li>");
                                         </div>
                                     </td>
                                     <td class="cart_price">
-                                        <p>$${i.price}</p>
+                                        <p><fmt:formatNumber value="${i.price}" pattern="0.000"/>đ</p>
                                     </td>
                                   <td class="cart_quantity">
                                             <div class="cart_quantity_button">
@@ -168,7 +168,7 @@ out.println("<li><a href=\"login.jsp\"> Login</a></li>");
                                         </td> 
                                    
                                     <td class="cart_total">
-                                        <p class="cart_total_price">$<fmt:formatNumber value="${i.price * i.quantity}" pattern="0.00" /></p>
+                                        <p class="cart_total_price"><fmt:formatNumber value="${i.price * i.quantity}" pattern="0.000" />đ</p>
                                     </td>
                                     
 

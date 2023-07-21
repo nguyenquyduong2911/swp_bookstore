@@ -136,11 +136,11 @@ out.println("<li><a href=\"login.jsp\"> Login</a></li>");
                     <table class="table table-condensed">
                         <thead>
                             <tr class="cart_menu">
-                                <td class="image">Item</td>
+                                <td class="image">Sản phẩm</td>
                                 <td class="description"></td>
-                                <td class="price">Price</td>
-                                <td class="quantity">Quantity</td>
-                                <td class="total">Total</td>
+                                <td class="price">Giá</td>
+                                <td class="quantity">Số lượng</td>
+                                <td class="total">Tổng tiền</td>
                                 <td></td>
                             </tr>
                         </thead>
@@ -161,7 +161,7 @@ out.println("<li><a href=\"login.jsp\"> Login</a></li>");
                                         </div>
                                     </td>
                                     <td class="cart_price">
-                                        <p>$${i.product.price}</p>
+                                        <p><fmt:formatNumber value="${i.product.price}" pattern="0.000"/>đ</p>
                                     </td>
                                     <td class="cart_quantity">
                                         <div class="cart_quantity_button">
@@ -171,7 +171,7 @@ out.println("<li><a href=\"login.jsp\"> Login</a></li>");
                                         </div>
                                     </td>
                                     <td class="cart_total">
-                                        <p class="cart_total_price">$<fmt:formatNumber value="${i.product.price * i.quantity}" pattern="0.00" /></p>
+                                        <p class="cart_total_price"><fmt:formatNumber value="${i.product.price * i.quantity}" pattern="0.000" />đ</p>
                                     </td>
                                     <td class="cart_delete"> 
                                         <form action="process" method="post">
@@ -214,24 +214,24 @@ out.println("<li><a href=\"login.jsp\"> Login</a></li>");
                         <div class="col-sm-6">
                             <div class="total_area">
                                 <ul>
-                                    <li>Cart Sub Total <span>$<fmt:formatNumber value="${sessionScope.cart.getTotalMoney()}" pattern="0.00" /></span></li>
-                                    <li>Eco Tax <span>$0</span></li>
-                                    <li>Shipping Cost <span>Free</span></li>
-                                    <li>Total <span>$<fmt:formatNumber value="${sessionScope.cart.getTotalMoney()}" pattern="0.00" /></span></li>
+                                    <li>Tổng tiền <span><fmt:formatNumber value="${sessionScope.cart.getTotalMoney()}" pattern="0.000" />đ</span></li>
+                                    <li>VAT <span>0đ</span></li>
+                                    <li>Phí Vận Chuyển <span>Free</span></li>
+                                    <li>Tổng thanh toán <span><fmt:formatNumber value="${sessionScope.cart.getTotalMoney()}" pattern="0.000" />đ</span></li>
                                 </ul>
                             </div>
                         </div>
                         <div class="col-sm-6">
                             <form action="validate" method="post">                             
                                 <button type="submit" class="btn btn-default check_out">
-                                    <i>CheckOut</i>
+                                    <i>Thanh Toán</i>
                                 </button>
                             </form>
                         </div>
                     </c:when>
                     <c:otherwise>
                         <div class="col-sm-12">
-                            <p>Your cart is empty. Please <a href="product">continue shopping</a>.</p>
+                            <p>Chưa có sản phẩm trong giỏ hàng  <a href="product">Mua Sắm Ngay</a>.</p>
                         </div>
                     </c:otherwise>
                 </c:choose>   

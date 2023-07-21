@@ -167,12 +167,12 @@ out.println("<li><a href=\"login.jsp\"> Login</a></li>");
                         <div class="row">					
                             <div class="col-sm-5 clearfix">
                                 <div class="bill-to">
-                                    <p>Bill To</p>
+                                    <p>Thông tin khách hàng</p>
                                     <div class="form-one">
                                         <form id="billingForm">
-                                            <input type="text" name="name" placeholder="FullName" value="${ad.first_name} ${ad.last_name}" required>
+                                            <input type="text" name="name" placeholder="Tên đầy đủ" value="${ad.first_name} ${ad.last_name}" required>
                                             <input type="text" name="email" placeholder="Email*" value="${curr.email}" required>
-                                            <input type="text" name="phone" placeholder="Mobile Phone" value="${ad.phone}" required>
+                                            <input type="text" name="phone" placeholder="Số điện thoại" value="${ad.phone}" required>
                                             <select name="city" id="city" required>
                                                 <option value="" selected>Chọn tỉnh thành</option>
                                             </select>
@@ -182,7 +182,7 @@ out.println("<li><a href=\"login.jsp\"> Login</a></li>");
                                             <select name="ward" id="ward" required>
                                                 <option value="" selected>Chọn phường xã</option>
                                             </select>
-                                            <input type="text" name="delivery" placeholder="Delivery Address" required>
+                                            <input type="text" name="delivery" placeholder="Địa chỉ giao hàng" required>
                                         </form>
                                     </div>
                                 </div>
@@ -233,8 +233,8 @@ out.println("<li><a href=\"login.jsp\"> Login</a></li>");
                             </script>
                             <div class="col-sm-4">
                                 <div class="order-message">
-                                    <div class="bill-to"><p>Shipping Order</p></div> 
-                                    <textarea name="message"  placeholder="Notes about your order, Special Notes for Delivery" rows="16"></textarea>
+                                    <div class="bill-to"><p>Ghi Chú</p></div> 
+                                    <textarea name="message"  placeholder="Thêm thông tin ghi chú" rows="16"></textarea>
                                 </div>	
                             </div>	
 
@@ -242,18 +242,18 @@ out.println("<li><a href=\"login.jsp\"> Login</a></li>");
                     </div>
 
                     <div class="review-payment">
-                        <h2>Review & Payment</h2>
+                        <h2>Thông tin đơn hàng</h2>
                     </div>
 
                     <div class="table-responsive cart_info">
                         <table class="table table-condensed">
                             <thead>
                                 <tr class="cart_menu">
-                                    <td class="image">Item</td>
+                                    <td class="image">Sản Phẩm</td>
                                     <td class="description"></td>
-                                    <td class="price">Price</td>
-                                    <td class="quantity">Quantity</td>
-                                    <td class="total">Total</td>
+                                    <td class="price">Giá</td>
+                                    <td class="quantity">Số Lượng</td>
+                                    <td class="total">Tổng Tiền</td>
                                     <td></td>
                                 </tr>
                             </thead>
@@ -273,7 +273,7 @@ out.println("<li><a href=\"login.jsp\"> Login</a></li>");
                                             </div>
                                         </td>
                                         <td class="cart_price">
-                                            <p>$${i.product.price}</p>
+                                            <p><fmt:formatNumber value="${i.product.price}" pattern="0.000"/>đ</p>
                                         </td>
                                         <td class="cart_quantity">
                                             <div class="cart_quantity_button">
@@ -281,7 +281,7 @@ out.println("<li><a href=\"login.jsp\"> Login</a></li>");
                                             </div>
                                         </td>
                                         <td class="cart_total">
-                                            <p class="cart_total_price">$<fmt:formatNumber value="${i.product.price * i.quantity}" pattern="0.00" /></p>
+                                            <p class="cart_total_price"><fmt:formatNumber value="${i.product.price * i.quantity}" pattern="0.000" />đ</p>
                                         </td>                  
                                     </tr>
                                 </c:forEach>
@@ -290,27 +290,27 @@ out.println("<li><a href=\"login.jsp\"> Login</a></li>");
                                     <td colspan="2">
                                         <table class="table table-condensed total-result">
                                             <tr>
-                                                <td>Cart Sub Total</td>
-                                                <td>$<fmt:formatNumber value="${sessionScope.cart.getTotalMoney()}" pattern="0.00" /></td>
+                                                <td>Tổng tiền</td>
+                                                <td><fmt:formatNumber value="${sessionScope.cart.getTotalMoney()}" pattern="0.000" />đ</td>
                                             </tr>
                                             <tr>
-                                                <td>Exo Tax</td>
+                                                <td>VAT</td>
                                                 <td>$0</td>
                                             </tr>
                                             <tr class="shipping-cost">
-                                                <td>Shipping Cost</td>
+                                                <td>Phí Vận Chuyển</td>
                                                 <td>Free</td>										
                                             </tr>
                                             <tr>
-                                                <td>Total</td>
-                                                <td><span>$<fmt:formatNumber value="${sessionScope.cart.getTotalMoney()}" pattern="0.00" /></span></td>                                       
+                                                <td>Tổng Thanh Toán</td>
+                                                <td><span><fmt:formatNumber value="${sessionScope.cart.getTotalMoney()}" pattern="0.000" />đ</span></td>                                       
                                             </tr>
                                             <tr>
                                                 <td colspan="2">
                                                     <div class="col-sm-6">
 
                                                         <button type="submit" class="btn btn-default check_out">
-                                                            Payment Confirmation
+                                                            Xác Nhận Đặt Hàng
                                                         </button>
 
                                                     </div>

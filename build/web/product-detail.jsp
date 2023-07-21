@@ -175,7 +175,7 @@ out.println("<li><a href=\"login.jsp\"> Login</a></li>");
                                     <img src="images/product-details/rating.png" alt="" />
                                     <form action="cart" method="post" onsubmit="return validateQuantity(event)">
                                         <span>
-                                            <span>${bd.price}$</span>
+                                            <span>${bd.price}đ</span>
                                             <label>Quantity:</label>
                                             <input type="text" name="quantity" id="quantityInput" value="1" />
                                             <input type="hidden" name="id" value="${bd.id}" />
@@ -183,7 +183,7 @@ out.println("<li><a href=\"login.jsp\"> Login</a></li>");
                                                 <i class="fa fa-shopping-cart"></i>
                                                 Add to cart
                                             </a>
-                                            ${bd.status_product == 1 ? '<span class="out-of-stock">Product out of stock</span>' : ''}
+                                            ${bd.status_product == 1 ? '<span class="out-of-stock">Sản phẩm hiện tại tạm hết</span>' : ''}
                                         </span>
                                     </form>
 
@@ -206,17 +206,17 @@ out.println("<li><a href=\"login.jsp\"> Login</a></li>");
                                 var quantityinDB = ${bd.quantity};
                                 // Check if the quantity is a positive integer
                                 if (isNaN(quantity) || quantity <= 0 || !Number.isInteger(quantity)) {
-                                    alert('Please enter a valid quantity.');
+                                    alert('nhập số lượng theo số.');
                                     return false; // Prevent form submission
                                 }
 
                                 // Check if the quantity exceeds the available quantity
                                 if (quantity > availableQuantity) {
-                                    alert('The quantity exceeds the available quantity.');
+                                    alert('Số lượng yêu cầu vượt quá số lượng hiện có.');
                                     return false; // Prevent form submission
                                 }
                                 if (quantity > quantityinDB) {
-                                    alert('The quantity exceeds the available quantity.');
+                                    alert('Số lượng yêu cầu vượt quá số lượng hiện có.');
                                     return false; // Prevent form submission
                                 }
 
@@ -230,8 +230,8 @@ out.println("<li><a href=\"login.jsp\"> Login</a></li>");
                         <div class="category-tab shop-details-tab"><!--category-tab-->
                             <div class="col-sm-12">
                                 <ul class="nav nav-tabs">
-                                    <li class="active"><a href="#detail" data-toggle="tab">Details</a></li>                          
-                                    <li><a href="#reviews" data-toggle="tab">Reviews (5)</a></li>
+                                    <li class="active"><a href="#detail" data-toggle="tab">Thông tin sản phẩm</a></li>                          
+                                    <li><a href="#reviews" data-toggle="tab">Đánh giá sản phẩm</a></li>
                                 </ul>
                             </div>
                             <div class="tab-content">
@@ -285,7 +285,7 @@ out.println("<li><a href=\"login.jsp\"> Login</a></li>");
 
                                         <%        
         if (x != null) { %>
-                                        <p><b>Write Your Review</b></p>
+                                        <p><b>Viết đánh giá sản phẩm</b></p>
                                         <form action="review" method="post">
                                             <input class="hidden"  name="cid" value="${curr.idAccount}">
                                             <input class="hidden"  name="pid" value="${bd.id}">
@@ -308,7 +308,7 @@ out.println("<li><a href=\"login.jsp\"> Login</a></li>");
 
                                         <% } else { %>
                                         <div class="registration-message">
-                                            <p>Only registered members can write comments. Please <a href="login.jsp">login</a> or <a href="login.jsp">register.</a></p>
+                                            <p>Chỉ có thành viên mới có thể viết nhận xét.Vui lòng  <a href="login.jsp">đăng nhập</a> hoặc <a href="login.jsp">đăng ký.</a></p>
                                         </div>
                                         <% } %>
                                     </div>
@@ -326,7 +326,7 @@ out.println("<li><a href=\"login.jsp\"> Login</a></li>");
 
 
                 <div class="recommended_items"><!--recommended_items-->
-                    <h2 class="title text-center">recommended items</h2>
+                    <h2 class="title text-center">Sản Phẩm Tương Tự</h2>
 
                     <div id="recommended-item-carousel" class="carousel slide" data-ride="carousel">
                         <div class="carousel-inner">
@@ -342,10 +342,10 @@ out.println("<li><a href=\"login.jsp\"> Login</a></li>");
                                                             <div class="single-products">
                                                                 <div class="productinfo text-center">
                                                                     <img src="${itemList[innerStatus.index].image}" alt="" />
-                                                                    <h2>${itemList[innerStatus.index].price}$</h2>
+                                                                    <h2>${itemList[innerStatus.index].price}đ</h2>
                                                                     <p class="item-name" >${itemList[innerStatus.index].name}</p>
                                                                     <a href="productdetail?productid=${itemList[innerStatus.index].id}" class="btn btn-default add-to-cart">
-                                                                        <i class="fa fa-shopping-cart"></i>In Detail
+                                                                        <i class="fa fa-shopping-cart"></i>Xem Chi Tiết
                                                                     </a>
                                                                 </div>
                                                             </div>

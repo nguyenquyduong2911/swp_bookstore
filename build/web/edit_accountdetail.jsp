@@ -195,28 +195,28 @@ out.println("<li><a href=\"login.jsp\"> Login</a></li>");
                         </div>
 
                         <ul class="nav nav-pills nav-stacked">
-                            <li><a href="account_detail?id=${curr.idAccount}"> <i class="fa fa-user"></i> Profile</a></li>
-                            <li class="active"><a href="edit_accountdetail?id=${curr.idAccount}"> <i class="fa fa-edit"></i> Edit profile</a></li>
-                            <li><a href="ordersum?id=${curr.idAccount}"> <i class="fa fa-history"></i> Order History</a></li>
+                            <li><a href="account_detail?id=${curr.idAccount}"> <i class="fa fa-user"></i> Thông tin</a></li>
+                            <li class="active"><a href="edit_accountdetail?id=${curr.idAccount}"> <i class="fa fa-edit"></i> Chỉnh sửa thông tin</a></li>
+                            <li><a href="ordersum?id=${curr.idAccount}"> <i class="fa fa-history"></i> Lịch sử đơn hàng</a></li>
                         </ul>
                     </div>
                 </div>
 
                 <div class="profile-info col-md-9">
                     <div class="edit-profile-container">
-                        <h1>Edit Profile</h1>
+                        <h1>Chỉnh sửa thông tin</h1>
                         <form action="edit_accountdetail" method="post">
                             <input type="hidden" name="id" value="${curr.idAccount}">
                             <div class="form-group">
-                                <label for="user_name">User Name:</label>
+                                <label for="user_name">Tên đăng nhập:</label>
                                 <input type="text" class="form-control" id="user_name" name="user_name" value="${curr.name}">
                             </div>
                             <div class="form-group">
-                                <label for="first_name">First Name:</label>
+                                <label for="first_name">Tên:</label>
                                 <input type="text" class="form-control" id="first_name" name="first_name" value="${a.first_name}">
                             </div>
                             <div class="form-group">
-                                <label for="last_name">Last Name:</label>
+                                <label for="last_name">Họ và tên đệm:</label>
                                 <input type="text" class="form-control" id="last_name" name="last_name" value="${a.last_name}">
                             </div>
                             <div class="form-group">
@@ -224,35 +224,35 @@ out.println("<li><a href=\"login.jsp\"> Login</a></li>");
                                 <input type="email" class="form-control" id="email" name="email"value="${a.email}">
                             </div>
                             <div class="form-group">
-                                <label for="phone">Phone:</label>
+                                <label for="phone">Số điên thoại:</label>
                                 <input type="text" class="form-control" id="phone" name="phone" value="${a.phone}">
                             </div>
                             <div class="form-group">
-                                <label for="dob">Date of Birth:</label>
+                                <label for="dob">Ngày sinh:</label>
                                 <input type="date" class="form-control input-field" id="dob" name="dob" value="${a.dob}">
                             </div>
                             <div class="form-group">
-                                <label for="gender">Gender:</label>
+                                <label for="gender">Giới tính:</label>
                                 <select class="form-control" id="gender" name="gender">
-                                    <option value="1" >Male</option>
-                                    <option value="0" >Female</option>
+                                    <option value="1" >Nam</option>
+                                    <option value="0" >Nữ</option>
                                 </select>
                             </div>
                             <div class="form-group">
-                                <label for="change_password">Change Password:</label>
+                                <label for="change_password">Đổi mật khẩu:</label>
                                 <input type="checkbox" id="change_password" name="change_password">
                             </div>
                             <div id="password_fields" style="display: none;">
                                 <div class="form-group">
-                                    <label for="current_password">Current Password:</label>
+                                    <label for="current_password">Mật khẩu hiện tại:</label>
                                     <input type="password" class="form-control" id="current_password" name="current_password">
                                 </div>
                                 <div class="form-group">
-                                    <label for="new_password">New Password:</label>
+                                    <label for="new_password">Mật khẩu mới:</label>
                                     <input type="password" class="form-control" id="new_password" name="new_password">
                                 </div>
                                 <div class="form-group">
-                                    <label for="reenter_password">Re-enter New Password:</label>
+                                    <label for="reenter_password">Nhập lại mật khẩu:</label>
                                     <input type="password" class="form-control" id="reenter_password" name="reenter_password">
                                     <small id="password_warning" style="color: red; display: none;">Passwords do not match.</small>
                                 </div>
@@ -284,15 +284,15 @@ out.println("<li><a href=\"login.jsp\"> Login</a></li>");
 
                 if (changePasswordCheckbox.checked) {
                     if (currentPassword !== "${curr.password}") {
-                        passwordWarning.textContent = "Invalid password.";
+                        passwordWarning.textContent = "Mật khẩu không đúng.";
                         passwordWarning.style.display = "block";
                         event.preventDefault(); // Prevents form submission if passwords don't match
                     } else if (newPassword === currentPassword) {
-                        passwordWarning.textContent = "New password should be different from the current password.";
+                        passwordWarning.textContent = "Mật khẩu mới phải khác mật khẩu cũ.";
                         passwordWarning.style.display = "block";
                         event.preventDefault(); // Prevents form submission if passwords don't match
                     } else if (newPassword !== reenterPassword) {
-                        passwordWarning.textContent = "Passwords do not match.";
+                        passwordWarning.textContent = "Mật khẩu không trùng khớp.";
                         passwordWarning.style.display = "block";
                         event.preventDefault(); // Prevents form submission if passwords don't match
                     } else {

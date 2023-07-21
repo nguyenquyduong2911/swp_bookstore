@@ -3,6 +3,7 @@
 <%@ page import="java.util.*" %>
 <%@ page import="dal.*" %>
 <%@ page import="entity.*" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 
@@ -133,11 +134,11 @@ out.println("<li><a href=\"login.jsp\"> Login</a></li>");
                     <table class="table table-condensed">
                         <thead>
                             <tr class="cart_menu">
-                                <td class="image">Order ID</td>
-                                <td class="description">Item</td>
-                                <td class="price">Order Placed</td>
-                                <td class="quantity">Status</td>
-                                <td class="price">Total Price</td>
+                                <td class="image">Mã đơn hàng</td>
+                                <td class="description">Các sản phẩm</td>
+                                <td class="price">Ngày đặt hàng</td>
+                                <td class="quantity">Trạng Thái</td>
+                                <td class="price">Tổng tiền</td>
                                 <td class="total"></td>
                                 <td></td>
                             </tr>
@@ -167,7 +168,7 @@ out.println("<li><a href=\"login.jsp\"> Login</a></li>");
                                     </td>
                                     <td class="cart_description">
                                         
-                                            <h4><a>${i.total_price}vnd</a></h4>
+                                            <h4><p><fmt:formatNumber value="${i.total_price}" pattern="0.000" />đ</p></h4>
                                        
                                     </td>
                                     <td class="cart_description">
