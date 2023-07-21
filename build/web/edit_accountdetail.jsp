@@ -197,7 +197,7 @@ out.println("<li><a href=\"login.jsp\"> Login</a></li>");
                         <ul class="nav nav-pills nav-stacked">
                             <li><a href="account_detail?id=${curr.idAccount}"> <i class="fa fa-user"></i> Profile</a></li>
                             <li class="active"><a href="edit_accountdetail?id=${curr.idAccount}"> <i class="fa fa-edit"></i> Edit profile</a></li>
-                            <li><a href="ordersum?id=${curr.idAccount}"> <i class="fa fa-edit"></i> Order Summary</a></li>
+                            <li><a href="ordersum?id=${curr.idAccount}"> <i class="fa fa-history"></i> Order History</a></li>
                         </ul>
                     </div>
                 </div>
