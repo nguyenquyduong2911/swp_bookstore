@@ -60,15 +60,15 @@
      out.println("<li><a href=\"account_detail?id=" + x.getIdAccount() + "\"><i class=\"fa fa-user\"></i> " + x.getName() + "</a></li>");
  }
                                     %>
-                                    <li><a href="validate"><i class="fa fa-crosshairs"></i> Checkout</a></li>
-                                    <li><a href="cart.jsp"><i class="fa fa-shopping-cart"></i>Cart(${sessionScope.size})</a></li>
+                                    <li><a href="validate"><i class="fa fa-crosshairs"></i>Thanh Toán</a></li>
+                                    <li><a href="cart.jsp"><i class="fa fa-shopping-cart"></i>Giỏ Hàng:${sessionScope.size}</a></li>
                                         <% 
 if (x != null) {
-out.println("<li><a href=\"logout\"><i class=\"fa fa-user\"></i> Sign out</a></li>");
+out.println("<li><a href=\"logout\"><i class=\"fa fa-user\"></i>Đăng Xuất</a></li>");
 }
 
 if (x == null) {
-out.println("<li><a href=\"login.jsp\"><i class=\"fa fa-lock\"></i> Login</a></li>");
+out.println("<li><a href=\"login.jsp\"><i class=\"fa fa-lock\"></i>Đăng Nhập</a></li>");
 }
                                         %>
                                 </ul>
@@ -92,19 +92,19 @@ out.println("<li><a href=\"login.jsp\"><i class=\"fa fa-lock\"></i> Login</a></l
                             </div>
                             <div class="mainmenu pull-left">
                                 <ul class="nav navbar-nav collapse navbar-collapse">
-                                    <li><a href="home" class="active">Home</a></li>
+                                    <li><a href="home" class="active">Trang Chủ</a></li>
                                     <li class="dropdown"><a href="product">Shop<i class="fa fa-angle-down"></i></a>
                                         <ul role="menu" class="sub-menu">
-                                            <li><a href="product">Products</a></li>
-                                            <li><a href="validate">Checkout</a></li> 
-                                            <li><a href="cart.jsp">Cart</a></li> 
-                                                                                                                          <% 
+                                            <li><a href="product">Sản Phẩm</a></li>
+                                            <li><a href="validate">Thanh Toán</a></li> 
+                                            <li><a href="cart.jsp">Giỏ Hàng</a></li> 
+                                                                                    <% 
 if (x != null) {
-out.println("<li><a href=\"logout\"> Sign out</a></li>");
+out.println("<li><a href=\"logout\">Đăng Xuất</a></li>");
 }
 
 if (x == null) {
-out.println("<li><a href=\"login.jsp\"> Login</a></li>");
+out.println("<li><a href=\"login.jsp\">Đăng Nhập</a></li>");
 }
                                         %>
                                         </ul>
@@ -175,8 +175,8 @@ out.println("<li><a href=\"login.jsp\"> Login</a></li>");
                                     <img src="images/product-details/rating.png" alt="" />
                                     <form action="cart" method="post" onsubmit="return validateQuantity(event)">
                                         <span>
-                                            <span>${bd.price}$</span>
-                                            <label>Quantity:</label>
+                                            <span>${bd.price} đ</span>
+                                            <label>Số lượng:</label>
                                             <input type="text" name="quantity" id="quantityInput" value="1" />
                                             <input type="hidden" name="id" value="${bd.id}" />
                                             <a href="#" onclick="validateQuantity(event)" class="btn btn-default cart" ${bd.status_product == 1 ? 'disabled' : ''}>
@@ -191,7 +191,7 @@ out.println("<li><a href=\"login.jsp\"> Login</a></li>");
                                     <p><b>Nhà xuất bản:</b>${bd.publisher}</p>
                                     <p><b>Tác giả:</b>${bd.author}</p>
                                     <p><b>Hình thức bìa:</b>${bd.cover_form}</p>
-                                    <a href=""><img src="images/product-details/share.png" class="share img-responsive"  alt="" /></a>
+<!--                                    <a href=""><img src="images/product-details/share.png" class="share img-responsive"  alt="" /></a>-->
                                 </div><!--/product-information-->
                             </div>
                         </div><!--/product-details-->
@@ -206,17 +206,17 @@ out.println("<li><a href=\"login.jsp\"> Login</a></li>");
                                 var quantityinDB = ${bd.quantity};
                                 // Check if the quantity is a positive integer
                                 if (isNaN(quantity) || quantity <= 0 || !Number.isInteger(quantity)) {
-                                    alert('Please enter a valid quantity.');
+                                    alert('Vui lòng nhập số lượng sản phẩm!');
                                     return false; // Prevent form submission
                                 }
 
                                 // Check if the quantity exceeds the available quantity
                                 if (quantity > availableQuantity) {
-                                    alert('The quantity exceeds the available quantity.');
+                                    alert('Số lượng vượt quá số lượng sách có sẵn!');
                                     return false; // Prevent form submission
                                 }
                                 if (quantity > quantityinDB) {
-                                    alert('The quantity exceeds the available quantity.');
+                                    alert('Số lượng vượt quá số lượng sách có sẵn!');
                                     return false; // Prevent form submission
                                 }
 
@@ -230,8 +230,8 @@ out.println("<li><a href=\"login.jsp\"> Login</a></li>");
                         <div class="category-tab shop-details-tab"><!--category-tab-->
                             <div class="col-sm-12">
                                 <ul class="nav nav-tabs">
-                                    <li class="active"><a href="#detail" data-toggle="tab">Details</a></li>                          
-                                    <li><a href="#reviews" data-toggle="tab">Reviews (5)</a></li>
+                                    <li class="active"><a href="#detail" data-toggle="tab">Thông tin sản phẩm</a></li>                          
+                                    <li><a href="#reviews" data-toggle="tab">Đánh giá sản phẩm (5)</a></li>
                                 </ul>
                             </div>
                             <div class="tab-content">
@@ -241,12 +241,12 @@ out.println("<li><a href=\"login.jsp\"> Login</a></li>");
                                         <p><b>Tác giả: </b>${bd.author}</p>
                                         <p><b>Nhà xuất bản: </b>${bd.publisher}</p>
                                         <p><b>Năm xuất bản: </b>${bd.year_publish}</p>
-                                        <p><b>trọng lượng(gr): </b>${bd.weight}</p>
+                                        <p><b>Trọng lượng(gam): </b>${bd.weight}</p>
                                         <p><b>Kích Thước Bao Bì: </b>${bd.package_size}cm</p>
                                         <p><b>Số trang: </b>${bd.num_page}</p>
                                         <p><b>Hình thức: </b>${bd.cover_form}</p>
 
-                                        <p><b>Description:</b></p>
+                                        <p><b>Mô tả:</b></p>
                                         <p>${bd.description}</p>
 
                                     </div>
@@ -285,7 +285,7 @@ out.println("<li><a href=\"login.jsp\"> Login</a></li>");
 
                                         <%        
         if (x != null) { %>
-                                        <p><b>Write Your Review</b></p>
+                                        <p><b>VIẾT ĐÁNH GIÁ SẢN PHẨM</b></p>
                                         <form action="review" method="post">
                                             <input class="hidden"  name="cid" value="${curr.idAccount}">
                                             <input class="hidden"  name="pid" value="${bd.id}">
@@ -294,12 +294,12 @@ out.println("<li><a href=\"login.jsp\"> Login</a></li>");
 
                                             <label>
                                                 <input type="radio" name="recommendation" value="1" />
-                                                Recommended
+                                                Yêu thích
                                             </label>
 
                                             <label>
                                                 <input type="radio" name="recommendation" value="0" />
-                                                Not Recommended
+                                                Không yêu thích
                                             </label>
 
                                             <input type="submit" class="btn btn-default pull-right" value="Submit">
@@ -308,7 +308,7 @@ out.println("<li><a href=\"login.jsp\"> Login</a></li>");
 
                                         <% } else { %>
                                         <div class="registration-message">
-                                            <p>Only registered members can write comments. Please <a href="login.jsp">login</a> or <a href="login.jsp">register.</a></p>
+                                            <p>Chỉ có thành viên mới có thể viết nhận xét.Vui lòng<a href="login.jsp"> đăng nhập</a> hoặc <a href="login.jsp">đăng ký.</a></p>
                                         </div>
                                         <% } %>
                                     </div>
@@ -345,7 +345,7 @@ out.println("<li><a href=\"login.jsp\"> Login</a></li>");
                                                                     <h2>${itemList[innerStatus.index].price}$</h2>
                                                                     <p class="item-name" >${itemList[innerStatus.index].name}</p>
                                                                     <a href="productdetail?productid=${itemList[innerStatus.index].id}" class="btn btn-default add-to-cart">
-                                                                        <i class="fa fa-shopping-cart"></i>In Detail
+                                                                        <i class="fa fa-shopping-cart"></i>Xem chi tiết
                                                                     </a>
                                                                 </div>
                                                             </div>

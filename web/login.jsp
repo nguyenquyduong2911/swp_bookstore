@@ -53,7 +53,7 @@ if (x != null) {
 }
                                     %>
                                     <li><a href="validate"><i class="fa fa-crosshairs"></i>Thanh Toán</a></li>
-                                    <li><a href="cart.jsp"><i class="fa fa-shopping-cart"></i>Giỏ Hàng(${sessionScope.size})</a></li>
+                                    <li><a href="cart.jsp"><i class="fa fa-shopping-cart"></i>Giỏ Hàng: ${sessionScope.size}</a></li>
                                         <% 
 if (x != null) {
 out.println("<li><a href=\"logout\"><i class=\"fa fa-user\"></i>Đăng Xuất</a></li>");

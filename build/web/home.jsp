@@ -57,15 +57,15 @@ if (x != null) {
 }
                                     %>
 
-                                    <li><a href="validate"><i class="fa fa-crosshairs"></i> Checkout</a></li>
-                                    <li><a href="cart.jsp"><i class="fa fa-shopping-cart"></i>Cart(${sessionScope.size})</a></li>
+                                    <li><a href="validate"><i class="fa fa-crosshairs"></i>Thanh Toán</a></li>
+                                    <li><a href="cart.jsp"><i class="fa fa-shopping-cart"></i>Giỏ Hàng:${sessionScope.size}</a></li>
                                         <% 
 if (x != null) {
-out.println("<li><a href=\"logout\"><i class=\"fa fa-user\"></i> Sign out</a></li>");
+out.println("<li><a href=\"logout\"><i class=\"fa fa-user\"></i>Đăng Xuất</a></li>");
 }
 
 if (x == null) {
-out.println("<li><a href=\"login.jsp\"><i class=\"fa fa-lock\"></i> Login</a></li>");
+out.println("<li><a href=\"login.jsp\"><i class=\"fa fa-lock\"></i>Đăng Nhập</a></li>");
 }
                                         %>
                                 </ul>
@@ -89,19 +89,19 @@ out.println("<li><a href=\"login.jsp\"><i class=\"fa fa-lock\"></i> Login</a></l
                             </div>
                             <div class="mainmenu pull-left">
                                 <ul class="nav navbar-nav collapse navbar-collapse">
-                                    <li><a href="home" class="active">Home</a></li>
+                                    <li><a href="home" class="active">Trang Chủ</a></li>
                                     <li class="dropdown"><a href="product">Shop<i class="fa fa-angle-down"></i></a>
                                         <ul role="menu" class="sub-menu">
-                                            <li><a href="product">Products</a></li>
-                                            <li><a href="validate">Checkout</a></li> 
-                                            <li><a href="cart.jsp">Cart</a></li> 
+                                            <li><a href="product">Sản Phẩm</a></li>
+                                            <li><a href="validate">Thanh Toán</a></li> 
+                                            <li><a href="cart.jsp">Giỏ Hàng</a></li> 
                                                                                     <% 
 if (x != null) {
-out.println("<li><a href=\"logout\"> Sign out</a></li>");
+out.println("<li><a href=\"logout\">Đăng Xuất</a></li>");
 }
 
 if (x == null) {
-out.println("<li><a href=\"login.jsp\"> Login</a></li>");
+out.println("<li><a href=\"login.jsp\">Đăng Nhập</a></li>");
 }
                                         %>
                                         </ul>
@@ -142,35 +142,35 @@ out.println("<li><a href=\"login.jsp\"> Login</a></li>");
                                 <div class="item active">
                                     <div class="col-sm-6">
                                         <h1><span>E</span>-Booker</h1>
-                                        <h2>Best book of MAY</h2>
-                                        <button type="button" class="btn btn-default get">Get it now</button>
+                                        <h2>Sách bán chạy nhất tháng</h2>
+                                        <button type="button" class="btn btn-default get">Mua ngay</button>
                                     </div>
                                     <div class="col-sm-6">
                                         <img src="https://pressgazette.co.uk/wp-content/uploads/sites/7/2022/04/lrb-scaled.jpg" class="girl img-responsive" alt="" />
-                                        <img src="images/home/pricing.png"  class="pricing" alt="" />
+<!--                                        <img src="images/home/pricing.png"  class="pricing" alt="" />-->
                                     </div>
                                 </div>
                                 <div class="item">
                                     <div class="col-sm-6">
                                         <h1><span>E</span>-Booker</h1>
-                                        <h2>Best book of 2023</h2>
-                                        <button type="button" class="btn btn-default get">Get it now</button>
+                                        <h2>Sách của năm 2023</h2>
+                                        <button type="button" class="btn btn-default get">Mua ngay</button>
                                     </div>
                                     <div class="col-sm-6">
                                         <img src="https://assets.vogue.com/photos/63239a0292d08ee271ef754c/master/w_2560%2Cc_limit/_new_BOOK_COLLAGE_PROMO.jpg" class="girl img-responsive" alt="" />
-                                        <img src="images/home/pricing.png"  class="pricing" alt="" />
+<!--                                        <img src="images/home/pricing.png"  class="pricing" alt="" />-->
                                     </div>
                                 </div>
 
                                 <div class="item">
                                     <div class="col-sm-6">
                                         <h1><span>E</span>-Booker</h1>
-                                        <h2>Best book in top Category</h2>
-                                        <button type="button" class="btn btn-default get">Get it now</button>
+                                        <h2>Những cuốn sách hay nhất</h2>
+                                        <button type="button" class="btn btn-default get">Mua ngay</button>
                                     </div>
                                     <div class="col-sm-6">
                                         <img src="https://mgross.com/wp-content/uploads/2021/02/E2215509-180F-4226-BD76-A8AD4E6B0728-scaled-1.jpg" class="girl img-responsive" alt="" />
-                                        <img src="images/home/pricing.png" class="pricing" alt="" />
+<!--                                        <img src="images/home/pricing.png" class="pricing" alt="" />-->
                                     </div>
                                 </div>
 
@@ -194,12 +194,12 @@ out.println("<li><a href=\"login.jsp\"> Login</a></li>");
                 <div class="row">
                     <div class="col-sm-3">
                         <div class="left-sidebar">
-                            <h2>Category</h2>
+                            <h2>Danh mục sản phẩm </h2>
                             <div class="panel-group category-products" id="accordian"><!--category-productsr-->
                                 <div class="panel panel-default">    
                                     <div class="panel-heading">
                                         <h4 class="panel-title">
-                                            <li><a href="product">ALL Category</a></li> 
+                                            <li><a href="product">Tất cả danh mục</a></li> 
                                         </h4>
                                     </div>
                                 </div>
@@ -230,7 +230,7 @@ out.println("<li><a href=\"login.jsp\"> Login</a></li>");
 
                             <div class="brands_products">
                                 <!--brands_products-->
-                                <h2>GENRES</h2>
+                                <h2>Thể loại</h2>
                                 <div class="brands-name">
                                     <ul class="nav nav-pills nav-stacked" id="genreList">
                                         <c:forEach items="${genreList}" var="genre" varStatus="status">
@@ -240,8 +240,8 @@ out.println("<li><a href=\"login.jsp\"> Login</a></li>");
                                         </c:forEach>
                                     </ul>
                                     <div  class="show-button-container">
-                                        <button class="show-more-button" onclick="showMoreGenres()">Show More</button>
-                                        <button class="show-less-button hidden" onclick="showLessGenres()">Show Less</button>
+                                        <button class="show-more-button" onclick="showMoreGenres()">Xem thêm</button>
+                                        <button class="show-less-button hidden" onclick="showLessGenres()">Ẩn bớt</button>
                                     </div>
                                 </div>
                             </div>
@@ -255,7 +255,7 @@ out.println("<li><a href=\"login.jsp\"> Login</a></li>");
 
                     <div class="col-sm-9 padding-right">
                         <div class="features_items"><!--features_items-->
-                            <h2 class="title text-center">Features Items</h2>
+                            <h2 class="title text-center">sản phẩm đặc trưng</h2>
                             <c:forEach var="item" items="${itemList}" varStatus="status">
                                 <c:if test="${status.index < 6}">
                                     <div class="col-sm-4">
@@ -271,7 +271,7 @@ out.println("<li><a href=\"login.jsp\"> Login</a></li>");
                                                     <div class="overlay-content">
                                                         <h2>${item.price}$</h2>
                                                         <p class="item-name">${item.name}</p>
-                                                        <a href="productdetail?productid=${item.id}" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>In Detail</a>
+                                                        <a href="productdetail?productid=${item.id}" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Xem chi tiết</a>
                                                     </div>
                                                 </div>
                                             </div>
@@ -280,7 +280,7 @@ out.println("<li><a href=\"login.jsp\"> Login</a></li>");
                                     </div>
                                 </c:if>
                             </c:forEach>
-                            <a href="product" class="btn btn-go-to-product">See more</a>
+                            <a href="product" class="btn btn-go-to-product">Xem thêm</a>
                         </div><!--features_items-->
 
                         <div class="category-tab"><!--category-tab-->
@@ -325,7 +325,7 @@ out.println("<li><a href=\"login.jsp\"> Login</a></li>");
                                                                             <h2>${itemList[innerStatus.index].price}$</h2>
                                                                             <p class="item-name" >${itemList[innerStatus.index].name}</p>
                                                                             <a href="productdetail?productid=${itemList[innerStatus.index].id}" class="btn btn-default add-to-cart">
-                                                                                <i class="fa fa-shopping-cart"></i>In Detail
+                                                                                <i class="fa fa-shopping-cart"></i>Xem chi tiết
                                                                             </a>
                                                                         </div>
                                                                     </div>
