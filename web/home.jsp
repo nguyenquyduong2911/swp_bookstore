@@ -116,7 +116,7 @@ out.println("<li><a href=\"login.jsp\"> Login</a></li>");
                                                 document.getElementById('searchForm').submit();
                                                 return false;
                                             }">
-                                    <a href="#" onclick="document.getElementById('searchForm').submit();" style="display: none;">Tìm kiếm</a>
+                                    <a href="#" onclick="document.getElementById('searchForm').submit();" style="display: none;">Search</a>
                                 </form>
                             </div>
                         </div>
@@ -142,8 +142,8 @@ out.println("<li><a href=\"login.jsp\"> Login</a></li>");
                                 <div class="item active">
                                     <div class="col-sm-6">
                                         <h1><span>E</span>-Booker</h1>
-                                        <h2>Sách hay nhất tháng 5</h2>
-                                        <button type="button" class="btn btn-default get">Mua ngay!</button>
+                                        <h2>Best book of MAY</h2>
+                                        <button type="button" class="btn btn-default get">Get it now</button>
                                     </div>
                                     <div class="col-sm-6">
                                         <img src="https://pressgazette.co.uk/wp-content/uploads/sites/7/2022/04/lrb-scaled.jpg" class="girl img-responsive" alt="" />
@@ -153,8 +153,8 @@ out.println("<li><a href=\"login.jsp\"> Login</a></li>");
                                 <div class="item">
                                     <div class="col-sm-6">
                                         <h1><span>E</span>-Booker</h1>
-                                        <h2>Sách của năm 2023</h2>
-                                        <button type="button" class="btn btn-default get">Mua ngay!</button>
+                                        <h2>Best book of 2023</h2>
+                                        <button type="button" class="btn btn-default get">Get it now</button>
                                     </div>
                                     <div class="col-sm-6">
                                         <img src="https://assets.vogue.com/photos/63239a0292d08ee271ef754c/master/w_2560%2Cc_limit/_new_BOOK_COLLAGE_PROMO.jpg" class="girl img-responsive" alt="" />
@@ -165,8 +165,8 @@ out.println("<li><a href=\"login.jsp\"> Login</a></li>");
                                 <div class="item">
                                     <div class="col-sm-6">
                                         <h1><span>E</span>-Booker</h1>
-                                        <h2>Những cuốn sách hay nhất!</h2>
-                                        <button type="button" class="btn btn-default get">Mua ngay!</button>
+                                        <h2>Best book in top Category</h2>
+                                        <button type="button" class="btn btn-default get">Get it now</button>
                                     </div>
                                     <div class="col-sm-6">
                                         <img src="https://mgross.com/wp-content/uploads/2021/02/E2215509-180F-4226-BD76-A8AD4E6B0728-scaled-1.jpg" class="girl img-responsive" alt="" />
