@@ -54,15 +54,15 @@ if (x != null) {
     out.println("<li><a href=\"account_detail?id=" + x.getIdAccount() + "\"><i class=\"fa fa-user\"></i> " + x.getName() + "</a></li>");
 }
                                     %>
-                                    <li><a href="validate"><i class="fa fa-crosshairs"></i> Checkout</a></li>
-                                    <li><a href="cart.jsp"><i class="fa fa-shopping-cart"></i>Cart(${sessionScope.size})</a></li>
+                                    <li><a href="validate"><i class="fa fa-crosshairs"></i>Thanh Toán</a></li>
+                                    <li><a href="cart.jsp"><i class="fa fa-shopping-cart"></i>Giỏ Hàng:${sessionScope.size}</a></li>
                                         <% 
 if (x != null) {
-out.println("<li><a href=\"logout\"><i class=\"fa fa-user\"></i> Sign out</a></li>");
+out.println("<li><a href=\"logout\"><i class=\"fa fa-user\"></i>Đăng Xuất</a></li>");
 }
 
 if (x == null) {
-out.println("<li><a href=\"login.jsp\"><i class=\"fa fa-lock\"></i> Login</a></li>");
+out.println("<li><a href=\"login.jsp\"><i class=\"fa fa-lock\"></i>Đăng Nhập</a></li>");
 }
                                         %>
                                 </ul>
@@ -86,19 +86,19 @@ out.println("<li><a href=\"login.jsp\"><i class=\"fa fa-lock\"></i> Login</a></l
                             </div>
                             <div class="mainmenu pull-left">
                                 <ul class="nav navbar-nav collapse navbar-collapse">
-                                    <li><a href="home" class="active">Home</a></li>
+                                    <li><a href="home" class="active">Trang Chủ</a></li>
                                     <li class="dropdown"><a href="product">Shop<i class="fa fa-angle-down"></i></a>
                                         <ul role="menu" class="sub-menu">
-                                            <li><a href="product">Products</a></li>
-                                            <li><a href="validate">Checkout</a></li> 
-                                            <li><a href="cart.jsp">Cart</a></li> 
-                                                                                                                                <% 
+                                            <li><a href="product">Sản Phẩm</a></li>
+                                            <li><a href="validate">Thanh Toán</a></li> 
+                                            <li><a href="cart.jsp">Giỏ Hàng</a></li> 
+                                                                                    <% 
 if (x != null) {
-out.println("<li><a href=\"logout\"> Sign out</a></li>");
+out.println("<li><a href=\"logout\">Đăng Xuất</a></li>");
 }
 
 if (x == null) {
-out.println("<li><a href=\"login.jsp\"> Login</a></li>");
+out.println("<li><a href=\"login.jsp\">Đăng Nhập</a></li>");
 }
                                         %>
                                         </ul>
@@ -129,20 +129,20 @@ out.println("<li><a href=\"login.jsp\"> Login</a></li>");
                 <div class="breadcrumbs">
                     <ol class="breadcrumb">
                         <li><a href="#">Home</a></li>
-                        <li class="active">Shopping Cart</li>
+                        <li class="active">Giỏ hàng</li>
                     </ol>
                 </div>
                 <div class="table-responsive cart_info">
                     <table class="table table-condensed">
                         <thead>
                             <tr class="cart_menu">
-                                <td class="image">Item</td>
-                                <td class="description"></td>
-                                <td class="price">Price</td>
-                                <td class="quantity">Quantity</td>
-                                <td class="total">Total</td>
-                                <td></td>
-                            </tr>
+                                    <td class="image">Item</td>
+                                    <td class="description"></td>
+                                    <td class="price">Price</td>
+                                    <td class="quantity">Quantity</td>
+                                    <td class="total">Total</td>
+                                    <td></td>
+                                </tr>
                         </thead>
 
                         <tbody>
@@ -161,7 +161,7 @@ out.println("<li><a href=\"login.jsp\"> Login</a></li>");
                                         </div>
                                     </td>
                                     <td class="cart_price">
-                                        <p>$${i.product.price}</p>
+                                        <p>${i.product.price} đ</p>
                                     </td>
                                     <td class="cart_quantity">
                                         <div class="cart_quantity_button">
@@ -171,7 +171,7 @@ out.println("<li><a href=\"login.jsp\"> Login</a></li>");
                                         </div>
                                     </td>
                                     <td class="cart_total">
-                                        <p class="cart_total_price">$<fmt:formatNumber value="${i.product.price * i.quantity}" pattern="0.00" /></p>
+                                        <p class="cart_total_price"><fmt:formatNumber value="${i.product.price * i.quantity}" pattern="0.00" /> đ</p>
                                     </td>
                                     <td class="cart_delete"> 
                                         <form action="process" method="post">
@@ -184,7 +184,7 @@ out.println("<li><a href=\"login.jsp\"> Login</a></li>");
                                 </tr>
                             </c:forEach>
                         </tbody>
-                        <div class="warning-message" style="display: none;">The requested quantity exceeds the available quantity for this item.</div>
+                        <div class="warning-message" style="display: none;color: red">*Số lượng được yêu cầu vượt quá số lượng có sẵn cho mặt hàng này!</div>
 
                         <script>
                             function increaseQuantity(event, currentQuantity, availableQuantity) {
@@ -214,24 +214,24 @@ out.println("<li><a href=\"login.jsp\"> Login</a></li>");
                         <div class="col-sm-6">
                             <div class="total_area">
                                 <ul>
-                                    <li>Cart Sub Total <span>$<fmt:formatNumber value="${sessionScope.cart.getTotalMoney()}" pattern="0.00" /></span></li>
-                                    <li>Eco Tax <span>$0</span></li>
-                                    <li>Shipping Cost <span>Free</span></li>
-                                    <li>Total <span>$<fmt:formatNumber value="${sessionScope.cart.getTotalMoney()}" pattern="0.00" /></span></li>
+                                    <li>Thành tiền <span><fmt:formatNumber value="${sessionScope.cart.getTotalMoney()}" pattern="0.00" /> đ</span></li>
+                                    <li>VAT<span>0 đ</span></li>
+                                    <li>Giá vận chuyển <span>Free</span></li>
+                                    <li>Tổng Số Tiền (gồm VAT) <span><fmt:formatNumber value="${sessionScope.cart.getTotalMoney()}" pattern="0.00" /> đ</span></li>
                                 </ul>
                             </div>
                         </div>
                         <div class="col-sm-6">
                             <form action="validate" method="post">                             
                                 <button type="submit" class="btn btn-default check_out">
-                                    <i>CheckOut</i>
+                                    <i>THANH TOÁN</i>
                                 </button>
                             </form>
                         </div>
                     </c:when>
                     <c:otherwise>
                         <div class="col-sm-12">
-                            <p>Your cart is empty. Please <a href="product">continue shopping</a>.</p>
+                            <p>Chưa có sản phẩm trong giỏ hàng của bạn. <a href="product">Mua sắm ngay</a>.</p>
                         </div>
                     </c:otherwise>
                 </c:choose>   

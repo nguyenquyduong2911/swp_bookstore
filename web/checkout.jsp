@@ -83,15 +83,15 @@ if (x != null) {
     out.println("<li><a href=\"account_detail?id=" + x.getIdAccount() + "\"><i class=\"fa fa-user\"></i> " + x.getName() + "</a></li>");
 }
                                     %>
-                                    <li><a href="validate"><i class="fa fa-crosshairs"></i> Checkout</a></li>
-                                    <li><a href="cart.jsp"><i class="fa fa-shopping-cart"></i>Cart(${sessionScope.size})</a></li>
+                                    <li><a href="validate"><i class="fa fa-crosshairs"></i>Thanh Toán</a></li>
+                                    <li><a href="cart.jsp"><i class="fa fa-shopping-cart"></i>Giỏ Hàng:${sessionScope.size}</a></li>
                                         <% 
 if (x != null) {
-out.println("<li><a href=\"logout\"><i class=\"fa fa-user\"></i> Sign out</a></li>");
+out.println("<li><a href=\"logout\"><i class=\"fa fa-user\"></i>Đăng Xuất</a></li>");
 }
 
 if (x == null) {
-out.println("<li><a href=\"login.jsp\"><i class=\"fa fa-lock\"></i> Login</a></li>");
+out.println("<li><a href=\"login.jsp\"><i class=\"fa fa-lock\"></i>Đăng Nhập</a></li>");
 }
                                         %>
                                 </ul>
@@ -115,21 +115,21 @@ out.println("<li><a href=\"login.jsp\"><i class=\"fa fa-lock\"></i> Login</a></l
                             </div>
                             <div class="mainmenu pull-left">
                                 <ul class="nav navbar-nav collapse navbar-collapse">
-                                    <li><a href="home" class="active">Home</a></li>
+                                    <li><a href="home" class="active">Trang Chủ</a></li>
                                     <li class="dropdown"><a href="product">Shop<i class="fa fa-angle-down"></i></a>
                                         <ul role="menu" class="sub-menu">
-                                            <li><a href="product">Products</a></li>
-                                            <li><a href="validate">Checkout</a></li> 
-                                            <li><a href="cart.jsp">Cart</a></li> 
-                                                <% 
+                                            <li><a href="product">Sản Phẩm</a></li>
+                                            <li><a href="validate">Thanh Toán</a></li> 
+                                            <li><a href="cart.jsp">Giỏ Hàng</a></li> 
+                                                                                    <% 
 if (x != null) {
-out.println("<li><a href=\"logout\"> Sign out</a></li>");
+out.println("<li><a href=\"logout\">Đăng Xuất</a></li>");
 }
 
 if (x == null) {
-out.println("<li><a href=\"login.jsp\"> Login</a></li>");
+out.println("<li><a href=\"login.jsp\">Đăng Nhập</a></li>");
 }
-                                                %>
+                                        %>
                                         </ul>
                                     </li> 
                                 </ul>
@@ -158,7 +158,7 @@ out.println("<li><a href=\"login.jsp\"> Login</a></li>");
                     <div class="breadcrumbs">
                         <ol class="breadcrumb">
                             <li><a href="#">Home</a></li>
-                            <li class="active">Check out</li>
+                            <li class="active">Thanh Toán</li>
                         </ol>
                     </div><!--/breadcrums-->
 
@@ -167,12 +167,12 @@ out.println("<li><a href=\"login.jsp\"> Login</a></li>");
                         <div class="row">					
                             <div class="col-sm-5 clearfix">
                                 <div class="bill-to">
-                                    <p>Bill To</p>
+                                    <p>ĐỊA CHỈ GIAO HÀNG</p>
                                     <div class="form-one">
                                         <form id="billingForm">
-                                            <input type="text" name="name" placeholder="FullName" value="${ad.first_name} ${ad.last_name}" required>
-                                            <input type="text" name="email" placeholder="Email*" value="${curr.email}" required>
-                                            <input type="text" name="phone" placeholder="Mobile Phone" value="${ad.phone}" required>
+                                            <input type="text" name="name" placeholder="Nhập tên người nhận" value="${ad.first_name} ${ad.last_name}" required>
+                                            <input type="text" name="email" placeholder="Nhập Email*" value="${curr.email}" required>
+                                            <input type="text" name="phone" placeholder="Nhập số điện thoại" value="${ad.phone}" required>
                                             <select name="city" id="city" required>
                                                 <option value="" selected>Chọn tỉnh thành</option>
                                             </select>
@@ -182,7 +182,7 @@ out.println("<li><a href=\"login.jsp\"> Login</a></li>");
                                             <select name="ward" id="ward" required>
                                                 <option value="" selected>Chọn phường xã</option>
                                             </select>
-                                            <input type="text" name="delivery" placeholder="Delivery Address" required>
+                                            <input type="text" name="delivery" placeholder="Nhập địa chỉ nhận hàng" required>
                                         </form>
                                     </div>
                                 </div>
@@ -233,8 +233,8 @@ out.println("<li><a href=\"login.jsp\"> Login</a></li>");
                             </script>
                             <div class="col-sm-4">
                                 <div class="order-message">
-                                    <div class="bill-to"><p>Shipping Order</p></div> 
-                                    <textarea name="message"  placeholder="Notes about your order, Special Notes for Delivery" rows="16"></textarea>
+                                    <div class="bill-to"><p>Gửi lời yêu thương</p></div> 
+                                    <textarea name="message"  placeholder="Nếu như bạn mua sách để tặng quà, hãy viết cho họ một chiếc thiệp nhé!" rows="16"></textarea>
                                 </div>	
                             </div>	
 
@@ -242,20 +242,20 @@ out.println("<li><a href=\"login.jsp\"> Login</a></li>");
                     </div>
 
                     <div class="review-payment">
-                        <h2>Review & Payment</h2>
+                        <h2>KIỂM TRA LẠI ĐƠN HÀNG</h2>
                     </div>
 
                     <div class="table-responsive cart_info">
                         <table class="table table-condensed">
                             <thead>
                                 <tr class="cart_menu">
-                                    <td class="image">Item</td>
-                                    <td class="description"></td>
-                                    <td class="price">Price</td>
-                                    <td class="quantity">Quantity</td>
-                                    <td class="total">Total</td>
-                                    <td></td>
-                                </tr>
+                                <td class="image">Sản Phẩm</td>
+                                <td class="description"></td>
+                                <td class="price">Giá</td>
+                                <td class="quantity">Số lượng</td>
+                                <td class="total">Thành tiền</td>
+                                <td></td>
+                            </tr>
                             </thead>
                             <tbody>
                                 <c:forEach items="${sessionScope.cart.item}" var="i">     
@@ -273,7 +273,7 @@ out.println("<li><a href=\"login.jsp\"> Login</a></li>");
                                             </div>
                                         </td>
                                         <td class="cart_price">
-                                            <p>$${i.product.price}</p>
+                                            <p>${i.product.price} đ</p>
                                         </td>
                                         <td class="cart_quantity">
                                             <div class="cart_quantity_button">
@@ -281,7 +281,7 @@ out.println("<li><a href=\"login.jsp\"> Login</a></li>");
                                             </div>
                                         </td>
                                         <td class="cart_total">
-                                            <p class="cart_total_price">$<fmt:formatNumber value="${i.product.price * i.quantity}" pattern="0.00" /></p>
+                                            <p class="cart_total_price"><fmt:formatNumber value="${i.product.price * i.quantity}" pattern="0.00" /> đ</p>
                                         </td>                  
                                     </tr>
                                 </c:forEach>
@@ -290,27 +290,27 @@ out.println("<li><a href=\"login.jsp\"> Login</a></li>");
                                     <td colspan="2">
                                         <table class="table table-condensed total-result">
                                             <tr>
-                                                <td>Cart Sub Total</td>
-                                                <td>$<fmt:formatNumber value="${sessionScope.cart.getTotalMoney()}" pattern="0.00" /></td>
+                                                <td>Thành tiền</td>
+                                                <td><fmt:formatNumber value="${sessionScope.cart.getTotalMoney()}" pattern="0.00" /> đ</td>
                                             </tr>
                                             <tr>
-                                                <td>Exo Tax</td>
-                                                <td>$0</td>
+                                                <td>VAT</td>
+                                                <td>0 đ</td>
                                             </tr>
                                             <tr class="shipping-cost">
-                                                <td>Shipping Cost</td>
+                                                <td>Giá vận chuyển</td>
                                                 <td>Free</td>										
                                             </tr>
                                             <tr>
-                                                <td>Total</td>
-                                                <td><span>$<fmt:formatNumber value="${sessionScope.cart.getTotalMoney()}" pattern="0.00" /></span></td>                                       
-                                            </tr>
+                                                <td>Tổng số tiền (gồm VAT)</td>
+                                                <td><span><fmt:formatNumber value="${sessionScope.cart.getTotalMoney()}" pattern="0.00" /> đ</span></td>                                       
+                                            </tr> 
                                             <tr>
                                                 <td colspan="2">
                                                     <div class="col-sm-6">
 
                                                         <button type="submit" class="btn btn-default check_out">
-                                                            Payment Confirmation
+                                                            Xác nhận thanh toán
                                                         </button>
 
                                                     </div>
