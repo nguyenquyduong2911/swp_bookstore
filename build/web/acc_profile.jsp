@@ -50,15 +50,15 @@
      out.println("<li><a href=\"account_detail?id=" + x.getIdAccount() + "\"><i class=\"fa fa-user\"></i> " + x.getName() + "</a></li>");
  }
                                     %>
-                                    <li><a href="validate"><i class="fa fa-crosshairs"></i> Checkout</a></li>
-                                    <li><a href="cart.jsp"><i class="fa fa-shopping-cart"></i>Cart(${sessionScope.size})</a></li>
+                                   <li><a href="validate"><i class="fa fa-crosshairs"></i>Thanh Toán</a></li>
+                                    <li><a href="cart.jsp"><i class="fa fa-shopping-cart"></i>Giỏ Hàng:${sessionScope.size}</a></li>
                                         <% 
 if (x != null) {
-out.println("<li><a href=\"logout\"><i class=\"fa fa-user\"></i> Sign out</a></li>");
+out.println("<li><a href=\"logout\"><i class=\"fa fa-user\"></i>Đăng Xuất</a></li>");
 }
 
 if (x == null) {
-out.println("<li><a href=\"login.jsp\"><i class=\"fa fa-lock\"></i> Login</a></li>");
+out.println("<li><a href=\"login.jsp\"><i class=\"fa fa-lock\"></i>Đăng Nhập</a></li>");
 }
                                         %>
                                 </ul>
@@ -82,19 +82,19 @@ out.println("<li><a href=\"login.jsp\"><i class=\"fa fa-lock\"></i> Login</a></l
                             </div>
                             <div class="mainmenu pull-left">
                                 <ul class="nav navbar-nav collapse navbar-collapse">
-                                    <li><a href="home" class="active">Home</a></li>
+                                    <li><a href="home" class="active">Trang Chủ</a></li>
                                     <li class="dropdown"><a href="product">Shop<i class="fa fa-angle-down"></i></a>
                                         <ul role="menu" class="sub-menu">
-                                            <li><a href="product">Products</a></li>
-                                            <li><a href="validate">Checkout</a></li> 
-                                            <li><a href="cart.jsp">Cart</a></li> 
-                                                                                                                         <% 
+                                            <li><a href="product">Sản Phẩm</a></li>
+                                            <li><a href="validate">Thanh Toán</a></li> 
+                                            <li><a href="cart.jsp">Giỏ Hàng</a></li> 
+                                                                                    <% 
 if (x != null) {
-out.println("<li><a href=\"logout\"> Sign out</a></li>");
+out.println("<li><a href=\"logout\">Đăng Xuất</a></li>");
 }
 
 if (x == null) {
-out.println("<li><a href=\"login.jsp\"> Login</a></li>");
+out.println("<li><a href=\"login.jsp\">Đăng Nhập</a></li>");
 }
                                         %>
                                         </ul>
@@ -123,9 +123,9 @@ out.println("<li><a href=\"login.jsp\"> Login</a></li>");
                         </div>
 
                         <ul class="nav nav-pills nav-stacked">
-                            <li class="active"><a href="account_detail?id=${curr.idAccount}"> <i class="fa fa-user"></i> Profile</a></li>
-                            <li><a href="edit_accountdetail?id=${curr.idAccount}"> <i class="fa fa-edit"></i> Edit profile</a></li>
-                            <li><a href="ordersum?id=${curr.idAccount}"> <i class="fa fa-history"></i> Order History</a></li>
+                            <li class="active"><a href="account_detail?id=${curr.idAccount}"> <i class="fa fa-user"></i>Thông tin tài khoản</a></li>
+                            <li><a href="edit_accountdetail?id=${curr.idAccount}"> <i class="fa fa-edit"></i>Chỉnh sửa thông tin tài khoản</a></li>
+                            <li><a href="ordersum?id=${curr.idAccount}"> <i class="fa fa-history"></i>Lịch sử mua hàng</a></li>
                         </ul>
                     </div>
                 </div>
@@ -133,23 +133,23 @@ out.println("<li><a href=\"login.jsp\"> Login</a></li>");
 
                     <div class="panel">
                         <div class="panel-body bio-graph-info">
-                            <h1>Bio Graph</h1>
+                            <h1>TÀI KHOẢN</h1>
 
                             <div class="row">
                                 <div class="bio-row">
-                                    <p><span>First Name</span>: ${a.first_name}</p>
+                                    <p><span>Họ</span>: ${a.first_name}</p>
                                 </div>
                                 <div class="bio-row">
-                                    <p><span>Last Name</span>: ${a.last_name}</p>
+                                    <p><span>Tên</span>: ${a.last_name}</p>
                                 </div>
                                 <div class="bio-row">
-                                    <p><span>Phone number</span>: ${a.phone}</p>
+                                    <p><span>Số điện thoại</span>: ${a.phone}</p>
                                 </div>
                                 <div class="bio-row">
-                                    <p><span>Gender</span>: ${a.gender == 1 ? 'Male' : a.gender == 0 ? 'Female' : ''}</p>
+                                    <p><span>Giới tính</span>: ${a.gender == 1 ? 'Male' : a.gender == 0 ? 'Female' : ''}</p>
                                 </div>
                                 <div class="bio-row">
-                                    <p><span>Birthday</span>: ${a.dob}</p>
+                                    <p><span>Ngày sinh</span>: ${a.dob}</p>
                                 </div>
                                 <div class="bio-row">
                                     <p><span>Email</span>: ${a.email}</p>
