@@ -57,15 +57,15 @@ if (x != null) {
 }
                                     %>
 
-                                    <li><a href="validate"><i class="fa fa-crosshairs"></i>Thanh Toán</a></li>
-                                    <li><a href="cart.jsp"><i class="fa fa-shopping-cart"></i>Giỏ Hàng(${sessionScope.size})</a></li>
+                                    <li><a href="validate"><i class="fa fa-crosshairs"></i> Checkout</a></li>
+                                    <li><a href="cart.jsp"><i class="fa fa-shopping-cart"></i>Cart(${sessionScope.size})</a></li>
                                         <% 
 if (x != null) {
-out.println("<li><a href=\"logout\"><i class=\"fa fa-user\"></i>Đăng xuất</a></li>");
+out.println("<li><a href=\"logout\"><i class=\"fa fa-user\"></i> Sign out</a></li>");
 }
 
 if (x == null) {
-out.println("<li><a href=\"login.jsp\"><i class=\"fa fa-lock\"></i>Đăng Nhập</a></li>");
+out.println("<li><a href=\"login.jsp\"><i class=\"fa fa-lock\"></i> Login</a></li>");
 }
                                         %>
                                 </ul>
@@ -89,19 +89,19 @@ out.println("<li><a href=\"login.jsp\"><i class=\"fa fa-lock\"></i>Đăng Nhập
                             </div>
                             <div class="mainmenu pull-left">
                                 <ul class="nav navbar-nav collapse navbar-collapse">
-                                    <li><a href="home" class="active">Trang Chủ</a></li>
+                                    <li><a href="home" class="active">Home</a></li>
                                     <li class="dropdown"><a href="product">Shop<i class="fa fa-angle-down"></i></a>
                                         <ul role="menu" class="sub-menu">
-                                            <li><a href="product">Sản Phẩm</a></li>
-                                            <li><a href="validate">Thanh Toán</a></li> 
-                                            <li><a href="cart.jsp">Giỏ Hàng</a></li> 
+                                            <li><a href="product">Products</a></li>
+                                            <li><a href="validate">Checkout</a></li> 
+                                            <li><a href="cart.jsp">Cart</a></li> 
                                                                                     <% 
 if (x != null) {
-out.println("<li><a href=\"logout\">Đăng xuất</a></li>");
+out.println("<li><a href=\"logout\"> Sign out</a></li>");
 }
 
 if (x == null) {
-out.println("<li><a href=\"login.jsp\">Đăng Nhập</a></li>");
+out.println("<li><a href=\"login.jsp\"> Login</a></li>");
 }
                                         %>
                                         </ul>
@@ -142,18 +142,8 @@ out.println("<li><a href=\"login.jsp\">Đăng Nhập</a></li>");
                                 <div class="item active">
                                     <div class="col-sm-6">
                                         <h1><span>E</span>-Booker</h1>
-<<<<<<< Updated upstream
                                         <h2>Best book of MAY</h2>
                                         <button type="button" class="btn btn-default get">Get it now</button>
-=======
-<<<<<<< HEAD
-                                        <h2>Sách hay trong tháng</h2>
-                                        <button type="button" class="btn btn-default get">Xem Ngay</button>
-=======
-                                        <h2>Sách hay nhất tháng 5</h2>
-                                        <button type="button" class="btn btn-default get">Mua ngay</button>
->>>>>>> a17b58e0b68227247055fc9411dcd7b0a0cb691b
->>>>>>> Stashed changes
                                     </div>
                                     <div class="col-sm-6">
                                         <img src="https://pressgazette.co.uk/wp-content/uploads/sites/7/2022/04/lrb-scaled.jpg" class="girl img-responsive" alt="" />
@@ -163,18 +153,8 @@ out.println("<li><a href=\"login.jsp\">Đăng Nhập</a></li>");
                                 <div class="item">
                                     <div class="col-sm-6">
                                         <h1><span>E</span>-Booker</h1>
-<<<<<<< Updated upstream
                                         <h2>Best book of 2023</h2>
                                         <button type="button" class="btn btn-default get">Get it now</button>
-=======
-<<<<<<< HEAD
-                                        <h2>Sách hay năm 2023</h2>
-                                        <button type="button" class="btn btn-default get">Xem Ngay</button>
-=======
-                                        <h2>Sách của năm 2023</h2>
-                                        <button type="button" class="btn btn-default get">Mua ngay</button>
->>>>>>> a17b58e0b68227247055fc9411dcd7b0a0cb691b
->>>>>>> Stashed changes
                                     </div>
                                     <div class="col-sm-6">
                                         <img src="https://assets.vogue.com/photos/63239a0292d08ee271ef754c/master/w_2560%2Cc_limit/_new_BOOK_COLLAGE_PROMO.jpg" class="girl img-responsive" alt="" />
@@ -185,18 +165,8 @@ out.println("<li><a href=\"login.jsp\">Đăng Nhập</a></li>");
                                 <div class="item">
                                     <div class="col-sm-6">
                                         <h1><span>E</span>-Booker</h1>
-<<<<<<< Updated upstream
                                         <h2>Best book in top Category</h2>
                                         <button type="button" class="btn btn-default get">Get it now</button>
-=======
-<<<<<<< HEAD
-                                        <h2>Sách đứng TOP mọi thể loại</h2>
-                                        <button type="button" class="btn btn-default get">Xem Ngay</button>
-=======
-                                        <h2>Những cuốn sách hay nhất!</h2>
-                                        <button type="button" class="btn btn-default get">Mua ngay</button>
->>>>>>> a17b58e0b68227247055fc9411dcd7b0a0cb691b
->>>>>>> Stashed changes
                                     </div>
                                     <div class="col-sm-6">
                                         <img src="https://mgross.com/wp-content/uploads/2021/02/E2215509-180F-4226-BD76-A8AD4E6B0728-scaled-1.jpg" class="girl img-responsive" alt="" />
@@ -224,28 +194,12 @@ out.println("<li><a href=\"login.jsp\">Đăng Nhập</a></li>");
                 <div class="row">
                     <div class="col-sm-3">
                         <div class="left-sidebar">
-<<<<<<< Updated upstream
                             <h2>Category</h2>
-=======
-<<<<<<< HEAD
-                            <h2>Nhóm Sản Phẩm</h2>
-=======
-                            <h2>Mục lục</h2>
->>>>>>> a17b58e0b68227247055fc9411dcd7b0a0cb691b
->>>>>>> Stashed changes
                             <div class="panel-group category-products" id="accordian"><!--category-productsr-->
                                 <div class="panel panel-default">    
                                     <div class="panel-heading">
                                         <h4 class="panel-title">
-<<<<<<< Updated upstream
                                             <li><a href="product">ALL Category</a></li> 
-=======
-<<<<<<< HEAD
-                                            <li><a href="product">Tất cả nhóm sản phẩm</a></li> 
-=======
-                                            <li><a href="product">Tất cả mục lục</a></li> 
->>>>>>> a17b58e0b68227247055fc9411dcd7b0a0cb691b
->>>>>>> Stashed changes
                                         </h4>
                                     </div>
                                 </div>
@@ -286,17 +240,8 @@ out.println("<li><a href=\"login.jsp\">Đăng Nhập</a></li>");
                                         </c:forEach>
                                     </ul>
                                     <div  class="show-button-container">
-<<<<<<< Updated upstream
                                         <button class="show-more-button" onclick="showMoreGenres()">Show More</button>
                                         <button class="show-less-button hidden" onclick="showLessGenres()">Show Less</button>
-=======
-<<<<<<< HEAD
-                                        <button class="show-more-button" onclick="showMoreGenres()">Xem Thêm</button>
-=======
-                                        <button class="show-more-button" onclick="showMoreGenres()">Xem thêm</button>
->>>>>>> a17b58e0b68227247055fc9411dcd7b0a0cb691b
-                                        <button class="show-less-button hidden" onclick="showLessGenres()">Ẩn bớt</button>
->>>>>>> Stashed changes
                                     </div>
                                 </div>
                             </div>
@@ -326,15 +271,7 @@ out.println("<li><a href=\"login.jsp\">Đăng Nhập</a></li>");
                                                     <div class="overlay-content">
                                                         <h2>${item.price}$</h2>
                                                         <p class="item-name">${item.name}</p>
-<<<<<<< Updated upstream
                                                         <a href="productdetail?productid=${item.id}" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>In Detail</a>
-=======
-<<<<<<< HEAD
-                                                        <a href="productdetail?productid=${item.id}" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Xem Chi Tiết</a>
-=======
-                                                        <a href="productdetail?productid=${item.id}" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Xem chi tiết</a>
->>>>>>> a17b58e0b68227247055fc9411dcd7b0a0cb691b
->>>>>>> Stashed changes
                                                     </div>
                                                 </div>
                                             </div>
@@ -343,15 +280,7 @@ out.println("<li><a href=\"login.jsp\">Đăng Nhập</a></li>");
                                     </div>
                                 </c:if>
                             </c:forEach>
-<<<<<<< Updated upstream
                             <a href="product" class="btn btn-go-to-product">See more</a>
-=======
-<<<<<<< HEAD
-                            <a href="product" class="btn btn-go-to-product">Xem Thêm</a>
-=======
-                            <a href="product" class="btn btn-go-to-product">Xem thêm</a>
->>>>>>> a17b58e0b68227247055fc9411dcd7b0a0cb691b
->>>>>>> Stashed changes
                         </div><!--features_items-->
 
                         <div class="category-tab"><!--category-tab-->
@@ -396,15 +325,7 @@ out.println("<li><a href=\"login.jsp\">Đăng Nhập</a></li>");
                                                                             <h2>${itemList[innerStatus.index].price}$</h2>
                                                                             <p class="item-name" >${itemList[innerStatus.index].name}</p>
                                                                             <a href="productdetail?productid=${itemList[innerStatus.index].id}" class="btn btn-default add-to-cart">
-<<<<<<< Updated upstream
                                                                                 <i class="fa fa-shopping-cart"></i>In Detail
-=======
-<<<<<<< HEAD
-                                                                                <i class="fa fa-shopping-cart"></i>Xem Chi Tiết
-=======
-                                                                                <i class="fa fa-shopping-cart"></i>Xem chi tiết
->>>>>>> a17b58e0b68227247055fc9411dcd7b0a0cb691b
->>>>>>> Stashed changes
                                                                             </a>
                                                                         </div>
                                                                     </div>

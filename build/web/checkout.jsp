@@ -233,18 +233,8 @@ out.println("<li><a href=\"login.jsp\"> Login</a></li>");
                             </script>
                             <div class="col-sm-4">
                                 <div class="order-message">
-<<<<<<< Updated upstream
                                     <div class="bill-to"><p>Shipping Order</p></div> 
                                     <textarea name="message"  placeholder="Notes about your order, Special Notes for Delivery" rows="16"></textarea>
-=======
-<<<<<<< HEAD
-                                    <div class="bill-to"><p>Ghi chú</p></div> 
-                                    <textarea name="message"  placeholder="Ghi thông tin ghi chú" rows="16"></textarea>
-=======
-                                    <div class="bill-to"><p>Thiệp yêu thương </p></div> 
-                                    <textarea name="message"  placeholder="Hãy gửi cho người nhận sách những lời yêu thương trong chiếc thiệp này nhé!" rows="16"></textarea>
->>>>>>> a17b58e0b68227247055fc9411dcd7b0a0cb691b
->>>>>>> Stashed changes
                                 </div>	
                             </div>	
 

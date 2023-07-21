@@ -51,15 +51,15 @@ if (x != null) {
     out.println("<li><a href=\"account_detail?id=" + x.getIdAccount() + "\"><i class=\"fa fa-user\"></i> " + x.getName() + "</a></li>");
 }
                                     %>
-                                    <li><a href="validate"><i class="fa fa-crosshairs"></i>Thanh Toán</a></li>
-                                    <li><a href="cart.jsp"><i class="fa fa-shopping-cart"></i>Giỏ Hàng(${sessionScope.size})</a></li>
+                                    <li><a href="validate"><i class="fa fa-crosshairs"></i> Checkout</a></li>
+                                    <li><a href="cart.jsp"><i class="fa fa-shopping-cart"></i>Cart(${sessionScope.size})</a></li>
                                         <% 
 if (x != null) {
-out.println("<li><a href=\"logout\"><i class=\"fa fa-user\"></i>Đăng Xuất</a></li>");
+out.println("<li><a href=\"logout\"><i class=\"fa fa-user\"></i> Sign out</a></li>");
 }
 
 if (x == null) {
-out.println("<li><a href=\"login.jsp\"><i class=\"fa fa-lock\"></i>Đăng Nhập</a></li>");
+out.println("<li><a href=\"login.jsp\"><i class=\"fa fa-lock\"></i> Login</a></li>");
 }
                                         %>
                                 </ul>
@@ -83,19 +83,19 @@ out.println("<li><a href=\"login.jsp\"><i class=\"fa fa-lock\"></i>Đăng Nhập
                             </div>
                             <div class="mainmenu pull-left">
                                 <ul class="nav navbar-nav collapse navbar-collapse">
-                                    <li><a href="home" class="active">Trang Chủ</a></li>
+                                    <li><a href="home" class="active">Home</a></li>
                                     <li class="dropdown"><a href="product">Shop<i class="fa fa-angle-down"></i></a>
                                         <ul role="menu" class="sub-menu">
-                                            <li><a href="product">Sản Phẩm</a></li>
-                                            <li><a href="validate">Thanh Toán</a></li> 
-                                            <li><a href="cart.jsp">Giỏ Hàng</a></li> 
+                                            <li><a href="product">Products</a></li>
+                                            <li><a href="validate">Checkout</a></li> 
+                                            <li><a href="cart.jsp">Cart</a></li> 
                                                                                                          <% 
 if (x != null) {
-out.println("<li><a href=\"logout\">Đăng Xuất</a></li>");
+out.println("<li><a href=\"logout\"> Sign out</a></li>");
 }
 
 if (x == null) {
-out.println("<li><a href=\"login.jsp\">Đăng Nhập</a></li>");
+out.println("<li><a href=\"login.jsp\"> Login</a></li>");
 }
                                         %>
                                         </ul>
@@ -132,28 +132,12 @@ out.println("<li><a href=\"login.jsp\">Đăng Nhập</a></li>");
                 <div class="row">
                     <div class="col-sm-3">
                         <div class="left-sidebar">
-<<<<<<< Updated upstream
                             <h2>Category</h2>
-=======
-<<<<<<< HEAD
-                            <h2>Nhóm Sản Phẩm</h2>
-=======
-                            <h2>Mục Lục</h2>
->>>>>>> a17b58e0b68227247055fc9411dcd7b0a0cb691b
->>>>>>> Stashed changes
                             <div class="panel-group category-products" id="accordian"><!--category-productsr-->
                                 <div class="panel panel-default">    
                                     <div class="panel-heading">
                                         <h4 class="panel-title">
-<<<<<<< Updated upstream
                                             <li><a href="product">ALL Category</a></li> 
-=======
-<<<<<<< HEAD
-                                            <li><a href="product">Tất cả nhóm sản phẩm</a></li> 
-=======
-                                            <li><a href="product">Tất cả mục lục</a></li> 
->>>>>>> a17b58e0b68227247055fc9411dcd7b0a0cb691b
->>>>>>> Stashed changes
                                         </h4>
                                     </div>
                                 </div>
