@@ -57,15 +57,15 @@ if (x != null) {
 }
                                     %>
 
-                                    <li><a href="validate"><i class="fa fa-crosshairs"></i>Thanh Toán</a></li>
-                                    <li><a href="cart.jsp"><i class="fa fa-shopping-cart"></i>Giỏ Hàng(${sessionScope.size})</a></li>
+                                    <li><a href="validate"><i class="fa fa-crosshairs"></i> Checkout</a></li>
+                                    <li><a href="cart.jsp"><i class="fa fa-shopping-cart"></i>Cart(${sessionScope.size})</a></li>
                                         <% 
 if (x != null) {
-out.println("<li><a href=\"logout\"><i class=\"fa fa-user\"></i>Đăng xuất</a></li>");
+out.println("<li><a href=\"logout\"><i class=\"fa fa-user\"></i> Sign out</a></li>");
 }
 
 if (x == null) {
-out.println("<li><a href=\"login.jsp\"><i class=\"fa fa-lock\"></i>Đăng Nhập</a></li>");
+out.println("<li><a href=\"login.jsp\"><i class=\"fa fa-lock\"></i> Login</a></li>");
 }
                                         %>
                                 </ul>
@@ -89,19 +89,19 @@ out.println("<li><a href=\"login.jsp\"><i class=\"fa fa-lock\"></i>Đăng Nhập
                             </div>
                             <div class="mainmenu pull-left">
                                 <ul class="nav navbar-nav collapse navbar-collapse">
-                                    <li><a href="home" class="active">Trang Chủ</a></li>
+                                    <li><a href="home" class="active">Home</a></li>
                                     <li class="dropdown"><a href="product">Shop<i class="fa fa-angle-down"></i></a>
                                         <ul role="menu" class="sub-menu">
-                                            <li><a href="product">Sản Phẩm</a></li>
-                                            <li><a href="validate">Thanh Toán</a></li> 
-                                            <li><a href="cart.jsp">Giỏ Hàng</a></li> 
+                                            <li><a href="product">Products</a></li>
+                                            <li><a href="validate">Checkout</a></li> 
+                                            <li><a href="cart.jsp">Cart</a></li> 
                                                                                     <% 
 if (x != null) {
-out.println("<li><a href=\"logout\">Đăng xuất</a></li>");
+out.println("<li><a href=\"logout\"> Sign out</a></li>");
 }
 
 if (x == null) {
-out.println("<li><a href=\"login.jsp\">Đăng Nhập</a></li>");
+out.println("<li><a href=\"login.jsp\"> Login</a></li>");
 }
                                         %>
                                         </ul>
@@ -194,12 +194,12 @@ out.println("<li><a href=\"login.jsp\">Đăng Nhập</a></li>");
                 <div class="row">
                     <div class="col-sm-3">
                         <div class="left-sidebar">
-                            <h2>Mục lục</h2>
+                            <h2>Category</h2>
                             <div class="panel-group category-products" id="accordian"><!--category-productsr-->
                                 <div class="panel panel-default">    
                                     <div class="panel-heading">
                                         <h4 class="panel-title">
-                                            <li><a href="product">Tất cả mục lục</a></li> 
+                                            <li><a href="product">ALL Category</a></li> 
                                         </h4>
                                     </div>
                                 </div>
@@ -230,7 +230,7 @@ out.println("<li><a href=\"login.jsp\">Đăng Nhập</a></li>");
 
                             <div class="brands_products">
                                 <!--brands_products-->
-                                <h2>Thể loại</h2>
+                                <h2>GENRES</h2>
                                 <div class="brands-name">
                                     <ul class="nav nav-pills nav-stacked" id="genreList">
                                         <c:forEach items="${genreList}" var="genre" varStatus="status">
@@ -240,8 +240,8 @@ out.println("<li><a href=\"login.jsp\">Đăng Nhập</a></li>");
                                         </c:forEach>
                                     </ul>
                                     <div  class="show-button-container">
-                                        <button class="show-more-button" onclick="showMoreGenres()">Xem thêm</button>
-                                        <button class="show-less-button hidden" onclick="showLessGenres()">Ẩn bớt</button>
+                                        <button class="show-more-button" onclick="showMoreGenres()">Show More</button>
+                                        <button class="show-less-button hidden" onclick="showLessGenres()">Show Less</button>
                                     </div>
                                 </div>
                             </div>
@@ -271,7 +271,7 @@ out.println("<li><a href=\"login.jsp\">Đăng Nhập</a></li>");
                                                     <div class="overlay-content">
                                                         <h2>${item.price}đ</h2>
                                                         <p class="item-name">${item.name}</p>
-                                                        <a href="productdetail?productid=${item.id}" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Xem chi tiết</a>
+                                                        <a href="productdetail?productid=${item.id}" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>In Detail</a>
                                                     </div>
                                                 </div>
                                             </div>
@@ -280,7 +280,7 @@ out.println("<li><a href=\"login.jsp\">Đăng Nhập</a></li>");
                                     </div>
                                 </c:if>
                             </c:forEach>
-                            <a href="product" class="btn btn-go-to-product">Xem thêm</a>
+                            <a href="product" class="btn btn-go-to-product">See more</a>
                         </div><!--features_items-->
 
                         <div class="category-tab"><!--category-tab-->
@@ -325,7 +325,7 @@ out.println("<li><a href=\"login.jsp\">Đăng Nhập</a></li>");
                                                                             <h2>${itemList[innerStatus.index].price}đ</h2>
                                                                             <p class="item-name" >${itemList[innerStatus.index].name}</p>
                                                                             <a href="productdetail?productid=${itemList[innerStatus.index].id}" class="btn btn-default add-to-cart">
-                                                                                <i class="fa fa-shopping-cart"></i>Xem chi tiết
+                                                                                <i class="fa fa-shopping-cart"></i>In Detail
                                                                             </a>
                                                                         </div>
                                                                     </div>
