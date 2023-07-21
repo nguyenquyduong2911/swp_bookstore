@@ -3,32 +3,10 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/taote/OneDrive/Documents/NetBeansProjects/swp_bookstore/swp_bookstore/web/product-detail.jsp</file>
-            <file>file:/C:/Users/taote/OneDrive/Documents/NetBeansProjects/swp_bookstore/swp_bookstore/web/accountOrder.jsp</file>
-            <file>file:/C:/Users/taote/OneDrive/Documents/NetBeansProjects/swp_bookstore/swp_bookstore/web/updatecat.jsp</file>
-            <file>file:/C:/Users/taote/OneDrive/Documents/NetBeansProjects/swp_bookstore/swp_bookstore/web/userlist.jsp</file>
-            <file>file:/C:/Users/taote/OneDrive/Documents/NetBeansProjects/swp_bookstore/swp_bookstore/web/admin.jsp</file>
-            <file>file:/C:/Users/taote/OneDrive/Documents/NetBeansProjects/swp_bookstore/swp_bookstore/web/verify_password.jsp</file>
-            <file>file:/C:/Users/taote/OneDrive/Documents/NetBeansProjects/swp_bookstore/swp_bookstore/web/orderdetail.jsp</file>
-            <file>file:/C:/Users/taote/OneDrive/Documents/NetBeansProjects/swp_bookstore/swp_bookstore/web/checkout.jsp</file>
-            <file>file:/C:/Users/taote/OneDrive/Documents/NetBeansProjects/swp_bookstore/swp_bookstore/web/home.jsp</file>
-            <file>file:/C:/Users/taote/OneDrive/Documents/NetBeansProjects/swp_bookstore/swp_bookstore/web/edit_accountdetail.jsp</file>
-            <file>file:/C:/Users/taote/OneDrive/Documents/NetBeansProjects/swp_bookstore/swp_bookstore/web/emailChk.jsp</file>
-            <file>file:/C:/Users/taote/OneDrive/Documents/NetBeansProjects/swp_bookstore/swp_bookstore/web/forgotpass.jsp</file>
-            <file>file:/C:/Users/taote/OneDrive/Documents/NetBeansProjects/swp_bookstore/swp_bookstore/web/editbook.jsp</file>
-            <file>file:/C:/Users/taote/OneDrive/Documents/NetBeansProjects/swp_bookstore/swp_bookstore/web/showbook.jsp</file>
-            <file>file:/C:/Users/taote/OneDrive/Documents/NetBeansProjects/swp_bookstore/swp_bookstore/web/seller.jsp</file>
-            <file>file:/C:/Users/taote/OneDrive/Documents/NetBeansProjects/swp_bookstore/swp_bookstore/web/resetpass.jsp</file>
-            <file>file:/C:/Users/taote/OneDrive/Documents/NetBeansProjects/swp_bookstore/swp_bookstore/web/orderpending.jsp</file>
-            <file>file:/C:/Users/taote/OneDrive/Documents/NetBeansProjects/swp_bookstore/swp_bookstore/web/updaterole.jsp</file>
-            <file>file:/C:/Users/taote/OneDrive/Documents/NetBeansProjects/swp_bookstore/swp_bookstore/web/login.jsp</file>
-            <file>file:/C:/Users/taote/OneDrive/Documents/NetBeansProjects/swp_bookstore/swp_bookstore/web/addcategory.jsp</file>
-            <file>file:/C:/Users/taote/OneDrive/Documents/NetBeansProjects/swp_bookstore/swp_bookstore/web/accountorderdetail.jsp</file>
-            <file>file:/C:/Users/taote/OneDrive/Documents/NetBeansProjects/swp_bookstore/swp_bookstore/web/acc_profile.jsp</file>
-            <file>file:/C:/Users/taote/OneDrive/Documents/NetBeansProjects/swp_bookstore/swp_bookstore/web/cart.jsp</file>
-            <file>file:/C:/Users/taote/OneDrive/Documents/NetBeansProjects/swp_bookstore/swp_bookstore/web/approveorder.jsp</file>
-            <file>file:/C:/Users/taote/OneDrive/Documents/NetBeansProjects/swp_bookstore/swp_bookstore/web/addbook.jsp</file>
-            <file>file:/C:/Users/taote/OneDrive/Documents/NetBeansProjects/swp_bookstore/swp_bookstore/web/product.jsp</file>
+            <file>file:/D:/PRj/swp_bookstore/web/orderpending.jsp</file>
+            <file>file:/D:/PRj/swp_bookstore/src/java/entity/Account.java</file>
+            <file>file:/D:/PRj/swp_bookstore/src/java/controller/PendingOrderServlet.java</file>
+            <file>file:/D:/PRj/swp_bookstore/src/java/dal/SellerDAO.java</file>
         </group>
     </open-files>
 </project-private>

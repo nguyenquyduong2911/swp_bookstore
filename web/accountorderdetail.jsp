@@ -159,8 +159,7 @@ out.println("<li><a href=\"login.jsp\"> Login</a></li>");
                                         </div>
                                     </td>
                                     <td class="cart_price">
-                                        <p><fmt:formatNumber value="${i.price}" pattern="0.000" />đ</p>
-                                        
+                                        <p>$${i.price}</p>
                                     </td>
                                   <td class="cart_quantity">
                                             <div class="cart_quantity_button">
@@ -169,7 +168,7 @@ out.println("<li><a href=\"login.jsp\"> Login</a></li>");
                                         </td> 
                                    
                                     <td class="cart_total">
-                                        <p class="cart_total_price"><fmt:formatNumber value="${i.price * i.quantity}" pattern="0.000" />đ</p>
+                                        <p class="cart_total_price">$<fmt:formatNumber value="${i.price * i.quantity}" pattern="0.00" /></p>
                                     </td>
                                     
 
