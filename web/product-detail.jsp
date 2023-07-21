@@ -175,7 +175,7 @@ out.println("<li><a href=\"login.jsp\"> Login</a></li>");
                                     <img src="images/product-details/rating.png" alt="" />
                                     <form action="cart" method="post" onsubmit="return validateQuantity(event)">
                                         <span>
-                                            <span>${bd.price}đ</span>
+                                            <span>${bd.price}$</span>
                                             <label>Quantity:</label>
                                             <input type="text" name="quantity" id="quantityInput" value="1" />
                                             <input type="hidden" name="id" value="${bd.id}" />
@@ -342,7 +342,7 @@ out.println("<li><a href=\"login.jsp\"> Login</a></li>");
                                                             <div class="single-products">
                                                                 <div class="productinfo text-center">
                                                                     <img src="${itemList[innerStatus.index].image}" alt="" />
-                                                                    <h2>${itemList[innerStatus.index].price}đ</h2>
+                                                                    <h2>${itemList[innerStatus.index].price}$</h2>
                                                                     <p class="item-name" >${itemList[innerStatus.index].name}</p>
                                                                     <a href="productdetail?productid=${itemList[innerStatus.index].id}" class="btn btn-default add-to-cart">
                                                                         <i class="fa fa-shopping-cart"></i>In Detail

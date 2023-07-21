@@ -233,8 +233,8 @@ out.println("<li><a href=\"login.jsp\"> Login</a></li>");
                             </script>
                             <div class="col-sm-4">
                                 <div class="order-message">
-                                    <div class="bill-to"><p>Thiệp yêu thương </p></div> 
-                                    <textarea name="message"  placeholder="Hãy gửi cho người nhận sách những lời yêu thương trong chiếc thiệp này nhé!" rows="16"></textarea>
+                                    <div class="bill-to"><p>Shipping Order</p></div> 
+                                    <textarea name="message"  placeholder="Notes about your order, Special Notes for Delivery" rows="16"></textarea>
                                 </div>	
                             </div>	
 
@@ -273,7 +273,7 @@ out.println("<li><a href=\"login.jsp\"> Login</a></li>");
                                             </div>
                                         </td>
                                         <td class="cart_price">
-                                            <p><fmt:formatNumber value="${i.product.price}" pattern="0.000"/>đ</p>
+                                            <p>$${i.product.price}</p>
                                         </td>
                                         <td class="cart_quantity">
                                             <div class="cart_quantity_button">
@@ -281,7 +281,7 @@ out.println("<li><a href=\"login.jsp\"> Login</a></li>");
                                             </div>
                                         </td>
                                         <td class="cart_total">
-                                            <p class="cart_total_price"><fmt:formatNumber value="${i.product.price * i.quantity}" pattern="0.000" />đ</p>
+                                            <p class="cart_total_price">$<fmt:formatNumber value="${i.product.price * i.quantity}" pattern="0.00" /></p>
                                         </td>                  
                                     </tr>
                                 </c:forEach>
@@ -291,11 +291,11 @@ out.println("<li><a href=\"login.jsp\"> Login</a></li>");
                                         <table class="table table-condensed total-result">
                                             <tr>
                                                 <td>Cart Sub Total</td>
-                                                <td><fmt:formatNumber value="${sessionScope.cart.getTotalMoney()}" pattern="0.000" />đ</td>
+                                                <td>$<fmt:formatNumber value="${sessionScope.cart.getTotalMoney()}" pattern="0.00" /></td>
                                             </tr>
                                             <tr>
-                                                <td>VAT</td>
-                                                <td>0đ</td>
+                                                <td>Exo Tax</td>
+                                                <td>$0</td>
                                             </tr>
                                             <tr class="shipping-cost">
                                                 <td>Shipping Cost</td>
@@ -303,7 +303,7 @@ out.println("<li><a href=\"login.jsp\"> Login</a></li>");
                                             </tr>
                                             <tr>
                                                 <td>Total</td>
-                                                <td><span><fmt:formatNumber value="${sessionScope.cart.getTotalMoney()}" pattern="0.000" />đ</span></td>                                       
+                                                <td><span>$<fmt:formatNumber value="${sessionScope.cart.getTotalMoney()}" pattern="0.00" /></span></td>                                       
                                             </tr>
                                             <tr>
                                                 <td colspan="2">
