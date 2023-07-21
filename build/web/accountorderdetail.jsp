@@ -40,7 +40,7 @@
                     <div class="row">
                         <div class="col-sm-4">
                             <div class="logo pull-left">
-                                <a href="home"><img src="images/home/logo.png" alt="" /></a>
+                                <a href="home"><img src="images/home/newlogo.png" alt="" /></a>
                             </div>
                         </div>
                         <div class="col-sm-8">

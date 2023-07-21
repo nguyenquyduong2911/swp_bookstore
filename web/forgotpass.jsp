@@ -11,7 +11,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login | E-Shopper</title>
+    <title>Login | E-Booker</title>
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/font-awesome.min.css" rel="stylesheet">
     <link href="css/prettyPhoto.css" rel="stylesheet">
@@ -78,7 +78,7 @@
                     <div class="row">
                         <div class="col-sm-4">
                             <div class="logo pull-left">
-                                <a href="home"><img src="images/home/logo.png" alt="" /></a>
+                                <a href="home"><img src="images/home/newlogo.png" alt="" /></a>
                             </div>
                         </div>
                         <div class="col-sm-8">

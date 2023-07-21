@@ -38,7 +38,7 @@
                     <div class="row">
                         <div class="col-sm-4">
                             <div class="logo pull-left">
-                                <a href="home"><img src="images/home/logo.png" alt="" /></a>
+                                <a href="home"><img src="images/home/newlogo.png" alt="" /></a>
                             </div>
                         </div>
                         <div class="col-sm-8">
@@ -167,12 +167,12 @@ out.println("<li><a href=\"login.jsp\"> Login</a></li>");
                                     </td>
                                     <td class="cart_description">
                                         
-                                            <h4><a>${i.total_price}</a></h4>
+                                            <h4><a>${i.total_price}vnd</a></h4>
                                        
                                     </td>
                                     <td class="cart_description">
                                       
-                                            <h4><a href="orderdetail?oid=${i.id}&id=${curr.idAccount}">ViewDetail</a></h4>
+                                            <h4><a href="orderdetail?oid=${i.id}&id=${curr.idAccount}">Xem chi tiết</a></h4>
                                      
                                     </td>
                                                                  

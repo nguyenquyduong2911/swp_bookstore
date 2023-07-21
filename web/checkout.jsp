@@ -13,7 +13,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="description" content="">
         <meta name="author" content="">
-        <title>Checkout | E-Shopper</title>
+        <title>Checkout | E-Booker</title>
         <link href="css/bootstrap.min.css" rel="stylesheet">
         <link href="css/font-awesome.min.css" rel="stylesheet">
         <link href="css/prettyPhoto.css" rel="stylesheet">
@@ -30,48 +30,48 @@
         <link rel="apple-touch-icon-precomposed" sizes="114x114" href="images/ico/apple-touch-icon-114-precomposed.png">
         <link rel="apple-touch-icon-precomposed" sizes="72x72" href="images/ico/apple-touch-icon-72-precomposed.png">
         <link rel="apple-touch-icon-precomposed" href="images/ico/apple-touch-icon-57-precomposed.png">
-         <style>
-    .bill-to input[type="text"],
-    .bill-to select,
-    .order-message textarea {
-        width: 100%;
-        padding: 8px;
-        margin-bottom: 10px;
-        border: 1px solid #ccc;
-        border-radius: 4px;
-        box-sizing: border-box;
-    }
+        <style>
+            .bill-to input[type="text"],
+            .bill-to select,
+            .order-message textarea {
+                width: 100%;
+                padding: 8px;
+                margin-bottom: 10px;
+                border: 1px solid #ccc;
+                border-radius: 4px;
+                box-sizing: border-box;
+            }
 
-    .bill-to select {
-        height: 34px;
-    }
+            .bill-to select {
+                height: 34px;
+            }
 
-    .bill-to input[type="text"]:focus,
-    .bill-to select:focus,
-    .order-message textarea:focus {
-        outline: none;
-        border-color: #4d90fe;
-    }
+            .bill-to input[type="text"]:focus,
+            .bill-to select:focus,
+            .order-message textarea:focus {
+                outline: none;
+                border-color: #4d90fe;
+            }
 
-    .bill-to p {
-        font-weight: bold;
-    }
-</style>
+            .bill-to p {
+                font-weight: bold;
+            }
+        </style>
     </head><!--/head-->
 
-   
+
 
 
     <body>
         <header id="header"><!--header-->
-           
+
 
             <div class="header-middle"><!--header-middle-->
                 <div class="container">
                     <div class="row">
                         <div class="col-sm-4">
                             <div class="logo pull-left">
-                                <a href="home"><img src="images/home/logo.png" alt="" /></a>
+                                <a href="home"><img src="images/home/newlogo.png" alt="" /></a>
                             </div>
                         </div>
                         <div class="col-sm-8">
@@ -121,7 +121,7 @@ out.println("<li><a href=\"login.jsp\"><i class=\"fa fa-lock\"></i> Login</a></l
                                             <li><a href="product">Products</a></li>
                                             <li><a href="validate">Checkout</a></li> 
                                             <li><a href="cart.jsp">Cart</a></li> 
-                                                                                                                             <% 
+                                                <% 
 if (x != null) {
 out.println("<li><a href=\"logout\"> Sign out</a></li>");
 }
@@ -129,7 +129,7 @@ out.println("<li><a href=\"logout\"> Sign out</a></li>");
 if (x == null) {
 out.println("<li><a href=\"login.jsp\"> Login</a></li>");
 }
-                                        %>
+                                                %>
                                         </ul>
                                     </li> 
                                 </ul>
@@ -139,9 +139,9 @@ out.println("<li><a href=\"login.jsp\"> Login</a></li>");
                             <div class="search_box pull-right">
                                 <form action="product" method="get" id="searchForm" onsubmit="return false;">
                                     <input type="text" name="searchInput" placeholder="Search" onkeydown="if (event.keyCode === 13) {
-                  document.getElementById('searchForm').submit();
-                  return false;
-              }">
+                                                document.getElementById('searchForm').submit();
+                                                return false;
+                                            }">
                                     <a href="#" onclick="document.getElementById('searchForm').submit();" style="display: none;">Search</a>
                                 </form>
                             </div>
@@ -169,28 +169,27 @@ out.println("<li><a href=\"login.jsp\"> Login</a></li>");
                                 <div class="bill-to">
                                     <p>Bill To</p>
                                     <div class="form-one">
-                                   
-                                        <input type="text" name="name" placeholder="FullName" value="${ad.first_name} ${ad.last_name}">                                        
-                                            <input type="text" name="email" placeholder="Email*" value="${curr.email}">
-                                            <input type="text" name="phone"  placeholder="Mobile Phone" value="${ad.phone}">
-                                            <select name="city"  id="city" >
-                                                <option value="city" selected>Chọn tỉnh thành</option>           
+                                        <form id="billingForm">
+                                            <input type="text" name="name" placeholder="FullName" value="${ad.first_name} ${ad.last_name}" required>
+                                            <input type="text" name="email" placeholder="Email*" value="${curr.email}" required>
+                                            <input type="text" name="phone" placeholder="Mobile Phone" value="${ad.phone}" required>
+                                            <select name="city" id="city" required>
+                                                <option value="" selected>Chọn tỉnh thành</option>
                                             </select>
-                                            <select  name="district" id="district" >
-                                                <option value="district" selected>Chọn quận huyện</option>
+                                            <select name="district" id="district" required>
+                                                <option value="" selected>Chọn quận huyện</option>
                                             </select>
-                                            <select name="ward" id="ward" >
-                                                <option value="ward" selected>Chọn phường xã</option>
+                                            <select name="ward" id="ward" required>
+                                                <option value="" selected>Chọn phường xã</option>
                                             </select>
-                                            <input type="text" name="delivery" placeholder="Delivery Address">
-                                       
+                                            <input type="text" name="delivery" placeholder="Delivery Address" required>
+                                        </form>
                                     </div>
-                                
                                 </div>
                             </div>
-                           
- <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"></script>
-                    <script>
+
+                            <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"></script>
+                            <script>
                                         var citis = document.getElementById("city");
                                         var districts = document.getElementById("district");
                                         var wards = document.getElementById("ward");
@@ -231,17 +230,17 @@ out.println("<li><a href=\"login.jsp\"> Login</a></li>");
                                             };
                                         }
 
-                    </script>
-                                <div class="col-sm-4">
-                                    <div class="order-message">
-                                        <div class="bill-to"><p>Shipping Order</p></div> 
-                                        <textarea name="message"  placeholder="Notes about your order, Special Notes for Delivery" rows="16"></textarea>
-                                    </div>	
+                            </script>
+                            <div class="col-sm-4">
+                                <div class="order-message">
+                                    <div class="bill-to"><p>Shipping Order</p></div> 
+                                    <textarea name="message"  placeholder="Notes about your order, Special Notes for Delivery" rows="16"></textarea>
                                 </div>	
-                           
+                            </div>	
+
                         </div>
                     </div>
-                   
+
                     <div class="review-payment">
                         <h2>Review & Payment</h2>
                     </div>
@@ -330,10 +329,34 @@ out.println("<li><a href=\"login.jsp\"> Login</a></li>");
             </section> <!--/#cart_items-->
 
         </form>
+<script>
+    const form = document.getElementById('billingForm');
+    form.addEventListener('submit', function (event) {
+        event.preventDefault();
+        const inputs = form.querySelectorAll('input, select');
+        let isValid = true;
+
+        inputs.forEach(input => {
+            if (input.value.trim() === '') {
+                isValid = false;
+                input.classList.add('warning');
+            } else {
+                input.classList.remove('warning');
+            }
+        });
+
+        if (isValid) {
+            // The form is valid, you can submit it or perform other actions here
+            console.log('Form submitted successfully.');
+        } else {
+            // The form is not valid, show a warning or error message here
+            console.log('Please fill out all required fields.');
+        }
+    });
+</script>
 
 
-
- <script src="js/jquery.js"></script>
+        <script src="js/jquery.js"></script>
         <script src="js/bootstrap.min.js"></script>
         <script src="js/jquery.scrollUp.min.js"></script>
         <script src="js/price-range.js"></script>
