@@ -161,7 +161,7 @@ out.println("<li><a href=\"login.jsp\"> Login</a></li>");
                                         </div>
                                     </td>
                                     <td class="cart_price">
-                                        <p>$${i.product.price}</p>
+                                        <p><fmt:formatNumber value="${i.product.price}" pattern="0.000" />đ</p>
                                     </td>
                                     <td class="cart_quantity">
                                         <div class="cart_quantity_button">
@@ -171,7 +171,7 @@ out.println("<li><a href=\"login.jsp\"> Login</a></li>");
                                         </div>
                                     </td>
                                     <td class="cart_total">
-                                        <p class="cart_total_price">$<fmt:formatNumber value="${i.product.price * i.quantity}" pattern="0.00" /></p>
+                                        <p class="cart_total_price"><fmt:formatNumber value="${i.product.price * i.quantity}" pattern="0.000" />đ</p>
                                     </td>
                                     <td class="cart_delete"> 
                                         <form action="process" method="post">
@@ -214,10 +214,10 @@ out.println("<li><a href=\"login.jsp\"> Login</a></li>");
                         <div class="col-sm-6">
                             <div class="total_area">
                                 <ul>
-                                    <li>Cart Sub Total <span>$<fmt:formatNumber value="${sessionScope.cart.getTotalMoney()}" pattern="0.00" /></span></li>
-                                    <li>Eco Tax <span>$0</span></li>
+                                    <li>Cart Sub Total <span><fmt:formatNumber value="${sessionScope.cart.getTotalMoney()}" pattern="0.000" />đ</span></li>
+                                    <li>VAT <span>0đ</span></li>
                                     <li>Shipping Cost <span>Free</span></li>
-                                    <li>Total <span>$<fmt:formatNumber value="${sessionScope.cart.getTotalMoney()}" pattern="0.00" /></span></li>
+                                    <li>Total <span><fmt:formatNumber value="${sessionScope.cart.getTotalMoney()}" pattern="0.000" />đ</span></li>
                                 </ul>
                             </div>
                         </div>

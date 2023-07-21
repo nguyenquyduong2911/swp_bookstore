@@ -3,6 +3,7 @@
 <%@ page import="java.util.*" %>
 <%@ page import="dal.*" %>
 <%@ page import="entity.*" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 
@@ -167,7 +168,8 @@ out.println("<li><a href=\"login.jsp\"> Login</a></li>");
                                     </td>
                                     <td class="cart_description">
                                         
-                                            <h4><a>${i.total_price}vnd</a></h4>
+                                            <h4><p><fmt:formatNumber value="${i.total_price}" pattern="0.000" />đ</p></h4>
+                                            
                                        
                                     </td>
                                     <td class="cart_description">
