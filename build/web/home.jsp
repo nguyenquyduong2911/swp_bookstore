@@ -38,7 +38,7 @@
 
     <body>
         
-
+           <header id="header"><!--header-->
             <div class="header-middle"><!--header-middle-->
                 <div class="container">
                     <div class="row">
@@ -57,15 +57,15 @@ if (x != null) {
 }
                                     %>
 
-                                    <li><a href="validate"><i class="fa fa-crosshairs"></i> Checkout</a></li>
-                                    <li><a href="cart.jsp"><i class="fa fa-shopping-cart"></i>Cart(${sessionScope.size})</a></li>
+                                    <li><a href="validate"><i class="fa fa-crosshairs"></i> Thanh toán</a></li>
+                                    <li><a href="cart.jsp"><i class="fa fa-shopping-cart"></i>Giỏ hàng(${sessionScope.size})</a></li>
                                         <% 
 if (x != null) {
-out.println("<li><a href=\"logout\"><i class=\"fa fa-user\"></i> Sign out</a></li>");
+out.println("<li><a href=\"logout\"><i class=\"fa fa-user\"></i> Đăng xuất</a></li>");
 }
 
 if (x == null) {
-out.println("<li><a href=\"login.jsp\"><i class=\"fa fa-lock\"></i> Login</a></li>");
+out.println("<li><a href=\"login.jsp\"><i class=\"fa fa-lock\"></i> Đăng nhập</a></li>");
 }
                                         %>
                                 </ul>
@@ -89,19 +89,19 @@ out.println("<li><a href=\"login.jsp\"><i class=\"fa fa-lock\"></i> Login</a></l
                             </div>
                             <div class="mainmenu pull-left">
                                 <ul class="nav navbar-nav collapse navbar-collapse">
-                                    <li><a href="home" class="active">Home</a></li>
+                                    <li><a href="home" class="active">Trang chủ</a></li>
                                     <li class="dropdown"><a href="product">Shop<i class="fa fa-angle-down"></i></a>
                                         <ul role="menu" class="sub-menu">
-                                            <li><a href="product">Products</a></li>
-                                            <li><a href="validate">Checkout</a></li> 
-                                            <li><a href="cart.jsp">Cart</a></li> 
+                                            <li><a href="product">Sản Phẩm</a></li>
+                                            <li><a href="validate">Thanh Toán</a></li> 
+                                            <li><a href="cart.jsp">Giỏ hàng</a></li> 
                                                                                     <% 
 if (x != null) {
-out.println("<li><a href=\"logout\"> Sign out</a></li>");
+out.println("<li><a href=\"logout\"> Đăng Xuất</a></li>");
 }
 
 if (x == null) {
-out.println("<li><a href=\"login.jsp\"> Login</a></li>");
+out.println("<li><a href=\"login.jsp\"> Đăng Nhập</a></li>");
 }
                                         %>
                                         </ul>
