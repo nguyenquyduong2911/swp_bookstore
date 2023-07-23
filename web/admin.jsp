@@ -29,7 +29,7 @@
     <style>
         a {
             text-decoration: none;
-            color: black
+            color: black;
         }
 
         .fadeOutLeft {
@@ -62,6 +62,62 @@
         body {
             background-color: aliceblue;
         }
+
+        /* Additional CSS for the admin dashboard */
+        .admin-dashboard {
+            height: 100vh;
+            width: 88%;
+            position: fixed;
+            top:0;
+            right: 0;
+            z-index: 2;
+            background-color: #f7f7f7;
+            padding: 20px;
+            
+        }
+        .sidebar{
+            background-color: #ff6633;
+        }
+        .nav-link{
+            font-size:150%;
+            color: #696763;
+    font-family: 'Roboto', sans-serif;
+    font-size: 10px;
+    text-decoration: none;
+    text-transform: uppercase;
+        }
+        .aofadmin{
+            font-size:150%;
+            color: #696763;
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
+    text-decoration: none;
+    text-transform: uppercase;
+        }
+        .logoadmin{
+            margin-left: 20px;
+            
+        }
+        .logoadmin .adminimg{
+            margin-bottom: 20px;
+        }
+        .1link {
+  text-align: center;
+  display: block;
+}
+.dboard{
+    font-size:150%;
+            color: #696763;
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
+    text-transform: uppercase;
+    
+}
+.col-md-4{
+    
+}
+
+        
     </style>
 </head>
 <body>
@@ -70,56 +126,60 @@
     if (x != null) {
         if (x.getRole().equals("admin")) {
 %>
-<div style="float: left;height: 100vh;width: 20%;"></div>
-<div class="flex-column flex-shrink-0 p-3 text-bg-dark" style="
-     height: 100vh;
-     width: 20%;
-     position: fixed;
-     z-index: 2;
-     "
->
-    <a href="<%= request.getContextPath()%>/home" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
+<div class="sidebar" style="float: left;height: 100vh;width: 12%;">
+   
         <svg class="bi pe-none me-2" width="40" height="32"><use xlink:href="#bootstrap"/></svg>
-        <span class="fs-4">Hello Admin</span>
-    </a>
+        <a class="logoadmin" href="#"><img class="adminimg" src="images/home/newlogo.png" alt="" /></a>
+    
     <hr>
     <ul class="nav nav-pills flex-column mb-auto">
-        <li class="nav-item">
-            <a href="addbook" class=" nav-link  text-white"%>
+        <li style="text-align: left;" class="nav-item">
+            <a href="addbook" class=" nav-link  text-white">
                 <svg class="bi pe-none me-2" width="16" height="16"></svg>
-                Add book
+                Thêm sách
             </a>
         </li>
-        <li>
-            <a href="listbook" class="nav-link  text-white"%>
+        <li style="text-align: left;">
+            <a href="listbook" class="nav-link  text-white">
                 <svg class="bi pe-none me-2" width="16" height="16"></svg>
-                Show book
+                Danh sách sản phẩm
             </a>
         </li>
-        <li>
-            <a href="addc1" class="nav-link text-white"%>
+        <li style="text-align: left;">
+            <a href="addc1" class="nav-link text-white">
                 <svg class="bi pe-none me-2" width="16" height="16"></svg>
-                Add Category
+                Thêm danh mục
             </a>
         </li>
-        <li>
-            <a href="userlist" class="nav-link text-white"%>
+        <li style="text-align: left;">
+            <a href="userlist" class="nav-link text-white">
                 <svg class="bi pe-none me-2" width="16" height="16"></svg>
-                Show user
+                Danh sách người dùng
             </a>
         </li>
     </ul>
     <hr>
-    <div class="dropdown">
-        <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-            <img src="https://github.com/mdo.png" alt="" width="32" height="32" class="rounded-circle me-2">
-            <strong>${sessionScope.account.username}</strong>
-        </a>
-        <ul class="dropdown-menu dropdown-menu-dark text-small shadow">
-            <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="<%= request.getContextPath()%>/logout">Sign out</a></li>
-        </ul>
-    </div>
+    <div style="text-align: center;">
+        <a class="nav-link" href="logout"><i class="fa fa-user"></i> Sign out</a>
+        
+           
+        
+    </div> 
+</div>
+<div style="color:red;padding:20px;font-size: 20px; font-family: 'Roboto', sans-serif;">AdminDashBoard</div>
+<div class="admin-dashboard container">
+       
+        <div class="row">
+            <%int user=(int)request.getAttribute("user");%>
+            <%int seller=(int)request.getAttribute("seller");%>
+            <%int order=(int)request.getAttribute("order");%>
+            
+            <div class="dboard col-md-4">SỐ LƯỢNG ĐƠN <%=order%></div>
+            <div class="dboard col-md-4">SỐ LƯỢNG KHÁCH HÀNG <%=user%></div>
+            <div class="dboard col-md-4">SỐ LƯỢNG NHÂN VIÊN <%=seller%></div>      
+        </div> 
+        
+
 </div>
 <%
         } else {

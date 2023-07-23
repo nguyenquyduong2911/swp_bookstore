@@ -47,6 +47,41 @@ public class AdminDAO extends MyDAO {
     
     return false;
 }
+   public int getTotalUser(String role){
+       int x;
+       xSql="select count(idAccount) as songuoidung from swp_bookstore.account where role=?";
+       try{
+           ps=con.prepareStatement(xSql);
+           ps.setString(1, role);
+           rs=ps.executeQuery();
+           if(rs.next()){
+              x = rs.getInt("songuoidung");
+              return x;
+           }
+           
+       }
+       catch(SQLException e){
+           e.printStackTrace();
+       }
+       return -1;
+   }
+   public int getTotalOrder(){
+       int x;
+       xSql="select count(id) as soorder from swp_bookstore.order;";
+       try{
+           ps=con.prepareStatement(xSql);
+           rs=ps.executeQuery();
+           if(rs.next()){
+              x =rs.getInt("soorder");
+              return x;
+           }
+           
+       }
+       catch(SQLException e){
+           e.printStackTrace();
+       }
+       return -1;
+   }
    public boolean updateAccountRole(String role,int idAccount){
        xSql="update account set role=? where idAccount=?";
        try {

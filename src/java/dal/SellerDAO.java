@@ -16,18 +16,14 @@ import java.util.List;
 public class SellerDAO extends MyDAO {
        public ArrayList<OrderPending> getPendingOrder(){
         ArrayList<OrderPending> o = new ArrayList<>();
-        xSql = 
-"SELECT o.id, o.cid, COUNT(*) AS book_count, o.date, SUM(c.price * c.quantity) AS total_price\n" +
-"FROM swp_bookstore.`order` o\n" +
-"JOIN swp_bookstore.orderline c ON c.oid = o.id\n" +
-"WHERE o.status=0\n" +
-"GROUP BY o.id;";
+
+        xSql = "select o.id, a.name, COUNT(*) AS book_count,  concat(s.city, ', ', s.wards, ', ', s.district, ', ', s.deliver_address)as order_address , s.note, o.date, SUM(c.price * c.quantity) AS total_price FROM swp_bookstore.`order` o JOIN swp_bookstore.orderline c ON c.oid = o.id join swp_bookstore.order_customer_info s on o.id=s.oid join swp_bookstore.account a on a.idAccount=o.cid WHERE o.status=0 GROUP BY o.id;";
         try {
             ps = con.prepareStatement(xSql);
             rs = ps.executeQuery();
             while (rs.next()) {
                 OrderPending c = new OrderPending(rs.getInt("id"),
-                        rs.getInt("cid"),rs.getInt("book_count") , rs.getDate("date"), rs.getFloat("total_price"));
+                        rs.getString("name"),rs.getInt("book_count") , rs.getString("order_address"),rs.getString("note"), rs.getDate("date"), rs.getDouble("total_price"));
                 o.add(c);
             }
             rs.close();
@@ -59,52 +55,8 @@ public class SellerDAO extends MyDAO {
     
    return null;
 }
-       public ArrayList<OrderPending> getApproveOrder(){
-        ArrayList<OrderPending> o = new ArrayList<>();
-        xSql = 
-"SELECT o.id, o.cid, COUNT(*) AS book_count, o.date, SUM(c.price * c.quantity) AS total_price\n" +
-"FROM swp_bookstore.`order` o\n" +
-"JOIN swp_bookstore.orderline c ON c.oid = o.id\n" +
-"WHERE o.status=1\n" +
-"GROUP BY o.id;";
-        try {
-            ps = con.prepareStatement(xSql);
-            rs = ps.executeQuery();
-            while (rs.next()) {
-                OrderPending c = new OrderPending(rs.getInt("id"),
-                        rs.getInt("cid"),rs.getInt("book_count") , rs.getDate("date"), rs.getFloat("total_price"));
-                o.add(c);
-            }
-            rs.close();
-            ps.close();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return (o);
-    }
-       public ArrayList<OrderPending> getShippingOrder(){
-        ArrayList<OrderPending> o = new ArrayList<>();
-        xSql = 
-"SELECT o.id, o.cid, COUNT(*) AS book_count, o.date, SUM(c.price * c.quantity) AS total_price\n" +
-"FROM swp_bookstore.`order` o\n" +
-"JOIN swp_bookstore.orderline c ON c.oid = o.id\n" +
-"WHERE o.status=2\n" +
-"GROUP BY o.id;";
-        try {
-            ps = con.prepareStatement(xSql);
-            rs = ps.executeQuery();
-            while (rs.next()) {
-                OrderPending c = new OrderPending(rs.getInt("id"),
-                        rs.getInt("cid"),rs.getInt("book_count") , rs.getDate("date"), rs.getFloat("total_price"));
-                o.add(c);
-            }
-            rs.close();
-            ps.close();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return (o);
-    }
+       
+       
        public void updateOrderStatus(int orderId, int status) {
         String xSql = "UPDATE swp_bookstore.order SET status = ? WHERE id = ?";
        try {      
@@ -117,6 +69,28 @@ public class SellerDAO extends MyDAO {
       catch(Exception e) {
         e.printStackTrace();
       }
+    }
+       public ArrayList<OrderDetail> getOrderDetail(int id, int oid){
+        ArrayList<OrderDetail> o = new ArrayList<>();
+        xSql = "select d.image, d.product_name, c.price, c.quantity, o.totalmoney from swp_bookstore.order\n" +
+"                 o join swp_bookstore.orderline c join swp_bookstore.bookdetailed d where\n" +
+"                 c.oid=o.id and d.book_id=c.pid and o.cid=? and o.id=?";
+        try {
+            ps = con.prepareStatement(xSql);
+            ps.setInt(1, id);
+            ps.setInt(2, oid);
+            rs = ps.executeQuery();
+            while (rs.next()) {
+               OrderDetail c = new OrderDetail(rs.getString("image"), rs.getString("product_name"), rs.getFloat("price"),
+                       rs.getInt("quantity"), rs.getDouble("totalmoney"));
+                o.add(c);
+            }
+            rs.close();
+            ps.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return (o);
     }
 }
 

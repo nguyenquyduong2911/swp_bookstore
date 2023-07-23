@@ -3,10 +3,22 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/D:/PRj/swp_bookstore/web/orderpending.jsp</file>
-            <file>file:/D:/PRj/swp_bookstore/src/java/entity/Account.java</file>
-            <file>file:/D:/PRj/swp_bookstore/src/java/controller/PendingOrderServlet.java</file>
-            <file>file:/D:/PRj/swp_bookstore/src/java/dal/SellerDAO.java</file>
+            <file>file:/D:/PRj/swp_bookstore/web/css/addcss.css</file>
+            <file>file:/D:/PRj/swp_bookstore/web/home.jsp</file>
+            <file>file:/D:/PRj/swp_bookstore/web/admin1.jsp</file>
+            <file>file:/D:/PRj/swp_bookstore/web/admin.jsp</file>
+            <file>file:/D:/PRj/swp_bookstore/src/java/entity/TotalUser.java</file>
+            <file>file:/D:/PRj/swp_bookstore/src/java/entity/TotalOrder.java</file>
+            <file>file:/D:/PRj/swp_bookstore/src/java/controller/ChangeRoleServlet.java</file>
+            <file>file:/D:/PRj/swp_bookstore/web/css/main.css</file>
+            <file>file:/D:/PRj/swp_bookstore/src/java/dal/AdminDAO.java</file>
+            <file>file:/D:/PRj/swp_bookstore/src/java/controller/AdminServlet.java</file>
+            <file>file:/D:/PRj/swp_bookstore/src/java/controller/Home.java</file>
+            <file>file:/D:/PRj/swp_bookstore/web/css/bootstrap.min.css</file>
+            <file>file:/D:/PRj/swp_bookstore/src/java/controller/LoginServlet.java</file>
+            <file>file:/D:/PRj/swp_bookstore/web/css/animate.css</file>
+            <file>file:/D:/PRj/swp_bookstore/web/WEB-INF/web.xml</file>
+            <file>file:/D:/PRj/swp_bookstore/src/java/controller/ApproveOrderServlet.java</file>
         </group>
     </open-files>
 </project-private>

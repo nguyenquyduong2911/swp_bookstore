@@ -12,22 +12,33 @@ import java.sql.Date;
  */
 public class OrderPending {
     private int id;
-    private int cid;
+    private String name;
     private int book_count;
+    private String address;
+    private String note;
     private Date date;
-    private float total_price;
+    private double totalprice;
 
     public OrderPending() {
     }
 
-    public OrderPending(int id, int cid, int book_count, Date date, float total_price) {
+    public OrderPending(int id, String name, int book_count, String address,String note, Date date, double totalprice) {
         this.id = id;
-        this.cid = cid;
+        this.name = name;
         this.book_count = book_count;
+        this.address = address;
+        this.note=note;
         this.date = date;
-        this.total_price = total_price;
+        this.totalprice = totalprice;
     }
 
+    public String getNote() {
+        return note;
+    }
+
+    public void setNote(String note) {
+        this.note = note;
+    }
     public int getId() {
         return id;
     }
@@ -36,12 +47,12 @@ public class OrderPending {
         this.id = id;
     }
 
-    public int getCid() {
-        return cid;
+    public String getName() {
+        return name;
     }
 
-    public void setCid(int cid) {
-        this.cid = cid;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public int getBook_count() {
@@ -52,6 +63,14 @@ public class OrderPending {
         this.book_count = book_count;
     }
 
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
     public Date getDate() {
         return date;
     }
@@ -60,12 +79,13 @@ public class OrderPending {
         this.date = date;
     }
 
-    public float getTotal_price() {
-        return total_price;
+    public double getTotalprice() {
+        return totalprice;
     }
 
-    public void setTotal_price(float total_price) {
-        this.total_price = total_price;
+    public void setTotalprice(double totalprice) {
+        this.totalprice = totalprice;
     }
+    
     
 }

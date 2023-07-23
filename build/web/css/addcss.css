@@ -58,3 +58,6 @@ body {
         input[type="submit"]:hover {
             background-color: #286090;
         }
+        .admin-dashboard{
+            width: 20%;
+        }
