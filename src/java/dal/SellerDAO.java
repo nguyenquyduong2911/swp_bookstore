@@ -33,6 +33,25 @@ public class SellerDAO extends MyDAO {
         }
         return (o);
     }
+       public ArrayList<OrderPending> getSuccessOrder(){
+        ArrayList<OrderPending> o = new ArrayList<>();
+
+        xSql = "select o.id, a.name, COUNT(*) AS book_count,  concat(s.city, ', ', s.wards, ', ', s.district, ', ', s.deliver_address)as order_address , s.note, o.date, SUM(c.price * c.quantity) AS total_price FROM swp_bookstore.`order` o JOIN swp_bookstore.orderline c ON c.oid = o.id join swp_bookstore.order_customer_info s on o.id=s.oid join swp_bookstore.account a on a.idAccount=o.cid WHERE o.status=3 GROUP BY o.id;";
+        try {
+            ps = con.prepareStatement(xSql);
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                OrderPending c = new OrderPending(rs.getInt("id"),
+                        rs.getString("name"),rs.getInt("book_count") , rs.getString("order_address"),rs.getString("note"), rs.getDate("date"), rs.getDouble("total_price"));
+                o.add(c);
+            }
+            rs.close();
+            ps.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return (o);
+    }
         public Account getAccount(int idAccount) {
     Account x;
 

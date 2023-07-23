@@ -20,7 +20,7 @@ import java.util.ArrayList;
  *
  * @author Admin
  */
-public class ApproveOrderServlet extends HttpServlet {
+public class ShippingServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -35,7 +35,7 @@ public class ApproveOrderServlet extends HttpServlet {
         pr.print("null");
     } else {
         request.setAttribute("orderpending", b);
-       request.getRequestDispatcher("orderapprove.jsp").forward(request, response);
+       request.getRequestDispatcher("orderpending.jsp").forward(request, response);
 }
     }
   
