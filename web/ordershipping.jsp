@@ -8,7 +8,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Show Order Approve</title>
+        <title>Đơn hàng đang ship</title>
         <style>
     table {
         width: 100%;
@@ -55,7 +55,7 @@
 </style>
     </head>
     <body>
-        <h1>Order Success</h1>
+        <h1>Đơn hàng đang ship</h1>
         
         <table>
             <tr style="font-size: 75%;">
@@ -84,7 +84,8 @@
                 <td><%= order.getTotalprice()%>0đ</td>
                 <td>
                     <a href=""></a>
-    <a href="detailseller?oid=<%= order.getId() %>">Detail</a>
+    <a href="approve?id=<%= order.getId() %>">Approve</a> ||
+    <a href="decline?id=<%= order.getId() %>">Decline</a> 
 </td>
 
 

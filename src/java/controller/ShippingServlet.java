@@ -29,13 +29,13 @@ public class ShippingServlet extends HttpServlet {
         PrintWriter pr = response.getWriter();
 //    int id = Integer.parseInt(request.getParameter("id"));
     SellerDAO dao = new SellerDAO();
-     ArrayList<OrderPending> b = dao.getSuccessOrder();
+     ArrayList<OrderPending> b = dao.getShippingOrder();
 
     if (b == null) {
         pr.print("null");
     } else {
         request.setAttribute("orderpending", b);
-       request.getRequestDispatcher("orderpending.jsp").forward(request, response);
+       request.getRequestDispatcher("ordershipping.jsp").forward(request, response);
 }
     }
   

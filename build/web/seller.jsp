@@ -147,7 +147,7 @@
             </a>
         </li>
         <li style="text-align: left;">
-            <a href="shippingorder" class="nav-link text-white">
+            <a href="shipping" class="nav-link text-white">
                 <svg class="bi pe-none me-2" width="16" height="16"></svg>
                 Đơn hàng đang ship
             </a>

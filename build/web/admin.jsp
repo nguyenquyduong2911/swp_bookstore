@@ -116,6 +116,13 @@
 .col-md-4{
     
 }
+.table{
+    color: #696763;
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
+    text-transform: uppercase;
+    
+}
 
         
     </style>

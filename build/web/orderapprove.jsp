@@ -15,6 +15,11 @@
         max-width: 100vw;
         border-collapse: collapse;
         margin-bottom: 20px;
+        color: #696763;
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
+    text-transform: uppercase;
+    
     }
 
     th, td {
