@@ -51,7 +51,7 @@ protected void doPost(HttpServletRequest request, HttpServletResponse response)
                 response.sendRedirect("admin");
                 break;
             case "seller":
-                response.sendRedirect("seller.jsp");
+                response.sendRedirect("seller");
                 break;
             default:
                 boolean rememberMe = request.getParameter("remember") != null;

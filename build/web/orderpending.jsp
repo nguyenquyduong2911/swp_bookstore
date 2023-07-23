@@ -76,11 +76,12 @@
                 <td><%= order.getAddress() %></td>
                 <td><%= order.getNote() %></td>
                 <td><%= order.getDate() %></td>
-                <td><%= order.getTotalprice() %></td>
+                <td><%= order.getTotalprice()%>0đ</td>
                 <td>
                     <a href=""></a>
     <a href="approve?id=<%= order.getId() %>">Approve</a> ||
-    <a href="decline?id=<%= order.getId() %>">Decline</a>
+    <a href="decline?id=<%= order.getId() %>">Decline</a> ||
+    <a href="detailseller?oid=<%= order.getId() %>">Detail</a>
 </td>
 
 

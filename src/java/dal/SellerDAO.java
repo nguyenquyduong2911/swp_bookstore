@@ -70,15 +70,25 @@ public class SellerDAO extends MyDAO {
         e.printStackTrace();
       }
     }
-       public ArrayList<OrderDetail> getOrderDetail(int id, int oid){
+       public ArrayList<OrderDetail> getOrderDetail(int oid){
         ArrayList<OrderDetail> o = new ArrayList<>();
-        xSql = "select d.image, d.product_name, c.price, c.quantity, o.totalmoney from swp_bookstore.order\n" +
-"                 o join swp_bookstore.orderline c join swp_bookstore.bookdetailed d where\n" +
-"                 c.oid=o.id and d.book_id=c.pid and o.cid=? and o.id=?";
+        xSql = "SELECT\n" +
+"    d.image,\n" +
+"    d.product_name,\n" +
+"    c.price,\n" +
+"    c.quantity,\n" +
+"    c.price * c.quantity AS totalmoney\n" +
+"FROM\n" +
+"    swp_bookstore.order o\n" +
+"JOIN\n" +
+"    swp_bookstore.orderline c ON o.id = c.oid\n" +
+"JOIN\n" +
+"    swp_bookstore.bookdetailed d ON d.book_id = c.pid\n" +
+"WHERE\n" +
+"    o.id = ?;";
         try {
             ps = con.prepareStatement(xSql);
-            ps.setInt(1, id);
-            ps.setInt(2, oid);
+            ps.setInt(1, oid);
             rs = ps.executeQuery();
             while (rs.next()) {
                OrderDetail c = new OrderDetail(rs.getString("image"), rs.getString("product_name"), rs.getFloat("price"),

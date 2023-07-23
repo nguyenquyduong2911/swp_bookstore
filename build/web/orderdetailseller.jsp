@@ -8,7 +8,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Show Order Pending</title>
+        <title>Show Order Detail</title>
         <style>
     table {
         width: 100%;
@@ -50,41 +50,29 @@
 </style>
     </head>
     <body>
-        <h1>Order Pending</h1>
+        <h1>Order Detail</h1>
         
         <table>
             <tr style="font-size: 75%;">
-                <th>Id</th>
-                <th>Tên khách hàng</th>
-                <th>Số lượng sản phẩm</th>
-                <th>Địa chỉ</th>
-                <th>Ghi chú khách hàng</th>
-                <th>Ngày tạo</th>
-                <th>Tổng tiền</th>
-                <th>Thao tác</th>
+                <th>Hình ảnh</th>
+                <th>Tên sản phẩm</th>
+                <th>Đơn giá</th>
+                <th>Số lượng</th>
+                <th>Thành tiền</th>
+                
             </tr>
             
             
             <% 
-            ArrayList<OrderPending> o = (ArrayList<OrderPending>) request.getAttribute("orderpending");
-            for (OrderPending order : o) {
+            ArrayList<OrderDetail> o = (ArrayList<OrderDetail>) request.getAttribute("orderdetail");
+            for (OrderDetail order : o) {
         %>
             <tr style="font-size: 75%;">
-                <td>#<%= order.getId() %></td>
-                <td><%= order.getName() %></td>
-                <td><%= order.getBook_count() %></td>
-                <td><%= order.getAddress() %></td>
-                <td><%= order.getNote() %></td>
-                <td><%= order.getDate() %></td>
-                <td><%= order.getTotalprice()%>0đ</td>
-                <td>
-                    <a href=""></a>
-    <a href="approve?id=<%= order.getId() %>">Approve</a> ||
-    <a href="decline?id=<%= order.getId() %>">Decline</a> ||
-    <a href="detailseller?oid=<%= order.getId() %>">Detail</a>
-</td>
-
-
+                <td class="img-cell"><img class="product-image" src="<%= order.getImage() %>" alt="Product Image"></td>
+                <td><%= order.getProduct_name() %></td>
+                <td><%= order.getPrice() %></td>
+                <td><%= order.getQuantity() %></td>
+                <td><%= order.getTotalmoney()%>0đ</td>
             </tr>
              <% 
             }
