@@ -87,7 +87,8 @@
    int status = 3;
 %>
     <a class="nonedeco" href="approve?id=<%= order.getId() %>&status=<%= status %>">Chấp nhận</a><br>
-    <a href="decline?id=<%= order.getId() %>">Decline</a> 
+<a class="nonedeco" href="decline?id=<%= order.getId() %>&1id=1">Từ chối</a><br>
+<a class="nonedeco" href="detailseller?oid=<%= order.getId() %>">Chi tiết đơn hàng</a><br>
 </td>
 
 

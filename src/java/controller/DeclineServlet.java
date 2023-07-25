@@ -20,24 +20,18 @@ public class DeclineServlet extends HttpServlet {
         PrintWriter pr = response.getWriter();
         int orderId = Integer.parseInt(request.getParameter("id")); 
         int id = Integer.parseInt(request.getParameter("1id"));
-        int cid = Integer.parseInt(request.getParameter("cid")); 
+        
         SellerDAO sellerDAO = new SellerDAO();
 
         if (id == -1) {
-            // If id == -1, it means it's a customer order, update the order status to 2 (cancelled)
-            sellerDAO.updateOrderStatus(orderId, 2);
-
-            // Cancel the order and increase the quantity back in the bookdetail table
+            int cid = Integer.parseInt(request.getParameter("cid")); 
             OrderDAO orderDAO = new OrderDAO();
             orderDAO.cancelOrder(orderId);
-
-            // Redirect to ordersum page
             response.sendRedirect("ordersum?id=" + cid);
         } else {
-            // If id != -1, it means it's a pending order, update the order status to 4 (cancelled)
+            OrderDAO orderDAO = new OrderDAO();
+            orderDAO.cancelOrder(orderId);
             sellerDAO.updateOrderStatus(orderId, 4);
-
-            // Redirect to pendingorder page
             response.sendRedirect("pendingorder"); 
         }
     }
