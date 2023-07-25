@@ -29,7 +29,7 @@ CREATE TABLE `account` (
   `email` varchar(45) NOT NULL,
   `role` varchar(45) NOT NULL,
   PRIMARY KEY (`idAccount`)
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -38,7 +38,7 @@ CREATE TABLE `account` (
 
 LOCK TABLES `account` WRITE;
 /*!40000 ALTER TABLE `account` DISABLE KEYS */;
-INSERT INTO `account` VALUES (1,'123','Nguyen Quy Duong','taotenduong12@gmail.com','user'),(2,'123','Thong','thongndhe170758@fpt.edu.vn','admin'),(3,'123','thong1','starvsevil03@gmail.com','seller'),(4,'lamvoanhnhe123','duong','duongnqhe170786@fpt.edu.vn','seller'),(11,'1234','duong29','nguyenquyduong291103@gmail.com','user');
+INSERT INTO `account` VALUES (1,'123','Nguyen Quy Duong','taotenduong12@gmail.com','user'),(2,'123','Thong','thongndhe170758@fpt.edu.vn','admin'),(3,'123','thong1','starvsevil03@gmail.com','user'),(4,'123','duong','duongnqhe170786@fpt.edu.vn','seller'),(11,'1234','duong29','nguyenquyduong291103@gmail.com','user'),(12,'123','seller1','seller1@gmail.com','seller');
 /*!40000 ALTER TABLE `account` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -194,7 +194,7 @@ CREATE TABLE `category` (
 
 LOCK TABLES `category` WRITE;
 /*!40000 ALTER TABLE `category` DISABLE KEYS */;
-INSERT INTO `category` VALUES (1,'Tiểu Thuyết',1),(2,'Truyện ngắn-Tản Văn',1),(3,'Light Novel',1),(4,'Truyện Trinh Thám - Kiếm Hiệp',1),(5,'Quản Trị - Lãnh Đạo',2),(6,'Nhân vật - Bài Học Kinh doanh',2),(7,'Marketing - Bán Hàng',2),(8,'Khởi Nghiệp - Làm Giàu',2),(9,'Phân Tích Kinh Tế',2),(10,'Kỹ Năng Sống',3),(11,'Tâm lý',3),(12,'Sách Cho Tuổi Mới Lớn',3),(13,'Chicken Soup - Hạt Giống Tâm Hồn',3),(14,'Rèn Luyện Nhân Cách',3),(15,'Cẩm Nang Làm Cha Mẹ',4),(16,'Phát Triển Kỹ Năng - Trí Tuệ Cho Trẻ',4),(17,'Phương Pháp Giáo Dục Trẻ Các Nước',4),(18,'Dinh Dưỡng - Sức Khỏe Cho Trẻ',4),(19,'Truyện Thiếu Nhi',5),(20,'Kiến Thức - Kỹ Năng Sống Cho Trẻ',5),(21,'Kiến Thức Bách Khoa',5),(22,'Tô Màu, Luyện Chữ',5),(23,'Từ Điển Thiếu Nhi',5),(24,'Câu Chuyện Cuộc Đời',6),(25,'Lịch Sử',6),(26,'Nghệ Thuật - Giải Trí',6),(27,'Chính Trị',6),(28,'Sách Tham Khảo',7),(29,'Mẫu Giáo',7),(30,'Sách Giáo Khoa',7),(31,'Đại Học',7),(32,'Tiếng Anh',8),(33,'Tiếng Hoa',8),(34,'Tiếng Nhật',8),(35,'Tiếng Hàn',8);
+INSERT INTO `category` VALUES (1,'Tiểu Thuyết',1),(2,'Truyện ngắn-Tản Văn',1),(3,'Light Novel',1),(4,'Truyện Trinh Thám - Kiếm Hiệp',1),(5,'Quản Trị - Lãnh Đạo',2),(6,'Nhân vật - Bài Học Kinh doanh',2),(7,'Marketing - Bán Hàng',2),(8,'Khởi Nghiệp - Làm Giàu',2),(9,'Phân Tích Kinh Tế',2),(10,'Kỹ Năng Sống',3),(11,'Tâm lý',3),(12,'Sách Cho Tuổi Mới Lớn',3),(13,'Chicken Soup - Hạt Giống Tâm Hồn',3),(14,'Rèn Luyện Nhân Cách',3),(15,'Cẩm Nang Làm Cha Mẹ',4),(16,'Phát Triển Kỹ Năng - Trí Tuệ Cho Trẻ',4),(17,'Phương Pháp Giáo Dục Trẻ Các Nước',4),(18,'Dinh Dưỡng - Sức Khỏe Cho Trẻ',4),(19,'Truyện Thiếu Nhi',5),(20,'Kiến Thức - Kỹ Năng Sống Cho Trẻ',5),(21,'Kiến Thức Bách Khoa',5),(22,'Tô Màu, Luyện Chữ',5),(23,'Từ Điển Thiếu Nhi',5),(24,'Câu Chuyện Cuộc Đời',6),(25,'Lịch Sử',6),(26,'Nghệ Thuật - Giải Trí',6),(27,'Chính Trị',6),(28,'Sách Tham Khảo',7),(29,'Mẫu Giáo',7),(30,'Sách Giáo Khoa',7),(31,'Đại Học',7),(32,'Tiếng Anh',8),(33,'Tiếng Hoa',8),(34,'Tiếng Nhật',8),(35,'Tiếng Hàn',8),(47,'acc',1),(65,'abc',2),(66,'abc',2);
 /*!40000 ALTER TABLE `category` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -249,7 +249,7 @@ CREATE TABLE `order` (
 
 LOCK TABLES `order` WRITE;
 /*!40000 ALTER TABLE `order` DISABLE KEYS */;
-INSERT INTO `order` VALUES (34,'2023-06-21',1,74.250,0),(35,'2023-06-21',1,74.250,0),(36,'2023-06-22',1,127.620,1),(37,'2023-06-24',1,184.860,2),(38,'2023-06-24',1,1194.000,3),(39,'2023-07-05',1,407.610,0);
+INSERT INTO `order` VALUES (34,'2023-06-21',1,74.250,0),(35,'2023-06-21',1,74.250,0),(36,'2023-06-22',1,127.620,1),(37,'2023-06-24',1,184.860,3),(38,'2023-06-24',1,1194.000,3),(39,'2023-07-05',1,407.610,4);
 /*!40000 ALTER TABLE `order` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -334,7 +334,7 @@ CREATE TABLE `orderstatus` (
 
 LOCK TABLES `orderstatus` WRITE;
 /*!40000 ALTER TABLE `orderstatus` DISABLE KEYS */;
-INSERT INTO `orderstatus` VALUES (0,'Chờ xử lý'),(1,'Đang giao hàng'),(2,'Đã hủy'),(3,'Thành công');
+INSERT INTO `orderstatus` VALUES (0,'Chờ xử lý'),(1,'Đang giao hàng'),(2,'Đã hủy'),(3,'Thành công'),(4,'Từ chối');
 /*!40000 ALTER TABLE `orderstatus` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -379,4 +379,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-07-23 20:33:56
+-- Dump completed on 2023-07-25 22:43:13
