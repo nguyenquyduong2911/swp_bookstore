@@ -143,5 +143,37 @@ public class OrderDAO extends MyDAO {
             System.out.println(e);
         }
     }
+    public void cancelOrder(int orderId) {
+    try {
+        // Retrieve the order details to get the list of items in the order
+        String getOrderItemsSql = "SELECT * FROM orderline WHERE oid = ?";
+        try (PreparedStatement getOrderItemsStatement = con.prepareStatement(getOrderItemsSql)) {
+            getOrderItemsStatement.setInt(1, orderId);
+            try (ResultSet orderItemsResultSet = getOrderItemsStatement.executeQuery()) {
+                // Loop through the order items and update the quantity in the bookdetail table
+                while (orderItemsResultSet.next()) {
+                    int bookId = orderItemsResultSet.getInt("pid");
+                    int quantity = orderItemsResultSet.getInt("quantity");
+
+                    // Update the quantity in the bookdetail table
+                    String updateQuantitySql = "UPDATE bookdetailed SET quantity = quantity + ? WHERE book_id = ?";
+                    try (PreparedStatement updateQuantityStatement = con.prepareStatement(updateQuantitySql)) {
+                        updateQuantityStatement.setInt(1, quantity);
+                        updateQuantityStatement.setInt(2, bookId);
+                        updateQuantityStatement.executeUpdate();
+                    }
+                }
+            }
+        }
+        String updateOrderStatusSql = "UPDATE `order` SET status = 2 WHERE id = ?";
+        try (PreparedStatement updateOrderStatusStatement = con.prepareStatement(updateOrderStatusSql)) {
+            updateOrderStatusStatement.setInt(1, orderId);
+            updateOrderStatusStatement.executeUpdate();
+        }
+    } catch (SQLException e) {
+        System.out.println(e);
+    }
+}
+
 
 }
