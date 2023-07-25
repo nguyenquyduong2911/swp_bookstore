@@ -34,7 +34,8 @@ protected void doPost(HttpServletRequest request, HttpServletResponse response)
         if(check){
 
              
-             response.sendRedirect("login.jsp");
+              request.getSession().setAttribute("curr", x);
+              response.sendRedirect("home");
 
         }
         

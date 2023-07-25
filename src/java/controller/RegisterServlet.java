@@ -114,7 +114,7 @@ public class RegisterServlet extends HttpServlet {
             Message message = new MimeMessage(session);
             message.setFrom(new InternetAddress(username));
             message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(toEmail));
-            message.setSubject("New Password");
+            message.setSubject("Registration confirmation code");
             message.setText(code);
 
             Transport.send(message);
