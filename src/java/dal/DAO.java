@@ -46,6 +46,45 @@ public class DAO extends MyDAO {
         }
         return (t);
     }
+    public List<String> getMerchName(){
+        List<String> name=new ArrayList<>();
+        String t;
+        xSql="SELECT merName from merchandise";
+        try {
+            ps = con.prepareStatement(xSql);
+            rs = ps.executeQuery();           
+            while (rs.next()) {
+                t = rs.getString("merName");
+                name.add(t);
+            }
+            rs.close();
+            ps.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return name;
+    }
+    public int getMerID(String name){
+       
+        int t;
+        xSql="select idMerchandise from merchandise where merName=?";
+        try {
+            ps = con.prepareStatement(xSql);
+            ps.setString(1, name);
+            rs = ps.executeQuery();           
+            if (rs.next()) {
+                t = rs.getInt("idMerchandise");
+                return t;
+            }
+            rs.close();
+            ps.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return -1;
+    }
+    
+
 
     public List<Category> getCategoryByID(int id) {
         List<Category> categories = new ArrayList<>();

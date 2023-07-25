@@ -162,7 +162,7 @@ out.println("<li><a href=\"login.jsp\"> Đăng Nhập</a></li>");
                                     </td>
                                     <td class="cart_description">
                                        
-                                            <h4><a> ${i.status == 0 ? 'Chờ xử lý' : i.status == 1 ? 'Nhận hàng thành công' : 'Đang giao hàng'}</a></h4>
+                                            <h4><a> ${i.status == 0 ? 'Chờ xử lý' : i.status == 1 ? 'Đang giao hàng' : i.status==2?'Đã hủy':i.status==3?'Thành công':'Bị từ chối'}</a></h4>
                                         
                                     </td>
                                     <td class="cart_description">
@@ -171,8 +171,15 @@ out.println("<li><a href=\"login.jsp\"> Đăng Nhập</a></li>");
                                        
                                     </td>
                                     <td class="cart_description">
-                                      
-                                            <h4><a href="orderdetail?oid=${i.id}&id=${curr.idAccount}">Xem chi tiết</a></h4>
+          
+                                            <h4 >
+                                                <a style="color:blue;"  href="orderdetail?oid=${i.id}&id=${curr.idAccount}">Xem chi tiết</a><br>
+                                                <a style="color:blue;" href="decline?id=${i.id}&1id=-1&cid=${curr.idAccount}">Hủy đơn hàng</a>
+                                            
+                                            
+                                            
+                                            </h4>
+                                            
                                      
                                     </td>
                                                                  

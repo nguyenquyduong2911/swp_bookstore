@@ -83,8 +83,10 @@
                 <td><%= order.getDate() %></td>
                 <td><%= order.getTotalprice()%>0đ</td>
                 <td>
-                    <a href=""></a>
-    <a href="approve?id=<%= order.getId() %>">Approve</a> ||
+                    <%
+   int status = 3;
+%>
+    <a class="nonedeco" href="approve?id=<%= order.getId() %>&status=<%= status %>">Chấp nhận</a><br>
     <a href="decline?id=<%= order.getId() %>">Decline</a> 
 </td>
 

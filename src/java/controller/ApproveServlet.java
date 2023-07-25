@@ -22,9 +22,16 @@ public class ApproveServlet extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter pr = response.getWriter();
         int orderId = Integer.parseInt(request.getParameter("id"));
+        int status=Integer.parseInt(request.getParameter("status")); 
         SellerDAO dao = new SellerDAO();
-        dao.updateOrderStatus(orderId, 2);
-        response.sendRedirect("pendingorder");
+        dao.updateOrderStatus(orderId, status);
+        if(status==1){
+           response.sendRedirect("pendingorder"); 
+        }
+        else if(status==3){
+            response.sendRedirect("shipping"); 
+        }
+        
     }}
 
 

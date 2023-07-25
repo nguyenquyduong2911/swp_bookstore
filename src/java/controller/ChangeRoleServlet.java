@@ -28,7 +28,8 @@ public class ChangeRoleServlet extends HttpServlet {
         PrintWriter pr = response.getWriter();
         int id=Integer.parseInt(request.getParameter("id"));
         String role=request.getParameter("role");
-        AdminDAO dao = new AdminDAO();
+        if(role.equalsIgnoreCase("seller")||role.equalsIgnoreCase("user")){
+          AdminDAO dao = new AdminDAO();
         
         boolean check=dao.updateAccountRole(role, id);
         if(check){
@@ -36,7 +37,13 @@ public class ChangeRoleServlet extends HttpServlet {
         }
         else{
             pr.print("Error");
+        }   
         }
+        else{
+            String ro1="abc";
+            request.setAttribute("role", ro1);
+    request.getRequestDispatcher("userlist").forward(request, response);        }
+       
         
     }}
 

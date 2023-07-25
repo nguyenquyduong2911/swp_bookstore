@@ -53,6 +53,7 @@ body {
             border-radius: 3px;
             cursor: pointer;
             font-size: 16px;
+            text-align: left;
         }
         
         input[type="submit"]:hover {
@@ -60,4 +61,7 @@ body {
         }
         .admin-dashboard{
             width: 20%;
+        }
+        .tsubmit{
+            text-align: center;
         }

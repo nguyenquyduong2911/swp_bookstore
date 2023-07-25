@@ -117,6 +117,17 @@ out.println("<li><a href=\"login.jsp\"> Đăng Nhập</a></li>");
 				<div class="col-sm-4 col-sm-offset-1">
 					<div class="login-form"><!--login form-->
 						<h2>Đăng nhập</h2>
+                                                 <%
+                                                            if(request.getAttribute("ls")!=null){
+                                                               boolean a = (boolean) request.getAttribute("ls");
+                                                               if(!a){%>
+                                                               <p style="color: red">Sai tài khoản hoặc mật khẩu
+   <%                                                         }
+                                                            }
+ 
+
+
+                                                        %>
 						<form action="login" method="POST">
 							<input type="email" name="email" placeholder="Email" />
 							<input type="password" name="pass" placeholder="Mật khẩu" />
@@ -124,17 +135,7 @@ out.println("<li><a href=\"login.jsp\"> Đăng Nhập</a></li>");
                                                             <a href="forgot">Quên mật khẩu</a>
 							</span>
 							<button type="submit" class="btn btn-default">Đăng nhập</button>
-                                                        <%
-                                                            if(request.getAttribute("ls")!=null){
-                                                               boolean a = (boolean) request.getAttribute("ls");
-                                                               if(!a){%>
-                                                               <p style="color: red">Đăng nhập thất bại
-   <%                                                         }
-                                                            }
- 
-
-
-                                                        %>
+                                                       
 						</form>
 					</div><!--/login form-->
 				</div>

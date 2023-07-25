@@ -19,7 +19,16 @@
     font-family: 'Roboto', sans-serif;
     font-size: 14px;
     text-transform: uppercase;
-    
+    .nonedeco{
+        text-decoration: none;
+        color:#00cccc;
+    }
+    h1{
+        color: #696763;
+    font-family: 'Roboto', sans-serif;
+    font-size: 20px;
+    text-transform: uppercase; 
+    }
     }
 
     th, td {
@@ -55,7 +64,7 @@
 </style>
     </head>
     <body>
-        <h1>Order Pending</h1>
+        <h1>Đơn hàng chờ xử lý</h1>
         
         <table>
             <tr style="font-size: 75%;">
@@ -83,10 +92,14 @@
                 <td><%= order.getDate() %></td>
                 <td><%= order.getTotalprice()%>0đ</td>
                 <td>
-                    <a href=""></a>
-    <a href="approve?id=<%= order.getId() %>">Approve</a> ||
-    <a href="decline?id=<%= order.getId() %>">Decline</a> ||
-    <a href="detailseller?oid=<%= order.getId() %>">Detail</a>
+<%
+   int status = 1;
+%>
+
+<a class="nonedeco" href="approve?id=<%= order.getId() %>&status=<%= status %>">Chấp nhận</a><br>
+<a class="nonedeco" href="decline?id=<%= order.getId() %>">Từ chối</a><br>
+<a class="nonedeco" href="detailseller?oid=<%= order.getId() %>">Chi tiết đơn hàng</a><br>
+
 </td>
 
 

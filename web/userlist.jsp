@@ -50,8 +50,14 @@
    
 </head>
 <body>
+  
     <div>
     <h1>User List</h1>
+     <% String f = (String) request.getAttribute("role");
+   if (f != null) {
+       if (f.equals("abc")) { %> <!-- Use "false" instead of "f" -->
+       <h4>Quyền không hợp lệ, chỉ nhập user hoặc seller</h4>
+           <%}}%>
     <div class="table-responsive">
     <table class="table-bordered">
         <tr>

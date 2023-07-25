@@ -48,7 +48,7 @@
 </style>
  <script>
     function confirmDelete(bookId) {
-        if (confirm("Are you sure you want to delete this book?")) {
+        if (confirm("Bạn có chắc chắn muốn xóa quyển sách này?")) {
             var encodedBookId = encodeURIComponent(bookId);
             window.location.href = "deletebook?id=" + encodedBookId;
         }

@@ -167,7 +167,7 @@
     </ul>
     <hr>
     <div style="text-align: center;">
-        <a class="nav-link" href="logout"><i class="fa fa-user"></i> Sign out</a>
+        <a class="nav-link" href="logout"><i class="fa fa-user"></i>Đăng xuất</a>
         
            
         

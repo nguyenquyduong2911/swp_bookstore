@@ -19,49 +19,48 @@
         <link href="css/responsive.css" rel="stylesheet">
          <link href="css/addcss.css" rel="stylesheet">
 <style>
-    table {
-        width: 100%;
-        max-width: 100vw;
-        border-collapse: collapse;
-        margin-bottom: 20px;
+        body{
+            font-family: 'Roboto', sans-serif;
+    font-size: 14px;
+    text-decoration: none;
+    text-transform: uppercase;
+        }
+        h1{
+            font-family: 'Roboto', sans-serif;
+    font-size: 18px;
+    text-decoration: none;
+    text-transform: uppercase;
+        }
+        .form-container {
+        width: 50%; /* Adjust the width as needed */
+        margin: 0 auto; /* This centers the container horizontally */
     }
-
-    th, td {
-        padding: 8px;
-        text-align: left;
-        vertical-align: top;
-        border: 1px solid #ddd;
+    .center-button {
+        text-align: center;
+        margin-top:2%;
     }
-
-    th {
-        background-color: #f1f1f1;
-        font-weight: bold;
-    }
-
-    tr:nth-child(even) {
-        background-color: #f9f9f9;
-    }
-
-    tr:hover {
-        background-color: #f5f5f5;
-    }
-</style>
+    
+    </style>
 
    
 </head>
 <body>
+    <div class="container form-container">
     <%int id = (int)request.getAttribute("idacc");%>
     <div>
-    <h1>Edit Role</h1>
+    <h1>Sửa quyền</h1>
     <form action="changerole">
         Id:<input type="text" name="id" value="<%=id%>">
-        Role:<input type="text" name="role">
-        <input type="submit" value="Change role">
+        Role:<input type="text" name="role" placeholder="user or seller">
+        <div class="center-button">
+        <input type="submit" value="Sửa quyền">
+    </div>
         
         
     </form>
    
     </div>
+        </div>
     <script src="js/jquery.js"></script>
 <script src="js/bootstrap.min.js"></script>
 </body>

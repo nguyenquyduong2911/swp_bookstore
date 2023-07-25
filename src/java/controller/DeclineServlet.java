@@ -21,9 +21,20 @@ public class DeclineServlet extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter pr = response.getWriter();
-        int orderId = Integer.parseInt(request.getParameter("id"));      
+        int orderId = Integer.parseInt(request.getParameter("id")); 
+        int id=Integer.parseInt(request.getParameter("1id"));
+        int cid=Integer.parseInt(request.getParameter("cid")); 
         SellerDAO dao = new SellerDAO();
-        dao.updateOrderStatus(orderId, -1);
-        response.sendRedirect("pendingorder");
+//        pr.print(request.getParameter("cid"));
+        
+        if(id==-1){
+            dao.updateOrderStatus(orderId, 2);
+            response.sendRedirect("ordersum?id="+cid);
+        }
+        else{
+            dao.updateOrderStatus(orderId, 4);
+           response.sendRedirect("pendingorder"); 
+        }
+        
     }}
 
