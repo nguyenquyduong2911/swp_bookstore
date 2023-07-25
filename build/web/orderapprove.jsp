@@ -93,6 +93,24 @@
             }
         %>
         </table>
+        <%Account x = (Account) request.getSession().getAttribute("curr");
+        if(x!=null){
+        if(x.getRole().equals("admin")){
+        %>
+        <button style="border-radius: 20px; background-color: #f1f1f1;"><a style="text-decoration: none;" href="admin">Quay lại trang chính</a></button>   
+        <%
+            }
+else{
+%>
+        
+<button style="border-radius: 20px; background-color: #f1f1f1;"><a style="text-decoration: none;" href="seller">Quay lại trang chính</a></button>   
+        
+        <%
+}
+            }
+
+
+        %>
         
     </body>
 </html>

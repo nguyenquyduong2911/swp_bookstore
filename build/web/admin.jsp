@@ -164,6 +164,24 @@
                 Danh sách người dùng
             </a>
         </li>
+        <li style="text-align: left;">
+            <a href="pendingorder" class="nav-link text-white">
+                <svg class="bi pe-none me-2" width="16" height="16"></svg>
+                Đơn hàng chờ xử lý
+            </a>
+        </li>
+        <li style="text-align: left;">
+            <a href="shipping" class="nav-link text-white">
+                <svg class="bi pe-none me-2" width="16" height="16"></svg>
+                Đơn hàng đang ship
+            </a>
+        </li>
+        <li style="text-align: left;">
+            <a href="approveorder" class="nav-link text-white">
+                <svg class="bi pe-none me-2" width="16" height="16"></svg>
+                Đơn hàng thành công
+            </a>
+        </li>
     </ul>
     <hr>
     <div style="text-align: center;">
