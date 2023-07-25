@@ -174,7 +174,9 @@ out.println("<li><a href=\"login.jsp\"> Đăng Nhập</a></li>");
           
                                             <h4 >
                                                 <a style="color:blue;"  href="orderdetail?oid=${i.id}&id=${curr.idAccount}">Xem chi tiết</a><br>
-                                                <a style="color:blue;" href="decline?id=${i.id}&1id=-1&cid=${curr.idAccount}">Hủy đơn hàng</a>
+                                                                                               <c:if test="${i.status == 0}">
+            <a style="color:blue;" href="decline?id=${i.id}&1id=-1&cid=${curr.idAccount}">Hủy đơn hàng</a>
+        </c:if>
                                             
                                             
                                             
